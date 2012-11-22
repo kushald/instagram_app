@@ -11,3 +11,31 @@
  *= require_self
  *= require_tree .
 */
+body {
+position: relative;
+text-align: center;
+z-index: 0;
+background: #666 url(/images/bg.png) repeat scroll 0 0;
+}
+h1, h2, h3, h4, h5, h6 {
+color: white;
+font-family: myriad-pro-condensed-1,myriad-pro-condensed-2,'Helvetica Neue',Arial,'Lucida Grande',sans-serif;
+font-weight: 700;
+}
+.login-button {
+margin-left: 650px;
+width: 109px;
+background: #6BB38A none;
+border: none;
+color: white;
+text-align: center;
+border-radius: 3px;
+height: 32px;
+font-size: 20px;
+padding-top: 9px;
+margin-bottom: 17px;
+}
+a {
+    text-decoration: none;
+    color: white;
+}

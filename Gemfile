@@ -4,10 +4,14 @@ gem 'rails', '3.2.3'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
+gem 'httparty'
+gem 'mysql2'
 
-gem 'sqlite3'
+gem 'annotate', '~> 2.4.1.beta', group: :development
+gem 'bcrypt-ruby', '3.0.1'
+gem 'paperclip'
 
-
+gem 'nokogiri'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -18,6 +22,12 @@ group :assets do
   # gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+
+end
+group :production do
+  # gems specifically for Heroku go here
+  gem "pg"
 end
 
 gem 'jquery-rails'
@@ -35,4 +45,4 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+ gem 'ruby-debug19', :require => 'ruby-debug'

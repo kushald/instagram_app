@@ -1,0 +1,8 @@
+<h1> <%= @user_info[:full_name] %> </h1>
+<br/>
+<img src="<%= @user_info[:image] %>">
+<div>
+  <% @images.each_with_index do |image,i| %>
+    <a href="<%= @standard_resolution[i] %>"><img src="<%= image %>"></a>
+  <% end %>
+</div>
