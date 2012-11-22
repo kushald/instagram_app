@@ -5,13 +5,10 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'httparty'
-gem 'mysql2'
+gem 'mysql2', :group => [:development, :test]
 
 gem 'annotate', '~> 2.4.1.beta', group: :development
-gem 'bcrypt-ruby', '3.0.1'
-gem 'paperclip'
 
-gem 'nokogiri'
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
