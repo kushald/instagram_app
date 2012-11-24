@@ -1,3 +1,4 @@
+<div id="wrapper">
 <div>
   <div class="login-button">
     <a href="https://instagram.com/oauth/authorize/?client_id=d8d1ad02f4564390aaac77be8390c6a6&redirect_uri=http://myinsta.herokuapp.com/user/&response_type=code">
@@ -5,9 +6,9 @@
     </a>
   </div>
 </div>
-<div>
+<div id="columns">
   <% @data["data"].each do |data| %>
-    <div class="thumb">
+    <div class="pin">
       <img src="<%= data["images"]["standard_resolution"]["url"] %>" style=" width: 192px; ">
       <div class="description">
         <%= truncate(data["caption"]["text"].force_encoding("UTF-8"), :length => 45, :omission => '...') rescue "" %>
@@ -32,4 +33,5 @@
         <% end %>
     </div>
   <% end %>
+</div>
 </div>
