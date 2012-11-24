@@ -3,6 +3,8 @@
 <img src="<%= @user_info[:image] %>">
 <div>
   <% @images.each_with_index do |image,i| %>
+  <div class="polaroid">
     <a href="<%= @standard_resolution[i] %>"><img src="<%= image %>"></a>
-  <% end %>
+  </div>
+<% end %>
 </div>
