@@ -6,9 +6,15 @@
   </div>
 </div>
 <div>
-<% @result.each do |image| %>
-  <div class="polaroid">
-    <img src="<%= image %>">
+<% @data["data"].each do |data| %>
+  <div class="thumb">
+    <img src="<%= data["images"]["standard_resolution"]["url"] %>" style=" width: 192px; ">
+    <div class="description">
+      <%= truncate(data["caption"]["text"].force_encoding("UTF-8"), :length => 45, :omission => '...') rescue "" %>
+    </div>
+    <p style="color:#8C7E7E;">
+      <%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes
+    </p>
   </div>
 <% end %>
 </div>

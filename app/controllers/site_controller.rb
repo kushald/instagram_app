@@ -9,11 +9,11 @@ class SiteController < ApplicationController
     request = Net::HTTP::Get.new(uri.request_uri)
 
     response = http.request(request)
-    resp = JSON.parse(response.body)
-    @result = []
-    18.times do |i|
-      @result << resp["data"][i]["images"]["low_resolution"]["url"]
-    end
+    @data = JSON.parse(response.body)
+#    @result = []
+#    18.times do |i|
+#      @result << resp["data"][i]["images"]["low_resolution"]["url"]
+#    end
   end
 
   def user
