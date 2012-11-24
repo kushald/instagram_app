@@ -15,6 +15,12 @@
     <p style="color:#8C7E7E;">
       <%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes
     </p>
+    <% if data["caption"].present? %>
+    <div class="by-user">
+      <img src="<%= data["caption"]["from"]["profile_picture"] rescue '' %>" style="width: 30px; height: 30px;" >
+      <div style="color: #F2F2F2;font-weight: bold;"><%= data["caption"]["from"]["username"] %></div>
+    </div>
+<% end %>
   </div>
 <% end %>
 </div>
