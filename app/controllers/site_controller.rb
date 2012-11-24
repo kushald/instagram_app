@@ -12,7 +12,7 @@ class SiteController < ApplicationController
     resp = JSON.parse(response.body)
     @result = []
     18.times do |i|
-      @result << resp["data"][i]["images"]["thumbnail"]["url"]
+      @result << resp["data"][i]["images"]["low_resolution"]["url"]
     end
   end
 
@@ -52,7 +52,7 @@ class SiteController < ApplicationController
     @images = []
     @standard_resolution = []
     resp["data"].each do |data|
-      @images << data["images"]["thumbnail"]["url"]
+      @images << data["images"]["low_resolution"]["url"]
       @standard_resolution << data["images"]["standard_resolution"]["url"]
     end
   end
