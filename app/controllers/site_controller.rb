@@ -10,10 +10,6 @@ class SiteController < ApplicationController
 
     response = http.request(request)
     @data = JSON.parse(response.body)
-#    @result = []
-#    18.times do |i|
-#      @result << resp["data"][i]["images"]["low_resolution"]["url"]
-#    end
   end
 
   def user
