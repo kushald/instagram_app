@@ -22,7 +22,7 @@
           <div class="user-font"><%= data["caption"]["from"]["username"] %></div>
         </div>
       <% end %>
-        <% data["comments"]["data"][0..1].each do |comment| %>
+        <% data["comments"]["data"][0..3].each do |comment| %>
       <div class="comments">
           <img src="<%= comment["from"]["profile_picture"] %>" style="width: 30px; height: 30px; float: left;" >
           <p>
