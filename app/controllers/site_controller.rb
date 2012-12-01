@@ -25,7 +25,7 @@ class SiteController < ApplicationController
                              )
       response = JSON.parse(request.body)
       logger.debug("================================================#{response.inspect}")
-        User.authenticate(
+        @current_user = User.authenticate(
                           :insta_id => response["user"]["id"],
                           :access_token => response["access_token"],
                           :username => response["user"]["username"],
