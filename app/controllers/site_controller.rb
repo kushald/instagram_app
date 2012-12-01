@@ -19,7 +19,7 @@ class SiteController < ApplicationController
                                         'client_id' => "d8d1ad02f4564390aaac77be8390c6a6",
                                         'client_secret' => '810f3b8e84354f228effb016b30ad426',
                                         'grant_type' => 'authorization_code',
-                                        'redirect_uri' => 'http://myinsta.herokuapp.com/user',
+                                        'redirect_uri' => 'http://myinsta.herokuapp.com/user/',
                                         'code' => params[:code]
                                       }
                              )
