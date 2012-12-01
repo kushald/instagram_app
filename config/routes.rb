@@ -4,6 +4,9 @@ InstagramApp::Application.routes.draw do
   get "site/index"
   match 'user' => 'site#user'
   match 'user-info' => 'site#user_info'
+  match '/likes/' =>  'users#likes'
+  match '/following/' => 'users#following'
+  match '/followed-by/' => 'users#followed_by'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

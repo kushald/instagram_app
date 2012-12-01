@@ -1,8 +1,14 @@
 <div id="wrapper">
-  <div id="sidebar">
-    <img src="<%= @current_user.instagram_image %>">
-  <h2><%= @current_user.instagram_full_name %></h2>
-<br/>
+  <div>
+    <img src="<%= @user_info["profile_picture"] rescue '' %>" >
+    Name: <%= @user_info["full_name"] %>
+    Website: <%= @user_info["website"] %>
+    No of Pictures uploaded: <%= @user_info["counts"]["media"] %>
+    Following: <a href="/following"><%= @user_info["counts"]["follows"] %></a>
+    Followers: <a href="/followed-by"><%= @user_info["counts"]["followed_by"] %></a>
+  </div>
+  <div>
+    <a href="/likes">Likes </a>
   </div>
   <div id="columns">
     <% @data["data"].each do |data| %>

@@ -1,0 +1,28 @@
+<div id="columns">
+  <% @data["data"].each do |data| %>
+    <div class="pin">
+      <img src="<%= data["images"]["standard_resolution"]["url"] %>" style=" width: 192px; ">
+      <div class="description">
+        <%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>
+      </div>
+      <p style="color:#8C7E7E;">
+        <%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes
+      </p>
+      <% if data["caption"].present? %>
+        <div class="by-user">
+          <img src="<%= data["caption"]["from"]["profile_picture"] rescue '' %>" style="width: 30px; height: 30px;" >
+          <div class="user-font"><%= data["caption"]["from"]["username"] %></div>
+        </div>
+      <% end %>
+      <% data["comments"]["data"][0..3].each do |comment| %>
+        <div class="comments">
+          <img src="<%= comment["from"]["profile_picture"] %>" style="width: 30px; height: 30px; float: left;" >
+          <p>
+            <span class="user-font" style="color:black;"><%= comment["from"]["username"] %>:</span>
+            <%= comment["text"] %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
