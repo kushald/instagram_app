@@ -7,6 +7,7 @@ InstagramApp::Application.routes.draw do
   match '/likes/' =>  'users#likes'
   match '/following/' => 'users#following'
   match '/followed-by/' => 'users#followed_by'
+  match '/my-pics/' => 'users#my_pics'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

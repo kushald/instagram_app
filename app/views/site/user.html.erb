@@ -5,7 +5,8 @@
     Website: <%= @user_info["website"] %>
     No of Pictures uploaded: <%= @user_info["counts"]["media"] %>
     Following: <a href="/following"><%= @user_info["counts"]["follows"] %></a>
-    Followers: <a href="/followed-by"><%= @user_info["counts"]["followed_by"] %></a>
+    Followers: <a href="/followed-by"><%= @user_info["counts"]["followed_by"] %></a><br />
+    My pics: <a href="/my-pics">My pics</a>
   </div>
   <div>
     <a href="/likes">Likes </a>

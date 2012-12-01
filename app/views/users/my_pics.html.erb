@@ -1,6 +1,5 @@
-<div id="columns">
-  <% @data.each do |data| %>
-    <div class="pin">
+<% @data.each do |data| %>
+  <div class="pin">
       <img src="<%= data["images"]["standard_resolution"]["url"] %>" style=" width: 192px; ">
       <div class="description">
         <%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>
@@ -14,15 +13,14 @@
           <div class="user-font"><%= data["caption"]["from"]["username"] %></div>
         </div>
       <% end %>
-      <% data["comments"]["data"][0..3].each do |comment| %>
-        <div class="comments">
+        <% data["comments"]["data"][0..3].each do |comment| %>
+      <div class="comments">
           <img src="<%= comment["from"]["profile_picture"] %>" style="width: 30px; height: 30px; float: left;" >
           <p>
             <span class="user-font" style="color:black;"><%= comment["from"]["username"] %>:</span>
             <%= comment["text"] %>
           </p>
-        </div>
-      <% end %>
+      </div>
+        <% end %>
     </div>
-  <% end %>
-</div>
+<% end %>

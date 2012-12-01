@@ -56,7 +56,14 @@ class SiteController < ApplicationController
   end
 
   def user_info
-    
-    
+    uri = URI.parse("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}")
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = true
+    http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+    request = Net::HTTP::Get.new(uri.request_uri)
+
+    response = http.request(request)
+    @data = JSON.parse(response.body)["data"]
   end
 end
