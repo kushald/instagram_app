@@ -117,6 +117,17 @@ a {
 	column-gap: 15px;
 	column-fill: auto;
 }
+
+#sidebar {
+display: inline;
+float: left;
+margin-left: -204px;
+margin-right: -93px;
+border-left: 1px solid #E6E6E6;
+padding: 0 20px 50px;
+width: 179px;
+}
+
 .pin {
 	display: inline-block;
 	background: #FEFEFE;

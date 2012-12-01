@@ -1,4 +1,6 @@
 InstagramApp::Application.routes.draw do
+  get "users/new"
+
   get "site/index"
   match 'user' => 'site#user'
   match 'user-info' => 'site#user_info'
