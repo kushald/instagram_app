@@ -6,9 +6,9 @@ class User < ActiveRecord::Base
     return {:err => 1} if params[:insta_id].blank?
     user = User.find_user(:insta_id => params[:insta_id])
     if user.present?
-      @current_user = user
+      user
     else
-      @current_user = User.create_user(params)
+      User.create_user(params)
     end
   end
 

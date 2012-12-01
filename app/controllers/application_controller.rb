@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
   before_filter :current_user
   private
   def current_user
-    @current_user = User.where(:id => cookies["ac"].split("a")[1]).first if cookies["ac"].present?
+    @current_user ||= User.where(:id => cookies["ac"].split("a")[1]).first if cookies["ac"].present?
   end
 end
