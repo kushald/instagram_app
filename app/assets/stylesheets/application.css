@@ -74,7 +74,6 @@ a {
 .thumb {
     float: left;
     position: block;
-    width: 192px;
     padding: 10px 15px 0;
     font-size: 12px;
     background-color: white;
@@ -141,7 +140,6 @@ width: 179px;
 	padding-bottom: 5px;
 	background: -webkit-linear-gradient(45deg, #FFF, #F9F9F9);
 	opacity: 1;
-        width: 192px;
         -webkit-transition: all .2s ease;
 	-moz-transition: all .2s ease;
 	-o-transition: all .2s ease;

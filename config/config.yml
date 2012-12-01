@@ -1,0 +1,8 @@
+development:
+  client_id: f69d548aeb314c2997583b8cfa154691
+  client_secret: d9bc1e266a914fde80109322f12fd3b3
+  redirect_uri: http://127.0.0.1:3000/user/
+production:
+  client_id: d8d1ad02f4564390aaac77be8390c6a6
+  client_secret: 810f3b8e84354f228effb016b30ad426
+  redirect_uri: http://myinsta.herokuapp.com/user/
