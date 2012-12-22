@@ -15,7 +15,7 @@ body {
     position: relative;
     text-align: center;
     z-index: 0;
-    background: url('background.jpg') repeat-x 0 0 #F6F5F0;
+    background: #202020;
     font-family: "helvetica neue",arial,sans-serif;
     font-size: 10px;
 }
