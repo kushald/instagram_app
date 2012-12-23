@@ -1,11 +1,4 @@
 <div id="wrapper">
-<div>
-  <div class="login-button">
-    <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
-      Login
-    </a>
-  </div>
-</div>
 <div id="columns">
   <% @data["data"].each do |data| %>
     <div class="pin">

@@ -1,14 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>InstagramApp</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>InstagramApp</title>
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <div id="navbar">
+          <ul id="main_navigation">
+            <div class="login-button">
+              <% if @current_user.present? %>
+              <a href="/user">
+                <img src="http://images.instagram.com/profiles/profile_52093116_75sq_1354135816.jpg" class="logged-in" >
+                <div style="font-size: 17px;"><%= @current_user.instagram_username %></div>
+              </a>
+              <% else %>
+                <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
+                  Login
+                </a>
+              <% end %>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div data-pjax-container>
+      <%= yield %>
+    </div>
+  </body>
 </html>

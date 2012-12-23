@@ -1,18 +1,18 @@
 <div id="wrapper">
-  <div>
-    <img src="<%= @user_info["profile_picture"] rescue '' %>" >
-    <div style="color: #666; font: 1; font-size: 14px">
-      Name: <%= @user_info["full_name"] %><br/>
-      Website: <%= @user_info["website"] %><br/>
-      No of Pictures uploaded: <%= @user_info["counts"]["media"] %><br/>
-      Following: <a href="/following"><%= @user_info["counts"]["follows"] %></a><br/>
-      Followers: <a href="/followed-by"><%= @user_info["counts"]["followed_by"] %></a><br />
-      My pics: <a href="/my-pics">My pics</a>
-    </div>
-  </div>
-  <div>
-    <a href="/likes">Likes </a>
-  </div>
+  <ul class="user-list">
+  <li class="user-button">
+    <a href="/following"> Following</a>
+  </li>
+  <li class="user-button">
+    <a href="/followed-by">Followers</a>
+  </li>
+  <li class="user-button">
+    <a href="/my-pics">Uploads</a>
+  </li>
+  <li class="user-button">
+    <a href="/likes">Likes</a>
+  </li>
+</ul>
   <div id="columns">
     <% @data["data"].each do |data| %>
       <div class="pin">
