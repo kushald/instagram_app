@@ -110,7 +110,7 @@ a {
 }
 .comments {
     border-bottom: 2px solid #E6E6E6;
-    padding: 3px;
+    padding: 12px;
 }
 .user-font {
     color: #F2F2F2;
@@ -126,10 +126,10 @@ a {
     -webkit-column-count: 4;
     -webkit-column-gap: 10px;
     -webkit-column-fill: auto;
-    -moz-column-count: 3;
+    -moz-column-count: 4;
     -moz-column-gap: 10px;
     -moz-column-fill: auto;
-    column-count: 3;
+    column-count: 4;
     column-gap: 15px;
     column-fill: auto;
 }
