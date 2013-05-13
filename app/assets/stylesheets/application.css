@@ -47,6 +47,6 @@ ul.nav {
 
 @media screen and (max-width : 320px) {
   .nav {
-    
+    display: none;
 }
 }
