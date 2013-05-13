@@ -2,34 +2,32 @@
 <html>
   <head>
     <title>InstagramApp</title>
-    <meta name="HandheldFriendly" content="true" />
-    <meta name="viewport" content="width=device-width" />    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <meta charset="utf-8" />
+    <%= stylesheet_link_tag    "application", :media => "screen" %>
     <%= javascript_include_tag "application" %>
+    <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Meie+Script' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="container">
-      <div id="header">
-        <div id="navbar">
-          <ul id="main_navigation">
-            <div class="login-button">
-              <% if @current_user.present? %>
-              <a href="/user">
-                <img src="http://images.instagram.com/profiles/profile_52093116_75sq_1354135816.jpg" class="logged-in" >
-                <div style="font-size: 17px;"><%= @current_user.instagram_username %></div>
-              </a>
-              <% else %>
-                <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
-                  Login
-                </a>
-              <% end %>
-            </div>
-          </ul>
-        </div>
+    <div class="container clearfix">
+      <div class="grid_12">
+        <div class="logo" id="fittext1">Instaonweb</div>
       </div>
-    </div>
-    <div data-pjax-container>
+      <div class="grid_12 omega">
+        <ul class="nav">
+          <li><a href="#">About</a></li>
+          <li><a href="#">Search</a></li>
+          <li><a href="#">Locations</a></li>
+          <li class="last"><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
       <%= yield %>
     </div>
+    <script src="jquery.fittext.js"></script>
+    <script type="text/javascript">
+      $("#fittext1").fitText();
+    </script>
   </body>
 </html>
