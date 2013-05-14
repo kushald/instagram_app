@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>InstagramApp</title>
+    <title>Instaonweb</title>
     <meta charset="utf-8" />
     <%= stylesheet_link_tag    "application", :media => "screen" %>
     <%= javascript_include_tag "application" %>
@@ -13,15 +13,30 @@
   <body>
     <div class="container clearfix">
       <div class="grid_12">
-        <div class="logo" id="fittext1">Instaonweb</div>
+        <div class="grid_8 logo" id="fittext1">Instaonweb</div>
+        <div class="grid_4 omega">
+          <% if @current_user.present? %>
+            <a href="/user">
+              <img src="<%= cookies["img_insta"] %>" class="logged-in" ><br>
+              <%= @current_user.instagram_full_name %>
+            </a>
+          <% else %>
+            <div class="login">
+              <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
+                Login
+              </a>
+            </div>
+          <% end %>
+        </div>
       </div>
       <div class="grid_12 omega">
-        <ul class="nav">
+        <!--<ul class="nav">
           <li><a href="#">About</a></li>
           <li><a href="#">Search</a></li>
           <li><a href="#">Locations</a></li>
           <li class="last"><a href="#">Contact Us</a></li>
-        </ul>
+        </ul> -->
+        <div class="popular-text">Popular on Instagram</div>
       </div>
       <%= yield %>
     </div>
