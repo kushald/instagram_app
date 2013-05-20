@@ -29,9 +29,11 @@
          <div>
           <div>
             <% data["comments"]["data"][0..3].each do |comment| %>
-              <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;">
-              <%= comment["from"]["username"] %>:
-              <p style="max-width: 35%"><%= comment["text"] %></p>
+              <div style="border-bottom: 1px solid;">
+                <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+                <%= comment["from"]["username"] %>
+                <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
+            </div>
               <% end %>
           </div>
         </div>
