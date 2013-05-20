@@ -1,18 +1,12 @@
 <div id="wrapper">
-  <ul class="user-list">
-  <li class="user-button">
-    <a href="/following"> Following</a>
-  </li>
-  <li class="user-button">
-    <a href="/followed-by">Followers</a>
-  </li>
-  <li class="user-button">
-    <a href="/my-pics">Uploads</a>
-  </li>
-  <li class="user-button">
-    <a href="/likes">Likes</a>
-  </li>
-</ul>
+  <div class="grid_12">
+    <ul class="nav">
+      <li><a href="/following">Following</a></li>
+      <li><a href="/followed-by">Followers</a></li>
+      <li><a href="/my-pics">Uploads</a></li>
+      <li class="last"><a href="/likes">Likes</a></li>
+    </ul>
+  </div>
   <div id="columns">
     <% @data["data"].each do |data| %>
       <div class="pin">
