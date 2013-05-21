@@ -43,13 +43,15 @@ img {
 ul.nav {
   float: left;
   font-size: 20px;
-  margin-left: 150px;
+  margin-left: 2px;
   padding-left: 100px;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
 }
 .nav li {
   float: right;
   list-style: none;
-  margin-right: 20px;
+  margin-right: 100px;
 }
 
 .login a {

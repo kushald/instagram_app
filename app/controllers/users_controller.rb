@@ -4,11 +4,11 @@ class UsersController < ApplicationController
   end
 
   def following
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/follows?access_token=#{@current_user.instagram_access_token}")["data"]
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/follows?access_token=#{@current_user.instagram_access_token}")
   end
 
   def followed_by
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}")["data"]
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}")
   end
 
   def my_pics

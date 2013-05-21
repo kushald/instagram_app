@@ -1,3 +1,3 @@
-<% @data.each do |data| %>
+<% @data["data"].each do |data| %>
 <a href="/user-info/?id=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" /></a>
 <% end %>
