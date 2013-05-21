@@ -33,11 +33,11 @@
       <% if @current_user.present? %>
         <div class="grid_12">
           <ul class="nav">
-            <li><a href="/user">Feeds</a></li>
-            <li><a href="/following">Following</a></li>
-            <li><a href="/followed-by">Followers</a></li>
-            <li><a href="/my-pics">Uploads</a></li>
-            <li class="last"><a href="/likes">Likes</a></li>
+            <li><a class="<%= "list_selected" if params[:action] == "user" %>" href="/user">Feeds</a></li>
+            <li><a class="<%= "list_selected" if params[:action] == "following" %>" href="/following">Following</a></li>
+            <li><a class="<%= "list_selected" if params[:action] == "followed_by" %>" href="/followed-by">Followers</a></li>
+            <li><a class="<%= "list_selected" if params[:action] == "my_pics" %>" href="/my-pics">Uploads</a></li>
+            <li class="last"><a class="<%= "list_selected" if params[:action] == "likes" %>" href="/likes">Likes</a></li>
           </ul>
         </div>
       <% end %>

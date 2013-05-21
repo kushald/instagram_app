@@ -76,6 +76,11 @@ img.ri
   box-shadow: 0 3px 6px rgba(0,0,0,0.9);
 }
 
+a.list_selected {
+  background-color: #1E8E77;
+  color: white;
+}
+
 @media screen and (max-width : 320px) {
   .nav {
     display: none;
