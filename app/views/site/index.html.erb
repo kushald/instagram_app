@@ -7,51 +7,9 @@
   </ul> -->
   <div class="popular-text">Popular on Instagram</div>
 </div>
-<div id="disp">
-  <% @data["data"].each_with_index do |data,i| %>
-    <div class="grid_6 omega">
-      <div class="image-contain">
-        <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>" title="<%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
-      </div>
-      <div id="someHtml_<%= i %>" style="display:none;">
-        <img class="ri" src="<%= data["images"]["standard_resolution"]["url"] %>" >
-        <!-- <%#= data["caption"]["text"].force_encoding("UTF-8") rescue "" %> -->
-        <div style="background-color: #1E8E77;color: white;border: 2px solid;border-radius: 3px;box-shadow: 0 3px 6px rgba(0,0,0,0.9);font-weight: bold;">
-          <% if data["caption"].present? %>
-            <div>
-              <img src="<%= data["caption"]["from"]["profile_picture"] rescue '' %>" style="width: 15%;border-radius: 66%;margin-left: 44%;" >
-              <div style="text-align:center;"><%= data["caption"]["from"]["username"] %></div>
-            </div>
-          <% end %>
-
-          <div style="text-align:center;"><%= data["comments"]["count"]  %>Comments <%= data["likes"]["count"] %> Likes</div>
-         </div>
-         <div>
-          <div>
-            <% data["comments"]["data"][0..3].each do |comment| %>
-              <div style="border-bottom: 1px solid;">
-                <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
-                <%= comment["from"]["username"] %>
-                <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
-            </div>
-              <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'content' %>
 <script type="text/javascript">
-  var dataLength = <%= @data["data"].length %>
 
-  $(document).ready(function() {
-    for (var i = 0; i < dataLength; i++) {
-      var content = $('#someHtml_'+i).html();
-      $(".fancybox_"+i).fancybox({
-        'content': content
-      });
-    };
-  });
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36579424-1']);
   _gaq.push(['_trackPageview']);

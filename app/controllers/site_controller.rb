@@ -23,6 +23,6 @@ class SiteController < ApplicationController
   end
 
   def user_info
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}")["data"]
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}")
   end
 end

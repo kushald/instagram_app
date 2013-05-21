@@ -33,6 +33,17 @@
       <%= yield %>
     </div>
     <script type="text/javascript">
+      var dataLength = <%= @data["data"].length %>
+
+      $(document).ready(function() {
+        for (var i = 0; i < dataLength; i++) {
+          var content = $('#someHtml_'+i).html();
+          $(".fancybox_"+i).fancybox({
+            'content': content,
+            'maxHeight' : 1800
+          });
+        };
+      });
       $("#fittext1").fitText();
     </script>
   </body>
