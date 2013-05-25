@@ -81,6 +81,21 @@ a.list_selected {
   color: white;
 }
 
+.des-bar {
+width: 97%;
+background-color: black;
+height: 69px;
+opacity: 0.9;
+position: relative;
+margin: -74px 1px 1px 1px;
+} 
+
+.bar-font {
+color: white;
+text-align: center;
+font-weight: bold;
+}
+
 @media screen and (max-width : 320px) {
   .nav {
     display: none;

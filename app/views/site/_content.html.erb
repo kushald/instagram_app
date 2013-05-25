@@ -4,6 +4,9 @@
       <div class="image-contain">
         <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>" title="<%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
       </div>
+      <div class="des-bar">
+        <div class="bar-font"><%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes</div>
+      </div>
       <div id="someHtml_<%= i %>" style="display:none;">
         <img class="ri" src="<%= data["images"]["standard_resolution"]["url"] %>" >
         <!-- <%#= data["caption"]["text"].force_encoding("UTF-8") rescue "" %> -->
@@ -21,7 +24,11 @@
           <div>
             <% data["comments"]["data"][0..3].each do |comment| %>
               <div style="border-bottom: 1px solid;">
-                <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+                <%if @current_user.present? %>
+                  <a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
+                  <% else %>
+                    <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+                  <% end %>
                 <%= comment["from"]["username"] %>
                 <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
             </div>
