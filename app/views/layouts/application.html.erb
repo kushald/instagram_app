@@ -18,7 +18,7 @@
         <div class="grid_4 omega">
           <% if @current_user.present? %>
             <a href="/user">
-              <img src="<%= cookies["img_insta"] %>" class="logged-in" ><br>
+              <img src="<%= @current_user.instagram_image %>" class="logged-in" ><br>
               <%= @current_user.instagram_full_name %>
             </a>
           <% else %>
