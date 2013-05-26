@@ -4,15 +4,21 @@ class UsersController < ApplicationController
   end
 
   def following
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/follows?access_token=#{@current_user.instagram_access_token}")
+    instagram_id = params["id"] || @current_user.instagram_id
+    @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/follows?access_token=#{@current_user.instagram_access_token}")
   end
 
   def followed_by
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}")
+    instagram_id = params["id"] || @current_user.instagram_id
+    @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}")
   end
 
   def my_pics
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/media/recent/?access_token=#{@current_user.instagram_access_token}")
+    instagram_id = params["id"] || @current_user.instagram_id
+    @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/media/recent/?access_token=#{@current_user.instagram_access_token}")
   end
 
   def logout
