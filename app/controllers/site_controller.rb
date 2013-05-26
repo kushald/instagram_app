@@ -2,6 +2,7 @@ class SiteController < ApplicationController
   require 'net/http'
   def index
     @data = Request.get_request("#{Constant::POPULAR}?client_id=#{APP_CONFIG['client_id']}")
+    render :partial => 'content' and return if request.xhr?
   end
 
   def user

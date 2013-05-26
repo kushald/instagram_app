@@ -1,8 +1,33 @@
 <div class="grid_12 omega">
   <div class="popular-text">Popular on Instagram</div>
 </div>
+<button id="refresh-button">refresh</button>
+<div id="image-loader" style="display: none;"><img src="/assets/fancybox_loading.gif" /></div>
 <%= render 'content' %>
 <script type="text/javascript">
+  $(document).ready(function(){
+    $("#refresh-button").click(function(){
+      $("#image-loader").show();
+      $.ajax({
+        url: "/",
+        success: function(response) {
+          $("#image-loader").hide();
+          $("#disp").html(response);
+          var dataLength = <%= @data["data"].length %>
+          $(document).ready(function() {
+            for (var i = 0; i < dataLength; i++) {
+              var content = $('#someHtml_'+i).html();
+              $(".fancybox_"+i).fancybox({
+                'content': content,
+                'maxHeight' : 1800
+              });
+            };
+          });
+        }
+      });
+    });
+
+  });
 
   var _gaq = _gaq || [];
   _gaq.push(['_setAccount', 'UA-36579424-1']);
