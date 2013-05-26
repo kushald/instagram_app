@@ -18,9 +18,10 @@
         <div class="grid_4 omega">
           <% if @current_user.present? %>
             <a href="/user">
-              <img src="<%= @current_user.instagram_image %>" class="logged-in" ><br>
-              <%= @current_user.instagram_full_name %>
+              <img src="<%= @current_user.instagram_image %>" class="logged-in" style="
+    height: 113px;" >
             </a>
+            <div class="logout"><a href="/logout">Logout</a></div>
           <% else %>
             <div class="login">
               <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">

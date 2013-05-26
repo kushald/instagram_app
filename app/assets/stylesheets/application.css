@@ -31,6 +31,17 @@ body {
   border-bottom: 35px solid transparent;
 }
 
+.logout {
+  margin-top: -5px;
+  width: 113px;
+  text-align: center;
+  background-color: #619AB1;
+}
+
+.logout a {
+  color: white;
+}
+
 .popular-text {
   font-size: 30px;
   text-align: center;

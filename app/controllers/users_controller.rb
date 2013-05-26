@@ -14,4 +14,9 @@ class UsersController < ApplicationController
   def my_pics
     @data = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/media/recent/?access_token=#{@current_user.instagram_access_token}")
   end
+
+  def logout
+    cookies.delete :ac
+    redirect_to "/"
+  end
 end
