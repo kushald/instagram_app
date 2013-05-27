@@ -53,6 +53,7 @@ img {
 
 ul.nav {
   float: left;
+  width: 870px;
   font-size: 20px;
   margin-left: 2px;
   padding-left: 100px;
@@ -60,9 +61,9 @@ ul.nav {
   border-top: 1px solid black;
 }
 .nav li {
-  float: right;
+  float: left;
   list-style: none;
-  margin-right: 100px;
+  margin-right: 231px;
 }
 
 .login a {

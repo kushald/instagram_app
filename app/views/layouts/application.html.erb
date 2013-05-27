@@ -22,6 +22,7 @@
     height: 113px;" >
             </a>
             <div class="logout"><a href="/logout">Logout</a></div>
+            <%= Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip).city.inspect %>
           <% else %>
             <div class="login">
               <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
@@ -34,11 +35,9 @@
       <% if @current_user.present? %>
         <div class="grid_12">
           <ul class="nav">
+            <li><a class="<%= "list_selected" if params[:action] == "likes" %>" href="/">Popular</a></li>
             <li><a class="<%= "list_selected" if params[:action] == "user" %>" href="/user">Feeds</a></li>
-            <li><a class="<%= "list_selected" if params[:action] == "following" %>" href="/following">Following</a></li>
-            <li><a class="<%= "list_selected" if params[:action] == "followed_by" %>" href="/followed-by">Followers</a></li>
-            <li><a class="<%= "list_selected" if params[:action] == "my_pics" %>" href="/my-pics">Uploads</a></li>
-            <li class="last"><a class="<%= "list_selected" if params[:action] == "likes" %>" href="/likes">Likes</a></li>
+            <l><a class="<%= "list_selected" if params[:action] == "likes" %>" href="/nearby">near by</a></li>
           </ul>
         </div>
       <% end %>
@@ -46,7 +45,6 @@
       <div class="grid_12">
           <ul class="nav">
             <li><a href="#">Blog</a></li>
-            <li><a href="#">My Instagram Account</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
           </ul>
