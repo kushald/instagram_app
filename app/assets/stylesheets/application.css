@@ -104,6 +104,7 @@ height: 69px;
 opacity: 0.9;
 position: relative;
 margin: -74px 1px 1px 1px;
+display: none;
 } 
 
 .bar-font {
