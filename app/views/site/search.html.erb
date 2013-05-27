@@ -1,0 +1,13 @@
+<div class="grid_12 omega search">
+  <form action="/search">
+    <input type="text" name="q" value="<%= params[:q] %>" style="width: 50%;margin: 6.4% 26% 0.4%;"><br>
+    <input type="submit" value="Search" id="refresh-button">
+  </form>
+</div>
+<div class="grid_12 omega">
+  <%if params[:q].present? %>
+    <div class="popular-text">Search result for "<%= params[:q] %>"</div>
+  <% end %>
+</div>
+
+<%= render '/site/content' %>

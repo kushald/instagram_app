@@ -1,11 +1,14 @@
 <div class="grid_12" style="border-bottom: 1px dotted black;margin-bottom: 35px;">
   <table> 
     <tr>
-      <td><div style="margin: 55px;"><img src=<%= @user_info["data"]["profile_picture"] %> /><br>
+      <td><div style="margin: 0px 100px 13px 0px;"><img src=<%= @user_info["data"]["profile_picture"] %> style="border-radius: 93px;" /><br>
       <%= @user_info["data"]["full_name"] %></div></td>
       <td><div class="circle photos"><a href="/my-pics/?id=<%= @user_info["data"]["id"] %>">Photos<br><%= @user_info["data"]["counts"]["media"] %></a></div></td>
       <td><div class="circle followed"><a href="/followed-by/?id=<%= @user_info["data"]["id"] %>">Followed by <br><%= @user_info["data"]["counts"]["followed_by"] %></a></div></td>
       <td><div class="circle following"><a href="/following/?id=<%= @user_info["data"]["id"] %>">Following<br><%= @user_info["data"]["counts"]["follows"] %></a></div></td>
+      <% if params[:action] == "user" || params[:action] == "likes" && @current_user.present? %>
+        <td><div class="circle likes"><a href="/likes">Likes<br></a></div></td>
+      <% end %>
   </tr>
   </table>
 </div>

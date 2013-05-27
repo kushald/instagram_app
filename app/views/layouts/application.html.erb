@@ -22,7 +22,6 @@
     height: 113px;" >
             </a>
             <div class="logout"><a href="/logout">Logout</a></div>
-            <%= Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip).city.inspect %>
           <% else %>
             <div class="login">
               <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
@@ -35,9 +34,10 @@
       <% if @current_user.present? %>
         <div class="grid_12">
           <ul class="nav">
-            <li><a class="<%= "list_selected" if params[:action] == "likes" %>" href="/">Popular</a></li>
+            <li><a class="<%= "list_selected" if params[:action] == "/" %>" href="/">Popular</a></li>
             <li><a class="<%= "list_selected" if params[:action] == "user" %>" href="/user">Feeds</a></li>
-            <l><a class="<%= "list_selected" if params[:action] == "likes" %>" href="/nearby">near by</a></li>
+            <li><a href="/nearby">Local</a></li>
+            <li><a href="/search">Search</a></li>
           </ul>
         </div>
       <% end %>
@@ -47,6 +47,7 @@
             <li><a href="#">Blog</a></li>
             <li><a href="#">Contact</a></li>
             <li><a href="#">About</a></li>
+            <li><a href="#">Policy</a></li>
           </ul>
       </div>
     </div>

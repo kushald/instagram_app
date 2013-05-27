@@ -32,4 +32,9 @@ class SiteController < ApplicationController
     @data = Request.get_request("https://api.instagram.com/v1/tags/#{location}/media/recent?access_token=#{@current_user.instagram_access_token}")
     render '/users/likes' and return
   end
+
+  def search
+    query = params[:q].present? ?  params[:q] : "search"
+    @data = Request.get_request("https://api.instagram.com/v1/tags/#{query}/media/recent?access_token=#{@current_user.instagram_access_token}")
+  end
 end

@@ -1,4 +1,4 @@
 <%= render 'user_basic_info' if params[:id].present? %>
 <% @data["data"].each do |data| %>
-<a href="/user-info/?id=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" /></a>
+<a href="/user-info/?id=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" style="border-radius: 93px;" /></a>
 <% end %>

@@ -63,7 +63,7 @@ ul.nav {
 .nav li {
   float: left;
   list-style: none;
-  margin-right: 231px;
+  margin-right: 150px;
 }
 
 .login a {
@@ -124,7 +124,7 @@ padding: 2em;
 background: black;
 border-radius: 9px 1px;
 height: 60px;
-margin-right: 100px;
+margin-right: 50px;
 }
 
 .photos {
@@ -149,6 +149,18 @@ margin-right: 100px;
 
 .followed a {
   color: white;
+}
+
+.likes {
+  background-color: #357660;
+}
+
+.likes a {
+  color: white;
+}
+
+.search {
+  margin: 60px 0px 50px 300px;
 }
 
 #refresh-button {
