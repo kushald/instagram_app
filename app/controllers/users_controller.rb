@@ -27,4 +27,13 @@ class UsersController < ApplicationController
     cookies.delete :ac
     redirect_to "/"
   end
+  def relationship
+    response = Request.post_request(:uri => "https://api.instagram.com/v1/users/#{params[:id]}/relationship",
+                                    :type => "relationship",
+                                    :action => params[:instagram_action],
+                                    :access_token => @current_user.instagram_access_token)
+    #TODO:: Handle error scenarios
+    render :json => {}
+  end
+
 end

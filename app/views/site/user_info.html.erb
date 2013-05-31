@@ -1,2 +1,20 @@
 <%= render '/users/user_basic_info' if params[:id].present? %>
 <%= render '/site/content' %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $("#relation-none").click(function(){
+      $(".relation-loader").show();
+      $.ajax({
+        url: "/relationship",
+        type: "POST",
+        data: {instagram_action : "follow", id : <%= params[:id] %> },
+        success: function(response) {
+          $(".relation-loader").hide();
+          $("#relation-none").css({"background-color": "#85A32B"});
+          $("#relation-none").text("following");
+        }
+      });
+    });
+  });
+</script>

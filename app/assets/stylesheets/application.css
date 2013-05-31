@@ -189,6 +189,34 @@ margin-right: 50px;
  margin: 0 44% 5% 50%; 
 }
 
+#relation-follows {
+  background-color: #85A32B;
+  cursor: pointer;
+  padding: 8px 30px 8px 30px;
+  color: white;
+  height: 188px;
+  border-radius: 3px;
+  margin: 10px;
+}
+
+#relation-none {
+  background-color: #004982;
+  cursor: pointer;
+  padding: 8px 30px 8px 30px;
+  color: white;
+  height: 188px;
+  border-radius: 3px;
+  margin: 10px;
+}
+.relation-loader {
+  float: right;
+  margin: -22px 100px 0px 0px;
+  display: none;
+}
+#relation-button:hover {
+  background-color: #00356E;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }

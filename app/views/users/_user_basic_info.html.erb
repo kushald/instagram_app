@@ -1,8 +1,21 @@
-<div class="grid_12" style="border-bottom: 1px dotted black;margin-bottom: 35px;">
+<div class="grid_12" style="border-bottom: 1px dotted black;margin-bottom: 35px;padding-bottom: 16px;">
   <table> 
     <tr>
-      <td><div style="margin: 0px 100px 13px 0px;"><img src=<%= @user_info["data"]["profile_picture"] %> style="border-radius: 93px;" /><br>
-      <%= @user_info["data"]["full_name"] %></div></td>
+      <td>
+        <div style="margin: 0px 100px 13px 0px;"><img src=<%= @user_info["data"]["profile_picture"] %> style="    border-radius: 93px;" /><br>
+          <span style="margin-left: 15px;"><%= @user_info["data"]["full_name"] %></span>
+      </div>
+      <% if params[:controller] == 'user_info' %>
+        <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
+          <span id="relation-follows">Following</span>
+        <% else %>
+          <span id="relation-none">Follow</span>
+        <% end %>
+          <div class="relation-loader">
+            <img src="/assets/fancybox_loading.gif">
+          </div>
+      <% end %>
+    </td>
       <td><div class="circle photos"><a href="/my-pics/?id=<%= @user_info["data"]["id"] %>">Photos<br><%= @user_info["data"]["counts"]["media"] %></a></div></td>
       <td><div class="circle followed"><a href="/followed-by/?id=<%= @user_info["data"]["id"] %>">Followed by <br><%= @user_info["data"]["counts"]["followed_by"] %></a></div></td>
       <td><div class="circle following"><a href="/following/?id=<%= @user_info["data"]["id"] %>">Following<br><%= @user_info["data"]["counts"]["follows"] %></a></div></td>

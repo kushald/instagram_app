@@ -11,6 +11,7 @@ InstagramApp::Application.routes.draw do
   match '/logout/' => 'users#logout' 
   match '/nearby' => 'site#geo_tag_content'
   match '/search' => 'site#search'
+  match '/relationship' => 'users#relationship'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
