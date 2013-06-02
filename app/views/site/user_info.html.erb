@@ -1,4 +1,4 @@
-<%= render '/users/user_basic_info' if params[:id].present? %>
+<%= render :partial => '/users/user_basic_info', :locals => {:show_follow => true} %>
 <%= render '/site/content' %>
 
 <script type="text/javascript">
