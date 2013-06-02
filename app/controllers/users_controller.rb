@@ -38,4 +38,10 @@ class UsersController < ApplicationController
     render :json => {}
   end
 
+  def like_media
+    response = Request.post_request(:uri => "https://api.instagram.com/v1/media/#{params["media-id"]}/likes",
+                                    :access_token => @current_user.instagram_access_token)
+    #TODO:: Handle error scenarios
+    render :json => {}
+  end
 end

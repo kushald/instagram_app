@@ -1,11 +1,18 @@
-<div id="disp">
+<div id="disp"><%# binding.pry %>
   <% @data["data"].each_with_index do |data,i| %>
     <div class="grid_6 omega">
       <div class="image-contain">
         <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>" title="<%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
       </div>
       <div class="des-bar">
-        <div class="bar-font"><%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes</div>
+        <% if @current_user.present? %>
+          <% if data['user_has_liked'] %>
+            <div class="like-red"></div>
+          <% else %>
+            <div class="like-white" id="<%= data['id'] %>" data-pos="<%= i %>" data-likes="<%= data["likes"]["count"] %>"></div>
+          <% end %>    
+        <% end %>
+        <div class="bar-font" id="bar-font-<%= data['id'] %>" like-count="<%= data["likes"]["count"] %>"><%= data["comments"]["count"]  %> Comments <span><%= data["likes"]["count"] %></span> Likes</div>
       </div>
       <div id="someHtml_<%= i %>" style="display:none;">
         <img class="ri" src="<%= data["images"]["standard_resolution"]["url"] %>" >
@@ -39,3 +46,25 @@
     </div>
   <% end %>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".like-white").click(function(){
+      var mediaId = this.id;
+      likeCount = parseInt($('#'+mediaId).attr('data-likes'))+1;
+      $('#'+mediaId).addClass('like-red');
+      $('#'+mediaId).removeClass('like-white');
+      $('#bar-font-'+mediaId+' span').text(likeCount);
+
+      $.ajax({
+        url: "/like-media",
+        type: 'POST',
+        data: {"media-id" : mediaId},
+        success: function(response) {
+          console.log("phew!!!!");
+        }
+      });
+    });
+
+  });
+</script>

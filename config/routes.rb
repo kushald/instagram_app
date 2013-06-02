@@ -12,6 +12,7 @@ InstagramApp::Application.routes.draw do
   match '/nearby' => 'site#geo_tag_content'
   match '/search' => 'site#search'
   match '/relationship' => 'users#relationship'
+  match '/like-media' => 'users#like_media'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

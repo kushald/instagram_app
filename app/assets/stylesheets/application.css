@@ -216,6 +216,24 @@ margin-right: 50px;
 #relation-button:hover {
   background-color: #00356E;
 }
+.like-white {
+  background-image: url('white-heart.gif');
+  height: 32px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.like-red {
+  background-image: url('red-heart.gif');
+  height: 32px;
+  background-repeat: no-repeat;
+}
+
+.like-white:hover {
+  background-image: url('red-heart.gif');
+  height: 32px;
+  background-repeat: no-repeat;
+}
 
 ::-webkit-scrollbar {
     width: 12px;
