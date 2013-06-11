@@ -12,7 +12,7 @@
  *= require_tree .
 */
 body {
-  color: grey;
+  color: #202020;
   font-family: 'nunito', cursive;
 }
 
@@ -76,7 +76,7 @@ ul.nav {
 
 a {
   text-decoration: none;
-  color: grey;
+  color: #202020;
 }
 #someHtml {
   display: none;
@@ -92,9 +92,8 @@ img.ri
 }
 
 a.list_selected {
-  background-color: black;
+  background-color: #202020;
   color: white;
-  opacity: 0.7;
 }
 
 .des-bar {
@@ -273,4 +272,9 @@ margin-right: 50px;
   .nav {
     display: none;
   }
+}
+
+@media (max-width:40em) {
+    table, thead, tbody, tfoot, th, td, tr { display:block; }
+    tr + tr { margin-top:1em; }
 }
