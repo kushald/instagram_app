@@ -101,7 +101,7 @@ a.list_selected {
 width: 97%;
 background-color: black;
 height: 69px;
-opacity: 0.9;
+opacity: 0.8;
 position: relative;
 margin: -74px 1px 1px 1px;
 display: none;
@@ -235,6 +235,18 @@ margin-right: 50px;
   background-repeat: no-repeat;
 }
 
+#search-input {
+  width: 53%;
+  margin: 2.4% 26% 0.4%;
+  padding: 5px;
+  border: 3px solid #AEBAC2;
+  border-radius: 6px;
+  font-size: 18px;
+  font-weight: 400;
+  outline: none;
+  color: #444;
+  float: left;
+}
 ::-webkit-scrollbar {
     width: 12px;
 }
