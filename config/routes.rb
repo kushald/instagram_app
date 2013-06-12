@@ -14,6 +14,10 @@ InstagramApp::Application.routes.draw do
   match '/relationship' => 'users#relationship'
   match '/like-media' => 'users#like_media'
   match '/media/:id' => 'site#media'
+
+  # ------TAGS---------
+  match '/tags' => 'tags#index'
+  match '/tag/:id' => 'tags#show'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

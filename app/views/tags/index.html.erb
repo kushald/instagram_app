@@ -1,0 +1,5 @@
+<div class="hashta">
+  <% Constant::POPULAR_HASHTAGS.each do |tag| %>
+    <li><a href='/tag/<%= tag %>'<%= tag %>><%= tag %></a></li>
+  <% end %>
+</div>

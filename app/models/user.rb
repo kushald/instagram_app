@@ -1,7 +1,11 @@
 class User < ActiveRecord::Base
   attr_accessible :auth_token, :instagram_access_token, :instagram_email, :instagram_full_name, :instagram_id, :instagram_image, :instagram_username, :password
 
-  
+  # Check if Guest User
+  def guest_user
+    self.id == Constant::GUEST_ID
+  end
+
   def self.authenticate(params)
     return {:err => 1} if params[:insta_id].blank?
     user = User.find_user(:insta_id => params[:insta_id])

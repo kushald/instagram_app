@@ -5,7 +5,7 @@
         <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>" title="<%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
       </div>
       <div class="des-bar">
-        <% if @current_user.present? %>
+        <% if @current_user.present? && !@current_user.guest_user %>
           <% if data['user_has_liked'] %>
             <div class="like-red"></div>
           <% else %>
@@ -31,7 +31,7 @@
           <div>
             <% data["comments"]["data"][0..3].each do |comment| %>
               <div style="border-bottom: 1px solid;">
-                <%if @current_user.present? %>
+                <%if @current_user.present? && !@current_user.guest_user %>
                   <a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
                   <% else %>
                     <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
