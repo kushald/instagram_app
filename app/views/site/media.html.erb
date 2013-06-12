@@ -1,0 +1,17 @@
+<% binding.pry %>
+
+<img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>">
+
+<% @media["data"]["comments"]["data"].each do |comment| %>
+  <div style="border-bottom: 1px solid;">
+    <%if @current_user.present? %>
+      <a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
+      <% else %>
+        <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+    <% end %>
+    <%= comment["from"]["username"] %>
+    <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
+  </div>
+<% end %>
+
+

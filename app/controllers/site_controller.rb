@@ -5,8 +5,13 @@ class SiteController < ApplicationController
     render :partial => 'content' and return if request.xhr?
   end
 
+  def media
+    #Get the details for specified media
+    @media = Request.get_request("https://api.instagram.com/v1/media/#{params[:id]}?access_token=#{@current_user.instagram_access_token}")
+  end
+
   def user
-    if @current_user.blank?
+    if @current_user.blank? || @current_user.guest_user
       response = Request.post_request(:uri => "https://api.instagram.com/oauth/access_token", :code => params[:code], :type => "access_token")
       @current_user = User.authenticate(
         :insta_id => response["user"]["id"],
