@@ -1,5 +1,9 @@
-<div class="hashta">
-  <% Constant::POPULAR_HASHTAGS.each do |tag| %>
-    <li><a href='/tag/<%= tag %>'<%= tag %>><%= tag %></a></li>
-  <% end %>
+<h1><%=h content_for(:title, "Joystagram - Popular tags on Instagram") %></h1>
+<div class="popular-text">Popular tags on Instagram</div>
+<div id="wrapper">
+  <ul id="my-list">
+    <% Constant::POPULAR_HASHTAGS.each do |tag| %>
+      <li style="background: <%= tag_color %>;"><a href='/tag/<%= tag %>'<%= tag %>><%= tag %></a></li>
+    <% end %>
+  </ul>
 </div>

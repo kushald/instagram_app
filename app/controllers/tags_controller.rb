@@ -1,5 +1,5 @@
 class TagsController < ApplicationController
-
+  include TagsHelper
   def index
 
   end
