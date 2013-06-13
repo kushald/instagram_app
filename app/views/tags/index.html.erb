@@ -4,8 +4,8 @@
 <div class="popular-text">Popular tags on Instagram</div>
 <div id="wrapper">
   <ul id="my-list">
-    <% Constant::POPULAR_HASHTAGS.each do |tag| %>
-      <li style="background: <%= tag_color %>;"><a href='/tag/<%= tag %>'<%= tag %>><%= tag %></a></li>
+    <% Constant::POPULAR_HASHTAGS.each_with_index do |tag,i| %>
+      <li style="background: <%= tag_color %>;"><a href='/tag/<%= tag %>'><%= "#{i+1}.#{tag}" %></a></li>
     <% end %>
   </ul>
 </div>
