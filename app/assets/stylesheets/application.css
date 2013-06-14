@@ -319,6 +319,24 @@ li {
   list-style: none;
 }
 
+.browse-more {
+  font-size: 16px;
+  width: 230px;
+  margin: -10px 0px 10px 10px;
+  float: left;
+}
+
+.browse-user-grid {
+  float: left;
+}
+
+.browse-user-grid img {
+  width: 90px;
+  margin-left: 14px;
+  border-radius: 4px;
+  border: 6px solid #DDD;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -341,6 +359,9 @@ li {
   background: rgba(255,0,0,0.4); 
 }
 
+::selection{
+  background: #619AB1;
+}
 @media screen and (max-width : 320px) {
   .nav {
     display: none;

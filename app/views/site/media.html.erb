@@ -39,7 +39,7 @@
   </div>
   <div class="uploader">      
       <div align="center">
-        <a href="/user-info/?id=<%= @media["data"]["user"]["id"] %>">
+        <a href="/user-info/?id=<%= @user_id %>">
           <img src="<%= @media["data"]["user"]["profile_picture"] %>" style="width: 15%;border-radius: 10px;">
           <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
         </a>
@@ -55,6 +55,29 @@
         </div>
       <% end %>
   </div>
+  <div class="grid_3" style="margin: 0px 10px 154px 40px;">
+    <div class="browse-more">
+      <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">Browse more by <br><a href="/user-info/?id=<%= @user_id %>" style="color: #619AB1;"><%= @media["data"]["user"]["username"] %></a></div>
+    </div>
+    <div>
+      <% @browse_user.each do |media| %>
+        <div class="browse-user-grid">
+          <a href="/media/<%= media["id"] %>"><img src="<%= media["images"]["thumbnail"]["url"] %>" %></a>
+        </div>
+      <% end %>
+    </div>
+    <div class="browse-more" style="margin-top: 16px;">
+      <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">Browse more by <br><a href="/" style="color: #619AB1;">Popular</a></div>
+    </div>
+    <div>
+      <% @browse_popular.each do |media| %>
+        <div class="browse-user-grid">
+          <a href="/media/<%= media["id"] %>"><img src="<%= media["images"]["thumbnail"]["url"] %>" %></a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 </div>
 
 <!--<%# @media["data"]["comments"]["data"].each do |comment| %>
