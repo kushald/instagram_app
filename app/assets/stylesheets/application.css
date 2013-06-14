@@ -54,7 +54,7 @@ img {
 ul.nav {
   float: left;
   width: 870px;
-  font-size: 20px;
+  font-size: 16px;
   margin-left: 2px;
   padding-left: 100px;
   border-bottom: 1px solid black;
@@ -235,12 +235,12 @@ margin-right: 50px;
 }
 
 #search-input {
-  width: 53%;
+  width: 50%;
   margin: 2.4% 26% 0.4%;
-  padding: 5px;
+  padding: 4px;
   border: 3px solid #AEBAC2;
   border-radius: 6px;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: 400;
   outline: none;
   color: #444;
@@ -278,8 +278,12 @@ margin-right: 50px;
 .single-image {
   width: 107%;
   background: whitesmoke;
-  padding: 10px 10px 6px 10px;
+  padding: 14px 11px 14px 16px;
   border-radius: 5px;
+}
+
+.uploader {
+  width: 61.5%;
 }
 
 .side-panel {
@@ -302,6 +306,7 @@ margin-right: 50px;
 .likers {
   width: 30%;
   padding-top: 3px;
+  border-radius: 9px;
 }
 
 .comment-count {

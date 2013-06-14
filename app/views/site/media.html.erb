@@ -5,7 +5,7 @@
     </div>
   </div>
   <div class="grid_3 omega" style="margin-left: 80px;">
-    <div style="font-size: 14px;">
+    <div style="font-size: 13px;">
       <div class="side-panel"><%= @media["data"]["likes"]["count"] %> Likes</div>
       <div class="side-panel"><%= @media["data"]["comments"]["count"] %> Comments</div>
       <% if @media["data"]["filter"].present? %>
@@ -37,13 +37,21 @@
       </div>
     </div>
   </div>
-  <div class="grid_7">
+  <div class="uploader">      
+      <div align="center">
+        <a href="/user-info/?id=<%= @media["data"]["user"]["id"] %>">
+          <img src="<%= @media["data"]["user"]["profile_picture"] %>" style="width: 15%;border-radius: 10px;">
+          <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
+        </a>
+      </div>
+  </div>
+  <div class="grid_7" style="font-size: 14px;">
     <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
       <% @media["data"]["comments"]["data"].each do |comment| %>
-        <div><a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 2px;"></a></div>
-        <div style="width:575px;height:60px;border-bottom: 1px solid #DDD;">
+        <div><a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
+        <div style="width:575px;height:60px;border-bottom: 1px solid #DDD;font-size: 13px;">
           <a href="/user-info/?id=<%= comment["from"]["id"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
-          <div><%= comment["text"] %></div>
+          <div style="font-size: 13px;"><%= comment["text"] %></div>
         </div>
       <% end %>
   </div>
