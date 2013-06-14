@@ -1,17 +1,64 @@
-<% binding.pry %>
-
-<img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>">
-
-<% @media["data"]["comments"]["data"].each do |comment| %>
-  <div style="border-bottom: 1px solid;">
-    <%if @current_user.present? %>
-      <a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
-      <% else %>
-        <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
-    <% end %>
-    <%= comment["from"]["username"] %>
-    <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
+<div class="grid_12 omega">
+  <div class="grid_7 omega">
+    <div class="single-image">
+      <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" style="width:99%;">
+    </div>
   </div>
-<% end %>
+  <div class="grid_3 omega" style="margin-left: 80px;">
+    <div style="font-size: 14px;">
+      <div class="side-panel"><%= @media["data"]["likes"]["count"] %> Likes</div>
+      <div class="side-panel"><%= @media["data"]["comments"]["count"] %> Comments</div>
+      <% if @media["data"]["filter"].present? %>
+        <div class="side-panel">Filter: <%= @media["data"]["filter"] %></div>
+      <% end %>
+      <div class="side-panel">Created: <%= Time.at(@media["data"]["created_time"].to_i).strftime("%B %d %Y") %></div>
+      <% if @media["data"]["location"].present? && @media["data"]["location"]["name"].present? %>
+        <div class="side-panel">Location: <%= @media["data"]["location"]["name"] %></div>
+      <% end %>
+      <% if @media["data"]["tags"].present? %>
+      <div class="side-panel">
+        <span>Tags</span>
+        <ul style="padding-left: 5px;">
+          <% tags = @media["data"]["tags"] %>
+          <% tag_size = tags.size > 7 ? 7 : tags.size %>
+          <% tag_size.times do |i| %>
+            <a href="/tag/<%= tags[i] %>"><li class="tag" style="background: <%= tag_color %>;"><%= tags[i] %></li></a>
+          <% end %>
+        </ul>
+      <% end %>
+      </div>
+      <div class="side-panel">
+        <div class="like-red" style="margin-left: 80px;"></div>
+        <div>
+          <% @media["data"]["likes"]["data"].each do |like| %>
+            <a href="/user-info/?id=<%= like["id"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid_7">
+    <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
+      <% @media["data"]["comments"]["data"].each do |comment| %>
+        <div><a href="/user-info/?id=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 2px;"></a></div>
+        <div style="width:575px;height:60px;border-bottom: 1px solid #DDD;">
+          <a href="/user-info/?id=<%= comment["from"]["id"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
+          <div><%= comment["text"] %></div>
+        </div>
+      <% end %>
+  </div>
+</div>
+
+<!--<%# @media["data"]["comments"]["data"].each do |comment| %>
+  <div style="border-bottom: 1px solid;">
+    <%#if @current_user.present? %>
+      <a href="/user-info/?id=<%#= comment["from"]["id"] %>"><img src="<%#= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
+      <%# else %>
+        <img src="<%#= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+    <%# end %>
+    <%#= comment["from"]["username"] %>
+    <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%#= comment["text"] %></p>
+  </div>
+<%# end %> -->
 
 

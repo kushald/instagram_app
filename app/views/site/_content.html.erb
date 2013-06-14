@@ -2,7 +2,8 @@
   <% @data["data"].each_with_index do |data,i| %>
     <div class="grid_6 omega">
       <div class="image-contain">
-        <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>" title="<%= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
+        <!--<a  class="fancybox_<%#= i %>" href="<%#= data["images"]["standard_resolution"]["url"] %>" id="detail<%#= i %>" title="<%#= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%#= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a> -->
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
       </div>
       <div class="des-bar">
         <% if @current_user.present? && !@current_user.guest_user %>

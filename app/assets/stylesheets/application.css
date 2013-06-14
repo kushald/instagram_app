@@ -275,6 +275,45 @@ margin-right: 50px;
   margin-left: 30px;
 }
 
+.single-image {
+  width: 107%;
+  background: whitesmoke;
+  padding: 10px 10px 6px 10px;
+  border-radius: 5px;
+}
+
+.side-panel {
+  border-bottom: 1px solid #DDD;
+  padding: 10px;
+}
+
+.tag {
+  padding: 5px;
+  border: 1px solid;
+  background: #524FA2;
+  color: white;
+  list-style: none;
+}
+
+.tag:hover {
+  opacity: 0.6;
+}
+
+.likers {
+  width: 30%;
+  padding-top: 3px;
+}
+
+.comment-count {
+  border-bottom: 2px solid;
+  padding: 5px;
+  font-size: 14px;
+}
+
+li {
+  list-style: none;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
