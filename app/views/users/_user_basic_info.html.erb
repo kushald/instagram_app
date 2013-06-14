@@ -5,7 +5,7 @@
         <div style="margin: 0px 100px 13px 0px;"><img src=<%= @user_info["data"]["profile_picture"] %> style="    border-radius: 93px;" /><br>
           <span style="margin-left: 15px;"><%= @user_info["data"]["full_name"] %></span>
       </div>
-      <% if defined?(show_follow) && params[:id] != @current_user.instagram_id %>
+      <% if defined?(show_follow) && params[:id] != @current_user.instagram_id && !@current_user.guest_user %>
         <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
           <span id="relation-follows">Following</span>
         <% else %>
