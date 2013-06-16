@@ -38,7 +38,8 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
   def relationship
-    response = Request.post_request(:uri => "https://api.instagram.com/v1/users/#{params[:id]}/relationship",
+    id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"]
+    response = Request.post_request(:uri => "https://api.instagram.com/v1/users/#{id}/relationship",
                                     :type => "relationship",
                                     :action => params[:instagram_action],
                                     :access_token => @current_user.instagram_access_token)
