@@ -1,4 +1,5 @@
 class SiteController < ApplicationController
+  include SiteHelper
   require 'net/http'
   def index
     @data = Request.get_request("#{Constant::POPULAR}?client_id=#{APP_CONFIG['client_id']}")

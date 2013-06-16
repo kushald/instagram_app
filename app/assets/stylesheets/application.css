@@ -97,13 +97,13 @@ a.list_selected {
 }
 
 .des-bar {
-width: 97%;
+width: 35%;
 background-color: black;
 height: 69px;
 opacity: 0.8;
-position: relative;
 margin: -74px 1px 1px 1px;
 display: none;
+position: absolute;
 } 
 
 .bar-font {

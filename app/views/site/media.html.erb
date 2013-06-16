@@ -1,3 +1,15 @@
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=461403163888029";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+<% url = @media["data"]["images"]["standard_resolution"]["url"] %>
 <div class="grid_12 omega">
   <div class="grid_7 omega">
     <div class="single-image">
@@ -31,7 +43,7 @@
         <div class="like-red" style="margin-left: 80px;"></div>
         <div>
           <% @media["data"]["likes"]["data"].each do |like| %>
-            <a href="/user/<%= like["username"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
+            <a href="/u/<%= like["username"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
           <% end %>
         </div>
       </div>
@@ -39,25 +51,28 @@
   </div>
   <div class="uploader">      
       <div align="center">
-        <a href="/user/<%= @user_id %>">
+        <a href="/u/<%= @user_id %>">
           <img src="<%= @media["data"]["user"]["profile_picture"] %>" style="width: 15%;border-radius: 10px;">
           <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
         </a>
+      </div>
+      <div>
+        <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
       </div>
   </div>
   <div class="grid_7" style="font-size: 14px;">
     <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
       <% @media["data"]["comments"]["data"].each do |comment| %>
-        <div><a href="/user/<%= comment["from"]["username"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
+        <div><a href="/u/<%= comment["from"]["username"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
         <div style="width:575px;height:60px;border-bottom: 1px solid #DDD;font-size: 13px;">
-          <a href="/user/<%= comment["from"]["username"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
+          <a href="/u/<%= comment["from"]["username"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
           <div style="font-size: 13px;"><%= comment["text"] %></div>
         </div>
       <% end %>
   </div>
   <div class="grid_3" style="margin: 0px 10px 154px 40px;">
     <div class="browse-more">
-      <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">Browse more by <br><a href="/user/<%= @user_id %>" style="color: #619AB1;"><%= @media["data"]["user"]["username"] %></a></div>
+      <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">Browse more by <br><a href="/u/<%= @user_id %>" style="color: #619AB1;"><%= @media["data"]["user"]["username"] %></a></div>
     </div>
     <div>
       <% @browse_user.each do |media| %>
