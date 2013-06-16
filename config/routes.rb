@@ -3,6 +3,7 @@ InstagramApp::Application.routes.draw do
 
   get "site/index"
   match 'user' => 'site#user'
+  match 'user/:id' => 'users#show'
   match 'user-info' => 'site#user_info'
   match '/likes/' =>  'users#likes'
   match '/following/' => 'users#following'

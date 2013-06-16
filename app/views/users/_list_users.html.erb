@@ -1,0 +1,4 @@
+<%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
+<% @data["data"].each do |data| %>
+<a href="/user/<%= data['username'] %>"><img src="<%= data["profile_picture"] %>" /></a>
+<% end %>

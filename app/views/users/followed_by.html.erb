@@ -1,6 +1,1 @@
-<%= render :partial => 'user_basic_info', :locals => {:show_follow => true} if params[:id].present? %>
-<div>
-  <% @data["data"].each do |data| %>
-  <a href="/user-info/?id=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" /></a>
-  <% end %>
-</div>
+<%= render :partial => 'list_users' %>
