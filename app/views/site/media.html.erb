@@ -95,15 +95,14 @@
 
   $(document).ready(function(){
     $('#fb-share').click(function(){
-      console.log(1);
       var obj = {
           method: 'feed',
           //redirect_uri: 'http://127.0.0.1:3000',
           link: '<%= request.protocol+request.host_with_port+request.fullpath %>',
           picture: '<%= url %>',
           name: 'Joystagram',
-          caption: 'Instagram Web Viewer',
-          description: '<%= @media["data"]["caption"]["text"] %>'
+          caption: '<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>',
+          description: "Instagram Web Viewer"
         };
       function callback(response) {
           console.log(response);
