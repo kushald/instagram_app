@@ -4,17 +4,22 @@
 <div class="grid_12 omega">
   <div class="popular-text">Popular on Instagram</div>
 </div>
-<button id="refresh-button">refresh</button>
-<div id="image-loader" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
-<%= render 'content' %>
+<div align="center">
+<i class="popular-refresh foundicongen-refresh" id="refresh-feed"></i></div>
+<div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
+<div id="disp">
+  <%= render 'content' %>
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
-    $("#refresh-button").click(function(){
+    $("#refresh-feed").click(function(){
       $("#image-loader").show();
+      $("#disp").addClass("opaque");
       $.ajax({
         url: "/",
         success: function(response) {
           $("#image-loader").hide();
+          $("#disp").removeClass("opaque");
           $("#disp").html(response);
           var dataLength = <%= @data["data"].length %>
           for (var i = 0; i < dataLength; i++) {

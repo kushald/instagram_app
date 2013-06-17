@@ -45,7 +45,6 @@ body {
 .popular-text {
   font-size: 30px;
   text-align: center;
-  margin-bottom: 10px;
 }
 img {
   border-radius: 1.4%;
@@ -99,32 +98,33 @@ a.list_selected {
 .des-bar {
 width: 97%;
 background-color: black;
-height: 69px;
 opacity: 0.8;
 position: relative;
-margin: -74px 1px 1px 1px;
+margin: -82px 1px 0px 1px;
 display: none;
+float: left;
 } 
 
 .bar-font {
-color: white;
-text-align: center;
-font-weight: bold;
+  color: white;
+  text-align: center;
+  font-size: 15px;
 }
 
 #footer {
   height: 60px;
-border-bottom: 1px solid black;
-border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
 }
 
 .circle {
-width: 60px;
-padding: 2em;
-background: black;
-border-radius: 9px 1px;
-height: 60px;
-margin-right: 50px;
+  font-size: 13px;
+  width: 60px;
+  padding: 2em;
+  background: black;
+  border-radius: 9px 1px;
+  height: 60px;
+  margin-right: 50px;
 }
 
 .photos {
@@ -184,8 +184,9 @@ margin-right: 50px;
   text-shadow: 0 -1px 0 #4C9021;
   width: 150px;
 }
-#image-loader {
- margin: 0 44% 5% 50%; 
+
+.opaque {
+  opacity: 0.3;
 }
 
 #relation-follows {
@@ -209,7 +210,7 @@ margin-right: 50px;
 }
 .relation-loader {
   float: right;
-  margin: -22px 100px 0px 0px;
+  margin: -24px 148px 0px 0px;
   display: none;
 }
 #relation-button:hover {
@@ -336,6 +337,66 @@ li {
   margin-left: 14px;
   border-radius: 4px;
   border: 6px solid #DDD;
+}
+
+.social {
+  font-size: 26px;
+  color: #6D84B4;
+  cursor: pointer;
+}
+
+.foundicongen-heart {
+  font-size: 34px;
+  margin-left: 170px;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.foundicongen-heart:hover {
+  color: red;
+}
+
+.foundiconaccess-eyeball {
+  padding-left: 10px;
+  cursor: pointer;
+}
+
+.margin0 {
+  margin: 0;
+}
+
+.foundiconaccess-eyeball:hover {
+  color: #619AB1;
+}
+
+.pin-button {
+  float: left;
+  padding: 5px;
+}
+
+.popular-refresh {
+  font-size: 34px;
+  cursor: pointer;
+}
+
+.popular-refresh:hover {
+  color: #619AB1;
+}
+
+.white {
+  color: white;
+}
+
+.red {
+  color: red;
+}
+
+.font40 {
+  font-size: 40px;
+}
+
+.left {
+  float: left;
 }
 
 ::-webkit-scrollbar {

@@ -1,14 +1,4 @@
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=461403163888029";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
+<div id='fb-root'></div>
 <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
 <div class="grid_12 omega">
   <div class="grid_7 omega">
@@ -18,7 +8,10 @@
   </div>
   <div class="grid_3 omega" style="margin-left: 80px;">
     <div style="font-size: 13px;">
-      <div class="side-panel"><%= @media["data"]["likes"]["count"] %> Likes</div>
+      <div class="side-panel">
+        <i class="foundicongen-heart margin0 <%= "red" if @media["data"]["user_has_liked"] %>"></i>
+        <div><%= @media["data"]["likes"]["count"] %> Likes</div>
+      </div>
       <div class="side-panel"><%= @media["data"]["comments"]["count"] %> Comments</div>
       <% if @media["data"]["filter"].present? %>
         <div class="side-panel">Filter: <%= @media["data"]["filter"] %></div>
@@ -40,7 +33,7 @@
       <% end %>
       </div>
       <div class="side-panel">
-        <div class="like-red" style="margin-left: 80px;"></div>
+        <div style="font-size: 14px;">Likers</div>
         <div>
           <% @media["data"]["likes"]["data"].each do |like| %>
             <a href="/u/<%= like["username"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
@@ -56,15 +49,18 @@
           <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
         </a>
       </div>
-      <div>
+      <div class="pin-button">
         <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
+      </div>
+      <div id="fb-share">
+        <a><i class="social foundicon-facebook"></i></a>
       </div>
   </div>
   <div class="grid_7" style="font-size: 14px;">
     <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
       <% @media["data"]["comments"]["data"].each do |comment| %>
         <div><a href="/u/<%= comment["from"]["username"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
-        <div style="width:575px;height:60px;border-bottom: 1px solid #DDD;font-size: 13px;">
+        <div style="width:575px;min-height:60px;border-bottom: 1px solid #DDD;font-size: 13px;">
           <a href="/u/<%= comment["from"]["username"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
           <div style="font-size: 13px;"><%= comment["text"] %></div>
         </div>
@@ -94,17 +90,25 @@
   </div>
 </div>
 </div>
+<script type="text/javascript">
+  FB.init({appId: "<%= APP_CONFIG["fb_app_id"] %>", status: true, cookie: true});
 
-<!--<%# @media["data"]["comments"]["data"].each do |comment| %>
-  <div style="border-bottom: 1px solid;">
-    <%#if @current_user.present? %>
-      <a href="/user-info/?id=<%#= comment["from"]["id"] %>"><img src="<%#= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
-      <%# else %>
-        <img src="<%#= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
-    <%# end %>
-    <%#= comment["from"]["username"] %>
-    <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%#= comment["text"] %></p>
-  </div>
-<%# end %> -->
-
-
+  $(document).ready(function(){
+    $('#fb-share').click(function(){
+      console.log(1);
+      var obj = {
+          method: 'feed',
+          //redirect_uri: 'http://127.0.0.1:3000',
+          link: '<%= request.protocol+request.host_with_port+request.fullpath %>',
+          picture: '<%= url %>',
+          name: 'Joystagram',
+          caption: 'Instagram Web Viewer',
+          description: '<%= @media["data"]["caption"]["text"] %>'
+        };
+      function callback(response) {
+          console.log(response);
+        }
+      FB.ui(obj, callback);
+    });
+  });
+</script>
