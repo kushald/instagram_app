@@ -41,7 +41,7 @@
             <div class="logout"><a href="/logout">Logout</a></div>
           <% else %>
             <div class="login">
-              <a href="https://instagram.com/oauth/authorize/?client_id=<%= APP_CONFIG['client_id'] %>&redirect_uri=<%= APP_CONFIG['redirect_uri'] %>&response_type=code&scope=likes+comments+relationships">
+              <a href="/login">
                 Login
               </a>
             </div>
@@ -114,6 +114,18 @@
           {
             $(".des-bar").show();
           }, 4000);
+
+        $('#like-as-guest').click(function(){
+          $('#like-as-guest').fancybox({
+            'content' : $.parseHTML("<span>Please Login to Like this Picture</span><br><button class='fancy-button' id='fancy-login' onclick='login();'>Login</button><button class='fancy-button cancel-color' onclick='event.preventDefault(); parent.$.fancybox.close();'>Cancel</button>"),
+            'maxHeight' : 1800
+          });
+        });
+        login = function(){
+          event.preventDefault();
+          parent.$.fancybox.close();
+          window.location.href = '/login';
+        };
       });
       $("#fittext1").fitText();
     </script>

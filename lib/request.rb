@@ -17,10 +17,15 @@ module Request
         'redirect_uri' => APP_CONFIG['redirect_uri'],
         'code' => params[:code]
       }
-    else
+    elsif params[:type] == 'relationship'
       {
         'access_token' => params[:access_token],
         'action' => params[:action]
+      }
+    else
+      {
+        'text' => params[:text],
+        'access_token' => params[:access_token]
       }
     end
   end

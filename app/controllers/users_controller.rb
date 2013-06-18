@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+  
   def show
     id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"]
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{id}/?access_token=#{@current_user.instagram_access_token}")
@@ -52,5 +52,13 @@ class UsersController < ApplicationController
                                     :access_token => @current_user.instagram_access_token)
     #TODO:: Handle error scenarios
     render :json => {}
+  end
+
+  def comment
+    response = Request.post_request(:uri => "https://api.instagram.com/v1/media/#{params[:media_id]}/comments",
+                                    :type => 'comment',
+                                    :text => params[:text],
+                                    :access_token => @current_user.instagram_access_token
+                                   )
   end
 end

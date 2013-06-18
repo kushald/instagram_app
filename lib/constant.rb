@@ -13,5 +13,5 @@ module Constant
                       'amazing', 'blue', 'girls', 'hot', 'baby', 'instagramers', 'black', 'art', 'instalove',
                       'zaynmalik', 'party', 'night', 'best', 'music'
                      ]
-
+  LOGIN_URL = "https://instagram.com/oauth/authorize/?client_id=#{APP_CONFIG['client_id']}&redirect_uri=#{APP_CONFIG['redirect_uri']}&response_type=code&scope=likes+comments+relationships".freeze
 end

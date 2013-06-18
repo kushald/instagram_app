@@ -399,6 +399,60 @@ li {
   float: left;
 }
 
+textarea {
+  width: 100%;
+  border: 1px solid #DDD;
+  border-radius: 4px;
+}
+
+#comment-button {
+  width: 20%;
+  height: 34px;
+  padding: 2px 0 0;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 500;
+  background: #524FA2;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  float: left;
+  margin-top: 4px;
+}
+
+.comment-button:hover {
+  background-color: #3E3B8E;
+}
+
+.fancy-button {
+  width: 30%;
+  height: 34px;
+  padding: 2px 0 0;
+  border: none;
+  border-radius: 6px;
+  box-shadow: none;
+  font-size: 13px;
+  font-weight: 500;
+  background: #524FA2;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  float: left;
+  margin: 18px;
+}
+
+.cancel-color {
+  background: #E53539;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }

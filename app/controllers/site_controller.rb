@@ -1,6 +1,13 @@
 class SiteController < ApplicationController
   include SiteHelper
   require 'net/http'
+
+  before_filter :store_return_to, :only => [:login]
+
+  def login
+    redirect_to Constant::LOGIN_URL
+  end
+
   def index
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
     render :partial => 'content' and return if request.xhr?
@@ -26,6 +33,7 @@ class SiteController < ApplicationController
       )
       cookies["ac"] = {:value => Array.new(10).map { (65 + rand(58)) }.join + "a12b#{@current_user.id}", :expires => Time.now+365.day}
     end
+    redirect_to session[:return_to] if session[:return_to].present? 
     @data = Request.get_request("#{Constant::FEED}?access_token=#{@current_user.instagram_access_token}")
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
   end
@@ -45,5 +53,9 @@ class SiteController < ApplicationController
   def search
     query = params[:q].present? ?  params[:q] : "search"
     @data = Request.get_request("https://api.instagram.com/v1/tags/#{query}/media/recent?access_token=#{@current_user.instagram_access_token}")
+  end
+
+  def store_return_to
+    session[:return_to] = request.referrer
   end
 end
