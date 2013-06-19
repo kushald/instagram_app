@@ -56,6 +56,16 @@
           <img src="<%= @media["data"]["user"]["profile_picture"] %>" style="width: 15%;border-radius: 10px;">
           <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
         </a>
+        <% if params[:id] != @current_user.instagram_id && !@current_user.guest_user %>
+          <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
+            <div class="follow-btn-media">Following</div>
+          <% else %>
+            <div class="follow-btn-media">Follow</div>
+          <% end %>
+            <div class="relation-loader">
+              <img src="/assets/fancybox_loading.gif">
+            </div> 
+        <% end %>
       </div>
       <div class="pin-button">
         <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
@@ -148,6 +158,20 @@
         data: {"media-id" : '<%= @media["data"]["id"] %>'},
         success: function(response) {
           console.log("phew!!!!");
+        }
+      });
+    });
+
+    $("follow-btn-media").click(function(){
+      $(".relation-loader").show();
+      $.ajax({
+        url: "/relationship",
+        type: "POST",
+        data: {instagram_action : "follow", id : "<%= params[:id] %>" },
+        success: function(response) {
+          $(".relation-loader").hide();
+          $("#relation-none").css({"background-color": "#85A32B"});
+          $("#relation-none").text("following");
         }
       });
     });

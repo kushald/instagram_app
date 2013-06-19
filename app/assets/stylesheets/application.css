@@ -453,6 +453,23 @@ textarea {
   background: #E53539;
 }
 
+.follow-btn-media {
+  width: 100px;
+  height: 25px;
+  background: #619AB1;
+  margin: 4px;
+  border-radius: 5px;
+  padding-top: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+img:hover {
+  opacity: 0.9;
+  background-color: #619AB1;
+  -webkit-transition: opacity 0.35s ease-in-out 0s;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }

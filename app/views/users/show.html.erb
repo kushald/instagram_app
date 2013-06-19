@@ -8,7 +8,7 @@
       $.ajax({
         url: "/relationship",
         type: "POST",
-        data: {instagram_action : "follow", id : "<%= params[:id] %>" },
+        data: {instagram_action : "follow", mediaid : "<%= params[:id] %>" },
         success: function(response) {
           $(".relation-loader").hide();
           $("#relation-none").css({"background-color": "#85A32B"});
