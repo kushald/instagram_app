@@ -61,12 +61,17 @@
       $.ajax({
         url: "/like-media",
         type: 'POST',
-        data: {"media-id" : mediaId},
+        data: {"media_id" : mediaId},
         success: function(response) {
           console.log("phew!!!!");
         }
       });
     });
 
+    setTimeout(
+          function() 
+          {
+            $(".des-bar").show();
+          }, 1000);
   });
 </script>

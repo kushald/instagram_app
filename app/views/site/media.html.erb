@@ -155,7 +155,7 @@
       $.ajax({
         url: "/like-media",
         type: 'POST',
-        data: {"media-id" : '<%= @media["data"]["id"] %>'},
+        data: {"media_id" : '<%= @media["data"]["id"] %>'},
         success: function(response) {
           console.log("phew!!!!");
         }

@@ -55,6 +55,11 @@ class SiteController < ApplicationController
     @data = Request.get_request("https://api.instagram.com/v1/tags/#{query}/media/recent?access_token=#{@current_user.instagram_access_token}")
   end
 
+  def pagination
+    @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:next_max_id]}")
+    render :json => {:html => render_to_string(partial: 'content'), :next_max_id => @data["pagination"]["next_max_id"]}
+  end
+
   def store_return_to
     session[:return_to] = request.referrer
   end

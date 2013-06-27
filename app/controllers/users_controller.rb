@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
   def relationship
-    id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"]
+    id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:media_id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"]
     response = Request.post_request(:uri => "https://api.instagram.com/v1/users/#{id}/relationship",
                                     :type => "relationship",
                                     :action => params[:instagram_action],
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def like_media
-    response = Request.post_request(:uri => "https://api.instagram.com/v1/media/#{params["media-id"]}/likes",
+    response = Request.post_request(:uri => "https://api.instagram.com/v1/media/#{params["media_id"]}/likes",
                                     :access_token => @current_user.instagram_access_token)
     #TODO:: Handle error scenarios
     render :json => {}
