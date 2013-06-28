@@ -2,21 +2,31 @@
   <div class="grid_6 omega">
     <div class="image-contain">
       <!--<a  class="fancybox_<%#= i %>" href="<%#= data["images"]["standard_resolution"]["url"] %>" id="detail<%#= i %>" title="<%#= data["caption"]["text"].force_encoding("UTF-8") rescue "" %>"><img src="<%#= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a> -->
-      <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" ></a>
-    </div>
-    <div class="des-bar">
-      <% if @current_user.present? && !@current_user.guest_user %>
-        <% if data['user_has_liked'] %>
-          <div class="foundicongen-heart red"></div>
+      <a href="/media/<%= data["id"] %>">
+        <% if data["type"] == "video" %>
+          <video width="97%" controls>
+            <source src="<%= data["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
+          </video>
         <% else %>
-          <i class="foundicongen-heart white" id="<%= data['id'] %>" data-pos="<%= i %>" data-likes="<%= data["likes"]["count"] %>"></i>
-        <% end %>    
-      <% end %>
-      <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>">
-        <i class="foundiconaccess-eyeball font40 white"></i>
+          <img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:97%" >
+        <% end %>
       </a>
-      <div class="bar-font" id="bar-font-<%= data['id'] %>" like-count="<%= data["likes"]["count"] %>"><%= data["comments"]["count"]  %> Comments <span><%= data["likes"]["count"] %></span> Likes</div>
     </div>
+    <% if data["type"] == "image" %>
+      <div class="des-bar">
+        <% if @current_user.present? && !@current_user.guest_user %>
+          <% if data['user_has_liked'] %>
+            <div class="foundicongen-heart red"></div>
+          <% else %>
+            <i class="foundicongen-heart white" id="<%= data['id'] %>" data-pos="<%= i %>" data-likes="<%= data["likes"]["count"] %>"></i>
+          <% end %>    
+        <% end %>
+        <a  class="fancybox_<%= i %>" href="<%= data["images"]["standard_resolution"]["url"] %>" id="detail<%= i %>">
+          <i class="foundiconaccess-eyeball font40 white"></i>
+        </a>
+        <div class="bar-font" id="bar-font-<%= data['id'] %>" like-count="<%= data["likes"]["count"] %>"><%= data["comments"]["count"]  %> Comments <span><%= data["likes"]["count"] %></span> Likes</div>
+      </div>
+    <% end %>
     <div id="someHtml_<%= i %>" style="display:none;">
       <img class="ri" src="<%= data["images"]["standard_resolution"]["url"] %>" >
       <!-- <%#= data["caption"]["text"].force_encoding("UTF-8") rescue "" %> -->

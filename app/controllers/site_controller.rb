@@ -10,6 +10,7 @@ class SiteController < ApplicationController
 
   def index
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
+    @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]]} rescue []
     render :partial => 'content' and return if request.xhr?
   end
 

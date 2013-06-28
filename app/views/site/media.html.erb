@@ -3,7 +3,13 @@
 <div class="grid_12 omega">
   <div class="grid_7 omega">
     <div class="single-image">
-      <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" style="width:99%;">
+      <% if @media["data"]["type"] == "video" %>
+        <video width="99%" controls>
+          <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
+        </video>
+      <% else %>
+        <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" style="width:99%;">
+      <% end %>
     </div>
   </div>
   <div class="grid_3 omega" style="margin-left: 80px;">

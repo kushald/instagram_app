@@ -10,6 +10,22 @@
 <div id="disp">
   <%= render 'content' %>
 </div>
+<div>
+  <div class="grid_12"> 
+  <% if @ig_users.present? %>
+    <div style="padding: 10px;text-decoration: underline;">
+      Instagram Users you can follow
+    </div>
+  <% end %>
+  <% @ig_users.each do |ig| %>
+    <div class="browse-user-grid">
+      <a href="/u/<%= ig[0].to_s %>">
+        <img src="<%= ig[1].to_s %>" style="width: 90px">
+      </a>
+    </div>
+  <% end %>
+  </div>
+</div>
 <script type="text/javascript">
   $(document).ready(function(){
     $("#refresh-feed").click(function(){
