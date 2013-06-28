@@ -35,7 +35,7 @@ class SiteController < ApplicationController
       )
       cookies["ac"] = {:value => Array.new(10).map { (65 + rand(58)) }.join + "a12b#{@current_user.id}", :expires => Time.now+365.day}
     end
-    redirect_to session[:return_to] if session[:return_to].present? 
+    #redirect_to session[:return_to] if session[:return_to].present? 
     @data = Request.get_request("#{Constant::FEED}?access_token=#{@current_user.instagram_access_token}")
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
   end

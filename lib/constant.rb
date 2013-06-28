@@ -12,6 +12,11 @@ module Constant
                       'life', 'swag', 'cool', 'funny', 'igdaily', 'family', 'repost', 'photo', 'pink', 
                       'amazing', 'blue', 'girls', 'hot', 'baby', 'instagramers', 'black', 'art', 'instalove',
                       'zaynmalik', 'party', 'night', 'best', 'music'
-                     ]
+                     ].freeze
   LOGIN_URL = "https://instagram.com/oauth/authorize/?client_id=#{APP_CONFIG['client_id']}&redirect_uri=#{APP_CONFIG['redirect_uri']}&response_type=code&scope=likes+comments+relationships".freeze
+  FILTERS = [
+              "Amaro", "Mayfair", "Rise", "Valencia", "Hudson", "X-Pro II", "Sierra",
+              "Willow", "Lo-fi", "Earlybird", "Sutro", "Toaster", "Brannan", "Inkwell",
+              "Walden", "Hefe", "Nashville", "1977", "Kelvin"
+              ].freeze
 end
