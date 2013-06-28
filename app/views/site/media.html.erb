@@ -162,16 +162,16 @@
       });
     });
 
-    $("follow-btn-media").click(function(){
-      $(".relation-loader").show();
+    $(".follow-btn-media").click(function(){
+      $(".follow-btn-media").css({"opacity": "0.6"});
       $.ajax({
         url: "/relationship",
         type: "POST",
-        data: {instagram_action : "follow", id : "<%= params[:id] %>" },
+        data: {instagram_action : "follow", media_id : "<%= @media["data"]["user"]["username"] %>" },
         success: function(response) {
-          $(".relation-loader").hide();
-          $("#relation-none").css({"background-color": "#85A32B"});
-          $("#relation-none").text("following");
+          $(".follow-btn-media").css({"background-color": "#85A32B"});
+          $(".follow-btn-media").text("following");
+          $(".follow-btn-media").css({"opacity": "1"});
         }
       });
     });
