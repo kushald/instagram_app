@@ -62,7 +62,11 @@ ul.nav {
 .nav li {
   float: left;
   list-style: none;
-  margin-right: 150px;
+  margin-right: 127px;
+}
+
+.about li {
+  list-style: square;
 }
 
 .login a {

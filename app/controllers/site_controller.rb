@@ -66,6 +66,9 @@ class SiteController < ApplicationController
     render :json => {:html => render_to_string(partial: 'content'), :next_max_id => @data["pagination"]["next_max_id"]}
   end
 
+  def about
+  end
+
   def store_return_to
     session[:return_to] = request.referrer
   end

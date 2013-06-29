@@ -18,6 +18,7 @@ InstagramApp::Application.routes.draw do
   match '/comment/' => 'users#comment'
   match '/login' => 'site#login'
   match '/pagination' => 'site#pagination'
+  match '/about' => 'site#about'
   # ------TAGS---------
   match '/tags' => 'tags#index'
   match '/tag/:id' => 'tags#show'
