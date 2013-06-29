@@ -5,7 +5,7 @@
 <div id="wrapper">
   <ul id="my-list">
     <% Constant::POPULAR_HASHTAGS.each_with_index do |tag,i| %>
-      <li style="background: <%= tag_color %>;"><a href='/tag/<%= tag %>'><%= "#{i+1}.#{tag}" %></a></li>
+      <a href='/tag/<%= tag %>'><li style="background: <%= tag_color %>;"><%= "#{i+1}.#{tag}" %></li></a>
     <% end %>
   </ul>
 </div>
