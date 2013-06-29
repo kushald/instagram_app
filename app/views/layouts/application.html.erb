@@ -29,27 +29,10 @@
   </head>
   <body>
     <div class="container clearfix">
-      <div class="grid_12">
-        <div class="grid_8 logo" id="fittext1"><a href="/">Joystagram</a></div>
-        <div class="grid_4 omega">
-          <% if @current_user.present? && !@current_user.guest_user %>
-            <a href="/user">
-              <img src="<%= @current_user.instagram_image %>" class="logged-in" style="
-    height: 113px;" >
-            </a>
-            <div class="logout"><a href="/logout">Logout</a></div>
-          <% else %>
-            <div class="login">
-              <a href="/login">
-                Login
-              </a>
-            </div>
-          <% end %>
-        </div>
-      </div>
       <% if @current_user.present? %>
-        <div class="grid_12">
+        <div class="grid_12" style="margin-top: -14px;">
           <ul class="nav">
+            <li class="logo" style="margin-top: 5px;"><a href="/">Joystagram</a></li>
             <li><a class="<%= "list_selected" if params[:action] == "/" %>" href="/">Popular</a></li>
             <% if !@current_user.guest_user %>
               <li><a class="<%= "list_selected" if params[:action] == "user" %>" href="/user">Feeds</a></li>
@@ -59,6 +42,16 @@
             <li><a href="/nearby">Local</a></li>
             <li><a href="/search">Search</a></li>
             <li><a href="/about">About</a></li>
+            <li>
+              <% if @current_user.present? && !@current_user.guest_user %>
+              <div style="color:white;float:left;">
+                <a href="/user"><img src="<%= @current_user.instagram_image %>" style="width: 63px;margin: -30px 0px 0px 72px;border-radius: 64px;"></a>
+                <div style="margin:-2px 0px 0px 80px;"><a href="/logout">Logout</a></div>
+              </div>
+              <% else %>
+                <a href="/login" class="login"><img src="/assets/Instagram_Icon.png" style="width:37px;margin:-9px 7px -14px -10px;">Sign In with Instagram</a>
+              <% end %>
+          </li>
           </ul>
         </div>
       <% end %>
@@ -89,6 +82,13 @@
           src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
         </script>
       </div>
+      <footer>
+        <div class="grid_12">
+          <div class="foot">
+            Joystagram uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on Joystagram are property of Instagram, Inc.
+          </div>
+        </div>             
+      </footer>
       <!--<div class="grid_12">
           <ul class="nav">
             <li><a href="#">Blog</a></li>
