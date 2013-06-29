@@ -1,5 +1,9 @@
-<%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
-<%= render '/site/content' %>
+<% if @user_info["meta"]["error_type"].present? %>
+  <h2 style="color:red;margin-left:240px;">Sorry this is a private User</h2>
+<% else %>
+  <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
+  <%= render '/site/content' %>
+<% end %>
 
 <script type="text/javascript">
   $(document).ready(function(){

@@ -10,7 +10,7 @@ class SiteController < ApplicationController
 
   def index
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
-    @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]]} rescue []
+    @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]] if d["caption"].present?}.compact rescue []
     render :partial => 'content' and return if request.xhr?
   end
 
@@ -35,7 +35,11 @@ class SiteController < ApplicationController
       )
       cookies["ac"] = {:value => Array.new(10).map { (65 + rand(58)) }.join + "a12b#{@current_user.id}", :expires => Time.now+365.day}
     end
-    #redirect_to session[:return_to] if session[:return_to].present? 
+    if session[:return_to].present? 
+      redirect = session[:return_to]
+      session[:return_to] = NIL 
+      redirect_to redirect
+    end
     @data = Request.get_request("#{Constant::FEED}?access_token=#{@current_user.instagram_access_token}")
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
   end
