@@ -9,6 +9,11 @@ class SiteController < ApplicationController
   end
 
   def index
+    @interesting_users = InterestingUser.all.index_by(&:instagram_user_id)
+    @interesting_user_posts = InterestingUserPost.all.shuffle.group_by(&:instagram_user_id)
+  end
+
+  def popular
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
     @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]] if d["caption"].present?}.compact rescue []
     render :partial => 'content' and return if request.xhr?

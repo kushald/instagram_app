@@ -1,0 +1,2 @@
+class InterestingUserPostsController < ApplicationController
+end

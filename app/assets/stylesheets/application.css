@@ -42,8 +42,10 @@ body {
 }
 
 .popular-text {
-  font-size: 30px;
+  font-size: 26px;
   text-align: center;
+  text-decoration: underline;
+  margin-bottom: 30px;
 }
 img {
   border-radius: 1.4%;
@@ -61,7 +63,7 @@ ul.nav {
 .nav li {
   float: left;
   list-style: none;
-  margin: 30px 54px 0px 0px;
+  margin: 30px 38px 0px 0px;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
@@ -494,6 +496,9 @@ img:hover {
   font-size: 12px;
 }
 
+.explore {
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -528,4 +533,10 @@ img:hover {
 @media (max-width:40em) {
     table, thead, tbody, tfoot, th, td, tr { display:block; }
     tr + tr { margin-top:1em; }
+    a {
+        color: #357660;
+      }
+    .popular-text {
+      margin-top: 20px;
+    }
 }

@@ -19,9 +19,15 @@ InstagramApp::Application.routes.draw do
   match '/login' => 'site#login'
   match '/pagination' => 'site#pagination'
   match '/about' => 'site#about'
+  match '/popular' => 'site#popular'
   # ------TAGS---------
   match '/tags' => 'tags#index'
   match '/tag/:id' => 'tags#show'
+
+  # ------InterestingUser ----------
+  
+
+  # ------InterestingUserPost ----------
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

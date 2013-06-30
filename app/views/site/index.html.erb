@@ -1,59 +1,15 @@
-<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
-<% meta_description "Joystagram - Instagram Web Viewer where you can like and comment." %>
-<h1><%=h content_for(:title, "Joystagram - Instagram Web Viewer") %></h1>
-<div>
-  <div class="grid_12"> 
-  <% if @ig_users.present? %>
-    <div class="head-des">
-      Instagram Users who made it to popular list
+<div class="popular-text">Explore Instagram Users</div>
+  <div class="grid_12">
+    <% @interesting_user_posts.each do |user_id,user_posts| %>
+      <div class="explore">
+        <div align="center" style="margin: 50px 0px;">
+          <a href="/u/<%= @interesting_users[user_id].instagram_username %>" style="color: #202020;"><img src="<%= @interesting_users[user_id].instagram_profile_picture %>" style="border: 1px solid #202020;"><br>
+          <%= @interesting_users[user_id].instagram_username %></a>
+        </div>
+        <div>  
+          <% user_posts[0..5].each do |post| %>
+            <a href="/media/<%= post.media_id %>"><img src="<%= post.image_low %>" style="border: 2px solid #202020;"></a>
+          <% end %>   
+      </div> 
     </div>
-  <% end %>
-  <% @ig_users.each do |ig| %>
-    <div class="browse-user-grid">
-      <a href="/u/<%= ig[0].to_s %>">
-        <img src="<%= ig[1].to_s %>" style="width: 90px">
-      </a>
-    </div>
-  <% end %>
-  </div>
-</div>
-<div class="grid_12 omega">
-  <div class="popular-text">Popular on Instagram</div>
-</div>
-<div align="center">
-<i class="popular-refresh foundicongen-refresh" id="refresh-feed"></i></div>
-<div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
-<div id="disp">
-  <%= render 'content' %>
-</div>
-<div class="head-des">Instagram Filters</div>
-<ul id="my-list">
-  <% Constant::FILTERS.each_with_index do |tag,i| %>
-    <a href='/tag/<%= tag %>'><li style="background: <%= tag_color %>;"><%= "#{i+1}.#{tag}" %></li></a>
-  <% end %>
-</ul>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#refresh-feed").click(function(){
-      $("#image-loader").show();
-      $("#disp").addClass("opaque");
-      $.ajax({
-        url: "/",
-        success: function(response) {
-          $("#image-loader").hide();
-          $("#disp").removeClass("opaque");
-          $("#disp").html(response);
-          var dataLength = <%= @data["data"].length %>
-          for (var i = 0; i < dataLength; i++) {
-            var content = $('#someHtml_'+i).html();
-            $(".fancybox_"+i).fancybox({
-              'content': content,
-              'maxHeight' : 1800
-            });
-          };
-        }
-      });
-    });
-  });
-
-</script>
+    <% end %>

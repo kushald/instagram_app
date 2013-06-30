@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201014540) do
+ActiveRecord::Schema.define(:version => 20130630031836) do
+
+  create_table "interesting_user_posts", :force => true do |t|
+    t.string   "instagram_user_id"
+    t.string   "media_id"
+    t.string   "image_standard"
+    t.string   "image_low"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
+
+  create_table "interesting_users", :force => true do |t|
+    t.string   "instagram_user_id"
+    t.string   "instagram_profile_picture"
+    t.string   "instagram_username"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "instagram_email"

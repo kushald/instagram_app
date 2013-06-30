@@ -33,7 +33,7 @@
         <div class="grid_12" style="margin-top: -14px;">
           <ul class="nav">
             <li class="logo" style="margin-top: 5px;"><a href="/">Joystagram</a></li>
-            <li><a class="<%= "list_selected" if params[:action] == "/" %>" href="/">Popular</a></li>
+            <li><a class="<%= "list_selected" if params[:action] == "/" %>" href="/popular">Popular</a></li>
             <% if !@current_user.guest_user %>
               <li><a class="<%= "list_selected" if params[:action] == "user" %>" href="/user">Feeds</a></li>
             <% else %>

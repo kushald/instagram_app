@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  instagram_user_id: MyString
+  media_id: MyString
+  image_standard: MyString
+  image_low: MyString
+
+two:
+  instagram_user_id: MyString
+  media_id: MyString
+  image_standard: MyString
+  image_low: MyString
