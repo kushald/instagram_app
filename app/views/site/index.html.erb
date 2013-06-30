@@ -7,8 +7,8 @@
           <%= @interesting_users[user_id].instagram_username %></a>
         </div>
         <div>  
-          <% user_posts[0..5].each do |post| %>
-            <a href="/media/<%= post.media_id %>"><img src="<%= post.image_low %>" style="border: 2px solid #202020;"></a>
+          <% user_posts[0..8].each do |post| %>
+            <a href="/media/<%= post.media_id %>"><img src="<%= post.image_low %>" style="border: 2px solid #202020;margin:-2px;border-radius:0px;"></a>
           <% end %>   
       </div> 
     </div>

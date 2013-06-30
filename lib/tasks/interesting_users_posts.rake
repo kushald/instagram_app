@@ -12,6 +12,6 @@ task :interesting_users_posts => :environment do
                                   :image_low => d["images"]["low_resolution"]["url"])
     end
     puts "==========================id #{id} entry created"
-    sleep 20
+    sleep 60
   end
 end 
