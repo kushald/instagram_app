@@ -9,8 +9,7 @@ class SiteController < ApplicationController
   end
 
   def index
-    redirect_to "/popular"
-    @interesting_users = InterestingUser.all.sample(10).index_by(&:instagram_user_id)
+    @interesting_users = InterestingUser.all.sample(14).index_by(&:instagram_user_id)
     #redirect_to "/popular" if @interesting_users.blank?
     @interesting_user_posts = InterestingUserPost.where(:instagram_user_id => @interesting_users.keys).all.shuffle.group_by(&:instagram_user_id)
   end
