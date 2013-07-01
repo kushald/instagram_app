@@ -44,8 +44,8 @@ body {
 .popular-text {
   font-size: 26px;
   text-align: center;
-  text-decoration: underline;
-  margin-bottom: 30px;
+  text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: 12px;
 }
 img {
   border-radius: 1.4%;

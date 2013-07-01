@@ -111,12 +111,12 @@
         <% end %>
       </div>
       <div class="browse-more" style="margin-top: 16px;">
-        <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">Browse more by <br><a href="/" style="color: #619AB1;">Popular</a></div>
+        <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">More uploads <br><a href="/" style="color: #619AB1;">Explore</a></div>
       </div>
       <div>
         <% @browse_popular.each do |media| %>
           <div class="browse-user-grid">
-            <a href="/media/<%= media["id"] %>"><img src="<%= media["images"]["thumbnail"]["url"] %>" %></a>
+            <a href="/media/<%= media.media_id %>"><img src="<%= media.image_low %>" %></a>
           </div>
         <% end %>
       </div>

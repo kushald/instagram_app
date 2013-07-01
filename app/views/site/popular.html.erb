@@ -1,6 +1,21 @@
 <% meta_keywords "joystagram, joystagram.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joystagram - Instagram Web Viewer where you can like and comment." %>
 <h1><%=h content_for(:title, "Joystagram - Instagram Web Viewer") %></h1>
+<div class="grid_12 omega">
+  <div class="popular-text">Popular on Instagram</div>
+</div>
+<div align="center">
+<i class="popular-refresh foundicongen-refresh" id="refresh-feed"></i></div>
+<div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
+<div id="disp">
+  <%= render 'content' %>
+</div>
+<div class="head-des">Instagram Filters</div>
+<ul id="my-list">
+  <% Constant::FILTERS.each_with_index do |tag,i| %>
+    <a href='/tag/<%= tag %>'><li style="background: <%= tag_color %>;"><%= "#{i+1}.#{tag}" %></li></a>
+  <% end %>
+</ul>
 <div>
   <div class="grid_12"> 
   <% if @ig_users.present? %>
@@ -17,28 +32,13 @@
   <% end %>
   </div>
 </div>
-<div class="grid_12 omega">
-  <div class="popular-text">Popular on Instagram</div>
-</div>
-<div align="center">
-<i class="popular-refresh foundicongen-refresh" id="refresh-feed"></i></div>
-<div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
-<div id="disp">
-  <%= render 'content' %>
-</div>
-<div class="head-des">Instagram Filters</div>
-<ul id="my-list">
-  <% Constant::FILTERS.each_with_index do |tag,i| %>
-    <a href='/tag/<%= tag %>'><li style="background: <%= tag_color %>;"><%= "#{i+1}.#{tag}" %></li></a>
-  <% end %>
-</ul>
 <script type="text/javascript">
   $(document).ready(function(){
     $("#refresh-feed").click(function(){
       $("#image-loader").show();
       $("#disp").addClass("opaque");
       $.ajax({
-        url: "/",
+        url: "/popular",
         success: function(response) {
           $("#image-loader").hide();
           $("#disp").removeClass("opaque");
