@@ -23,10 +23,12 @@ class SiteController < ApplicationController
   def media
     #Get the details for specified media
     @media = Request.get_request("https://api.instagram.com/v1/media/#{params[:id]}?access_token=#{@current_user.instagram_access_token}")
-    @user_id = @media["data"]["user"]["username"]
-    @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}")["data"][0..5]
-    @browse_popular = Request.get_request("#{Constant::POPULAR}?client_id=#{APP_CONFIG['client_id']}")["data"][0..5]
-    @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
+    if @media["data"].present?
+      @user_id = @media["data"]["user"]["username"]
+      @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}")["data"][0..5]
+      @browse_popular = Request.get_request("#{Constant::POPULAR}?client_id=#{APP_CONFIG['client_id']}")["data"][0..5]
+      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
+    end
   end
 
   def user

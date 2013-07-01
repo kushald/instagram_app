@@ -496,7 +496,9 @@ img:hover {
   font-size: 12px;
 }
 
-.explore {
+.error {
+  color:#E53539;
+  text-align: center;
 }
 
 ::-webkit-scrollbar {

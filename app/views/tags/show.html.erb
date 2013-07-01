@@ -1,5 +1,9 @@
 <% meta_keywords "Joystagram - Instagram Photos Tagged with ##{params[:id].to_s}, #{params[:id].to_s}, #{params[:id].to_s} instagram photos, instagram photos for tag #{params[:id].to_s}, #{params[:id].to_s} popular photos on instagram" %>
 <% meta_description "Joystagram - Instagram Photos Tagged with ##{params[:id].to_s}" %>
 <h1><%=h content_for(:title, "Joystagram - Instagram Photos Tagged with ##{params[:id].to_s}") %></h1>
-<div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
-<%= render '/site/content' %>
+<% if @data["meta"]["error_message"].present? %>
+  <h3 class="error">This tag cannot be viewed</h3>
+<% else %>
+  <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
+  <%= render '/site/content' %>
+<% end %>
