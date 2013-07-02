@@ -506,6 +506,7 @@ img:hover {
 .error {
   color:#E53539;
   text-align: center;
+  margin: 150px;
 }
 
 .go-top {

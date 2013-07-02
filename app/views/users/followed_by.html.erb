@@ -1,1 +1,5 @@
-<%= render :partial => 'list_users' %>
+<% if @data.blank? %>
+  <h3 class="error"><%= @user_info["meta"]["error_message"] %></h3>
+<% else %>
+  <%= render :partial => 'list_users' %>
+<% end %>
