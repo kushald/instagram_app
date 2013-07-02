@@ -479,11 +479,18 @@ img:hover {
 
 #load-more {
   margin-left: 400px;
-  background: #99B73F;
+  background: rgba(0,0,0,0.6);
   color: white;
   text-align: center;
   padding: 7px;
-  cursor: pointer;
+}
+
+.older-content {
+  margin-left: 10px;
+}
+
+#load-more:hover {
+  background-color: #202020;
 }
 
 .head-des {
@@ -499,6 +506,22 @@ img:hover {
 .error {
   color:#E53539;
   text-align: center;
+}
+
+.go-top {
+  position: fixed;
+  bottom: 2em;
+  right: 2em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  padding: 1em;
+  display: none;
+}
+
+.go-top:hover {
+  background-color: #202020;
 }
 
 ::-webkit-scrollbar {

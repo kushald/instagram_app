@@ -10,7 +10,7 @@
     <meta charset="utf-8" />
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <%= javascript_include_tag "jquery.fancybox.pack", "jquery.fancybox-thumbs", "jquery.fittext" %>
+    <%= javascript_include_tag "jquery.fancybox.pack", "jquery.fancybox-thumbs", "jquery.fittext", "sly.min.js" %>
     <link href='http://fonts.googleapis.com/css?family=Meie+Script' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
     <%= csrf_meta_tags %>
@@ -66,7 +66,7 @@
           ch_color_title = "FFFFFF";
           ch_color_border = "FFFFFF";
           ch_color_text = "FFFFFF";
-          ch_color_bg = "32A28B";
+          ch_color_bg = "455C83";
           </script>
           <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
         </script>
@@ -110,7 +110,8 @@ ch_color_bg = "FFFFFF";
           <div class="foot">
             Joystagram uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on Joystagram are property of Instagram, Inc.
           </div>
-        </div> 
+        </div>
+        <a href="#" class="go-top">Scroll to Top</a> 
       </footer>
       <!--<div class="grid_12">
           <ul class="nav">
@@ -150,6 +151,22 @@ ch_color_bg = "FFFFFF";
           parent.$.fancybox.close();
           window.location.href = '/login';
         };
+
+        $(window).scroll(function() {
+          if ($(this).scrollTop() > 200) {
+            $('.go-top').fadeIn(200);
+          } else {
+            $('.go-top').fadeOut(200);
+          }
+        });
+      
+        // Animate the scroll to top
+        $('.go-top').click(function(event) {
+          event.preventDefault();
+          
+          $('html, body').animate({scrollTop: 0}, 300);
+        })
+
       });
       $("#fittext1").fitText();
     </script>

@@ -13,18 +13,5 @@
     <div class="popular-text">Search result for "<%= params[:q] %>"</div>
   <% end %>
 </div>
-<div align="center" class="grid_12 omega search" style="margin:19px;">
-  <form action="http://www.google.com" id="cse-search-box">
-    <div>
-      <input type="hidden" name="cx" value="partner-pub-5459412814593708:8563482872" />
-      <input type="hidden" name="ie" value="UTF-8" />
-      <input type="text" name="q" size="55" />
-      <input type="submit" name="sa" value="Search" />
-    </div>
-  </form>
-</div>
-
-<script type="text/javascript" src="http://www.google.com/coop/cse/brand?form=cse-search-box&amp;lang=en"></script>
-
 
 <%= render '/site/content' if params[:q].present? && params[:q] != 'search' %>

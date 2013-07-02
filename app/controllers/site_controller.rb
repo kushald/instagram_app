@@ -9,7 +9,7 @@ class SiteController < ApplicationController
   end
 
   def index
-    @interesting_users = InterestingUser.all.sample(14).index_by(&:instagram_user_id)
+    @interesting_users = InterestingUser.all.sample(10).index_by(&:instagram_user_id)
     #redirect_to "/popular" if @interesting_users.blank?
     @interesting_user_posts = InterestingUserPost.where(:instagram_user_id => @interesting_users.keys).all.shuffle.group_by(&:instagram_user_id)
   end
@@ -48,29 +48,29 @@ class SiteController < ApplicationController
       session[:return_to] = NIL 
       redirect_to redirect
     end
-    @data = Request.get_request("#{Constant::FEED}?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("#{Constant::FEED}?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
   end
 
   def user_info
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/?access_token=#{@current_user.instagram_access_token}")
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
     @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}")
   end
 
   def geo_tag_content
     location = Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip).city || 'Belgaum'
-    @data = Request.get_request("https://api.instagram.com/v1/tags/#{location}/media/recent?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/tags/#{location}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
     render '/users/likes' and return
   end
 
   def search
     query = params[:q].present? ?  params[:q] : "search"
-    @data = Request.get_request("https://api.instagram.com/v1/tags/#{query}/media/recent?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/tags/#{query}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
   end
 
   def pagination
-    @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:next_max_id]}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}")
     render :json => {:html => render_to_string(partial: 'content'), :next_max_id => @data["pagination"]["next_max_id"]}
   end
 

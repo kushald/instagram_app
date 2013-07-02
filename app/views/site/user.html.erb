@@ -1,26 +1,5 @@
 <h1><%=h content_for(:title, "Joystagram - #{@user_info["data"]["instagram_username"]}") %></h1>
-<div id="next_max_id" val="<%= @data["pagination"]["next_max_id"] %>"></div>
 <%= render '/users/user_basic_info' %>
 <div id="wrapper">
   <%= render 'content' %>
 </div>
-<div id="load-more" class="grid_2" style="margin-left: 410px;">
-  Load More<img src="/assets/fancybox_loading.gif" style="margin: 1px 0px -7px 7px;display: none;">
-</div>
-<script type="text/javascript">
-  $(document).ready(function(){
-    $('#load-more').click(function(){
-      $('#load-more').css("opacity","0.6");
-      $.ajax({
-        url: '/pagination',
-        type: 'GET',
-        data: {next_max_id : $('#next_max_id').attr('val')},
-        success: function(response){
-          $('#wrapper').append(response["html"]);
-          $('#next_max_id').attr('val',response["next_max_id"]);
-          $('#load-more').css("opacity","1");
-        }
-      });
-    });
-  });
-</script>
