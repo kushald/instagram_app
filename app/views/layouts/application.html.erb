@@ -14,7 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Meie+Script' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
     <%= csrf_meta_tags %>
-    <% if Rails.env.production? || (@current_user.present? && @current_user.instagram_id != "52093116") %>
+    <% if Rails.env.production? && (@current_user.present? && @current_user.instagram_id != "52093116") %>
       <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-41627186-1']);
