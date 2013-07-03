@@ -14,7 +14,7 @@
     <link href='http://fonts.googleapis.com/css?family=Meie+Script' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale = 1.0">
     <%= csrf_meta_tags %>
-    <%# if Rails.env.production? %>
+    <% if Rails.env.production? || (@current_user.present? && @current_user.instagram_id != "52093116") %>
       <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-41627186-1']);
@@ -26,7 +26,7 @@
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
       </script>
-    <%# end %>
+    <% end %>
   <script src='http://connect.facebook.net/en_US/all.js'></script>
   </head>
   <body>
@@ -74,7 +74,7 @@
         </script>
       </div>
       <%= yield %>
-      <div class="grid_5" style="margin-left: 80px;">
+      <div class="grid_5" style="margin: 40px;">
         <script type="text/javascript">
 ch_client = "kushz19";
 ch_width = 300;
@@ -91,7 +91,7 @@ ch_color_bg = "FFFFFF";
 </script>
 </script>
       </div>
-      <div class="grid_5">
+      <div class="grid_5" style="margin: 40px;">
         <script type="text/javascript">
 ch_client = "kushz19";
 ch_width = 300;
