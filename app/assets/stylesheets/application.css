@@ -394,6 +394,12 @@ li {
   float: left;
 }
 
+.browse-more-auth {
+  border-bottom: 1px solid #DDD;
+  text-align: center;
+  font-size: 15px;
+}
+
 .browse-user-grid {
   float: left;
 }
@@ -536,12 +542,34 @@ img:hover {
 }
 
 #load-more {
-  margin-left: 400px;
+  margin-left: 40%;
   background: rgba(0,0,0,0.6);
   color: white;
   text-align: center;
   padding: 7px;
 }
+
+.media-img {
+  width:99%;
+  min-width: 280px;
+}
+
+.media-info {
+  margin-left: 80px;
+}
+
+.media-author {
+  width: 15%;
+  border-radius: 10px;
+}
+
+.media-comment {
+  width:575px;
+  min-height:60px;
+  border-bottom: 1px solid #DDD;
+  font-size: 13px;
+}
+
 
 .older-content {
   margin-left: 10px;
@@ -625,9 +653,6 @@ img:hover {
 @media (max-width:40em) {
     table, thead, tbody, tfoot, th, td, tr { display:block; }
     tr + tr { margin-top:1em; }
-    a {
-        color: #357660;
-      }
     .popular-text {
       margin-top: 20px;
     }
@@ -656,6 +681,28 @@ img:hover {
       width: 100%;
       text-indent: 25px;
     }
+
+    .media-author {
+    min-width: 80px;
+  }
+
+  .side-panel {
+    min-width: 230px;
+    margin-left: -40px;
+  }
+  .single-image {
+    min-width: 280px;
+    background-color: #202020;
+    padding: 8px;
+  }
+
+  .media-info {
+    width: 100%;
+  }
+
+  .media-comment {
+    width: 250px;
+  }
 }
 
 @media only screen and (max-width : 320px) {
@@ -672,4 +719,27 @@ img:hover {
   nav li a {
     border-bottom: 1px solid #576979;
   }
+
+  .side-panel {
+    margin-left: -100%;
+  }
+
+  .media-comment {
+    width: 100px;
+  }
+
+}
+@media screen and (max-width: 850px) {
+  .media-comment {
+    width: 180px;
+    margin: 7px;
+  }
+
+  .browse-more {
+    margin-left: -50px;
+  }
+  .chitka-btm {
+    display: none;
+  }
+
 }

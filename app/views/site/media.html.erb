@@ -11,7 +11,7 @@
             <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
           </video>
         <% else %>
-          <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" style="width:99%;">
+          <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="media-img">
         <% end %>
       </div>
     </div>
@@ -62,7 +62,7 @@
     <div class="uploader">      
         <div align="center">
           <a href="/u/<%= @user_id %>">
-            <img src="<%= @media["data"]["user"]["profile_picture"] %>" style="width: 15%;border-radius: 10px;">
+            <img src="<%= @media["data"]["user"]["profile_picture"] %>" class="media-author">
             <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
           </a>
           <% if params[:id] != @current_user.instagram_id && !@current_user.guest_user %>
@@ -87,7 +87,7 @@
       <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
       <% @media["data"]["comments"]["data"].each do |comment| %>
         <div><a href="/u/<%= comment["from"]["username"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
-        <div style="width:575px;min-height:60px;border-bottom: 1px solid #DDD;font-size: 13px;">
+        <div class="media-comment">
           <a href="/u/<%= comment["from"]["username"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
           <div style="font-size: 13px;"><%= comment["text"] %></div>
         </div>
@@ -101,7 +101,7 @@
     </div>
     <div class="grid_3" style="margin: 0px 10px 154px 40px;">
       <div class="browse-more">
-        <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">Browse more by <br><a href="/u/<%= @user_id %>" style="color: #619AB1;"><%= @media["data"]["user"]["username"] %></a></div>
+        <div class="browse-more-auth">Browse more by <br><a href="/u/<%= @user_id %>" style="color: #619AB1;"><%= @media["data"]["user"]["username"] %></a></div>
       </div>
       <div>
         <% @browse_user.each do |media| %>
