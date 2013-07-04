@@ -43,7 +43,7 @@ class SiteController < ApplicationController
       )
       cookies["ac"] = {:value => Array.new(10).map { (65 + rand(58)) }.join + "a12b#{@current_user.id}", :expires => Time.now+365.day}
     end
-    if session[:return_to].present? 
+    if session[:return_to].present? && session[:return_to].index("media")
       redirect = session[:return_to]
       session[:return_to] = NIL 
       redirect_to redirect
