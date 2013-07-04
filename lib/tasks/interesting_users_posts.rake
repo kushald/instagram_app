@@ -18,6 +18,7 @@ end
 
 task :update_interesting_user_posts => :environment do 
   interesting_users = InterestingUser.all.collect(&:instagram_user_id)
+  p interesting_users.inspect
   data = NIL
   interesting_users.each do |id|
   begin
@@ -35,8 +36,8 @@ task :update_interesting_user_posts => :environment do
                                   :image_standard => d["images"]["standard_resolution"]["url"],
                                   :image_low => d["images"]["low_resolution"]["url"])
       puts "----------------------post for id #{id} created"
-    end
-    InterestingUserPost.where(:instagram_user_id => delete_ids).delete_all  
+     end
+    InterestingUserPost.where(:id => delete_ids).delete_all  
     sleep 20
   end
 end
