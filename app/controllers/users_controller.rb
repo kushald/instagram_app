@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
   
+  def joystagrammers
+    @users = User.all
+  end
   def show
     id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"] rescue []
     if id.present?    
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
   def following
     instagram_id = params["id"] || @current_user.instagram_id
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/follows?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/follows?access_token=#{@current_user.instagram_access_token}&cursor=#{params[:cursor]}")
     @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}")
   end
 
@@ -26,8 +29,8 @@ class UsersController < ApplicationController
     instagram_id = params["id"] || @current_user.instagram_id
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
     if @user_info["data"].present?
-      @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}")
-      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}")
+      @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}&cursor=#{params[:cursor]}")
+      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/relationship?access_token=#{@current_user.instagram_access_token}")
     end
   end
 

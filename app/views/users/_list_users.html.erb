@@ -1,4 +1,13 @@
 <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
 <% @data["data"].each do |data| %>
-<a href="/u/<%= data['username'] %>"><img src="<%= data["profile_picture"] %>" /></a>
+<div class="browse-celeb-grid">
+  <a href="/u/<%= data['username'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;" />
+    <div style="text-align: center;font-size: 14px;"><%= data["username"] %></div>
+  </a>
+</div>
+<% end %>
+<% if @data["pagination"]["next_cursor"].present? %>
+<div id="load-more" class="grid_2" style="margin-top: 6%;">
+  <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
+</div>
 <% end %>
