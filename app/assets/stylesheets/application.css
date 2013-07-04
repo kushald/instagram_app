@@ -405,10 +405,13 @@ li {
 }
 
 .browse-user-grid img {
-  width: 90px;
   margin-left: 14px;
   border-radius: 4px;
   border: 6px solid #202020;
+}
+
+.browse-user-grid a {
+  color: #202020;
 }
 
 .social {
