@@ -1,3 +1,6 @@
+<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, Instagrammers, viewer, instagram Celebrities, #{@interesting_users.collect(&:instagram_username).join("','")}" %>
+<% meta_description "Joystagram - Celebrities On Instagram" %>
+<h1><%=h content_for(:title, "Joystagram - Celebrities On Instagram") %></h1>
 <div class="popular-text">Celebrities On Instagram</div>
 <%  @interesting_users.each do |u| %>
   <div class="browse-celeb-grid" style="margin: 21px;">
