@@ -78,10 +78,6 @@
           <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
         </script>
       </div> -->
-      
-    <% if @current_user.present? && @current_user.instagram_id == "52093116" %>
-      <%= request.subdomain.inspect %>
-    <% end %>
       <%= yield %>
       <div class="grid_5 chitka-btm" style="margin: 40px;">
         <script type="text/javascript">
