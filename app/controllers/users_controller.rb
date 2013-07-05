@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   end
 
   def logout
-    cookies.delete :ac
+    cookies.delete(:ac, domain: :all)
     redirect_to "/"
   end
   def relationship
