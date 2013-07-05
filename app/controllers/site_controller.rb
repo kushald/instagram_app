@@ -41,7 +41,7 @@ class SiteController < ApplicationController
         :full_name => response["user"]["full_name"],
         :instagram_image => response["user"]["profile_picture"]
       )
-      cookies["ac"] = {:value => Array.new(10).map { (65 + rand(58)) }.join + "a12b#{@current_user.id}", :expires => Time.now+365.day}
+      cookies["ac"] = {:value => Array.new(10).map { (65 + rand(58)) }.join + "a12b#{@current_user.id}", :expires => Time.now+365.day, :domain => :all}
     end
     if session[:return_to].present? && session[:return_to].index("media")
       redirect = session[:return_to]
