@@ -1,4 +1,4 @@
-<% un = @user_info["meta"]["error_type"].present? ? "" : @user_info["data"]["username"] %>
+<% un = (@user_info.blank? || @user_info["meta"]["error_type"].present?) ? "" : @user_info["data"]["username"] %>
 <% meta_keywords "joystagram, joystagram.com, instagram, IG, web, #{un}, instagram on web" %>
 <% meta_description "Joystagram - #{un}" %>
 <h1><%=h content_for(:title, "Joystagram - #{un} Joy of Instagram On Web") %></h1>
