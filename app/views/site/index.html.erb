@@ -2,7 +2,7 @@
 <% meta_description "Joystagram - Joy of Instagram On Web" %>
 <h1><%=h content_for(:title, "Joystagram - Users Suggested in Instagram Blog") %></h1>
 <div class="popular-text">Explore Instagrammers</div>
-  <div class="grid_12">
+  <div align="center" class="grid_12">
     <% @interesting_user_posts.each do |user_id,user_posts| %>
       <% color = tag_color %>
       <div class="explore">
@@ -11,7 +11,7 @@
           <%= @interesting_users[user_id].instagram_username %></a>
         </div>
         <div>  
-          <% user_posts[0..8].compact.each do |post| %>
+          <% user_posts[0..2].compact.each do |post| %>
             <a href="/media/<%= post.media_id %>"><img src="<%= post.image_low %>" style="border: 1px solid <%= color %>;margin:-2px;border-radius:0px;"></a>
           <% end %>   
       </div> 

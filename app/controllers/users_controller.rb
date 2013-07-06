@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     if id.present?    
       @user_info = Request.get_request("https://api.instagram.com/v1/users/#{id}/?access_token=#{@current_user.instagram_access_token}")
       @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
-      binding.pry
       @relationship = Request.get_request("https://api.instagram.com/v1/users/#{id}/relationship?access_token=#{@current_user.instagram_access_token}")
     end
   end

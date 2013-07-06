@@ -30,38 +30,40 @@
   <script src='http://connect.facebook.net/en_US/all.js'></script>
   </head>
   <body>
-    <div class="container clearfix">
-      <% if @current_user.present? %>
-        <div class="grid_12 top-content">
-          <nav class="clearfix">
-            <ul class="clearfix">
-              <li class="logo"><a href="/">Joystagram</a></li>
-              <li><a class="<%= "list_selected" if params[:action] == "/" %>" href="/popular">Popular</a></li>
-              <% if !@current_user.guest_user %>
-              <li><a class="<%= "list_selected" if params[:action] == "user" %>" href="/user">Feeds</a></li>
-            <% else %>
-              <li><a href="/tags">Tags</a></li>
-            <% end %>
-              <li><a href="/categories">Celebrities</a></li>
-              <li><a href="/search">Search</a></li>
-              <li><a href="/about">About</a></li>  
-              <li>
-                <% if @current_user.present? && !@current_user.guest_user %>
-                <div>
-                  <!-- <a href="/user"><img src="<%#= @current_user.instagram_image %>"></a> -->
-                  <div><a href="/logout">Logout</a></div>
-                </div>
-                <% else %>
-                  <a href="/login" class="login"><img src="/assets/Instagram_Icon.png">
-                    <div>Sign In with Instagram</div>
-                  </a>
+    <div class="head-fix">
+      <div class="grid_12 omega head-state">
+      <div class="container">
+        
+          <div class="grid_3 omega logo-head">
+            <a href="/">Joystagram</a>
+          </div>
+            <nav class="clearfix">
+              <ul class="clearfix">
+                <% if !@current_user.guest_user %>
+                  <li><a href="/user">Feeds</a></li>
                 <% end %>
-              </li>
-            </ul>
-            <a href="#" id="pull">Menu</a>
-          </nav>
+                <li><a href="/popular">Popular</a></li>
+                <li><a href="/tags">Tags</a></li>
+                <li><a href="/categories">Celebrities</a></li>
+                <li><a href="/search">Search</a></li>
+                <li><a href="/about">About</a></li>
+                <li class="nc">
+                  <% if @current_user.present? && !@current_user.guest_user %>
+                    <div>
+                      <!-- <a href="/user"><img src="<%#= @current_user.instagram_image %>"></a> -->
+                      <div><a href="/logout">Logout</a></div>
+                    </div>
+                  <% else %>
+                    <a href="/login" class="log-btn">Log In with instagram</a>
+                  <% end %>
+                </li>
+              </ul>
+              <a href="#" id="pull">Menu</a>
+            </nav>
+          </div>
         </div>
-      <% end %>
+    </div>
+    <div class="container clearfix">
       <!-- <div align="center">
         <script type="text/javascript">
           ch_client = "kushz19";
