@@ -18,6 +18,17 @@ task :add_interesting_users => :environment do
     end
 end
 
+task :update_interesting_users => :environment do
+  ctype = ENV['ctype'].to_i
+  InterestingUser.where(:category_type => ctype).each do |u|
+    p u.instagram_user_id
+    data = Request.get_request("https://api.instagram.com/v1/users/#{u.instagram_user_id}/?access_token=#{instagram_access_token}")["data"]
+    u.update_attributes(:instagram_user_id => data["id"],
+                             :instagram_profile_picture => data["profile_picture"],
+                             :instagram_username => data["username"], :category_type => ctype)
+  end
+end
+
 task :get_instagram_user_id => :environment do 
   ig_usernames = [
                   "haileesteinfeld", "cash_warren", "abbiecornish", "howuseeit", "britneyspears", "50cent",
