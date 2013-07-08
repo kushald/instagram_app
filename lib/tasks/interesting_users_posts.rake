@@ -1,6 +1,6 @@
 instagram_access_token = "415290916.f69d548.db7ce1275db54c9fa60bd5e76713d6f4"
 task :interesting_users_posts => :environment do
-  interesting_users = InterestingUser.all.collect(&:instagram_user_id)
+  #interesting_users = InterestingUser.all.collect(&:instagram_user_id)
   puts interesting_users
   interesting_users.each do |id|
     data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{instagram_access_token}")
@@ -38,6 +38,16 @@ task :update_interesting_user_posts => :environment do
       puts "----------------------post for id #{id} created"
      end
     InterestingUserPost.where(:id => delete_ids).delete_all  
-    sleep 20
+    sleep 5
   end
+end
+
+desc "Define secret token"
+task :define_secret_token => :environment do
+  require 'yaml'
+  path = ENV['path']
+  config_yml = YAML.load(File.open(path))
+  config_yml["production"]["some_key"] = ENV['sk']
+  config_yml["production"]["fb_app_id"] = ENV['fbid']
+  File.open(path, "w") {|f| f.write(config_yml.to_yaml) }
 end
