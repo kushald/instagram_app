@@ -47,7 +47,7 @@ task :define_secret_token => :environment do
   require 'yaml'
   path = ENV['path']
   config_yml = YAML.load(File.open(path))
-  config_yml["production"]["some_key"] = ENV['sk']
+  config_yml["production"]["client_secret"] = ENV['sk']
   config_yml["production"]["fb_app_id"] = ENV['fbid']
   File.open(path, "w") {|f| f.write(config_yml.to_yaml) }
 end
