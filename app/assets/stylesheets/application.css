@@ -387,9 +387,15 @@ li {
 }
 
 .browse-celeb-grid img {
-  margin-left: 14px;
-  border-radius: 4px;
-  border: 6px solid #202020;
+  width: 196px;
+  height: 196px;
+  margin: 5px;
+  float: left;
+  border: 10px solid #fff;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  box-shadow: 1px 1px 4px #e6e6e6;
 }
 
 .social {
