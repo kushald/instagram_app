@@ -1,0 +1,12 @@
+<p id="notice" style="font-size: 30px; margin-left:500px;color:red;"><%= flash[:notice] %></p>
+<div align="center">
+  <form action="/create-user-post">
+    <input type="text" name="uname">
+    <select name="ctype">
+    <option value="1">General</option>
+    <option value="2">Celebrity</option>
+    <option value="3">Photographer</option>
+  </select>
+    <input type="submit" value="Add">
+  </form>
+</div>

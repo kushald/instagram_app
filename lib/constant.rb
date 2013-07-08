@@ -19,4 +19,6 @@ module Constant
               "Willow", "Lofi", "Earlybird", "Sutro", "Toaster", "Brannan", "Inkwell",
               "Walden", "Hefe", "Nashville", "1977", "Kelvin"
               ].freeze
+
+  AUTHORIZED_IDS = ["52093116"]
 end

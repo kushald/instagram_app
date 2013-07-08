@@ -1,6 +1,11 @@
 class User < ActiveRecord::Base
   attr_accessible :auth_token, :instagram_access_token, :instagram_email, :instagram_full_name, :instagram_id, :instagram_image, :instagram_username, :password
 
+
+  def un_authorized
+    !Constant::AUTHORIZED_IDS.include?(self.instagram_id)
+  end
+
   # Check if Guest User
   def guest_user
     self.id == Constant::GUEST_ID

@@ -20,6 +20,7 @@ InstagramApp::Application.routes.draw do
   match '/pagination' => 'site#pagination'
   match '/about' => 'site#about'
   match '/popular' => 'site#popular'
+  match '/explore' => 'site#index'
   match 'admin' => 'site#admin'
   match 'joystagrammers' => 'users#joystagrammers'
   # ------TAGS---------
@@ -27,6 +28,8 @@ InstagramApp::Application.routes.draw do
   match '/tag/:id' => 'tags#show'
 
   # ------InterestingUser ----------
+  resources :interesting_users
+  get "/lay" => "interesting_users#lay"
   get "interesting_users/new"
   match '/create-user-post' => 'interesting_users#create_int_user_with_post'
 
@@ -34,6 +37,10 @@ InstagramApp::Application.routes.draw do
 
   # ------Categories ----------
   resources :categories
+
+
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
