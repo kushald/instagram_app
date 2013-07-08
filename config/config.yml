@@ -1,14 +1,12 @@
 development:
   client_id: f69d548aeb314c2997583b8cfa154691
-  client_secret: d9bc1e266a914fde80109322f12fd3b3
+  client_secret: e9b4325f69af428b91d6ee229d5578ca
   redirect_uri: http://127.0.0.1:3000/user/
   meta_keywords: "joystagram, joystagram.com, instagram, IG, web, PC, Computer, viewer"
   meta_description: "Joy of Instagram On Web"
   fb_app_id: 461403163888029
 production:
   client_id: d8d1ad02f4564390aaac77be8390c6a6
-  client_secret: 810f3b8e84354f228effb016b30ad426
   redirect_uri: http://joystagram.com/user/
   meta_keywords: "joystagram, joystagram.com, instagram, IG, web, PC, Computer, viewer"
   meta_description: "Joy of Instagram On Web"
-  fb_app_id: 652128014801687
