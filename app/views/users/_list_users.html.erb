@@ -1,7 +1,7 @@
 <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
 <% @data["data"].each do |data| %>
 <div class="browse-celeb-grid">
-  <a href="/u/<%= data['username'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;" />
+  <a href="/u/<%= data['username'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;height:auto;" />
     <div style="text-align: center;font-size: 14px;"><%= data["username"] %></div>
   </a>
 </div>

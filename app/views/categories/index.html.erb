@@ -3,7 +3,7 @@
 <h1><%=h content_for(:title, "Joystagram - Celebrities On Instagram") %></h1>
 <div class="popular-text">Celebrities On Instagram</div>
 <%  @interesting_users.each do |u| %>
-  <div class="browse-celeb-grid" style="margin: 21px;">
+  <div class="browse-celeb-grid">
     <a href="/u/<%= u.instagram_username %>"><img src="<%= u.instagram_profile_picture %>"><br>
     <div style="text-align: center;font-size: 14px;"><%= u.instagram_username %></div></a>
   </div>
