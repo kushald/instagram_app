@@ -1,10 +1,10 @@
-<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, Instagrammers, viewer, instagram Celebrities, #{@interesting_users.collect(&:instagram_username).join("','")}" %>
-<% meta_description "Joystagram - Celebrities On Instagram" %>
-<h1><%=h content_for(:title, "Joystagram - Celebrities On Instagram") %></h1>
-<div class="popular-text">Celebrities On Instagram</div>
-<%  @interesting_users.each do |u| %>
+<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, Instagrammers, viewer, instagram Celebrities, #{@categories.collect(&:name).join("','")}" %>
+<% meta_description "Joystagram - Categories of instagram users" %>
+<h1><%=h content_for(:title, "Joystagram - Categories of instagram users") %></h1>
+<div class="popular-text">Browse by Categories</div>
+<%  @categories.each do |c| %>
   <div class="browse-celeb-grid">
-    <a href="/u/<%= u.instagram_username %>"><img src="<%= u.instagram_profile_picture %>"><br>
-    <div style="text-align: center;font-size: 14px;"><%= u.instagram_username %></div></a>
+    <a href="/categories/<%= c.id %>"><img src="<%= c.image %>"><br>
+    <div style="text-align: center;font-size: 14px;"><%= c.name %></div></a>
   </div>
 <% end %>

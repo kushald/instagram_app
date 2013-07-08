@@ -17,7 +17,7 @@ task :interesting_users_posts => :environment do
 end 
 
 task :update_interesting_user_posts => :environment do 
-  interesting_users = InterestingUser.all.collect(&:instagram_user_id)
+  interesting_users = InterestingUser.where("category_type = 1").collect(&:instagram_user_id)
   p interesting_users.inspect
   data = NIL
   interesting_users.each do |id|
