@@ -1,6 +1,14 @@
 <% color = tag_color %>
 <% @data["data"].each_with_index do |data,i| %>
-  <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" class="img-resize" style="border: 1px solid <%= color %>;margin:-2px;border-radius:0px;max-height: 400px;"></a>
+  <a href="/media/<%= data["id"] %>">
+    <% if data["type"] == "video" %>
+      <video class="img-resize" style="border: 1px solid <%= color %>;margin:-2px;border-radius:0px;max-height: 400px;" controls>
+        <source src="<%= data["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
+      </video>
+    <% else %>      
+      <img src="<%= data["images"]["standard_resolution"]["url"] %>" class="img-resize" style="border: 1px solid <%= color %>;margin:-2px;border-radius:0px;max-height: 400px;">
+    <% end %>
+  </a>
 <% end %>
 
 <% if params[:action] != "popular" %>
