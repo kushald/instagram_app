@@ -1,0 +1,35 @@
+<% color = tag_color %>
+<% @data["data"].each_with_index do |data,i| %>
+  <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" class="img-resize" style="border: 1px solid <%= color %>;margin:-2px;border-radius:0px;max-height: 400px;"></a>
+<% end %>
+
+<% if params[:action] != "popular" %>
+  <% next_id = @data["pagination"]["next_max_tag_id"] || @data["pagination"]["next_max_like_id"] || @data["pagination"]["next_max_id"] %>
+  <% if next_id.present? %>
+    <div id="load-more" class="grid_2">
+      <%= link_to "Next", {controller: params[:controller], action: params[:action], n: next_id, q: params[:q]} %>
+    </div>
+  <% end %>
+<% end %>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".white").click(function(){
+      var mediaId = this.id;
+      likeCount = parseInt($('#'+mediaId).attr('data-likes'))+1;
+      $('#'+mediaId).addClass('red');
+      $('#'+mediaId).removeClass('white');
+      $('#bar-font-'+mediaId+' span').text(likeCount);
+
+      $.ajax({
+        url: "/like-media",
+        type: 'POST',
+        data: {"media_id" : mediaId},
+        success: function(response) {
+          console.log("phew!!!!");
+        }
+      });
+    });
+
+  });
+</script>
