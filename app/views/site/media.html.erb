@@ -14,6 +14,9 @@
           <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="media-img">
         <% end %>
       </div>
+      <div class="media-desc">
+        <%= @media["data"]["caption"]["text"] rescue "" %>
+      </div>
     </div>
     <div class="grid_3 omega" style="margin-left: 80px;">
       <div style="font-size: 13px;">

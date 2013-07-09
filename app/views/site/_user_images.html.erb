@@ -1,0 +1,10 @@
+<div align="center" class="grid_12">
+  <% color = tag_color %>
+  <div class="explore">
+    <div>  
+      <% @data["data"].each_with_index do |data,i| %>
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="border: 1px solid <%= color %>;margin:-2px;border-radius:0px;"></a>
+      <% end %>   
+    </div> 
+  </div>
+</div>
