@@ -629,6 +629,10 @@ img:hover {
   padding: 4px;
 }
 
+.weheart {
+  margin: -33px 0px 0px 80px;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -654,6 +658,10 @@ img:hover {
 ::selection{
   background: #00AEEF;
 }
+
+
+
+
 @media screen and (max-width : 320px) {
   /*.nav {
     display: none;
