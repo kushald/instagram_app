@@ -7,6 +7,6 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     redirect_to "/categories" if @category.blank?
-    @users = InterestingUser.where(:category_type => @category.id)
+    @users = InterestingUser.where(:category_type => @category.id).order("instagram_username")
   end
 end

@@ -1,6 +1,6 @@
 module Request
-  def self.get_request(uri)
-    JSON.parse((HTTParty.get(URI.encode(uri.strip).to_s)).body)
+  def self.get_request(url)
+    JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)
   end
 
   def self.post_request(params)
@@ -8,6 +8,22 @@ module Request
   end
 
   private
+
+  #----------------
+  def self.get_url(p)
+    path =  case p[:t]
+              when :pop
+                "media/popular"
+              when :m
+                "media/#{p[:id]}"
+              when :ud
+                "users/#{p[:mid]}/media/recent/"
+              when :rel
+                "users/#{p[:mid]}/relationship"    
+            end 
+      Constant::ENDPOINT+path+"?access_token=#{p[:at]}"
+  end
+
   def self.post_request_body(params)
     if params[:type] == 'access_token'
       {

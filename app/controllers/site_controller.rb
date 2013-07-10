@@ -14,6 +14,27 @@ class SiteController < ApplicationController
     @interesting_user_posts = InterestingUserPost.where(:instagram_user_id => @interesting_users.keys).all.shuffle.group_by(&:instagram_user_id)
   end
 
+  
+  # def popular
+  #   @data = Request.get_request({t: :pop, at: @current_user.instagram_access_token})
+  #   @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]] if d["caption"].present?}.compact rescue []
+  #   render :partial => 'content' and return if request.xhr?
+  # end
+
+  # def media
+  #   #Get the details for specified media
+  #   @browse_popular = InterestingUserPost.all.sample(6)
+  #   @media = get_data(params.merge({t: :m}))
+  #   if @media["data"].present?
+  #     @user_id = @media["data"]["user"]["username"]
+  #     media_id = @media["data"]["user"]["id"]
+  #     @browse_user = get_data({t: :ud, mid: media_id})["data"][0..5]
+  #     @relationship = get_data({t: :rel, mid: media_id})
+  #   end
+  # end
+
+
+
   def popular
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
     @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]] if d["caption"].present?}.compact rescue []
