@@ -86,8 +86,10 @@ class SiteController < ApplicationController
   end
 
   def search
-    query = params[:q].present? ?  params[:q] : "search"
-    @data = Request.get_request("https://api.instagram.com/v1/tags/#{query}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
+    if params[:q].present?
+      @data_tags = Request.get_request("https://api.instagram.com/v1/tags/#{params[:q]}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
+      @data_users = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:q]}&access_token=#{@current_user.instagram_access_token}")
+    end
   end
 
   def pagination
