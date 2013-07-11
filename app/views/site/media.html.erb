@@ -37,7 +37,12 @@
         </div>
         <div class="side-panel"><%= @media["data"]["comments"]["count"] %> Comments</div>
         <% if @media["data"]["filter"].present? %>
-          <div class="side-panel">Filter: <%= @media["data"]["filter"] %></div>
+          <div class="side-panel">
+            Filter: 
+            <a href="/tag/<%= @media["data"]["filter"] %>" style="background:<%= tag_color %>;color: white;padding:5px;">
+              <%= @media["data"]["filter"] %>
+            </a>
+          </div>
         <% end %>
         <div class="side-panel">Created: <%= Time.at(@media["data"]["created_time"].to_i).strftime("%B %d %Y") %></div>
         <% if @media["data"]["location"].present? && @media["data"]["location"]["name"].present? %>
