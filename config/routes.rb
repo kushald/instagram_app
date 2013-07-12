@@ -2,36 +2,36 @@ InstagramApp::Application.routes.draw do
   get "users/new"
 
   get "site/index"
-  match 'user' => 'site#user'
-  match 'u/:id' => 'users#show'
-  match 'user-info' => 'site#user_info'
-  match '/likes/' =>  'users#likes'
-  match '/following/' => 'users#following'
-  match '/followed-by/' => 'users#followed_by'
-  match '/my-pics/' => 'users#my_pics'
-  match '/logout/' => 'users#logout' 
-  match '/nearby' => 'site#geo_tag_content'
-  match '/search' => 'site#search'
-  match '/relationship' => 'users#relationship'
-  match '/like-media' => 'users#like_media'
-  match '/media/:id' => 'site#media'
-  match '/comment/' => 'users#comment'
-  match '/login' => 'site#login'
-  match '/pagination' => 'site#pagination'
-  match '/about' => 'site#about'
-  match '/popular' => 'site#popular'
-  match '/explore' => 'site#index'
-  match 'admin' => 'site#admin'
-  match 'joystagrammers' => 'users#joystagrammers'
+  get 'user' => 'site#user'
+  get 'u/:id' => 'users#show'
+  get 'user-info' => 'site#user_info'
+  get '/likes/' =>  'users#likes'
+  get '/following/' => 'users#following'
+  get '/followed-by/' => 'users#followed_by'
+  get '/my-pics/' => 'users#my_pics'
+  get '/logout/' => 'users#logout' 
+  get '/nearby' => 'site#geo_tag_content'
+  get '/search' => 'site#search'
+  get '/relationship' => 'users#relationship'
+  get '/like-media' => 'users#like_media'
+  get '/media/:id' => 'site#media'
+  get '/comment/' => 'users#comment'
+  get '/login' => 'site#login'
+  get '/pagination' => 'site#pagination'
+  get '/about' => 'site#about'
+  get '/popular' => 'site#popular'
+  get '/explore' => 'site#index'
+  get 'admin' => 'site#admin'
+  get 'joystagrammers' => 'users#joystagrammers'
   # ------TAGS---------
-  match '/tags' => 'tags#index'
-  match '/tag/:id' => 'tags#show'
+  get '/tags' => 'tags#index'
+  get '/tag/:id' => 'tags#show'
 
   # ------InterestingUser ----------
   resources :interesting_users
   get "/lay" => "interesting_users#lay"
   get "interesting_users/new"
-  match '/create-user-post' => 'interesting_users#create_int_user_with_post'
+  get '/create-user-post' => 'interesting_users#create_int_user_with_post'
 
   # ------InterestingUserPost ----------
 
@@ -46,11 +46,11 @@ InstagramApp::Application.routes.draw do
   # first created -> highest priority.
 
   # Sample of regular route:
-  #   match 'products/:id' => 'catalog#view'
+  #   get 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
+  #   get 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
@@ -97,5 +97,5 @@ InstagramApp::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  # get ':controller(/:action(/:id))(.:format)'
 end

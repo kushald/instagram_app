@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :auth_token, :instagram_access_token, :instagram_email, :instagram_full_name, :instagram_id, :instagram_image, :instagram_username, :password
+  #attr_accessible :auth_token, :instagram_access_token, :instagram_email, :instagram_full_name, :instagram_id, :instagram_image, :instagram_username, :password
 
 
   def un_authorized

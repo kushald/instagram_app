@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-  attr_accessible :description, :name, :image
+  #attr_accessible :description, :name, :image
 end
