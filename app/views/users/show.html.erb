@@ -8,8 +8,8 @@
   <h3 class="error">Sorry this is a private User</h3>
 <% else %>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
-  <%= render 'uploads' %> 
-  <%#= render '/site/content' %>
+  <%#= render 'uploads' %> 
+  <%= render '/site/content' %>
 <% end %>
 
 <script type="text/javascript">
