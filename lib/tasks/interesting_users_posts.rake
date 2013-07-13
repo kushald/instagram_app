@@ -1,6 +1,6 @@
-instagram_access_token = "415290916.f69d548.db7ce1275db54c9fa60bd5e76713d6f4"
 task :interesting_users_posts => :environment do
   #interesting_users = InterestingUser.all.collect(&:instagram_user_id)
+  instagram_access_token = User.find(2).instagram_access_token
   puts interesting_users
   interesting_users.each do |id|
     data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{instagram_access_token}")
@@ -17,6 +17,7 @@ task :interesting_users_posts => :environment do
 end 
 
 task :update_interesting_user_posts => :environment do 
+  instagram_access_token = User.find(2).instagram_access_token
   interesting_users = InterestingUser.where("category_type IN (1,2)").collect(&:instagram_user_id)
   p interesting_users.inspect
   data = NIL

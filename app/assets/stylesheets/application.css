@@ -914,6 +914,9 @@ nav li a:hover, nav li a:active {
   .des-bar {
     display: none;
   }
+  .img-resize {
+    width: 50%;
+  }
 }
 
 @media screen and (max-width: 1024px) {

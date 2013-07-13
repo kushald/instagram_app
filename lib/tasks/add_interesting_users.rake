@@ -1,7 +1,8 @@
 require 'request'
 require 'json'
-instagram_access_token = "415290916.f69d548.db7ce1275db54c9fa60bd5e76713d6f4"
+
 task :add_interesting_users => :environment do
+    instagram_access_token = User.find(2).instagram_access_token
     interesting_ig_ids = ["6860189", "11830955", "25945306", "20979117", "19372645", "5560422", "4701871", 
                           "7924810", "50848923", "4870920", "175228882", "12223257", "14057957", "18370763",
                           "18428658", "6849281", "8326823", "14734199", "2720271", "18483678", "11305924", 
@@ -19,6 +20,7 @@ task :add_interesting_users => :environment do
 end
 
 task :update_interesting_users => :environment do
+  instagram_access_token = User.find(2).instagram_access_token
   ctype = ENV['ctype'].to_i
   InterestingUser.where(:category_type => ctype).each do |u|
     p u.instagram_user_id
