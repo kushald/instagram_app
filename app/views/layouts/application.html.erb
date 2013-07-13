@@ -64,7 +64,7 @@
         </div>
     </div>
     <div class="container clearfix">
-      <!-- <div align="center">
+      <div align="center">
         <script type="text/javascript">
           ch_client = "kushz19";
           ch_width = 728;
@@ -74,12 +74,12 @@
           ch_color_site_link = "FFFFFF";
           ch_color_title = "FFFFFF";
           ch_color_border = "FFFFFF";
-          ch_color_text = "FFFFFF";
-          ch_color_bg = "455C83";
+          ch_color_text = "black";
+          ch_color_bg = "<%= tag_color %>";
           </script>
           <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
         </script>
-      </div> -->
+      </div>
       <%= yield %>
       <div class="grid_5 chitka-btm" style="margin: 40px;">
         <script type="text/javascript">
@@ -170,6 +170,23 @@
           
           $('html, body').animate({scrollTop: 0}, 300);
         })
+
+        var pull    = $('#pull');
+        menu    = $('nav ul');
+        menuHeight  = menu.height();
+
+        $(pull).on('click', function(e) {
+          e.preventDefault();
+          menu.slideToggle();
+        });
+
+        $(window).resize(function(){
+          var w = $(window).width();
+          if(w > 320 && menu.is(':hidden')) {
+            menu.removeAttr('style');
+          }
+        }); 
+
 
       });
       $("#fittext1").fitText();

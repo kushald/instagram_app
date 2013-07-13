@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"] rescue []
     if id.present?    
       @user_info = Request.get_request("https://api.instagram.com/v1/users/#{id}/?access_token=#{@current_user.instagram_access_token}")
-      @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
+      @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
       @relationship = Request.get_request("https://api.instagram.com/v1/users/#{id}/relationship?access_token=#{@current_user.instagram_access_token}")
     end
   end
