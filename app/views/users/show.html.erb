@@ -2,16 +2,12 @@
 <% meta_keywords "joystagram, joystagram.com, instagram, IG, web, #{un}, instagram on web" %>
 <% meta_description "Joystagram - #{un}" %>
 <h1><%=h content_for(:title, "#{un} - Joystagram") %></h1>
-<% if @data.blank? %>
-  <h3 class="error">User does not exist or user deleted profile</h3>
-<% elsif @user_info["meta"]["error_type"].present? %>
-  <h3 class="error">Sorry this is a private User</h3>
+<% if session[:mobile] %>
+  <%= render "show_mobile" %>
 <% else %>
-  <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
-  <%#= render 'uploads' %> 
-  <%= render '/site/content' %>
+  <%= render "show_web" %>
 <% end %>
-
+<%= render "pagination" %>
 <script type="text/javascript">
   $(document).ready(function(){
     $("#relation-none").click(function(){

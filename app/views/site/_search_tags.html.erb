@@ -11,11 +11,4 @@
   </a>
 <% end %>
 
-<% if params[:action] != "popular" %>
-  <% next_id = @data_tags["pagination"]["next_max_tag_id"] || @data_tags["pagination"]["next_max_like_id"] || @data_tags["pagination"]["next_max_id"] %>
-  <% if next_id.present? %>
-    <div id="load-more" class="grid_2">
-      <%= link_to "Next", {controller: params[:controller], action: params[:action], n: next_id, q: params[:q]} %>
-    </div>
-  <% end %>
-<% end %>
+<%= render "pagination" %>

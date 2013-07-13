@@ -855,7 +855,10 @@ nav li a:hover, nav li a:active {
 @media screen and (max-width: 1024px) {
   nav li a:hover, nav li a:active {
   border-bottom: none;
-}
+  }
+  .img-resize {
+    width: 50%;
+  }
 }
 
 @media only screen and (max-width : 320px) {

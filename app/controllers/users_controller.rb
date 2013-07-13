@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def likes
     instagram_id = params["id"] || @current_user.instagram_id
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
-    @data = Request.get_request("https://api.instagram.com/v1/users/self/media/liked?access_token=#{@current_user.instagram_access_token}&max_like_id=#{params[:n]}")
+    @data = Request.get_request("https://api.instagram.com/v1/users/self/media/liked?access_token=#{@current_user.instagram_access_token}&max_like_id=#{params[:n]}&count=10")
   end
 
   def following

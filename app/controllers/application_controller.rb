@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :current_user
-
+  before_filter :check_request
   def get_data(params)
     Request.get_request(params.merge({at: @current_user.instagram_access_token}))
   end
@@ -12,5 +12,9 @@ class ApplicationController < ActionController::Base
     else
       @current_user = User.find(2)
     end
+  end
+
+  def check_request
+    session[:mobile] = request.user_agent =~ /Mobile|webOS/ or params[:m].to_i == 1 ? true : false
   end
 end
