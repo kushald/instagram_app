@@ -633,6 +633,70 @@ img:hover {
   margin: -33px 0px 0px 80px;
 }
 
+.profile-activity div {
+    float: left;
+    width: 100%;
+    margin-bottom: 3px;
+    background: #00AEEF;
+    font-size: 14px;
+    padding: 0px 4px 6px 0px;
+    text-align: center;
+    color: white;
+  }
+
+.profile-activity div a {
+  display: block;
+}
+
+@media screen and (max-width: 320px) {
+
+  .photo {
+    float: left;
+    width:80px;
+    margin: 0px 6px 6px 0px;
+  }
+
+  .profile-list {
+    margin-left:45px;
+    font-size: 12px;
+  }
+
+  .bio {
+    font-size: 12px;
+    float: left;
+    padding: 4px;
+    width: 100%;
+  }
+
+  .profile-activity {
+    float: left;
+  }
+
+
+  .profile-activity div {
+    float: left;
+    width: 100%;
+    margin-bottom: 3px;
+    background: #00AEEF;
+    font-size: 12px;
+    padding: 0px 4px 6px 0px;
+    text-align: center;
+    color: white;
+  }
+
+  .profile-activity div a {
+    color: white;
+  }
+
+  .profile a, .profile-list a {
+    color: #00AEEF;
+  }
+  #relation-none, #relation-follows {
+    padding: 0;
+    height: auto;
+  }
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -858,6 +922,16 @@ nav li a:hover, nav li a:active {
   }
   .img-resize {
     width: 50%;
+  }
+  #relation-none, #relation-follows {
+    height: auto;
+  }
+  .profile-activity div a {
+    color: white;
+  }
+
+  .profile a, .profile-list a {
+    color: #00AEEF;
   }
 }
 

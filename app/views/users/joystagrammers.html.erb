@@ -1,0 +1,6 @@
+<% @users.each do |u| %>
+  <a href="/u/<%= u.instagram_username %>">
+    <img src="<%= u.instagram_image %>" >
+    <p><%= u.instagram_username %></p>
+  </a>
+<% end %>
