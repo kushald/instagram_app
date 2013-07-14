@@ -36,19 +36,19 @@ class SiteController < ApplicationController
 
 
   def popular
-    @data = Request.http_client_get("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
+    @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
     @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]] if d["caption"].present?}.compact rescue []
     render :partial => 'content' and return if request.xhr?
   end
 
   def media
     #Get the details for specified media
-    @media = Request.http_client_get("https://api.instagram.com/v1/media/#{params[:id]}?access_token=#{@current_user.instagram_access_token}")
+    @media = Request.get_request("https://api.instagram.com/v1/media/#{params[:id]}?access_token=#{@current_user.instagram_access_token}")
     if @media["data"].present?
       @user_id = @media["data"]["user"]["username"]
-      @browse_user = Request.http_client_get("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}")["data"][0..5]
+      @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}")["data"][0..5]
       @browse_popular = InterestingUserPost.all.sample(6)
-      @relationship = Request.http_client_get("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
+      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
     end
   end
 

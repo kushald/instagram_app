@@ -1,6 +1,7 @@
 module Request
   def self.get_request(url)
-    JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)
+    JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
+    #JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)
   end
 
   def self.post_request(params)
