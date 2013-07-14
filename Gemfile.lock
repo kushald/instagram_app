@@ -60,6 +60,7 @@ GEM
     httparty (0.9.0)
       multi_json (~> 1.0)
       multi_xml
+    httpclient (2.3.3)
     i18n (0.6.4)
     instagram (0.8.5)
       faraday (>= 0.7, < 0.9)
@@ -149,6 +150,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   geokit
   httparty
+  httpclient (= 2.3.3)
   instagram
   jquery-rails
   mysql2

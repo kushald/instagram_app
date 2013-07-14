@@ -7,6 +7,10 @@ module Request
     JSON.parse((HTTParty.post(params[:uri], :body => self.post_request_body(params))).body)
   end
 
+  def self.http_client_get(url)
+    JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
+  end
+
   private
 
   #----------------

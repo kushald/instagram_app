@@ -581,6 +581,7 @@ img:hover {
 .foot {
   border-top: 1px solid #202020;
   font-size: 12px;
+  margin-top: 6%;
 }
 
 .error {
