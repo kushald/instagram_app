@@ -46,9 +46,11 @@ class SiteController < ApplicationController
     @media = Request.get_request("https://api.instagram.com/v1/media/#{params[:id]}?access_token=#{@current_user.instagram_access_token}")
     if @media["data"].present?
       @user_id = @media["data"]["user"]["username"]
-      @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}&count=6")["data"].shuffle
-      celeb = InterestingUser.where(:category_type => 2).collect(&:instagram_user_id)      
-      @browse_popular = InterestingUserPost.where(:instagram_user_id => celeb).sample(6)
+      if !session[:mobile]
+        @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}&count=6")["data"].shuffle
+        celeb = InterestingUser.where(:category_type => 2).collect(&:instagram_user_id)      
+        @browse_popular = InterestingUserPost.where(:instagram_user_id => celeb).sample(6)
+      end
       @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
     end
   end
