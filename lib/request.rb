@@ -6,8 +6,16 @@ module Request
   end
 
   def self.get_request(url)
-    JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
+    p "="*100
+    a = Time.now.to_i
+    p Time.now
+    response = JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
     #JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)
+    b = Time.now.to_i - a
+    p "="*100
+    p Time.now
+    p b
+    response
   end
 
   def self.post_request(params)
