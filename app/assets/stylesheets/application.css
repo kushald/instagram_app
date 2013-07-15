@@ -144,6 +144,7 @@ a.list_selected {
 
 .des-bar {
 width: 97%;
+height: 65px;
 background-color: black;
 opacity: 0.8;
 position: relative;
