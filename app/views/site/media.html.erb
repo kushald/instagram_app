@@ -76,9 +76,9 @@
             <img src="<%= @media["data"]["user"]["profile_picture"] %>" class="media-author">
             <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
           </a>
-          <% if params[:id] != @current_user.instagram_id && !@current_user.guest_user %>
+          <% if @user_id != @current_user.instagram_username && !@current_user.guest_user %>
             <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
-              <div class="follow-btn-media">Following</div>
+              <div class="following-btn-media">Following</div>
             <% else %>
               <div class="follow-btn-media">Follow</div>
             <% end %>

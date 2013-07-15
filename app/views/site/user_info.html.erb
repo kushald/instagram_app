@@ -4,15 +4,16 @@
 <script type="text/javascript">
   $(document).ready(function(){
     $("#relation-none").click(function(){
-      $(".relation-loader").show();
+      alert(1)
+      $("#relation-none").css({"opacity": 0.4});
       $.ajax({
         url: "/relationship",
         type: "POST",
         data: {instagram_action : "follow", id : "<%= params[:id] %>" },
         success: function(response) {
-          $(".relation-loader").hide();
-          $("#relation-none").css({"background-color": "#85A32B"});
+          $("#relation-none").css({"background-color": "#85A32B", "opacity": 1});
           $("#relation-none").text("following");
+
         }
       });
     });

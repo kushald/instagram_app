@@ -1,4 +1,5 @@
 module Constant
+  HOST = 'api.instagram.com'
   ENDPOINT = 'https://api.instagram.com/v1/'.freeze
   POPULAR = "https://api.instagram.com/v1/media/popular/".freeze
   FEED = "https://api.instagram.com/v1/users/self/feed/".freeze
@@ -21,4 +22,5 @@ module Constant
               ].freeze
 
   AUTHORIZED_IDS = ["52093116"]
+  COUNT = 10
 end

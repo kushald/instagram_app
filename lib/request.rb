@@ -1,4 +1,10 @@
 module Request
+  
+  def self.get(url)
+    url = Util.url#Constant::ENDPOINT + url + "&count=10"
+    JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
+  end
+
   def self.get_request(url)
     JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
     #JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)

@@ -48,13 +48,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    faraday (0.8.4)
-      multipart-post (~> 1.1)
-    faraday_middleware (0.9.0)
-      faraday (>= 0.7.4, < 0.9)
     geokit (1.6.5)
       multi_json
-    hashie (1.2.0)
     highline (1.6.19)
     hike (1.2.3)
     httparty (0.9.0)
@@ -62,11 +57,6 @@ GEM
       multi_xml
     httpclient (2.3.3)
     i18n (0.6.4)
-    instagram (0.8.5)
-      faraday (>= 0.7, < 0.9)
-      faraday_middleware (~> 0.8)
-      hashie (>= 0.4.0)
-      multi_json (~> 1.0, >= 1.0.3)
     journey (1.0.4)
     jquery-rails (3.0.0)
       railties (>= 3.0, < 5.0)
@@ -80,7 +70,6 @@ GEM
     mime-types (1.23)
     multi_json (1.7.6)
     multi_xml (0.5.1)
-    multipart-post (1.1.5)
     mysql2 (0.3.11)
     net-scp (1.1.1)
       net-ssh (>= 2.6.5)
@@ -89,8 +78,6 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
-    pjax_rails (0.3.4)
-      jquery-rails
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -151,10 +138,8 @@ DEPENDENCIES
   geokit
   httparty
   httpclient (= 2.3.3)
-  instagram
   jquery-rails
   mysql2
-  pjax_rails
   pry
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)

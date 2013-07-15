@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  cattr_accessor :current_user
   attr_accessible :auth_token, :instagram_access_token, :instagram_email, :instagram_full_name, :instagram_id, :instagram_image, :instagram_username, :password
 
 
@@ -51,4 +52,5 @@ class User < ActiveRecord::Base
       self.save
     end
   end
+
 end

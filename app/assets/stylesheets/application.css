@@ -530,6 +530,16 @@ textarea {
   color: white;
 }
 
+.following-btn-media {
+  width: 100px;
+  height: 25px;
+  margin: 4px;
+  border-radius: 5px;
+  padding-top: 5px;
+  color: white;
+  background: #85A32B;
+}
+
 img:hover {
   opacity: 0.95;
   -webkit-transition: opacity 0.35s ease-in-out 0s;

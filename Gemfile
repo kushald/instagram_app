@@ -5,10 +5,8 @@ gem 'rails', '3.2.3'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 gem 'httparty'
-gem 'pjax_rails'
 gem 'jquery-rails'
 gem 'mysql2', :group => [:development, :test]
-gem 'instagram'
 gem 'annotate', '~> 2.4.1.beta', group: :development
 gem 'geokit'
 gem 'httpclient', '2.3.3'

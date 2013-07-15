@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
     else
       @current_user = User.find(2)
     end
+    User.current_user = @current_user
   end
 
   def check_request
