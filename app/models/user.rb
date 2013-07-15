@@ -12,6 +12,10 @@ class User < ActiveRecord::Base
     self.id == Constant::GUEST_ID
   end
 
+  def logged_in_user
+    self.id != Constant::GUEST_ID
+  end
+
   def self.authenticate(params)
     return {:err => 1} if params[:insta_id].blank?
     user = User.find_user(:insta_id => params[:insta_id])

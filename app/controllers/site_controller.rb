@@ -51,7 +51,7 @@ class SiteController < ApplicationController
         celeb = InterestingUser.where(:category_type => 2).collect(&:instagram_user_id)      
         @browse_popular = InterestingUserPost.where(:instagram_user_id => celeb).sample(6)
       end
-      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
+      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
     end
   end
 
@@ -79,7 +79,7 @@ class SiteController < ApplicationController
   def user_info
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/?access_token=#{@current_user.instagram_access_token}")
     @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
-    @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}")
+    @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
   end
 
   def geo_tag_content
