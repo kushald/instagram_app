@@ -132,7 +132,7 @@
       <div>
         <% @browse_popular.each do |media| %>
           <div class="browse-user-grid">
-            <a href="/media/<%= media.media_id %>"><img src="<%= media.image_low %>" %></a>
+            <a href="/media/<%= media.media_id %>"><img src="<%= media.thumb_image %>" %></a>
           </div>
         <% end %>
       </div>
