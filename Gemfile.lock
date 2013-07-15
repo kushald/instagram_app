@@ -78,6 +78,7 @@ GEM
     net-ssh (2.6.7)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
+    newrelic_rpm (3.6.5.130)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -140,6 +141,7 @@ DEPENDENCIES
   httpclient (= 2.3.3)
   jquery-rails
   mysql2
+  newrelic_rpm
   pry
   rails (= 3.2.3)
   sass-rails (~> 3.2.3)

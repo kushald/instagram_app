@@ -33,7 +33,9 @@
           <% else %>
             <i class="foundicongen-heart margin0" id="like-as-guest"></i>
           <% end %>
-          <div id="like-count"><span><%= @media["data"]["likes"]["count"] %></span> Likes</div>
+          <div id="like-count"><span><%= @media["data"]["likes"]["count"] %></span> 
+            Likes<%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
+          </div>
         </div>
         <div class="side-panel"><%= @media["data"]["comments"]["count"] %> Comments</div>
         <% if @media["data"]["filter"].present? %>
