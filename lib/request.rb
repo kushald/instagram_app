@@ -6,15 +6,15 @@ module Request
   end
 
   def self.get_request(url)
-    p "="*100
+    Rails.logger.info "="*100
     a = Time.now.to_i
-    p Time.now
+    Rails.logger.info Time.now
     response = JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
     #JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)
     b = Time.now.to_i - a
-    p "="*100
-    p Time.now
-    p b
+    Rails.logger.info "="*100
+    Rails.logger.info Time.now
+    Rails.logger.info b
     response
   end
 
