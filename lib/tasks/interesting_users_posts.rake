@@ -35,7 +35,8 @@ task :update_interesting_user_posts => :environment do
       InterestingUserPost.create!(:instagram_user_id => id,
                                   :media_id => d['id'],
                                   :image_standard => d["images"]["standard_resolution"]["url"],
-                                  :image_low => d["images"]["low_resolution"]["url"])
+                                  :image_low => d["images"]["low_resolution"]["url"],
+                                  :thumb_image => d["images"]["thumbnail"]["url"])
       puts "----------------------post for id #{id} created"
      end
     InterestingUserPost.where(:id => delete_ids).delete_all  

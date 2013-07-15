@@ -47,7 +47,8 @@ class SiteController < ApplicationController
     if @media["data"].present?
       @user_id = @media["data"]["user"]["username"]
       @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}")["data"][0..5]
-      @browse_popular = InterestingUserPost.all.sample(6)
+      celeb = InterestingUser.where(:category_type => 2).collect(&:instagram_user_id)      
+      @browse_popular = InterestingUserPost.where(:instagram_user_id => 2).sample(6)
       @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}")
     end
   end
