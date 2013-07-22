@@ -8,7 +8,12 @@ class UsersController < ApplicationController
     if id.present?    
       #@user_info = Request.get_request("https://api.instagram.com/v1/users/#{id}/?access_token=#{@current_user.instagram_access_token}")
       @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
-      @temp_info = temp_user_info(@data["data"][0]["user"]) if @data["data"]
+      if @data["data"] == []
+        @user_info = Request.get_request("https://api.instagram.com/v1/users/#{id}/?access_token=#{@current_user.instagram_access_token}")
+        @temp_info = temp_user_info(@user_info["data"])
+      elsif @data["data"]
+        @temp_info = temp_user_info(@data["data"][0]["user"]) if @data["data"]
+      end
       @relationship = Request.get_request("https://api.instagram.com/v1/users/#{id}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
     end
   end
