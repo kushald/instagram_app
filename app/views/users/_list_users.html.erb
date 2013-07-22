@@ -11,3 +11,20 @@
   <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
 </div>
 <% end %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+  <% if @temp_info.present? %>
+    var user_id = <%= @temp_info["user"]["id"] %>;
+    $.ajax({
+      url: "/profile_count/"+user_id,
+      type: "GET",
+      success: function(response) {
+        $("#media-count").html(response["media"]);
+        $("#followed-count").html(response["followed_by"]);
+        $("#following-count").html(response["follows"]);
+      }
+    });
+  <% end %>
+});
+</script>

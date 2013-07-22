@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   def get_data(params)
     Request.get_request(params.merge({at: @current_user.instagram_access_token}))
   end
+
+  def temp_user_info(user)
+    {"user" => user}
+  end
   private
   def current_user
     if cookies["ac"].present?

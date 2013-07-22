@@ -24,6 +24,20 @@
       </div>
     <% end %>
   </div>
+
+  <div style="display:none;">
+    <% data["comments"]["data"][0..3].each do |comment| %>
+    <div style="border-bottom: 1px solid;">
+    <%if @current_user.present? && !@current_user.guest_user %>
+    <a href="/u/<%= comment["from"]["username"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/></a>
+    <% else %>
+    <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+    <% end %>
+    <%= comment["from"]["username"] %>
+    <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
+    </div>
+    <% end %>
+  </div>
 <% end %>
 
 <script type="text/javascript">

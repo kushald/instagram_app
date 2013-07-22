@@ -57,6 +57,7 @@ class SiteController < ApplicationController
 
   def user
     if @current_user.blank? || @current_user.guest_user
+      redirect_to "/" and return if params[:code].blank?
       response = Request.post_request(:uri => "https://api.instagram.com/oauth/access_token", :code => params[:code], :type => "access_token")
       @current_user = User.authenticate(
         :insta_id => response["user"]["id"],
@@ -73,6 +74,7 @@ class SiteController < ApplicationController
       redirect_to redirect
     end
     @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
+    @temp_info = {"user" => {"username" => @current_user.instagram_username, "profile_picture" => @current_user.instagram_image, "id" => @current_user.instagram_id}} if @current_user.logged_in_user
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
   end
 

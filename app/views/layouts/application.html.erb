@@ -94,30 +94,7 @@
       </div> -->
     </div>
     <script type="text/javascript">
-
-      var dataLength = <%= @data.present? && @data["data"].present? ? @data["data"].length : 0 %>
-
       $(document).ready(function() {
-        for (var i = 0; i < dataLength; i++) {
-          //var content = $('#someHtml_'+i).html();
-          $(".fancybox_"+i).fancybox({
-            //'content': content,
-            'maxHeight' : 1800
-          });
-        };
-
-        $('#like-as-guest').click(function(){
-          $('#like-as-guest').fancybox({
-            'content' : $.parseHTML("<span>Please Login to Like this Picture</span><br><button class='fancy-button' id='fancy-login' onclick='login();'>Login</button><button class='fancy-button cancel-color' onclick='event.preventDefault(); parent.$.fancybox.close();'>Cancel</button>"),
-            'maxHeight' : 1800
-          });
-        });
-        login = function(){
-          event.preventDefault();
-          parent.$.fancybox.close();
-          window.location.href = '/login';
-        };
-
         $(window).scroll(function() {
           if ($(this).scrollTop() > 200) {
             $('.go-top').fadeIn(200);

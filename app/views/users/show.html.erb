@@ -1,7 +1,7 @@
-<% un = (@user_info.blank? || @user_info["meta"]["error_type"].present?) ? "" : @user_info["data"]["username"] %>
-<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, #{un}, instagram on web" %>
-<% meta_description "Joystagram - #{un}" %>
-<h1><%=h content_for(:title, "#{un} - Joystagram") %></h1>
+<%# un = (@user_info.blank? || @user_info["meta"]["error_type"].present?) ? "" : @user_info["data"]["username"] %>
+<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, #{@data["data"][0]["user"]["username"] rescue ""}, instagram on web" %>
+<% meta_description "Joystagram - #{@data["data"][0]["user"]["username"] rescue ""}" %>
+<h1><%=h content_for(:title, "#{@data["data"][0]["user"]["username"] rescue ""} - Joystagram") %></h1>
 <% if session[:mobile] %>
   <%= render "show_mobile" %>
 <% else %>
@@ -10,6 +10,19 @@
 <%= render "pagination" %>
 <script type="text/javascript">
   $(document).ready(function(){
+    <% if @temp_info.present? %>
+      var user_id = <%= @temp_info["user"]["id"] %>;
+      $.ajax({
+        url: "/profile_count/"+user_id,
+        type: "GET",
+        success: function(response) {
+          $("#media-count").html(response["media"]);
+          $("#followed-count").html(response["followed_by"]);
+          $("#following-count").html(response["follows"]);
+        }
+      });
+    <% end %>
+
     $("#relation-none").click(function(){
       $("#relation-none").css({"opacity": 0.4});
       $.ajax({

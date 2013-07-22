@@ -23,6 +23,7 @@ InstagramApp::Application.routes.draw do
   match '/explore' => 'site#index'
   match 'admin' => 'site#admin'
   match 'joystagrammers' => 'users#joystagrammers'
+  match '/profile_count/:id' => 'users#profile_count'
   # ------TAGS---------
   match '/tags' => 'tags#index'
   match '/tag/:id' => 'tags#show'

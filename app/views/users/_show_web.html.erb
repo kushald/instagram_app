@@ -1,6 +1,6 @@
 <% if @data.blank? %>
   <h3 class="error">User does not exist or user deleted profile</h3>
-<% elsif @user_info["meta"]["error_type"].present? %>
+<% elsif @temp_info.blank? %>
   <h3 class="error">Sorry this is a private User</h3>
 <% else %>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>

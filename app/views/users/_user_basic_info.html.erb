@@ -2,23 +2,29 @@
   <table> 
     <tr>
       <td>
-        <div style="margin: 0px 100px 13px 0px;"><a href="/u/<%= @user_info["data"]["username"] %>/?my-pic=1"><img src=<%= @user_info["data"]["profile_picture"] %> style="border-radius: 93px;" /><br>
-          <span style="margin-left: 15px;color: #00AEEF;">@<%= @user_info["data"]["username"] %></span></a>
+        <div style="margin: 0px 100px 13px 0px;"><a href="/u/<%= @temp_info["user"]["username"] %>/?my-pic=1"><img src=<%= @temp_info["user"]["profile_picture"] %> style="border-radius: 93px;" /><br>
+          <span style="margin-left: 15px;color: #00AEEF;">@<%= @temp_info["user"]["username"] %></span></a>
       </div>
       <% if defined?(show_follow) && params[:id] != @current_user.instagram_id && !@current_user.guest_user %>
         <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
-          <span id="relation-follows">Following</span>
+         <span id="relation-follows">Following</span>
         <% else %>
           <span id="relation-none">Follow</span>
         <% end %>
       <% end %>
     </td>
-      <td><div class="circle photos"><a href="/u/<%= @user_info["data"]["username"] %>/?my-pic=1" style="display:block;">Photos<br><%= @user_info["data"]["counts"]["media"] %></a></div></td>
-      <td><div class="circle followed"><a href="/followed-by/?id=<%= @user_info["data"]["id"] %>">Followed by <br><%= @user_info["data"]["counts"]["followed_by"] %></a></div></td>
-      <td><div class="circle following"><a href="/following/?id=<%= @user_info["data"]["id"] %>" style="display:block;">Following<br><%= @user_info["data"]["counts"]["follows"] %></a></div></td>
+      <td><div class="circle photos"><a href="/u/<%= @temp_info["user"]["username"] %>/?my-pic=1" style="display:block;">Photos<br><span id="media-count"><%#= @user_info["data"]["counts"]["media"] %></span></a></div></td>
+      <td><div class="circle followed"><a href="/followed-by/?id=<%= @temp_info["user"]["id"] %>">Followers <br><span id="followed-count"><%#= @user_info["data"]["counts"]["followed_by"] %></span></a></div></td>
+      <td><div class="circle following"><a href="/following/?id=<%= @temp_info["user"]["id"] %>" style="display:block;">Following<br><span id="following-count"><%#= @user_info["data"]["counts"]["follows"] %></span></a></div></td>
       <% if params[:action] == "user" || params[:action] == "likes" && @current_user.present? %>
         <td><div class="circle likes"><a href="/likes" style="display:block;">Likes<br></a></div></td>
       <% end %>
   </tr>
   </table>
 </div>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    
+  });
+</script>

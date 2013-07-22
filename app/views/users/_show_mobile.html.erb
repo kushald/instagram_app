@@ -1,22 +1,22 @@
 <% if @data.blank? %>
   <h3 class="error">User does not exist or user deleted profile</h3>
-<% elsif @user_info["meta"]["error_type"].present? %>
-  <h3 class="error">Sorry this is a private User</h3>
+<%# elsif @user_info["meta"]["error_type"].present? %>
+  <!--<h3 class="error">Sorry this is a private User</h3> -->
 <% else %>
   <%#= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
   <div align="center" class="profile">
-    <a href="/u/<%= @user_info["data"]["username"] %>/">
-      <img src="<%= @user_info["data"]["profile_picture"] %>" class="photo"/>
-      <h3>@<%= @user_info["data"]["username"] %></h3>
+    <a href="/u/<%= @temp_info["user"]["username"] %>/">
+      <img src="<%= @temp_info["user"]["profile_picture"] %>" class="photo"/>
+      <h3>@<%= @temp_info["user"]["username"] %></h3>
     </a>
     <div class="profile-details">
       <ul class="profile-list">
-        <% if @user_info["data"]["full_name"].present? %>
-          <li>Name: <%= @user_info["data"]["full_name"] %></li>
+        <% if @temp_info["user"]["full_name"].present? %>
+          <li>Name: <%= @temp_info["user"]["full_name"] %></li>
         <% end %>
-        <% if @user_info["data"]["website"].present? %>
+        <% if @temp_info["user"]["website"].present? %>
           <li>Website: 
-            <a href="<%= @user_info["data"]["website"] %>"><%= @user_info["data"]["website"] %></a>
+            <a href="<%= @temp_info["user"]["website"] %>"><%= @temp_info["user"]["website"] %></a>
           </li>
         <% end %>
         <% if params[:id] != @current_user.instagram_username && !@current_user.guest_user %>
@@ -31,26 +31,26 @@
         <% end %>
       </ul>
     </div>
-    <% if @user_info["data"]["bio"].present? %>
+    <% if @temp_info["user"]["bio"].present? %>
         <div class="bio">
-          Bio: <%= @user_info["data"]["bio"] %>
+          Bio: <%= @temp_info["user"]["bio"] %>
         </div>
     <% end %>
   </div>
   <div class="profile-activity">
       <div style="background: <%= tag_color %>">
-        <a href="/u/<%= @user_info["data"]["username"] %>/?my-pic=1">
-          Photos <%= @user_info["data"]["counts"]["media"] %>
+        <a href="/u/<%= @temp_info["user"]["username"] %>/?my-pic=1">
+          Photos <span id="media-count"></span> <%#= @user_info["data"]["counts"]["media"] %>
         </a>
       </div>
       <div style="background: <%= tag_color %>">
-        <a href="/followed-by/?id=<%= @user_info["data"]["id"] %>">
-        Followers <%= @user_info["data"]["counts"]["followed_by"] %>
+        <a href="/followed-by/?id=<%= @temp_info["user"]["id"] %>">
+        Followers <span id="followed-count"></span> <%#= @user_info["data"]["counts"]["followed_by"] %>
         </a>
       </div>
       <div style="background: <%= tag_color %>">
-        <a href="/following/?id=<%= @user_info["data"]["id"] %>">
-          Following <%= @user_info["data"]["counts"]["follows"] %>
+        <a href="/following/?id=<%= @temp_info["user"]["id"] %>">
+          Following <span id="following-count"></span> <%#= @user_info["data"]["counts"]["follows"] %>
         </a>
       </div>
       <% if params[:action] == "user" || params[:action] == "likes" && @current_user.present? %>
