@@ -5,7 +5,7 @@
 <% else %>
   <%#= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
   <div align="center" class="profile">
-    <a href="/u/<%= @temp_info["user"]["username"] %>/">
+    <a href="/u/<%= @temp_info["user"]["username"] %>/?fid=<%= @temp_info["user"]["id"] %>">
       <img src="<%= @temp_info["user"]["profile_picture"] %>" class="photo"/>
       <h3>@<%= @temp_info["user"]["username"] %></h3>
     </a>
@@ -39,7 +39,7 @@
   </div>
   <div class="profile-activity">
       <div style="background: <%= tag_color %>">
-        <a href="/u/<%= @temp_info["user"]["username"] %>/?my-pic=1">
+        <a href="/u/<%= @temp_info["user"]["username"] %>/?fid=<%= @temp_info["user"]["id"] %>">
           Photos <span id="media-count"></span> <%#= @user_info["data"]["counts"]["media"] %>
         </a>
       </div>

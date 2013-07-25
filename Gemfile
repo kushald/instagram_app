@@ -10,7 +10,6 @@ gem 'mysql2', :group => [:development, :test]
 gem 'annotate', '~> 2.4.1.beta', group: :development
 gem 'geokit'
 gem 'httpclient', '2.3.3'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

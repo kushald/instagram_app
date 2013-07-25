@@ -6,4 +6,5 @@
 <% else %>
   <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
   <%= render '/site/content' %>
+  <%= render '/users/pagination' %>
 <% end %>

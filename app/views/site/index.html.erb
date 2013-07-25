@@ -7,7 +7,7 @@
       <% color = tag_color %>
       <div class="explore">
         <div align="center" style="margin: 18px 0px 2px 0px;">
-          <a href="/u/<%= @interesting_users[user_id].instagram_username %>" style="color: <%= color %>;"><img src="<%= @interesting_users[user_id].instagram_profile_picture %>" style="border: 1px solid <%= color %>; width: 60px;"><br>
+          <a href="/u/<%= @interesting_users[user_id].instagram_username %>/?fid=<%= @interesting_users[user_id].instagram_user_id %>" style="color: <%= color %>;"><img src="<%= @interesting_users[user_id].instagram_profile_picture %>" style="border: 1px solid <%= color %>; width: 60px;"><br>
           <%= @interesting_users[user_id].instagram_username %></a>
         </div>
         <div>  

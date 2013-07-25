@@ -2,14 +2,12 @@
 <% meta_keywords "joystagram, joystagram.com, instagram, IG, web, #{@data["data"][0]["user"]["username"] rescue ""}, instagram on web" %>
 <% meta_description "Joystagram - #{@data["data"][0]["user"]["username"] rescue ""}" %>
 <h1><%=h content_for(:title, "#{@data["data"][0]["user"]["username"] rescue ""} - Joystagram") %></h1>
-<% if session[:mobile] %>
-  <%= render "show_mobile" %>
-<% else %>
-  <%= render "show_web" %>
-<% end %>
+
+<%= render "show_web" %>
+
 <%= render "pagination" %>
 <script type="text/javascript">
-  $(document).ready(function(){
+  /*$(document).ready(function(){
     <% if @temp_info.present? %>
       var user_id = <%= @temp_info["user"]["id"] %>;
       $.ajax({
@@ -19,21 +17,14 @@
           $("#media-count").html(response["media"]);
           $("#followed-count").html(response["followed_by"]);
           $("#following-count").html(response["follows"]);
+          $("#bio").html(response["bio"]);
+          $("#website").attr("href", response["website"]);
+          $("#website").html(response["website"]);
+          $("#username").html(response["username"]);
+          $("#full_name").html(response["full_name"]);
+          $("#profile_picture img").attr("src",response["profile_picture"]);
         }
       });
     <% end %>
-
-    $("#relation-none").click(function(){
-      $("#relation-none").css({"opacity": 0.4});
-      $.ajax({
-        url: "/relationship",
-        type: "POST",
-        data: {instagram_action : "follow", media_id : "<%= params[:id] %>" },
-        success: function(response) {
-          $("#relation-none").css({"background-color": "#85A32B", "opacity": 1});
-          $("#relation-none").text("following");
-        }
-      });
-    });
-  });
+  }); */
 </script>

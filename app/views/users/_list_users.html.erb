@@ -1,16 +1,20 @@
 <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
-<% @data["data"].each do |data| %>
-<div class="browse-celeb-grid">
-  <a href="/u/<%= data['username'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;height:auto;" />
-    <div style="text-align: center;font-size: 14px;"><%= data["username"] %></div>
-  </a>
+<div class="row">
+  <% @data["data"].each do |data| %>
+  <div class="browse-celeb-grid">
+    <a href="/u/<%= data['username'] %>/?fid=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;height:auto;" />
+      <div style="text-align: center;font-size: 14px;"><%= data["username"] %></div>
+    </a>
+  </div>
+  <% end %>
 </div>
-<% end %>
-<% if @data["pagination"]["next_cursor"].present? %>
-<div id="load-more" class="grid_2" style="margin-top: 6%;">
-  <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
+<div class="row">
+  <% if @data["pagination"]["next_cursor"].present? %>
+  <div id="load-more" class="large-2 columns" style="margin-top: 1%;">
+    <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
+  </div>
+  <% end %>
 </div>
-<% end %>
 
 <script type="text/javascript">
 $(document).ready(function(){

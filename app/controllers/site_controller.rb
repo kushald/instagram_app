@@ -1,7 +1,6 @@
 class SiteController < ApplicationController
   include SiteHelper
   require 'net/http'
-
   before_filter :store_return_to, :only => [:login]
 
   def login
@@ -37,7 +36,6 @@ class SiteController < ApplicationController
 
   def popular
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
-    @ig_users = @data["data"].collect{|d| [d["caption"]["from"]["username"],d["caption"]["from"]["profile_picture"]] if d["caption"].present?}.compact rescue []
     render :partial => 'content' and return if request.xhr?
   end
 
@@ -46,12 +44,6 @@ class SiteController < ApplicationController
     @media = Request.get_request("https://api.instagram.com/v1/media/#{params[:id]}?access_token=#{@current_user.instagram_access_token}")
     if @media["data"].present?
       @user_id = @media["data"]["user"]["username"]
-      if !session[:mobile]
-        @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/media/recent/?access_token=#{@current_user.instagram_access_token}&count=6")["data"].shuffle
-        celeb = InterestingUser.where(:category_type => 2).collect(&:instagram_user_id)      
-        @browse_popular = InterestingUserPost.where(:instagram_user_id => celeb).sample(6)
-      end
-      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{@media["data"]["user"]["id"]}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
     end
   end
 
@@ -92,8 +84,11 @@ class SiteController < ApplicationController
 
   def search
     if params[:q].present?
-      @data_tags = Request.get_request("https://api.instagram.com/v1/tags/#{params[:q]}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
-      @data_users = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:q]}&access_token=#{@current_user.instagram_access_token}")
+      if params[:kind] == "user"
+        @data = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:q]}&access_token=#{@current_user.instagram_access_token}")
+      else
+        @data = Request.get_request("https://api.instagram.com/v1/tags/#{params[:q]}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
+      end
     end
   end
 

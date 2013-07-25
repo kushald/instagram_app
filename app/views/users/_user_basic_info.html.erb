@@ -1,30 +1,50 @@
-<div class="grid_12" style="border-bottom: 1px dotted black;margin-bottom: 35px;padding-bottom: 16px;">
-  <table> 
-    <tr>
-      <td>
-        <div style="margin: 0px 100px 13px 0px;"><a href="/u/<%= @temp_info["user"]["username"] %>/?my-pic=1"><img src=<%= @temp_info["user"]["profile_picture"] %> style="border-radius: 93px;" /><br>
-          <span style="margin-left: 15px;color: #00AEEF;">@<%= @temp_info["user"]["username"] %></span></a>
+<div id="getuid" uid="<%= @temp_info["user"]["id"] %>"></div>
+<div id="profile-load" uid="<%= @temp_info["user"]["id"] %>" logged-in="<%= @current_user.logged_in_user ? 1 : 0 %>">
+  <div class="row profile-row" style="margin-bottom: 4%;">
+    <div class="large-12 columns profile-adv">
+      <div class="large-6 columns profile-border">
+        <div class="large-4 columns" id="profile_picture">
+          <a href="/u/<%= @temp_info["user"]["username"] %>/?fid=<%= @temp_info["user"]["id"] %>">
+            <img src=<%= @temp_info["user"]["profile_picture"] %> style="border-radius: 93px;float:left;" />
+          </a>
+        </div>
+        <div class="large-8 columns" style="margin-top: 21px;">
+          <a href="/u/<%= @temp_info["user"]["username"] %>/?fid=<%= @temp_info["user"]["id"] %>">
+            <h3 id="username"><%= @temp_info["user"]["username"] %></h3>
+          </a>
+          <% if @temp_info["user"]["full_name"].present? %>
+            <div id="full_name"><%= @temp_info["user"]["full_name"] %></div>
+          <% end %>
+        </div>
       </div>
-      <% if defined?(show_follow) && params[:id] != @current_user.instagram_id && !@current_user.guest_user %>
-        <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
-         <span id="relation-follows">Following</span>
-        <% else %>
-          <span id="relation-none">Follow</span>
-        <% end %>
-      <% end %>
-    </td>
-      <td><div class="circle photos"><a href="/u/<%= @temp_info["user"]["username"] %>/?my-pic=1" style="display:block;">Photos<br><span id="media-count"><%#= @user_info["data"]["counts"]["media"] %></span></a></div></td>
-      <td><div class="circle followed"><a href="/followed-by/?id=<%= @temp_info["user"]["id"] %>">Followers <br><span id="followed-count"><%#= @user_info["data"]["counts"]["followed_by"] %></span></a></div></td>
-      <td><div class="circle following"><a href="/following/?id=<%= @temp_info["user"]["id"] %>" style="display:block;">Following<br><span id="following-count"><%#= @user_info["data"]["counts"]["follows"] %></span></a></div></td>
-      <% if params[:action] == "user" || params[:action] == "likes" && @current_user.present? %>
-        <td><div class="circle likes"><a href="/likes" style="display:block;">Likes<br></a></div></td>
-      <% end %>
-  </tr>
-  </table>
+      <div class="large-6 columns">
+        <div class="large-12 columns" style="padding:30px;font-size:15px;line-height:24px;color:#777;">
+          <span id="bio"></span>
+        </div>
+        <div class="large-12 columns">
+          <a id="website" href="" target="blank"></a>
+        </div>
+      </div>
+    </div> 
+   <div class="large-12 columns profile-adv" style="background:#F6F7F7;border:none;">
+    <div class="large-4 columns profile-seperate">
+      <a href="/u/<%= @temp_info["user"]["username"] %>/?fid=<%= @temp_info["user"]["id"] %>">
+        <span id="media-count" class="count"></span><br>
+        <span>Photos</span>
+      </a>
+    </div>
+    <div class="large-4 columns profile-seperate">
+      <a href="/followed-by/?id=<%= @temp_info["user"]["id"] %>">
+        <span  id="followed-count" class="count"></span><br>
+        <span>Followers</span>
+      </a>
+    </div>
+    <div class="large-4 columns profile-seperate-last">
+      <a href="/following/?id=<%= @temp_info["user"]["id"] %>">
+        <span  id="following-count" class="count"></span><br>
+        Following
+      </a>
+    </div>
+   </div>
+  </div>
 </div>
-
-<script type="text/javascript">
-  $(document).ready(function() {
-    
-  });
-</script>

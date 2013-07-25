@@ -12,7 +12,7 @@ InstagramApp::Application.routes.draw do
   match '/logout/' => 'users#logout' 
   match '/nearby' => 'site#geo_tag_content'
   match '/search' => 'site#search'
-  match '/relationship' => 'users#relationship'
+  match '/relationship/:id' => 'users#relationship'
   match '/like-media' => 'users#like_media'
   match '/media/:id' => 'site#media'
   match '/comment/' => 'users#comment'
@@ -24,6 +24,8 @@ InstagramApp::Application.routes.draw do
   match 'admin' => 'site#admin'
   match 'joystagrammers' => 'users#joystagrammers'
   match '/profile_count/:id' => 'users#profile_count'
+  match '/relation/:id' => 'users#relation'
+  match '/browse-user/:id' => 'users#browse_user'
   # ------TAGS---------
   match '/tags' => 'tags#index'
   match '/tag/:id' => 'tags#show'

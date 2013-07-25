@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  
+
   def joystagrammers
     @users = User.all
   end
   def show
-    id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"] rescue []
+    id = retrieve_id(params)  
     if id.present?    
       #@user_info = Request.get_request("https://api.instagram.com/v1/users/#{id}/?access_token=#{@current_user.instagram_access_token}")
       @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
       elsif @data["data"]
         @temp_info = temp_user_info(@data["data"][0]["user"]) if @data["data"]
       end
-      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{id}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
     end
   end
 
@@ -53,8 +52,7 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
   def relationship
-    id = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:media_id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"]
-    response = Request.post_request(:uri => "https://api.instagram.com/v1/users/#{id}/relationship",
+    response = Request.post_request(:uri => "https://api.instagram.com/v1/users/#{params[:id]}/relationship",
                                     :type => "relationship",
                                     :action => params[:instagram_action],
                                     :access_token => @current_user.instagram_access_token)
@@ -79,11 +77,33 @@ class UsersController < ApplicationController
 
   def relation
     data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}")
+    render :json => {status: data["data"]["outgoing_status"]}
   end
 
   def profile_count
     data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/?access_token=#{@current_user.instagram_access_token}")["data"]
-    render :json => {media: "", followed_by: "", follows: ""} and return if data.blank?
-    render :json => {media: data["counts"]["media"], followed_by: data["counts"]["followed_by"], follows: data["counts"]["follows"]} and return
+    render :json => {media: "", followed_by: "", follows: "", bio: "", website: "", full_name: "", profile_picture: "", username: ""} and return if data.blank?
+    @profile = {
+                      id: data["id"],
+                      media: data["counts"]["media"], 
+                      followed_by: data["counts"]["followed_by"],
+                      follows: data["counts"]["follows"],
+                      bio: data["bio"],
+                      website: data["website"],
+                      full_name: data["full_name"].to_s,
+                      profile_picture: data["profile_picture"],
+                      username: data["username"]}
+    render :layout => false
+  end
+
+  def browse_user
+    @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}&count=6")["data"].shuffle
+    render :layout => false
+  end
+
+  private
+
+  def retrieve_id(params)
+    params[:fid].present? ? params[:fid] : Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:id]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"] rescue [] 
   end
 end

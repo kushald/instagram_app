@@ -1,0 +1,91 @@
+.row {
+  max-width: 77.500em;
+}
+.top-bar-section ul {
+  line-height: 4.6em;
+}
+.top-bar {
+  background: white;
+  height: 77px;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.03);
+  border-top: 1px solid #D9D9D9;
+  border-bottom: 1px solid #D9D9D9;
+}
+
+.top-bar-section ul {
+  background: white;
+}
+
+.top-bar-section li a:not(.button)  {
+  background: white;
+  padding: 0 30px;
+  color: #353535;
+  line-height: 72px;
+}
+
+.top-bar .name h1 a {
+  font-family: 'Fredericka the Great', cursive;
+  font-weight: bold;
+  font-size: 38px;
+  color: #353535;
+  padding: 12px;
+}
+
+.top-bar-section ul li > a {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+.top-bar-section li a:active, .top-bar-section li a:hover {
+  border-bottom: 3px solid orangered;
+}
+
+.top-bar.expanded .title-area {
+  background: white;
+}
+
+.top-bar .toggle-topbar.menu-icon {
+  background: #353535;
+}
+
+.top-bar .name {
+    height: 60px;
+  }
+
+@media screen and (max-width: 1260px) {
+ .top-bar-section li a:active, .top-bar-section li a:hover {
+    border-bottom: none;
+  }
+  
+  .top-bar .name {
+    height: 60px;
+  }
+
+  .top-bar-section li a:not(.button)  {
+    padding: 0 15px;
+    line-height: 45px;
+  }
+
+  .top-bar .name h1 a {
+    font-size: 30px;
+  }
+
+  .top-bar-section li a:not(.button) {
+    line-height: 65px;
+  }
+}
+
+
+@media screen and (max-width: 936px) {
+
+  .top-bar.expanded .title-area {
+    border-bottom: 1px solid #DDD;
+  }
+  
+  .top-bar-section li a:not(.button) {
+    line-height: 45px;
+    border-bottom: 1px solid #DDD;
+  } 
+
+   
+}

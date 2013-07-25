@@ -1,21 +1,2 @@
 <%= render :partial => '/users/user_basic_info', :locals => {:show_follow => true} %>
 <%= render '/site/content' %>
-
-<script type="text/javascript">
-  $(document).ready(function(){
-    $("#relation-none").click(function(){
-      alert(1)
-      $("#relation-none").css({"opacity": 0.4});
-      $.ajax({
-        url: "/relationship",
-        type: "POST",
-        data: {instagram_action : "follow", id : "<%= params[:id] %>" },
-        success: function(response) {
-          $("#relation-none").css({"background-color": "#85A32B", "opacity": 1});
-          $("#relation-none").text("following");
-
-        }
-      });
-    });
-  });
-</script>

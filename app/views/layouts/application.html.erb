@@ -10,8 +10,7 @@
     <meta charset="utf-8" />
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
-    <%#= javascript_include_tag "jquery.fancybox.pack", "jquery.fancybox-thumbs", "jquery.fittext" %>
-    <link href='http://fonts.googleapis.com/css?family=Meie+Script' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <% if Rails.env.production? && (@current_user.present? && @current_user.instagram_id != "52093116") %>
@@ -25,6 +24,7 @@
           ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
           var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+        //FB.init({appId: "<%= APP_CONFIG["fb_app_id"] %>", status: true, cookie: true});
       </script>
     <% end %>
   <script src='http://connect.facebook.net/en_US/all.js'></script>
@@ -38,52 +38,61 @@
       js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
       fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="head-fix">
-      <div class="grid_12 omega head-state">
-      <div class="container">
-        
-          <div class="grid_3 omega logo-head">
-            <a href="/">Joystagram</a>
-          </div>
-            <nav class="clearfix">
-              <ul class="clearfix">
-                <% if !@current_user.guest_user %>
-                  <li><a href="/user">Feeds</a></li>
-                <% end %>
-                <li><a href="/popular">Popular</a></li>
-                <li><a href="/categories">Categories</a></li>
-                <li><a href="/tags">Hashtags</a></li>
-                <li><a href="/search">Search</a></li>
-                <li><a href="/about">About</a></li>
-                <li class="nc">
-                  <% if @current_user.present? && !@current_user.guest_user %>
-                    <div>
-                      <!-- <a href="/user"><img src="<%#= @current_user.instagram_image %>"></a> -->
-                      <div><a href="/logout">Logout</a></div>
-                    </div>
-                  <% else %>
-                    <a href="/login" class="log-btn">Log In with instagram</a>
-                  <% end %>
-                </li>
-              </ul>
-              <a href="#" id="pull">Menu</a>
-            </nav>
-          </div>
-        </div>
-    </div>
+
+    <nav class="top-bar">
+      <ul class="title-area">
+      <!-- Title Area -->
+      <li class="name">
+        <h1><a href="/">Joystagram</a></h1>
+      </li>
+      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+      <!-- Left Nav Section -->
+      <ul class="left">
+        <% if !@current_user.guest_user %>
+          <li><a href="/user">Feeds</a></li>
+        <% end %>
+        <li><a href="/popular">Popular</a></li>
+        <li><a href="/categories">Categories</a></li>
+        <li><a href="/tags">Hashtags</a></li>
+        <li><a href="/search">Search</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/nearby">Near by</a></li>
+        <li>
+          <% if @current_user.present? && !@current_user.guest_user %>
+            <a href="/logout">Logout</a></div>
+          <% else %>
+            <a href="/login">Sign In With Instagram</a>
+          <% end %>
+        </li>
+      </section>
+
+    </nav>
     <div>
       <div class="fb-like" data-href="https://www.facebook.com/joystagram" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"></div>
     </div>
-    <div class="container clearfix">
       <%= yield %>
-      <footer>
+      <a href="#" class="go-top">Scroll to Top</a> 
+
+      <!-- FOOTER -->
+      <footer class=" color-four site-footer row" role="contentinfo"> 
+        <div class="twelve columns"> 
+        <div class="foot">
+            Joystagram uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on Joystagram are property of Instagram, Inc.
+          </div> 
+        </div>   
+      </footer>
+      <!-- <footer>
         <div class="grid_12">
           <div class="foot">
             Joystagram uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on Joystagram are property of Instagram, Inc.
           </div>
         </div>
-        <a href="#" class="go-top">Scroll to Top</a> 
-      </footer>
+        
+      </footer> -->
       <!--<div class="grid_12">
           <ul class="nav">
             <li><a href="#">Blog</a></li>
@@ -92,43 +101,10 @@
             <li><a href="#">Policy</a></li>
           </ul>
       </div> -->
-    </div>
-    <script type="text/javascript">
-      $(document).ready(function() {
-        $(window).scroll(function() {
-          if ($(this).scrollTop() > 200) {
-            $('.go-top').fadeIn(200);
-          } else {
-            $('.go-top').fadeOut(200);
-          }
-        });
-      
-        // Animate the scroll to top
-        $('.go-top').click(function(event) {
-          event.preventDefault();
-          
-          $('html, body').animate({scrollTop: 0}, 300);
-        })
-
-        var pull    = $('#pull');
-        menu    = $('nav ul');
-        menuHeight  = menu.height();
-
-        $(pull).on('click', function(e) {
-          e.preventDefault();
-          menu.slideToggle();
-        });
-
-        $(window).resize(function(){
-          var w = $(window).width();
-          if(w > 320 && menu.is(':hidden')) {
-            menu.removeAttr('style');
-          }
-        }); 
-
-
-      });
-      $("#fittext1").fitText();
-    </script>
   </body>
 </html>
+<script type="text/javascript">
+  $(function() {
+    $(document).foundation();
+});
+</script>

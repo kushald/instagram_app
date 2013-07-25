@@ -2,22 +2,59 @@
 <% meta_description "Instagram photo tag search" %>
 <h1><%=h content_for(:title, "Instagram photo tag search | Joystagram") %></h1>
 
-<div class="grid_12 omega search">
-  <form action="/search">
-    <input type="text" id="search-input" name="q" value="<%= params[:q] %>" placeholder="Search for tags or users">
-    <input type="submit" value="Search" id="refresh-button">
-  </form>
-</div>
-<%if params[:q].present? %>
-  <% search_text = (@data_tags["data"].blank? && @data_users["data"].blank?) ? " No Result found for #{params[:q]}" : "Search result for #{params[:q]}" %>
-  <div class="popular-text"><%= search_text %></div>
-  <div align="center">
-    <% if @data_tags["data"].present? %>
-      <div class="grid_6" style="border-left: 1px solid #DDD;margin: 30px;"><%= render "search_tags" %></div>
-    <% end %>
-    <% if @data_users["data"].present? %>
-      <div class="grid_4" style="border-right: 1px solid #DDD;border-left: 1px solid #DDD;margin: 30px;">
-      <%= render "search_users" %></div>
-    <% end %>
+<div class="row">
+  <div class="large-6 columns">
+    <form action="/search">
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS" style="padding:1.5em">
+          <input type="hidden" name="kind" value="tag">
+        </div>
+        <div class="small-3 columns">
+          <input type="submit" class="submit" value="Search" style="padding:1.4em">
+        </div>
+      </div>
+      </form>
   </div>
+  <div class="large-6 columns">
+    <form action="/search">
+      <div class="row collapse">
+        <div class="small-9 columns">
+          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "user" %>" placeholder="SEARCH PEOPLE" style="padding:1.5em">
+          <input type="hidden" name="kind" value="user">
+        </div>
+        <div class="small-3 columns">
+          <input type="submit" class="submit" value="Search" style="padding:1.4em">
+        </div>
+      </div>
+    </form>
+  </div>
+  <%if params[:q].present? %>
+    <% search_text = (@data["data"].blank?) ? " No Result found for #{params[:q]}" : "Search result for #{params[:q]}" %>
+    <div class="popular-text"><%= search_text %></div>
+    <% if params[:kind] == "tag" %>
+      <div align="center">
+        <% if @data["data"].present? %>
+          <div><%= render "search_tags" %></div>
+        <% end %>
+    <% elsif params[:kind] == "user" %>
+        <% if @data["data"].present? %>
+          <div class="grid_4" style="border-right: 1px solid #DDD;border-left: 1px solid #DDD;margin: 30px;">
+          <%= render "search_users" %></div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="row">
+  <% if params[:kind] == "tag" %>
+    <% next_id = @data["pagination"]["next_max_tag_id"] || @data["pagination"]["next_max_like_id"] || @data["pagination"]["next_max_id"] %>
+    <% if next_id.present? %>
+      <div id="load-more" class="large-2 columns" style="margin-top:2%;">
+        <%= link_to "Next", {controller: params[:controller], action: params[:action], n: next_id, q: params[:q], kind: params[:kind]} %>
+      </div>
+    <% end %>
 <% end %>
+</div>
+

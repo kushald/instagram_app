@@ -1,7 +1,6 @@
-<h3>Users</h3>
-<%  @data_users["data"].each do |u| %>
+<%  @data["data"].each do |u| %>
   <div class="browse-celeb-grid">
-    <a href="/u/<%= u["username"] %>"><img src="<%= u["profile_picture"] %>" style="width:100px;height:auto;" ><br>
+    <a href="/u/<%= u["username"] %>/?fid=<%=u["id"] %>"><img src="<%= u["profile_picture"] %>" style="width:100px;height:auto;" ><br>
     <div style="text-align: center;font-size: 14px;"><%= u["username"] %></div></a>
   </div>
 <% end %>

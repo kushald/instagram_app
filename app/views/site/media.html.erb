@@ -1,13 +1,14 @@
 <% meta_keywords "joystagram, joystagram.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joystagram - Joy of Instagram On Web" %>
 <h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joystagram - Joy of Instagram On Web"}") %></h1>
+<div id="getuid" uid="<%= @media["data"]["user"]["id"] %>"></div>
 <% if @media["meta"]["error_message"].present? %>
   <h3 class="error">Sorry this Image might have been deleted by user</h3>
 <% else %>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
-  <div class="grid_12 omega">
-    <div class="grid_7 omega">
+  <div class="row" id="uname" val="<%= @media["data"]["user"]["username"] %>">
+    <div class="large-7 columns">
       <div class="single-image">
         <% if @media["data"]["type"] == "video" %>
           <video width="99%" controls>
@@ -21,14 +22,14 @@
         <%= @media["data"]["caption"]["text"] rescue "" %>
       </div>
     </div>
-    <div class="grid_3 omega" style="margin-left: 80px;">
+    <div class="large-3 columns">
       <div style="font-size: 13px;">
         <div class="side-panel">
           <% if !@current_user.guest_user %>
             <% if @media["data"]["user_has_liked"] %>
               <i class="foundicongen-heart margin0 red"></i>
             <% else %>
-              <i class="foundicongen-heart margin0" id="like-media" data-likes="<%= @media["data"]["likes"]["count"] %>"></i>
+              <i class="foundicongen-heart margin0" id="like-media" val="<%= @media["data"]["id"] %>" data-likes="<%= @media["data"]["likes"]["count"] %>"></i>
             <% end %>
           <% else %>
             <i class="foundicongen-heart margin0" id="like-as-guest"></i>
@@ -51,22 +52,23 @@
           <div class="side-panel">Location: <%= @media["data"]["location"]["name"] %></div>
         <% end %>
         <% if @media["data"]["tags"].present? %>
-        <div class="side-panel">
-          <span>Tags</span>
-          <ul style="padding-left: 5px;">
-            <% tags = @media["data"]["tags"] %>
-            <% tag_size = tags.size > 7 ? 7 : tags.size %>
-            <% tag_size.times do |i| %>
-              <a href="/tag/<%= tags[i] %>"><li class="tag" style="background: <%= tag_color %>;"><%= tags[i] %></li></a>
-            <% end %>
-          </ul>
+          <div class="side-panel">
+            <span>Tags</span>
+            <ul style="padding-left: 5px;">
+              <% tags = @media["data"]["tags"] %>
+              <% tag_size = tags.size > 7 ? 7 : tags.size %>
+              <% tag_size.times do |i| %>
+                <a href="/tag/<%= tags[i] %>"><li class="tag" style="background: <%= tag_color %>;"><%= tags[i] %></li></a>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-        </div>
+        
         <div class="side-panel">
           <div style="font-size: 14px;">Likers</div>
           <div>
             <% @media["data"]["likes"]["data"].each do |like| %>
-              <a href="/u/<%= like["username"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
+              <a href="/u/<%= like["username"] %>/?fid=<%= like["id"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
             <% end %>
           </div>
         </div>
@@ -74,135 +76,49 @@
     </div>
     <div class="uploader">      
         <div align="center">
-          <a href="/u/<%= @user_id %>">
+          <a href="/u/<%= @user_id %>/?fid=<%= @media["data"]["user"]["id"] %>">
             <img src="<%= @media["data"]["user"]["profile_picture"] %>" class="media-author">
             <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
           </a>
-          <% if @user_id != @current_user.instagram_username && !@current_user.guest_user %>
-            <% if @relationship.present? && @relationship["data"]["outgoing_status"] == "follows" %>
-              <div class="following-btn-media">Following</div>
-            <% else %>
-              <div class="follow-btn-media">Follow</div>
-            <% end %>
-              <div class="relation-loader">
-                <img src="/assets/fancybox_loading.gif">
-              </div> 
+          <% if  @media["data"]["user"]["id"] != @current_user.instagram_id %>
+          <% if @current_user.guest_user %>
+            <div class="button" id="relation-none">Follow me</div>
+          <% else %>
+            <div id="relation-check"></div>
           <% end %>
+          <div class="relation-loader">
+            <img src="/assets/fancybox_loading.gif">
+          </div> 
+        <% end %>
         </div>
         <div class="pin-button">
           <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
         </div>
-        <div id="fb-share">
+        <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
           <a><i class="social foundicon-facebook"></i></a>
           <div class="weheart">
             <a href="//weheartit.com/heart-it" class="heart-it-button" data-type="horizontal" data-image-url="<%= url %>" data-source-url="<%= request.protocol+request.host_with_port+request.fullpath %>">Heart It</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//assets.whicdn.com/assets/heart_it_button.js";fjs.parentNode.insertBefore(js,fjs);}else if(whi){whi.HeartItWidget();}}(document,"script","whi-heartitbutton");</script>
         </div>
         </div>
     </div>
-    <div class="grid_7" style="font-size: 14px;">
-      <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
-      <% @media["data"]["comments"]["data"].each do |comment| %>
-        <div><a href="/u/<%= comment["from"]["username"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
-        <div class="media-comment">
-          <a href="/u/<%= comment["from"]["username"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
-          <div style="font-size: 13px;"><%= comment["text"] %></div>
-        </div>
-      <% end %>
-      <% if @current_user.instagram_username == "kushal00" %>   
-        <textarea rows="3" cols="50">
-          Nice 
-        </textarea>
-        <button id="comment-button">Comment</button>
-      <% end %>
-    </div>
-    <% if @browse_user.present? %>
-      <div class="grid_3" style="margin: 0px 10px 154px 40px;">
-        <div class="browse-more">
-          <div class="browse-more-auth">Browse more by <br><a href="/u/<%= @user_id %>" style="color: #619AB1;"><%= @media["data"]["user"]["username"] %></a></div>
-        </div>
-        <div>
-          <% @browse_user.each do |media| %>
-            <div class="browse-user-grid">
-              <a href="/media/<%= media["id"] %>"><img src="<%= media["images"]["thumbnail"]["url"] %>" %></a>
-            </div>
-          <% end %>
-        </div>
-        <div class="browse-more" style="margin-top: 16px;">
-          <div style="border-bottom: 1px solid #DDD;text-align: center;font-size: 15px">More uploads <br><a href="/" style="color: #619AB1;">Explore</a></div>
-        </div>
-        <div>
-          <% @browse_popular.each do |media| %>
-            <div class="browse-user-grid">
-              <a href="/media/<%= media.media_id %>"><img src="<%= media.thumb_image %>" %></a>
-            </div>
-          <% end %>
-        </div>
-      </div>
-      <% end %>
   </div>
-
-  <script type="text/javascript">
-    FB.init({appId: "<%= APP_CONFIG["fb_app_id"] %>", status: true, cookie: true});
-
-    $(document).ready(function(){
-      $('#fb-share').click(function(){
-        var obj = {
-            method: 'feed',
-            //redirect_uri: 'http://127.0.0.1:3000',
-            link: '<%= request.protocol+request.host_with_port+request.fullpath %>',
-            picture: '<%= url %>',
-            name: 'Joystagram',
-            caption: '<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>',
-            description: "Instagram Web Viewer"
-          };
-        function callback(response) {
-            console.log(response);
-          }
-        FB.ui(obj, callback);
-      });
-      $('#comment-button').click(function(){
-        var text = $('textarea').val();
-        $.ajax({
-          url: '/comment',
-          type: 'POST',
-          data: { text: text, media_id: "<%= params[:id] %>" },
-          success: function(){
-            alert("done");
-          }
-        });
-      });
-
-      $("#like-media").click(function(){
-        console.log($(this).attr('data-likes'));
-        likeCount = parseInt($(this).attr('data-likes'))+1;
-        $('#like-media').addClass('red');
-        $('#like-media').removeClass('white');
-        $('#like-count span').text(likeCount);
-
-        $.ajax({
-          url: "/like-media",
-          type: 'POST',
-          data: {"media_id" : '<%= @media["data"]["id"] %>'},
-          success: function(response) {
-            console.log("phew!!!!");
-          }
-        });
-      });
-
-      $(".follow-btn-media").click(function(){
-        $(".follow-btn-media").css({"opacity": "0.6"});
-        $.ajax({
-          url: "/relationship",
-          type: "POST",
-          data: {instagram_action : "follow", media_id : "<%= @media["data"]["user"]["username"] %>" },
-          success: function(response) {
-            $(".follow-btn-media").css({"background-color": "#85A32B"});
-            $(".follow-btn-media").text("following");
-            $(".follow-btn-media").css({"opacity": "1"});
-          }
-        });
-      });
-
-    });
-  </script>
+    <div class="row">
+      <div class="large-6 columns" style="font-size: 14px;">
+        <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
+        <% @media["data"]["comments"]["data"].each do |comment| %>
+          <div><a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
+          <div class="media-comment">
+            <a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
+            <div style="font-size: 13px;"><%= comment["text"] %></div>
+          </div>
+        <% end %>
+        <% if @current_user.instagram_username == "kushal00" %>   
+          <textarea rows="3" cols="50">
+            Nice 
+          </textarea>
+          <button id="comment-button">Comment</button>
+        <% end %>
+      </div>
+      <div id="browse-user" uid="<%= @media["data"]["user"]["id"] %>" logged-in="<%= @current_user.logged_in_user ? 1 : 0 %>"></div>
+    </div>
 <% end %>

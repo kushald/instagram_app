@@ -2,9 +2,7 @@
 <% meta_keywords "joystagram, joystagram.com, instagram, IG,instagram on web, #{un}" %>
 <h1><%=h content_for(:title, "Joystagram - #{un} Joy of Instagram On Web") %></h1>
 <%= render '/users/user_basic_info' %>
-<div id="wrapper">
-  <%= render 'content' %>
-</div>
+<%= render 'content' %>
 <%= render "/users/pagination" %>
 <script type="text/javascript">
 $(document).ready(function(){
