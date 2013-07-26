@@ -24,11 +24,12 @@
 }
 
 .top-bar .name h1 a {
+  background: #202020;
   font-family: 'Fredericka the Great', cursive;
   font-weight: bold;
   font-size: 38px;
-  color: #353535;
-  padding: 12px;
+  color: white;
+  padding: 15px;
   letter-spacing: 2px;
 }
 
@@ -76,8 +77,8 @@
   .top-bar-section li a:not(.button) {
     line-height: 65px;
   }
-}
 
+}
 
 @media screen and (max-width: 936px) {
 
@@ -89,6 +90,12 @@
     line-height: 45px;
     border-bottom: 1px solid #DDD;
   } 
+
+  .top-bar .name h1 a {
+    background: white;
+    color: #353535;
+    padding: 6px;
+  }
 
    
 }
