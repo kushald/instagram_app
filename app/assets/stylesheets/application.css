@@ -64,12 +64,6 @@ float: left;
   border-top: 1px solid black;
 }
 
-footer {
-  bottom: 0px;
-  left: 3%;
-  width: 100%;
-}
-
 .circle {
   font-size: 13px;
   width: 60px;
@@ -126,7 +120,7 @@ footer {
 }
 
 #relation-follows {
-  background-color: #74AD72;
+  background-color: #2ecc71;
   padding: 1em;
   color: white;
   margin: 10px;
@@ -212,8 +206,8 @@ footer {
 }
 
 .single-image {
-  background: whitesmoke;
-  padding: 14px 11px 14px 16px;
+  background: #353535;
+  padding: 7px 1px 7px 7px;
   border-radius: 5px;
 }
 
@@ -625,7 +619,8 @@ img:hover {
 }
 
 ::selection{
-  background: #00AEEF;
+  background: #622D52;
+  color: white;
 }
 
 .browse-more-pic {

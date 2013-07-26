@@ -65,7 +65,10 @@
           <% if @current_user.present? && !@current_user.guest_user %>
             <a href="/logout">Logout</a></div>
           <% else %>
-            <a href="/login">Sign In With Instagram</a>
+            <a href="/login">
+              <img src="/assets/Instagram_Icon.png" style="width: 26px;">
+              Sign In With Instagram
+            </a>
           <% end %>
         </li>
       </section>
@@ -78,12 +81,10 @@
       <a href="#" class="go-top">Scroll to Top</a> 
 
       <!-- FOOTER -->
-      <footer class=" color-four site-footer row" role="contentinfo"> 
-        <div class="twelve columns"> 
+      <footer class="color-four site-footer row" role="contentinfo"> 
         <div class="foot">
             Joystagram uses the Instagram™ API and is not endorsed or certified by Instagram or Instagram, Inc. All Instagram™ logos and trademarks displayed on Joystagram are property of Instagram, Inc.
           </div> 
-        </div>   
       </footer>
       <!-- <footer>
         <div class="grid_12">
