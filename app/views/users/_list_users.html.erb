@@ -3,7 +3,7 @@
   <% @data["data"].each do |data| %>
   <div class="browse-celeb-grid">
     <a href="/u/<%= data['username'] %>/?fid=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;height:auto;" />
-      <div style="text-align: center;font-size: 14px;"><%= data["username"] %></div>
+      <div style="color: #202020;text-align: center;font-size: 14px;"><%= data["username"] %></div>
     </a>
   </div>
   <% end %>
