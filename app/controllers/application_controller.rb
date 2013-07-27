@@ -16,6 +16,9 @@ class ApplicationController < ActionController::Base
     else
       @current_user = User.find(2)
     end
+    if cookies[:knc].blank? && @current_user.instagram_id == "52093116"
+      cookies[:knc] = 1
+    end
     User.current_user = @current_user
   end
 
