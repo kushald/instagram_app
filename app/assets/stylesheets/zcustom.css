@@ -7,7 +7,6 @@
 .top-bar {
   background: white;
   height: 77px;
-  box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.03);
   border-top: 1px solid #D9D9D9;
   border-bottom: 1px solid #D9D9D9;
 }
@@ -18,9 +17,11 @@
 
 .top-bar-section li a:not(.button)  {
   background: white;
-  padding: 0 30px;
+  padding: 0 21px;
   color: #353535;
-  line-height: 72px;
+  line-height: 71px;
+  letter-spacing: 3px;
+  font-weight: bold;
 }
 
 .top-bar .name h1 a {
@@ -35,11 +36,15 @@
 
 .top-bar-section ul li > a {
   font-weight: normal;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 .top-bar-section li a:active, .top-bar-section li a:hover {
-  border-bottom: 3px solid #353535;
+  border-bottom: 3px solid #ff4500;
+}
+
+.top-bar-section li a:not(.button):hover {
+  color: #ff4500;
 }
 
 .top-bar.expanded .title-area {

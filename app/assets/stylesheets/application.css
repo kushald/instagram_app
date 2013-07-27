@@ -583,6 +583,14 @@ img:hover {
   }
 }
 
+.about {
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 36px;
+  line-height: 1.4em;
+  color: #bdc3c7;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
@@ -606,7 +614,7 @@ img:hover {
 }
 
 ::selection{
-  background: #622D52;
+  background: #ff4500;
   color: white;
 }
 
@@ -624,14 +632,13 @@ img:hover {
 
 .count {
   font-family: "Droid Sans";
-  color:  #e74c3c;
+  color:  white;
   font-weight: bold;
   font-size: 28px;
 }
 
 .count:hover {
-  font-size: 29px;
-  color:  #e74c3c;
+  color:  white;
 }
 
 .profile-seperate {
@@ -648,7 +655,7 @@ img:hover {
 
 .profile-row a {
   font-size: 14px;
-  color: black;
+  color: white;
 }
 
 input.submit {
@@ -682,10 +689,23 @@ margin-bottom: 10px;
   display: block;
   font-weight: bold;
 }
-.profile-seperate a:hover, .profile-seperate-last a:hover {
-  color: black;
+.profile-seperate a:hover, .profile-seperate_1 a:hover, .profile-seperate-last a:hover, .profile-seperate-last_1 a:hover {
+  color: white;
 }
 
+
+.profile-seperate_1 a {
+  font-size: 22px;
+  border-right: 1px solid #404038;
+  display: block;
+  font-weight: bold;
+}
+.profile-seperate-last_1 a {
+  font-size: 22px;
+  border-right: 1px solid #404038;
+  display: block;
+  font-weight: bold;
+}
 
 @media screen and (max-width: 766px) {
   #load-more {
@@ -705,7 +725,7 @@ margin-bottom: 10px;
     width: 14%;
   }
 
-  .profile-seperate {
+  .profile-seperate, .profile-seperate_1 {
     border: none;
   }
 
@@ -719,7 +739,7 @@ margin-bottom: 10px;
     border: none;
   }
 
-  .profile-seperate {
+  .profile-seperate, .profile-seperate_1 {
     padding-bottom: 12px;
     border-bottom: 1px solid;
   }

@@ -26,22 +26,19 @@
         </div>
       </div>
     </div> 
-   <div class="large-12 columns profile-adv" style="background:#F6F7F7;border:none;">
-    <div class="large-4 columns profile-seperate">
+   <div class="large-12 columns profile-adv" style="background:#202020;border:none;">
+    <div class="large-4 columns profile-seperate_1">
       <a href="/u/<%= @temp_info["user"]["username"] %>/?fid=<%= @temp_info["user"]["id"] %>">
-        <span id="media-count" class="count"></span><br>
         <span>Photos</span>
       </a>
     </div>
-    <div class="large-4 columns profile-seperate">
+    <div class="large-4 columns profile-seperate_1">
       <a href="/followed-by/?id=<%= @temp_info["user"]["id"] %>">
-        <span  id="followed-count" class="count"></span><br>
         <span>Followers</span>
       </a>
     </div>
-    <div class="large-4 columns profile-seperate-last">
+    <div class="large-4 columns profile-seperate-last_1">
       <a href="/following/?id=<%= @temp_info["user"]["id"] %>">
-        <span  id="following-count" class="count"></span><br>
         Following
       </a>
     </div>
