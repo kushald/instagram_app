@@ -94,12 +94,6 @@
         <div class="pin-button">
           <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
         </div>
-        <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
-          <a><i class="social foundicon-facebook"></i></a>
-          <div class="weheart">
-            <a href="//weheartit.com/heart-it" class="heart-it-button" data-type="horizontal" data-image-url="<%= url %>" data-source-url="<%= request.protocol+request.host_with_port+request.fullpath %>">Heart It</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//assets.whicdn.com/assets/heart_it_button.js";fjs.parentNode.insertBefore(js,fjs);}else if(whi){whi.HeartItWidget();}}(document,"script","whi-heartitbutton");</script>
-        </div>
-        </div>
     </div>
   </div>
     <div class="row">
