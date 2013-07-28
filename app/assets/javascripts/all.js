@@ -50,9 +50,12 @@ $(function() {
   $(".white").click(function(){
       var mediaId = this.id;
       likeCount = parseInt($('#'+mediaId).attr('data-likes'))+1;
-      $('#'+mediaId).addClass('red');
-      $('#'+mediaId).removeClass('white');
-      $('#bar-font-'+mediaId+' span').text(likeCount);
+      $('#'+mediaId).fadeOut("slow", function(){
+        $('#'+mediaId).fadeIn();
+        $('#'+mediaId).addClass('red');
+        $('#'+mediaId).removeClass('white');
+        $('#bar-font-'+mediaId+' span').text(likeCount);
+      });
 
       $.ajax({
         url: "/like-media",

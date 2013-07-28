@@ -44,14 +44,15 @@ a.list_selected {
 
 .des-bar {
   font-family: "Droid sans";
-  height: 63px;
-  background-color: black;
+  height: 38px;
+  background-color: #202020;
   opacity: 0.9;
   position: relative;
-  margin-top: -64px;
+  margin-top: -38px;
   float: left;
-  padding: 15px;
-  border-radius: 0 39px 0 0;
+  padding: 11px;
+  border-radius: 0 10px 0 0;
+  font-weight: bold;
 } 
 
 .bar-font {
@@ -285,10 +286,6 @@ li {
   cursor: pointer;
 }
 
-.foundicongen-heart:hover {
-  font-size: 44px;
-  color: red;
-}
 
 .foundiconaccess-eyeball {
   padding-left: 10px;
@@ -406,11 +403,6 @@ textarea {
   padding-top: 5px;
   color: white;
   background: #85A32B;
-}
-
-img:hover {
-  opacity: 0.95;
-  -webkit-transition: opacity 0.35s ease-in-out 0s;
 }
 
 #load-more {
@@ -705,6 +697,15 @@ margin-bottom: 10px;
   border-right: 1px solid #404038;
   display: block;
   font-weight: bold;
+}
+
+.heart {
+  position:absolute;
+  margin: 8px;
+  font-size: 27px;
+  background: #303030;
+  border-radius: 100px;
+  padding: 12px 9px 5px 9px;
 }
 
 @media screen and (max-width: 766px) {
