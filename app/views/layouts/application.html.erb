@@ -13,7 +13,7 @@
     <link href='http://fonts.googleapis.com/css?family=Fredericka+the+Great' rel='stylesheet' type='text/css'>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
-    <% if Rails.env.production? && cookies[:knc].present? %>
+    <% if Rails.env.production? && cookies[:knc].blank? %>
       <script type="text/javascript">
         var _gaq = _gaq || [];
         _gaq.push(['_setAccount', 'UA-41627186-1']);
