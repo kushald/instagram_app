@@ -708,6 +708,15 @@ margin-bottom: 10px;
   padding: 12px 9px 5px 9px;
 }
 
+.fb-like {
+  line-height: 28px;
+  background: #4E69A2;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
 @media screen and (max-width: 766px) {
   #load-more {
     margin-left: 0;
@@ -748,4 +757,8 @@ margin-bottom: 10px;
   .des-bar {
     display: none;
   }
+}
+
+.bold {
+  font-weight: bold;
 }
