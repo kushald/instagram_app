@@ -9,6 +9,7 @@ class SiteController < ApplicationController
 
   def index
     @interesting_user_posts = InterestingUserPost.all.sample(12)
+    expires_in 15.minutes, :public => true
   end
 
   
@@ -35,6 +36,7 @@ class SiteController < ApplicationController
   def popular
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
     render :partial => 'content' and return if request.xhr?
+    #expires_in 5.minutes, :public => true
   end
 
   def media
@@ -96,6 +98,7 @@ class SiteController < ApplicationController
   end
 
   def about
+    expires_in 1.hour, :public => true
   end
 
   def store_return_to

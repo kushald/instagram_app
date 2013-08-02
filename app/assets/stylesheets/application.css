@@ -67,6 +67,10 @@ a.list_selected {
   border-top: 1px solid black;
 }
 
+.none {
+  display: none;
+}
+
 .circle {
   font-size: 13px;
   width: 60px;

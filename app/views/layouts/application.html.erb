@@ -42,29 +42,14 @@
       <!-- Left Nav Section -->
       <ul class="left">
         <li><a href="/">Home</a></li>
-        <% if !@current_user.guest_user %>
-          <li><a href="/user">Feeds</a></li>
-        <% end %>
+        <li id="feed"></li>
         <li><a href="/popular">Popular</a></li>
         <li><a href="/categories">Categories</a></li>
         <li><a href="/tags">Hashtags</a></li>
         <li><a href="/search">Search</a></li>
         <li><a href="http://blog.joystagram.com" style="background: #2ecc71;color:white;font-weight:bold;">Blog</a></li>
         <li><a href="/about">About</a></li>
-        <li>
-          <% if @current_user.present? && !@current_user.guest_user %>
-            <a href="/logout">Logout</a></div>
-          <% else %>
-            <a href="/login" class="button" style="background: #202020;color: white;font-family: &quot;Droid sans&quot;;
-              font-size: 16px;
-              border: none;
-              font-weight: 700;
-              border-radius: 5px;
-              margin-top: 12px;">
-              <img src="/assets/Instagram_Icon.png" style="width: 26px;">
-              Sign In With Instagram
-            </a>
-          <% end %>
+        <li id="login-check">
         </li>
       </section>
     </nav>

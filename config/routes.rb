@@ -26,6 +26,7 @@ InstagramApp::Application.routes.draw do
   match '/profile_count/:id' => 'users#profile_count'
   match '/relation/:id' => 'users#relation'
   match '/browse-user/:id' => 'users#browse_user'
+  match 'login-check' => 'users#login_check'
   # ------TAGS---------
   match '/tags' => 'tags#index'
   match '/tag/:id' => 'tags#show'

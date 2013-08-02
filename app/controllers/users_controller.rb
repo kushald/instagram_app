@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
-  def joystagrammers
-    @users = User.all
+  def login_check 
+    render :json => {:status => (@current_user.logged_in_user ? 1 : 0)}
   end
+
   def show
     id = retrieve_id(params)  
     if id.present?    
@@ -94,11 +95,13 @@ class UsersController < ApplicationController
                       profile_picture: data["profile_picture"],
                       username: data["username"]}
     render :layout => false
+    expires_in 10.minutes, :public => true
   end
 
   def browse_user
     @browse_user = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}&count=6")["data"].shuffle
     render :layout => false
+    expires_in 10.minutes, :public => true
   end
 
   private

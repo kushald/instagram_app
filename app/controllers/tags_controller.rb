@@ -1,7 +1,7 @@
 class TagsController < ApplicationController
   include TagsHelper
   def index
-
+    expires_in 1.hour, :public => true
   end
 
   def show
