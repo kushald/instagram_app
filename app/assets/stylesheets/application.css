@@ -721,6 +721,28 @@ margin-bottom: 10px;
   text-align: center;
 }
 
+.flash-content {
+  font-family: "Droid sans";
+  background: #9b59b6;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.flash-content:hover {
+  background: #f1c40f;
+}
+
+.flash-content a {
+  display: block;
+  color:white;
+  font-weight:bold;
+}
+
+.flash-content a:hover {
+  color: white;
+}
+
 @media screen and (max-width: 766px) {
   #load-more {
     margin-left: 0;
