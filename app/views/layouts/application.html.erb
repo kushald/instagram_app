@@ -28,6 +28,27 @@
   </head>
   <body>
     <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          // init the FB JS SDK
+          FB.init({
+            appId      : '461403163888029',                        // App ID from the app dashboard
+            status     : true,                                 // Check Facebook Login status
+            xfbml      : true                                  // Look for social plugins on the page
+          });
+
+          // Additional initialization code such as adding Event Listeners goes here
+        };
+
+        // Load the SDK asynchronously
+        (function(d, s, id){
+           var js, fjs = d.getElementsByTagName(s)[0];
+           if (d.getElementById(id)) {return;}
+           js = d.createElement(s); js.id = id;
+           js.src = "//connect.facebook.net/en_US/all.js";
+           fjs.parentNode.insertBefore(js, fjs);
+         }(document, 'script', 'facebook-jssdk'));
+      </script>
     <nav class="top-bar">
       <ul class="title-area">
       <!-- Title Area -->
@@ -53,15 +74,6 @@
         </li>
       </section>
     </nav>
-    <!-- <div class="row">
-      <div class="large-12 columns">
-        <div class="large-10 columns"></div>
-        <div class="large-2 columns fb-like">
-          Like us on Facebook 
-          <div class="fb-like" data-href="http://www.joystagram.com" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false"></div>
-        </div>
-      </div>
-    </div> -->
       <%= yield %>
       <a href="#" class="go-top">Scroll to Top</a> 
 

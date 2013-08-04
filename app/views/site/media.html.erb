@@ -94,6 +94,12 @@
         <div class="pin-button">
           <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
         </div>
+        <% if Constant::AUTHORIZED_IDS.include?(@current_user.instagram_id) %>
+          <div>
+            <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
+            <a><i class="social foundicon-facebook"></i></a>
+          </div>
+        <% end %>
     </div>
   </div>
     <div class="row">
