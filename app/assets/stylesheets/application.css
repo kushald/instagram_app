@@ -249,7 +249,7 @@ li {
   border-bottom: 1px solid #DDD;
   text-align: center;
   font-size: 15px;
-  margin: -0.5% 8%;
+  margin: -0.5% 6%;
 }
 
 .browse-user-grid, .browse-celeb-grid {
@@ -304,10 +304,6 @@ li {
   color: #619AB1;
 }
 
-.pin-button {
-  float: left;
-  padding: 5px;
-}
 
 .popular-refresh {
   font-size: 34px;
