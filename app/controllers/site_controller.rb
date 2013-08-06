@@ -101,6 +101,18 @@ class SiteController < ApplicationController
     expires_in 1.hour, :public => true
   end
 
+  def terms
+    expires_in 1.hour, :public => true
+  end
+
+  def privacy
+    expires_in 1.hour, :public => true
+  end
+
+  def faq
+    expires_in 1.hour, :public => true
+  end
+
   def store_return_to
     session[:return_to] = request.referrer
   end

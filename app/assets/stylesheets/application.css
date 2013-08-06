@@ -583,6 +583,14 @@ textarea {
   color: #bdc3c7;
 }
 
+.foot ul li a {
+  font-family: "Droid Sans";
+  float: right;
+  color: #202020;
+  margin-right: 50px;
+  font-weight: bold;
+}
+
 ::-webkit-scrollbar {
     width: 12px;
 }
