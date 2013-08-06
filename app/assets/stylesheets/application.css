@@ -589,6 +589,7 @@ textarea {
   color: #202020;
   margin-right: 50px;
   font-weight: bold;
+  padding: 20px;
 }
 
 ::-webkit-scrollbar {
@@ -714,15 +715,6 @@ margin-bottom: 10px;
   background: #303030;
   border-radius: 100px;
   padding: 12px 9px 5px 9px;
-}
-
-.fb-like {
-  line-height: 28px;
-  background: #4E69A2;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  text-align: center;
 }
 
 .flash-content {
