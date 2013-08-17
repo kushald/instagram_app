@@ -40,7 +40,7 @@ task :update_interesting_user_posts => :environment do
       puts "----------------------post for id #{id} created"
      end
     InterestingUserPost.where(:id => delete_ids).delete_all  
-    sleep 5
+    sleep 2
   end
 end
 
