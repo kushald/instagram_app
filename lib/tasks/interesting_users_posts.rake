@@ -18,7 +18,7 @@ end
 
 task :update_interesting_user_posts => :environment do 
   instagram_access_token = User.find(2).instagram_access_token
-  interesting_users = InterestingUser.where("category_type IN (1,2)").collect(&:instagram_user_id)
+  interesting_users = InterestingUser.where("category_type = 1").collect(&:instagram_user_id)
   p interesting_users.inspect
   data = NIL
   interesting_users.each do |id|
@@ -26,12 +26,12 @@ task :update_interesting_user_posts => :environment do
     delete_ids = InterestingUserPost.where(:instagram_user_id => id).collect(&:id)
     puts "-------------------------------------------#{id}"
     status = Timeout::timeout(20) {
-      data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{instagram_access_token}")
+      data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{instagram_access_token}&count=3")
     }
     rescue Timeout::Error
       puts 'EXEPTION...'
     end
-    data["data"][0..9].each do |d|
+    data["data"][0..2].each do |d|
       InterestingUserPost.create!(:instagram_user_id => id,
                                   :media_id => d['id'],
                                   :image_standard => d["images"]["standard_resolution"]["url"],
