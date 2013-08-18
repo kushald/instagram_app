@@ -74,6 +74,8 @@
         </div>
       </div>
     </div>
+    <div class="large-2 columns"></div>
+  </div>
     <div class="row">
       <div class="large-12 columns">
         <div class="uploader">      
@@ -95,25 +97,26 @@
             </div>
         </div>
       </div>
-      <div class="row">
-        <div class="large-6 columns">
-          <div class="small-1 columns pin-button" style="margin: 0;padding: 0;">
-            <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
-          </div>
-          <div class="small-1 columns" style="margin-right: -9px;padding: 0;">
-            <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
-              <a><i class="social foundicon-facebook"></i></a>
-            </div>
-          </div>
-          <div class="small-1 columns" style="margin-right: 24px;padding: 0;">
-          <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
-          </div>
-          <div class="small-2 columns" style="float:left;margin: 0;padding: 0;">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="joystagram" data-related="joystagram" data-hashtags="joystagram">Tweet</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <div class="row">
+      <div class="large-6 columns">
+        <div class="small-1 columns pin-button" style="margin: 0;padding: 0;">
+          <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
+        </div>
+        <div class="small-1 columns" style="margin-right: -9px;padding: 0;">
+          <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
+            <a><i class="social foundicon-facebook"></i></a>
           </div>
         </div>
+        <div class="small-1 columns" style="margin-right: 24px;padding: 0;">
+        <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+        </div>
+        <div class="small-2 columns" style="float:left;margin: 0;padding: 0;">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-via="joystagram" data-related="joystagram" data-hashtags="joystagram">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+        </div>
       </div>
+    </div>
     <div class="row">
       <div class="large-6 columns" style="font-size: 14px;">
         <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
