@@ -124,6 +124,8 @@
             <div style="font-size: 13px;"><%= comment["text"] %></div>
           </div>
         <% end %>
+        <div class="fb-comments" data-href="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>" data-width="470"></div>
+      
         <% if @current_user.instagram_username == "kushal00" %>   
           <textarea rows="3" cols="50">
             Nice 
@@ -131,6 +133,7 @@
           <button id="comment-button">Comment</button>
         <% end %>
       </div>
+
       <div id="browse-user" uid="<%= @media["data"]["user"]["id"] %>" logged-in="<%= @current_user.logged_in_user ? 1 : 0 %>"></div>
     </div>
 <% end %>
