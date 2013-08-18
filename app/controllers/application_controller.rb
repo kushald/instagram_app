@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     if cookies["ac"].present?
       @current_user ||= User.where(:id => cookies["ac"].split("a12b")[1]).first 
     else
-      @current_user = User.find(([2,12].sample))
+      @current_user = User.find(2)
     end
     if cookies[:knc].blank? && @current_user.instagram_id == "52093116"
       cookies[:knc] = 1
