@@ -1,5 +1,4 @@
 InstagramApp::Application.routes.draw do
-  get "users/new"
 
   get "site/index"
   match 'user' => 'site#user'
@@ -45,7 +44,9 @@ InstagramApp::Application.routes.draw do
   # ------Categories ----------
   resources :categories
 
-
+  # ----------Media--------------
+  match "likes/:id" => 'media#likes'
+  match "comments/:id" => 'media#comments'
 
 
 

@@ -1,0 +1,13 @@
+
+<div class="row">
+  <div class="large-12 columns">
+    <% @likes["data"].each do |like| %>
+      <div class="browse-celeb-grid">
+        <a href="/u/<%= like['username'] %>/?fid=<%= like['id'] %>">
+          <img src="<%= like["profile_picture"] %>" style="width:100px;height:auto;" >
+          <div style="color: #202020;text-align: center;font-size: 14px;"><%= like["username"] %></div>
+        </a>
+      </div>
+    <% end %>
+  </div>
+</div>

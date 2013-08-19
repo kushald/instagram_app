@@ -38,7 +38,9 @@
             Likes<%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
           </div>
         </div>
-        <div class="side-panel"><%= @media["data"]["comments"]["count"] %> Comments</div>
+        <div class="side-panel">
+          <a href="/comments/<%= params[:id] %>" style="font-weight:bold;"><%= @media["data"]["comments"]["count"] %> Comments</a>
+        </div>
         <% if @media["data"]["filter"].present? %>
           <div class="side-panel">
             Filter: 
@@ -65,7 +67,7 @@
         <% end %>
         
         <div class="side-panel">
-          <div style="font-size: 14px;">Likers</div>
+          <div style="font-size: 14px;"><a href="/likes/<%= params[:id] %>" style="font-weight:bold;">Likers</a></div>
           <div>
             <% @media["data"]["likes"]["data"].each do |like| %>
               <a href="/u/<%= like["username"] %>/?fid=<%= like["id"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
@@ -119,7 +121,9 @@
     </div>
     <div class="row">
       <div class="large-6 columns" style="font-size: 14px;">
-        <div class="comment-count"><%= @media["data"]["comments"]["count"] %> Comments</div>
+        <div class="comment-count">
+          <a href="/comments/<%= params[:id] %>" style="font-weight:bold;"><%= @media["data"]["comments"]["count"] %> Comments</a>
+        </div>
         <% @media["data"]["comments"]["data"].each do |comment| %>
           <div><a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
           <div class="media-comment">
