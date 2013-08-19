@@ -4,7 +4,7 @@
 <div class="row">
   <div class="popular-text">Browse by Categories</div>
   <%  @categories.each do |c| %>
-    <div class="browse-celeb-grid">
+    <div class="browse-celeb-grid" style="margin:0% 5%;">
       <a href="/categories/<%= c.id %>"><img src="<%= c.image %>"><br>
       <div style="text-align: center;font-size: 14px;color:#202020;"><%= c.name %></div></a>
     </div>
