@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   include SiteHelper
   def index
-    @categories = Category.where("id IN (2,3,4,5,6)")
+    @categories = Category.order(:name)
     expires_in 50.minutes, :public => true
     #fresh_when @categories.maximum(:updated_at)
   end
