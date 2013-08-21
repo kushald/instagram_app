@@ -80,8 +80,8 @@ class SiteController < ApplicationController
   def geo_tag_content
     location = Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip).city || 'Belgaum'
     @data = Request.get_request("https://api.instagram.com/v1/tags/#{location}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
-    render '/users/likes' and return
     expires_in 15.minutes, :public => true
+    render '/users/likes' and return
   end
 
   def search
