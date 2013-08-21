@@ -7,5 +7,15 @@
 <div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
 <%= render :partial => "site/leaderboard_ad" %>
 <div id="disp">
-  <%= render 'content' %>
+  <%#= render 'content' %>
+  <div class="row">
+  <% @data["data"].each_with_index do |data,i| %>
+    <div class="large-3 columns" style="padding:5px;">
+      <% if data["type"] == "video" %>
+        <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
+      <% end %>
+      <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="border: 1px solid #202020;margin:-2px;border-radius:0px;"></a>
+    </div>
+    <% end %>
+</div>
 </div>

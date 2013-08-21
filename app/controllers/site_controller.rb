@@ -36,7 +36,7 @@ class SiteController < ApplicationController
   def popular
     @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}")
     render :partial => 'content' and return if request.xhr?
-    #expires_in 5.minutes, :public => true
+    expires_in 2.minutes, :public => true
   end
 
   def media

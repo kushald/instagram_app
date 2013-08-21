@@ -739,6 +739,17 @@ margin-bottom: 10px;
   color: white;
 }
 
+.arrow-right {
+  margin: 35% 40%;
+  position: absolute;
+  text-shadow: 0 3px black; 
+  width: 0;
+  height: 0;
+  border-top: 32px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 50px solid #e74c3c;
+}
+
 @media screen and (max-width: 766px) {
   #load-more {
     margin-left: 0;
