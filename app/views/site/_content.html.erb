@@ -11,7 +11,7 @@
       <%# end %>
       <a href="/media/<%= data["id"] %>">
         <% if data["type"] == "video" %>
-          <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
+          <div class="arrow-right"></div>
         <% end %>
           <img src="<%= data["images"][resolution]["url"] %>" style="width:100%;max-width:612px;max-height:612px;border: 1px solid #202020;" >
       </a>
