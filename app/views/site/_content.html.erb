@@ -2,13 +2,13 @@
 <div class="row">
   <% @data["data"].each_with_index do |data,i| %>
     <div class="large-6 columns" style="padding:5px;">
-      <% if @current_user.present? && !@current_user.guest_user %>
-        <% if data['user_has_liked'] %>
-          <div class="foundicongen-heart red heart"></div>
-        <% else %>
-          <i class="foundicongen-heart white heart" id="<%= data['id'] %>" data-pos="<%= i %>" data-likes="<%= data["likes"]["count"] %>"></i>
-        <% end %>    
-      <% end %>
+      <%# if @current_user.present? && !@current_user.guest_user %>
+        <%# if data['user_has_liked'] %>
+          <!-- <div class="foundicongen-heart red heart"></div> -->
+        <%# else %>
+          <!-- <i class="foundicongen-heart white heart" id="<%#= data['id'] %>" data-pos="<%#= i %>" data-likes="<%#= data["likes"]["count"] %>"></i> -->
+        <%# end %>    
+      <%# end %>
       <a href="/media/<%= data["id"] %>">
         <% if data["type"] == "video" %>
           <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>

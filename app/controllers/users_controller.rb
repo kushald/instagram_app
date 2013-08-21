@@ -16,12 +16,14 @@ class UsersController < ApplicationController
         @temp_info = temp_user_info(@data["data"][0]["user"]) if @data["data"]
       end
     end
+    expires_in 4.minutes, :public => true
   end
 
   def likes
     instagram_id = params["id"] || @current_user.instagram_id
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
     @data = Request.get_request("https://api.instagram.com/v1/users/self/media/liked?access_token=#{@current_user.instagram_access_token}&max_like_id=#{params[:n]}&count=10")
+    expires_in 4.minutes, :public => true
   end
 
   def following
@@ -48,6 +50,7 @@ class UsersController < ApplicationController
     instagram_id = params["id"] || @current_user.instagram_id
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
     @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
+    expires_in 4.minutes, :public => true
   end
 
   def logout
@@ -81,6 +84,7 @@ class UsersController < ApplicationController
   def relation
     data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}")
     render :json => {status: data["data"]["outgoing_status"]}
+    expires_in 1.minute, :public => true
   end
 
   def profile_count
