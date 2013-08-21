@@ -2,7 +2,7 @@
 <div class="row">
   <% @data["data"].each_with_index do |data,i| %>
     <div class="large-6 columns" style="padding:5px;">
-      <% if @current_user.present? && !@current_user.guest_user && data["type"] == "image" %>
+      <% if @current_user.present? && !@current_user.guest_user %>
         <% if data['user_has_liked'] %>
           <div class="foundicongen-heart red heart"></div>
         <% else %>
@@ -11,18 +11,13 @@
       <% end %>
       <a href="/media/<%= data["id"] %>">
         <% if data["type"] == "video" %>
-          <video style="border: 1px solid #202020;width:100%;max-width:612px;max-height:99.673202614%;" controls>
-            <source src="<%= data["videos"][resolution]["url"] %>" type="video/mp4">
-          </video>
-        <% else %>
-          <img src="<%= data["images"][resolution]["url"] %>" style="width:100%;max-width:612px;max-height:612px;border: 1px solid #202020;" >
+          <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
         <% end %>
+          <img src="<%= data["images"][resolution]["url"] %>" style="width:100%;max-width:612px;max-height:612px;border: 1px solid #202020;" >
       </a>
-      <% if data["type"] == "image" %>
-        <div class="des-bar">
-          <div class="bar-font" id="bar-font-<%= data['id'] %>" like-count="<%= data["likes"]["count"] %>"><%= data["comments"]["count"]  %> Comments <span><%= data["likes"]["count"] %></span> Likes</div>
-        </div>
-      <% end %>
+      <div class="des-bar">
+        <div class="bar-font" id="bar-font-<%= data['id'] %>" like-count="<%= data["likes"]["count"] %>"><%= data["comments"]["count"]  %> Comments <span><%= data["likes"]["count"] %></span> Likes</div>
+      </div>
     </div>
 
     <div style="display:none;">
