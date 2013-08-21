@@ -30,6 +30,7 @@ class UsersController < ApplicationController
     @temp_info = temp_user_info(@user_info["data"])
     @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/follows?access_token=#{@current_user.instagram_access_token}&cursor=#{params[:cursor]}")
     @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
+    expires_in 10.minutes, :public => true
   end
 
   def followed_by
@@ -40,6 +41,7 @@ class UsersController < ApplicationController
       @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/followed-by?access_token=#{@current_user.instagram_access_token}&cursor=#{params[:cursor]}")
       @relationship = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
     end
+    expires_in 10.minutes, :public => true
   end
 
   def my_pics
