@@ -68,7 +68,6 @@ class SiteController < ApplicationController
     @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
     @temp_info = {"user" => {"username" => @current_user.instagram_username, "profile_picture" => @current_user.instagram_image, "id" => @current_user.instagram_id}} if @current_user.logged_in_user
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
-    expires_in 4.minutes, :public => true
   end
 
   def user_info
