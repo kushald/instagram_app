@@ -91,6 +91,7 @@ class SiteController < ApplicationController
         @data = Request.get_request("https://api.instagram.com/v1/tags/#{params[:q]}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
       end
     end
+    expires_in 5.minutes, :public => true
   end
 
   def pagination
