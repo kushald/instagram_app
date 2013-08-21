@@ -7,10 +7,11 @@
   <div class="fb-like" data-href="https://www.facebook.com/joystagram" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
 </div>
 <div class="popular-text">Explore Instagrammers</div>
-  <div class="row">
-    <% @interesting_user_posts.each do |post| %>
-      <div class="large-3 columns" style="padding:5px;">
-        <a href="/media/<%= post.media_id %>"><img src="<%= post.image_low %>" style="border: 1px solid #202020;margin:-2px;border-radius:0px;"></a>
-      </div>
-      <% end %>   
-  </div>
+<div class="row">
+  <% @interesting_user_posts.each do |post| %>
+    <div class="large-3 columns" style="padding:5px;">
+      <a href="/media/<%= post.media_id %>"><img src="<%= post.image_low %>" style="border: 1px solid #202020;margin:-2px;border-radius:0px;"></a>
+    </div>
+    <% end %>   
+</div>
+<%= render :partial => "site/leaderboard_ad" %>
