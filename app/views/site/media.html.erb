@@ -76,7 +76,11 @@
         </div>
       </div>
     </div>
-    <div class="large-2 columns"></div>
+    <div class="large-2 columns">
+      <% unless session[:mobile] %>
+        <%= render 'site/ad_skysrapper' %>
+      <% end %>
+    </div>
   </div>
     <div class="row">
       <div class="large-12 columns">

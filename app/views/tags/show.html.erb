@@ -2,9 +2,12 @@
 <% meta_description "Joystagram - Instagram Photos Tagged with ##{params[:id].to_s}" %>
 <h1><%=h content_for(:title, "Joystagram - Instagram Photos Tagged with ##{params[:id].to_s}") %></h1>
 <% if @data["meta"]["error_message"].present? %>
+<%= render :partial => "site/leaderboard_ad" %>
   <h3 class="error">This tag cannot be viewed</h3>
 <% else %>
   <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
+  <%= render :partial => "site/leaderboard_ad" %>
   <%= render '/site/content' %>
   <%= render '/users/pagination' %>
+  <%= render :partial => "site/leaderboard_ad" %>
 <% end %>

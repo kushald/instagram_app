@@ -1,7 +1,9 @@
 <% if params[:action] == "geo_tag_content" %>
   <div class="popular-text"> Instagram Pictures near & around you</div>
+  <%= render :partial => "site/leaderboard_ad" %>
 <% else %>
   <%= render '/users/user_basic_info' %>
 <% end %>
 <%= render '/site/content' %>
 <%= render "/users/pagination" %>
+<%= render :partial => "site/leaderboard_ad" %>
