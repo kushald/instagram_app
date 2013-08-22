@@ -1,6 +1,23 @@
 <% un = @user_info["meta"]["error_type"].present? ? "" : @user_info["data"]["username"] %>
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG,instagram on web, #{un}" %>
 <h1><%=h content_for(:title, "Joyviewer - #{un} Joy of Instagram On Web") %></h1>
+<div class="row">
+  <div class="large-6 columns">
+    <div class="small-1 columns">
+      <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= @temp_info["user"]["profile_picture"] %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
+        <a><i class="social foundicon-facebook"></i></a>
+      </div>
+    </div>
+    <div class="small-2 columns">
+      <a href="https://twitter.com/share" class="twitter-share-button" data-via="joyviewer" data-related="joyviewer" data-hashtags="joyviewer">Tweet</a>
+      <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+    </div>
+    <div class="small-2 columns">
+      <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
+    </div>
+    <div class="small-6 columns"></div>
+  </div>
+</div>
 <%= render '/users/user_basic_info' %>
 <%= render 'content' %>
 <%= render "/users/pagination" %>
