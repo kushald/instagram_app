@@ -1,6 +1,6 @@
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joyviewer - Joy of Instagram On Web" %>
-<h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joyviewer - Joy of Instagram On Web"}") %></h1>
+<h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joyviewer - Joy of Instagram On Web @joyviewer"}") %></h1>
 <div id="getuid" uid="<%= @media["data"]["user"]["id"] %>"></div>
 <% if @media["meta"]["error_message"].present? %>
   <h3 class="error">Sorry this Image might have been deleted by user</h3>
