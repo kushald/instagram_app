@@ -31,7 +31,7 @@ task :update_interesting_user_posts => :environment do
     rescue Timeout::Error
       puts 'EXEPTION...'
     end
-    data["data"][0..2].each do |d|
+    data["data"][0..1].each do |d|
       InterestingUserPost.create!(:instagram_user_id => id,
                                   :media_id => d['id'],
                                   :image_standard => d["images"]["standard_resolution"]["url"],
