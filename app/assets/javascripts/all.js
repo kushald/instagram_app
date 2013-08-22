@@ -142,7 +142,7 @@ $(function() {
         //redirect_uri: 'http://127.0.0.1:3000',
         link: $(this).attr("link"),
         picture: $(this).attr("picture"),
-        name: 'Joystagram.com - easy way to view and share instagram content',
+        name: 'Joyviewer.com - easy way to view and share instagram content',
         caption: $(this).attr("caption"),
         description: "Instagram Web Viewer"
       };
