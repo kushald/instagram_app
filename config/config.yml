@@ -7,6 +7,6 @@ development:
   fb_app_id: 461403163888029
 production:
   client_id: d8d1ad02f4564390aaac77be8390c6a6
-  redirect_uri: http://Joyviewer.com/user/
+  redirect_uri: http://joyviewer.com/user/
   meta_keywords: "Joyviewer, Joyviewer.com, instagram, IG, web, PC, Computer, viewer"
   meta_description: "Joy of Instagram On Web"
