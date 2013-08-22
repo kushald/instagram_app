@@ -1,6 +1,6 @@
-<% meta_keywords "joystagram, joystagram.com, instagram, IG, web, Instagrammers, viewer, instagram Celebrities, #{@users.collect(&:instagram_username).join("','")}" %>
-<% meta_description "Joystagram - Celebrities On Instagram" %>
-<h1><%=h content_for(:title, "Joystagram - #{@category.name} On Instagram") %></h1>
+<% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, Instagrammers, viewer, instagram Celebrities, #{@users.collect(&:instagram_username).join("','")}" %>
+<% meta_description "Joyviewer - Celebrities On Instagram" %>
+<h1><%=h content_for(:title, "Joyviewer - #{@category.name} On Instagram") %></h1>
 <%= render :partial => "site/leaderboard_ad" %>
 <div class="row">
   <div class="popular-text"><%= @category.name %></div>

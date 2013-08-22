@@ -1,6 +1,6 @@
 <% un = @user_info["meta"]["error_type"].present? ? "" : @user_info["data"]["username"] %>
-<% meta_keywords "joystagram, joystagram.com, instagram, IG,instagram on web, #{un}" %>
-<h1><%=h content_for(:title, "Joystagram - #{un} Joy of Instagram On Web") %></h1>
+<% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG,instagram on web, #{un}" %>
+<h1><%=h content_for(:title, "Joyviewer - #{un} Joy of Instagram On Web") %></h1>
 <%= render '/users/user_basic_info' %>
 <%= render 'content' %>
 <%= render "/users/pagination" %>

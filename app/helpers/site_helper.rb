@@ -3,7 +3,7 @@ module SiteHelper
     {
       :u => "//pinterest.com/pin/create/button/?url=#{request.protocol+request.host_with_port+request.fullpath}",
       :s => "//assets.pinterest.com/images/pidgets/pin_it_button.png",
-      :d => "Joystagram: Instagram Web Viewer",
+      :d => "Joyviewer: Instagram Web Viewer",
       :do => "buttonPin",
       :c => "none"
     }
