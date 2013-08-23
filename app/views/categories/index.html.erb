@@ -3,11 +3,13 @@
 <h1><%=h content_for(:title, "Joyviewer - Categories of instagram users @joyviewer") %></h1>
 <div class="row">
   <div class="popular-text">Browse by Categories</div>
-  <%  @categories.each do |c| %>
-    <div class="browse-celeb-grid">
-      <a href="/categories/<%= c.id %>"><img src="<%= c.image %>"><br>
-      <div style="text-align: center;font-size: 14px;color:#202020;"><%= c.name %></div></a>
+    <div class="large-2 columns" style="padding:5px;">
+      <%  @categories.each do |c| %>
+        <div class="browse-celeb-grid">
+          <a href="/categories/<%= c.id %>"><img src="<%= c.image %>"><br>
+          <div style="text-align: center;font-size: 14px;color:#202020;"><%= c.name %></div></a>
+        </div>
+      <% end %>
     </div>
-  <% end %>
 </div>
 <%= render :partial => "site/leaderboard_ad" %>
