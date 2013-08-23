@@ -1,6 +1,11 @@
 .row {
   max-width: 77.500em;
 }
+
+[class*="column"] + [class*="column"]:last-child {
+  float: left; 
+}
+
 .top-bar-section ul {
   line-height: 4.6em;
 }
