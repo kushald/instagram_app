@@ -17,7 +17,7 @@ task :interesting_users_posts => :environment do
 end 
 
 task :update_interesting_user_posts => :environment do 
-  instagram_access_token = User.find(2).instagram_access_token
+  instagram_access_token = User.find(1).instagram_access_token
   interesting_users = InterestingUser.where("category_type = 1").collect(&:instagram_user_id)
   p interesting_users.inspect
   data = NIL
