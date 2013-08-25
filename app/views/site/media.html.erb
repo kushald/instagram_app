@@ -9,15 +9,13 @@
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
   <div class="row" id="uname" val="<%= @media["data"]["user"]["username"] %>">
     <div class="large-7 columns">
-      <div class="single-image">
-        <% if @media["data"]["type"] == "video" %>
-          <video width="99%" controls>
-            <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
-          </video>
-        <% else %>
-          <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="media-img">
-        <% end %>
-      </div>
+      <% if @media["data"]["type"] == "video" %>
+        <video width="99%" controls>
+          <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
+        </video>
+      <% else %>
+        <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="media-img single-image">
+      <% end %>
       <div class="media-desc">
         <%= @media["data"]["caption"]["text"] rescue "" %>
       </div>
@@ -92,9 +90,6 @@
       </div>
     </div>
     <div class="large-2 columns">
-      <% unless session[:mobile] %>
-        <%= render 'site/ad_skysrapper' %>
-      <% end %>
     </div>
   </div>
     <div class="row">
