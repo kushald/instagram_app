@@ -3,7 +3,7 @@
   <div class="large-3 columns browse-more-pic" style="float:left;">
     <% @browse_user.each do |media| %>
           <a href="/media/<%= media["id"] %>">
-            <img src="<%= media["images"]["thumbnail"]["url"] %>" style="margin: 2px;box-shadow: 1px 2px 4px #202020;width: 125px;">
+            <img src="<%= media["images"]["thumbnail"]["url"] %>" style="margin: 2px;box-shadow: 1px 1px 3px #202020;width: 125px;">
           </a>
     <% end %>
   </div>
