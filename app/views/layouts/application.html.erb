@@ -10,6 +10,8 @@
     <meta charset="utf-8" />
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <link href="http://vjs.zencdn.net/4.1/video-js.css" rel="stylesheet">
+    <script src="http://vjs.zencdn.net/4.1/video.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
     <% if Rails.env.production? %>
@@ -68,11 +70,18 @@
           <li><a href="http://blog.Joyviewer.com">Blog</a></li>
           <li><a href="/about">About</a></li>
           <li id="feed"></li>
-          <li id="login-check">
-          </li>
+        </ul>
+        <ul class="right">
+          <li id="login-check"></li>
         </ul>
       </section>
     </nav>
+    <!-- <video id="example_video_1" class="video-js vjs-default-skin"
+      controls preload="auto" width="678" height="678"
+      poster="http://distilleryimage3.s3.amazonaws.com/7edd47b20cbd11e387a122000ae90f87_7.jpg"
+      data-setup='{"example_option":true}'>
+     <source src="http://distilleryimage3.s3.amazonaws.com/7edd47b20cbd11e387a122000ae90f87_101.mp4" type='video/mp4' />
+    </video> -->
       <%= yield %>
 
       <a href="#" class="go-top">Scroll to Top</a> 

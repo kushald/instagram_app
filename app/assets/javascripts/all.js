@@ -6,7 +6,7 @@ $(function() {
       $('#login-check').html("<a href='/logout'>Logout</a></div>");
     } else {
       $('#feed').removeClass('none');
-      $('#login-check').html("<a href='/login' class='button' style='background: #202020;color: white;font-family: &quot;Droid sans&quot;;font-size: 16px;border: none;font-weight: 700;border-radius: 5px;margin-top: 12px;'><img src='/assets/Instagram_Icon.png' style='width: 26px;'>Sign In With Instagram</a>");
+      $('#login-check').html("<li class='has-form'><a class='button' style='background: #202020;border-color: black;' href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> Sign In with Instagram</a></li>");
     }
   });
 

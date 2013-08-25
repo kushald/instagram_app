@@ -6,110 +6,62 @@
   float: left; 
 }
 
-.top-bar-section ul {
-  line-height: 4.6em;
-}
 .top-bar {
+  color: #202020;
   background: white;
-  height: 77px;
-  border-top: 1px solid #D9D9D9;
-  border-bottom: 1px solid #D9D9D9;
+  height: 46px;
+  border-bottom: 1px solid #202020;
 }
 
-.top-bar-section ul {
-  background: white;
+nav li a{
+  border-bottom: 1px solid;
 }
 
-.top-bar-section li a:not(.button)  {
+.top-bar .name h1 {
   background: white;
-  padding: 0 21px;
-  color: #353535;
-  line-height: 71px;
-  letter-spacing: 3px;
-  font-weight: bold;
 }
 
 .top-bar .name h1 a {
-  background: #202020;
-  font-weight: bold;
-  font-size: 34px;
   color: white;
-  padding: 15px;
-  letter-spacing: 2px;
+  background: #202020;
+  border-bottom: 1px solid #202020;
 }
 
-.top-bar-section ul li > a {
-  font-weight: normal;
-  font-size: 14px;
-}
-
-.top-bar-section li a:active, .top-bar-section li a:hover {
-  border-bottom: 3px solid #202020;
-}
-
-.top-bar-section li a:not(.button):hover {
-  color: #202020;
-}
-
-.top-bar.expanded .title-area {
+.top-bar-section .has-form {
   background: white;
 }
 
-.top-bar .toggle-topbar.menu-icon {
-  background: #353535;
-  border-radius: 6px;
-  padding-right: 10px;
+.top-bar-section li a:not(.button), .top-bar-section ul li.active > a {
+  background: white;
+  color: #202020;
 }
 
-.top-bar .name {
-    height: 60px;
-  }
+.top-bar .toggle-topbar.menu-icon a span {
+  color: white;
+}
+
+.top-bar .toggle-topbar.menu-icon {
+  background: #202020;
+  border-radius: 5px;
+}
+
+.toggle-topbar.menu-icon a {
+  border: none;
+}
 
 @media screen and (max-width: 1260px) {
- .top-bar-section li a:active, .top-bar-section li a:hover {
-    border-bottom: none;
-  }
-  
-  .top-bar .name {
-    height: 60px;
-  }
-
-  .top-bar-section li a:not(.button)  {
-    padding: 0 6px;
-    line-height: 45px;
-  }
-
-  .top-bar .name h1 a {
-    font-size: 30px;
-  }
-
-  .top-bar-section li a:not(.button) {
-    line-height: 65px;
-  }
-
+ 
 }
 
 @media screen and (max-width: 1260px) { 
-  .top-bar-section li a:not(.button)  {
-    padding: 0 5px;
-  }
+  
 }
 
-@media screen and (max-width: 936px) {
-
-  .top-bar.expanded .title-area {
-    border-bottom: 1px solid #DDD;
-  }
-  
-  .top-bar-section li a:not(.button) {
-    line-height: 45px;
-    border-bottom: 1px solid #DDD;
-  } 
+@media screen and (max-width: 938px) {
 
   .top-bar .name h1 a {
-    background: white;
-    color: #353535;
-    padding: 6px;
+   background: white;
+    color: #202020; 
   }
 
    
