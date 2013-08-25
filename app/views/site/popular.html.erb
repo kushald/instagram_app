@@ -14,7 +14,7 @@
         <% if data["type"] == "video" %>
           <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
         <% end %>
-        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="border: 1px solid #202020;margin:-2px;border-radius:0px;"></a>
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
       </div>
       <% end %>
   </div>
