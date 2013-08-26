@@ -42,6 +42,7 @@ task :update_interesting_user_posts => :environment do
     InterestingUserPost.where(:id => delete_ids).delete_all  
     sleep 2
   end
+  puts "++++++++++++++++++++++++++++++#{Time.now}+++++++++++++++++++++++++++++++++++++++++++++++++"
 end
 
 desc "Define secret token"

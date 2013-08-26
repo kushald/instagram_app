@@ -10,7 +10,7 @@
   <div class="row" id="uname" val="<%= @media["data"]["user"]["username"] %>">
     <div class="large-7 columns">
       <% if @media["data"]["type"] == "video" %>
-        <video width="99%" controls>
+        <video width="99%" controls poster="<%= url %>">
           <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
         </video>
       <% else %>
