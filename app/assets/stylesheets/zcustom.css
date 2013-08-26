@@ -31,11 +31,15 @@ nav li a{
   background: white;
 }
 
-.top-bar-section li a:not(.button), .top-bar-section ul li.active > a {
+.top-bar-section li a:not(.button), .top-bar-section ul li.active > a, .socio {
   background: white;
   color: #202020;
 }
 
+.top-bar-section ul .socio {
+  background: white;
+  padding-top: 18px;
+}
 .top-bar .toggle-topbar.menu-icon a span {
   color: white;
 }
