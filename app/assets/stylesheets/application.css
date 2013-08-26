@@ -57,8 +57,15 @@ a.list_selected {
 
 .bar-font {
   color: white;
+  text-shadow: 1px 1px 1px black;
   text-align: center;
-  font-size: 15px;
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px;
+}
+
+.bar-font a{
+  color: white;
 }
 
 #footer {
@@ -746,6 +753,13 @@ margin-bottom: 10px;
   border-top: 32px solid transparent;
   border-bottom: 30px solid transparent;
   border-left: 50px solid #e74c3c;
+}
+
+.caption-count {
+  width: 200px;
+  position: relative;
+  background: red;
+  margin: -27px 5px 0px -3px;
 }
 
 @media screen and (max-width: 766px) {

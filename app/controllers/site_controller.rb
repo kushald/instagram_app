@@ -65,7 +65,7 @@ class SiteController < ApplicationController
       session[:return_to] = NIL 
       redirect_to redirect
     end
-    @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
+    @data = Request.get_request("https://api.instagram.com/v1/users/self/feed?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
     @temp_info = {"user" => {"username" => @current_user.instagram_username, "profile_picture" => @current_user.instagram_image, "id" => @current_user.instagram_id}} if @current_user.logged_in_user
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{@current_user.instagram_id}/?access_token=#{@current_user.instagram_access_token}")
   end

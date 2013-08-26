@@ -1,25 +1,18 @@
 <%  resolution = session[:mobile] ? "low_resolution" : "standard_resolution" %>
 <div class="row">
+  <% color = tag_color %>
   <% @data["data"].each_with_index do |data,i| %>
-    <div class="large-6 columns" style="padding:5px;">
-      <%# if @current_user.present? && !@current_user.guest_user %>
-        <%# if data['user_has_liked'] %>
-          <!-- <div class="foundicongen-heart red heart"></div> -->
-        <%# else %>
-          <!-- <i class="foundicongen-heart white heart" id="<%#= data['id'] %>" data-pos="<%#= i %>" data-likes="<%#= data["likes"]["count"] %>"></i> -->
-        <%# end %>    
-      <%# end %>
-      <a href="/media/<%= data["id"] %>">
-        <% if data["type"] == "video" %>
-          <div class="arrow-right"></div>
-        <% end %>
-          <img src="<%= data["images"][resolution]["url"] %>" style="width:100%;max-width:612px;max-height:612px;border: 1px solid #202020;" >
-      </a>
-      <div class="des-bar">
-        <div class="bar-font" id="bar-font-<%= data['id'] %>" like-count="<%= data["likes"]["count"] %>"><%= data["comments"]["count"]  %> Comments <span><%= data["likes"]["count"] %></span> Likes</div>
+    <div class="large-3 columns" style="padding:5px;">
+      <% if data["type"] == "video" %>
+        <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
+      <% end %>
+      <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
+      <div class="caption-count" style="background:<%= color %>">
+        <div class="bar-font">
+          <a href="/comments/<%= data["id"] %>"><%= data["comments"]["count"]  %> Comments</a> 
+          <a href="/likes/<%= data["id"] %>"><%= data["likes"]["count"] %> Likes<a></div>
       </div>
     </div>
-
     <div style="display:none;">
       <% data["comments"]["data"][0..3].each do |comment| %>
       <div style="border-bottom: 1px solid;">
