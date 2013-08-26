@@ -41,7 +41,6 @@ $(function() {
     }
   });
 
-  $("#fittext1").fitText();
 
   $("#refresh-feed").click(function(){
     $("#image-loader").show();
