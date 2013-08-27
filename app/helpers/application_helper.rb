@@ -16,4 +16,8 @@ module ApplicationHelper
     end
   end
 
+  def side_list(i)
+    i % 2 == 0 ? "side-even" : "side-odd"
+  end
+
 end

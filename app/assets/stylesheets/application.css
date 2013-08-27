@@ -272,8 +272,8 @@ li {
 }
 
 .browse-celeb-grid img {
-  width: 196px;
-  height: 196px;
+  width: 160px;
+  height: 160px;
   margin: 5px;
   float: left;
   border: 10px solid #fff;
@@ -760,6 +760,23 @@ margin-bottom: 10px;
   position: relative;
   background: red;
   margin: -27px 5px 0px -3px;
+}
+
+.side-nav {
+  background: #202020;
+}
+
+.side-even {
+  background: #353535;
+}
+
+.side-odd {
+  background: #202020;
+}
+
+.side-nav li a {
+  color: white;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 766px) {
