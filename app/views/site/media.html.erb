@@ -90,7 +90,9 @@
       </div>
     </div>
     <div class="large-2 columns">
-      <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=14&l=ur1&category=wireless&banner=086F8PMGCMQPQVEZKT82&f=ifr" width="160" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+      <% if !session[:mobile] %>
+        <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=14&l=ur1&category=wireless&banner=086F8PMGCMQPQVEZKT82&f=ifr" width="160" height="600" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+      <% end %>
     </div>
   </div>
     <div class="row">
