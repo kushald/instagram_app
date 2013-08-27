@@ -1,9 +1,6 @@
 <%  resolution = session[:mobile] ? "low_resolution" : "standard_resolution" %>
 <div class="row">
   <% color = tag_color %>
-  <div class="large-3 columns" style="padding:5px;">
-    <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=12&l=ur1&category=warehouse&banner=0WH1TBABMW4R4HN14382&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-  </div>
   <% @data["data"].each_with_index do |data,i| %>
     <div class="large-3 columns" style="padding:5px;">
       <% if data["type"] == "video" %>
@@ -32,7 +29,7 @@
     </div>
   <% end %>
   <div class="large-3 columns" style="padding:5px;">
-    <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=12&l=ur1&category=wireless&banner=1FDPWVD9KFPS2JV7CV82&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+    <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=12&l=ur1&category=warehouse&banner=0WH1TBABMW4R4HN14382&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
   </div>
   <div class="large-3 columns" style="padding:5px;">
     <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=12&l=ur1&category=watches&banner=1YHF9XDZP23S7TBDDRR2&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
