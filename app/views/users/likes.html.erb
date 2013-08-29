@@ -2,7 +2,7 @@
   <div class="popular-text"> Instagram Pictures near & around you</div>
   <%#= render :partial => "site/leaderboard_ad" %>
   <div class="large-7 columns large-centered">
-    <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=48&l=ur1&category=music&banner=0QJQCP0N5XEHS2HKXQ02&f=ifr" width="728" height="90" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
+    <%= render :partial => "site/leaderboard_ad" %>
   </div>
 <% else %>
   <%= render '/users/user_basic_info' %>
@@ -17,9 +17,6 @@
       <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
     </div>
     <% end %>
-    <div class="large-3 columns" style="padding:5px;">
-      <iframe src="http://rcm-na.amazon-adsystem.com/e/cm?t=joyviewer-20&o=1&p=12&l=ur1&category=amazonmp3freesongsspecialdeals&banner=0CR771DMNNKH84WJGYR2&f=ifr" width="300" height="250" scrolling="no" border="0" marginwidth="0" style="border:none;" frameborder="0"></iframe>
-    </div>
 </div>
 <%= render "/users/pagination" %>
 <%= render :partial => "site/leaderboard_ad" %>

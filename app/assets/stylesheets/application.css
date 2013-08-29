@@ -665,7 +665,7 @@ textarea {
 }
 
 input.submit {
-background: #74AD72;
+background: #202020;
 color: white;
 font-family: "Droid Sans";
 font-weight: 700;
@@ -778,6 +778,18 @@ margin-bottom: 10px;
 .side-nav li a {
   color: white;
   font-weight: bold;
+}
+
+.tag1 {
+  text-align: center;
+  color: #3498DB;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 4px;
+  margin: 2px;
+  border-radius: 7px;
+  font-size: 13px;
+  display: inline-block;
 }
 
 @media screen and (max-width: 766px) {

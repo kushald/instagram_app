@@ -36,6 +36,12 @@ nav li a{
   color: #202020;
 }
 
+.top-bar-section li a:not(.button):hover, .top-bar-section ul li:hover {
+  background: #202020;
+  color: white;
+  border: 1px;
+}
+
 .top-bar-section ul .socio {
   background: white;
   padding-top: 18px;
