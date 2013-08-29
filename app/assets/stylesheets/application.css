@@ -792,6 +792,19 @@ margin-bottom: 10px;
   display: inline-block;
 }
 
+.shopping-tag-bar {
+  box-shadow: 1px 1px 9px #DDD;
+  border: 1px solid #DDD;
+}
+
+.head-text a{
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #202020;
+  margin-bottom: 20px;
+}
+
 @media screen and (max-width: 766px) {
   #load-more {
     margin-left: 0;

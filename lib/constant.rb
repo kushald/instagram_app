@@ -23,4 +23,10 @@ module Constant
 
   AUTHORIZED_IDS = ["52093116"]
   COUNT = 10
+  TEMP_SHOP_BRANDS = ["americanapparelusa", "americaneagle", "ralphlauren", "prada", "armani", "puma", "reebokclassics",
+                       "gap", "dolcegabbanaofficial", "dcshoes", "ripcurl_usa", "tommyhilfiger", "freshtops",
+                      "nike", "adidasoriginals", "converse", "forever21", "topshop", "vans", "victoriassecret", "michaelkors",
+                      "hm", "gucci", "hollisterco", "louisvuitton", "burberry", "asos", "levis", "versace_official", "hugoboss",
+                      "modcloth", "rayban","mangofashion" 
+                     ]
 end

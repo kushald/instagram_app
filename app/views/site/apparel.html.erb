@@ -1,0 +1,37 @@
+<% meta_keywords "Joyviewer - Shopping on instagram" %>
+<% meta_description "Joyviewer - Apparels on instagram" %>
+<h1><%=h content_for(:title, "Joyviewer - Apparels on instagram") %></h1>
+
+<div align="center" class="head-text">
+  <a href="/apparel">
+    Apparel 
+    <% if params[:b].present? %> 
+      <%= " (#{params[:b]})" %>
+    <% end %>
+  </a>
+</div>
+<%#= render :partial => "site/leaderboard_ad" %>
+<%#= render '/site/content' %>
+<div class="row">
+  <div class="large-10 columns">
+    <% @data["data"].each_with_index do |data,i| %>
+      <div class="large-3 columns" style="padding:5px;">
+        <% if data["type"] == "video" %>
+          <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
+        <% end %>
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
+      </div>
+      <% end %>
+  </div>
+  <div class="large-2 columns shopping-tag-bar">
+    <span style="margin: 53px;">Brands</span>
+    <ul>
+      <% Constant::TEMP_SHOP_BRANDS.each do |shop| %>
+        <% color = tag_color %>
+        <li class="tag1" style="color:<%= color %>"><a href="/apparel/?b=<%= shop %>" style="color:<%= color %>">@<%= shop %></a></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+  <%= render '/users/pagination' %>
+  <%= render :partial => "site/leaderboard_ad" %>

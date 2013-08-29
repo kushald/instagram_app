@@ -99,19 +99,29 @@ class SiteController < ApplicationController
   end
 
   def about
-    expires_in 1.hour, :public => true
+    expires_in 10.hour, :public => true
   end
 
   def terms
-    expires_in 1.hour, :public => true
+    expires_in 10.hour, :public => true
   end
 
   def privacy
-    expires_in 1.hour, :public => true
+    expires_in 10.hour, :public => true
   end
 
   def faq
-    expires_in 1.hour, :public => true
+    expires_in 10.hour, :public => true
+  end
+
+  def apparel
+    id = if params[:b].present?
+          Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:b]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"] rescue nil
+        else
+          "230938948"
+        end
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
+    expires_in 5.hour, :public => true
   end
 
   def store_return_to
