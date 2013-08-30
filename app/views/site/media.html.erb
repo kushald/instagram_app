@@ -35,8 +35,9 @@
           <div id="like-count">
             <a href="/likes/<%= @media["data"]["id"] %>" style="font-weight:bold;">
               <span><%= @media["data"]["likes"]["count"] %></span> 
-              Likes<%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
+              Likes
             </a>
+            <%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
           </div>
         </div>
         <div class="side-panel">
