@@ -32,8 +32,11 @@
           <% else %>
             <i class="foundicongen-heart margin0" id="like-as-guest"></i>
           <% end %>
-          <div id="like-count"><span><%= @media["data"]["likes"]["count"] %></span> 
-            Likes<%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
+          <div id="like-count">
+            <a href="/likes/<%= @media["data"]["id"] %>" style="font-weight:bold;">
+              <span><%= @media["data"]["likes"]["count"] %></span> 
+              Likes<%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
+            </a>
           </div>
         </div>
         <div class="side-panel">
