@@ -7,6 +7,7 @@
 <% else %>
   <div class="row">
   <div class="large-6 columns">
+    <div class="large-3 columns">Share this page:</div>
     <div class="small-1 columns">
       <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= @temp_info["user"]["profile_picture"] %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
         <a><i class="social foundicon-facebook"></i></a>
@@ -19,7 +20,7 @@
     <div class="small-2 columns">
       <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
     </div>
-    <div class="small-6 columns"></div>
+    <div class="small-3 columns"></div>
   </div>
 </div>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
