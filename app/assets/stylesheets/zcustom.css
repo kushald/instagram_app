@@ -34,6 +34,9 @@ nav li a{
 .top-bar-section li a:not(.button), .top-bar-section ul li.active > a, .socio {
   background: white;
   color: #202020;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 0.7em;
 }
 
 .top-bar-section li a:not(.button):hover, .top-bar-section ul li:hover {

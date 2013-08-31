@@ -805,6 +805,40 @@ margin-bottom: 10px;
   margin-bottom: 20px;
 }
 
+.trend-border {
+  border: double #202020;
+  margin-bottom: 2px;
+  padding: 0;
+  min-height: 231px;
+}
+
+.trend-border img {
+  width:150px;
+  padding-top: 10px;
+}
+
+.trend-list li {
+  border-bottom: 1px solid #DDD;
+  font-size: 13px;
+  padding: 8px;
+}
+
+.trend-list li a {
+}
+
+.trending {
+  margin: 12px;
+  font-size: 19px;
+}
+
+.orangered {
+  border-bottom: 4px solid #c0392b;
+}
+
+.center {
+  text-align: center;
+}
+
 @media screen and (max-width: 766px) {
   #load-more {
     margin-left: 0;

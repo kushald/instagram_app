@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130715092851) do
+ActiveRecord::Schema.define(:version => 20130831070402) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,43 @@ ActiveRecord::Schema.define(:version => 20130715092851) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "trending_users", :force => true do |t|
+    t.string   "instagram_id"
+    t.string   "username"
+    t.string   "full_name"
+    t.string   "profile_image"
+    t.text     "bio"
+    t.string   "media"
+    t.string   "followed_by"
+    t.string   "follows"
+    t.string   "website"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "trending_users", ["instagram_id"], :name => "index_trending_users_on_instagram_id", :unique => true
+  add_index "trending_users", ["username"], :name => "index_trending_users_on_username", :unique => true
+
+  create_table "trendings", :force => true do |t|
+    t.string   "instagram_id"
+    t.string   "username"
+    t.string   "full_name"
+    t.string   "profile_image"
+    t.text     "bio"
+    t.string   "uploads"
+    t.string   "followed_by"
+    t.string   "follows"
+    t.string   "website"
+    t.string   "media"
+    t.string   "media_id"
+    t.string   "media_type"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+  end
+
+  add_index "trendings", ["instagram_id"], :name => "index_trendings_on_instagram_id", :unique => true
+  add_index "trendings", ["username"], :name => "index_trendings_on_username", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "instagram_email"

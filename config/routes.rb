@@ -1,5 +1,7 @@
 InstagramApp::Application.routes.draw do
 
+  match "trending" => "trending#index"
+
   get "site/index"
   match 'user' => 'site#user'
   match 'u/:id' => 'users#show'

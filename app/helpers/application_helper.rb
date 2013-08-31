@@ -20,4 +20,11 @@ module ApplicationHelper
     i % 2 == 0 ? "side-even" : "side-odd"
   end
 
+  def trend_hl(type,params)
+    if params[:media] && type=="media"
+      "orangered"
+    elsif !params[:media] && type=="users"
+      "orangered"
+    end 
+  end
 end
