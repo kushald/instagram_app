@@ -59,6 +59,10 @@ nav li a{
   border: none;
 }
 
+.orbit-container {
+  background: white;
+}
+
 @media screen and (max-width: 1260px) {
  
 }

@@ -24,7 +24,7 @@ InstagramApp::Application.routes.draw do
   match '/privacy' => 'site#privacy'
   match '/faq' => 'site#faq'
   match '/popular' => 'site#popular'
-  match '/explore' => 'site#index'
+  match '/explore' => 'site#explore'
   match 'admin' => 'site#admin'
   match 'joystagrammers' => 'users#joystagrammers'
   match '/profile_count/:id' => 'users#profile_count'

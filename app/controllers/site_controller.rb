@@ -3,11 +3,17 @@ class SiteController < ApplicationController
   require 'net/http'
   before_filter :store_return_to, :only => [:login]
 
+  def index
+    @interesting_user_posts = InterestingUserPost.all.sample(4).in_groups_of(2) 
+    @trendings = Trending.limit(3)
+    expires_in 1.hour, :public => true
+  end
+
   def login
     redirect_to Constant::LOGIN_URL
   end
 
-  def index
+  def explore
     @interesting_user_posts = InterestingUserPost.all.sample(12)
     expires_in 15.minutes, :public => true
   end
