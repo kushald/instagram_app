@@ -7,11 +7,11 @@
     <form action="/search">
       <div class="row collapse">
         <div class="small-9 columns">
-          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS" style="padding:1.5em">
+          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS">
           <input type="hidden" name="kind" value="tag">
         </div>
         <div class="small-3 columns">
-          <input type="submit" class="submit" value="Search" style="padding:1.4em">
+          <input type="submit" class="submit" value="Search" style="padding:9.5px;">
         </div>
       </div>
       </form>
@@ -20,11 +20,11 @@
     <form action="/search">
       <div class="row collapse">
         <div class="small-9 columns">
-          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "user" %>" placeholder="SEARCH PEOPLE" style="padding:1.5em">
+          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "user" %>" placeholder="SEARCH PEOPLE">
           <input type="hidden" name="kind" value="user">
         </div>
         <div class="small-3 columns">
-          <input type="submit" class="submit" value="Search" style="padding:1.4em">
+          <input type="submit" class="submit" value="Search" style="padding:9.5px;">
         </div>
       </div>
     </form>

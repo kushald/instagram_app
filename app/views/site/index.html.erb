@@ -81,7 +81,7 @@
     <ul>
       <% Constant::POPULAR_HASHTAGS[0..19].each do |tag| %>
         <% color = tag_color %>
-        <li class="tag1" style="color:<%= color %>"><a href="/tag/<%= tag %>" style="color:<%= color %>"><%= tag %></a></li>
+        <li class="tag1" style="color:<%= color %>"><a href="/tag/<%= tag %>" style="color:<%= color %>">#<%= tag %></a></li>
       <% end %>
     </ul>
   </div>
