@@ -1,11 +1,11 @@
 <% if @data.blank? %>
-  <%= render :partial => "site/leaderboard_ad" %>
+  <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
   <h3 class="error">User does not exist or user deleted profile</h3>
 <% elsif @temp_info.blank? %>
-  <%= render :partial => "site/leaderboard_ad" %>
+  <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
   <h3 class="error">Sorry this is a private User</h3>
 <% else %>
-  <%= render :partial => "site/leaderboard_ad" %>
+  <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <div class="row">
   <div class="large-6 columns">
     <div class="large-3 columns">Share this page:</div>
