@@ -5,6 +5,7 @@
   <%= render :partial => "site/leaderboard_ad" %>
   <h3 class="error">Sorry this is a private User</h3>
 <% else %>
+  <%= render :partial => "site/leaderboard_ad" %>
   <div class="row">
   <div class="large-6 columns">
     <div class="large-3 columns">Share this page:</div>
@@ -24,7 +25,6 @@
   </div>
 </div>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
-  <%= render :partial => "site/leaderboard_ad" %>
   <%#= render 'uploads' %> 
   <%= render '/site/content' %>
 <% end %>
