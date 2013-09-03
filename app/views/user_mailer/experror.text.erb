@@ -1,0 +1,9 @@
+Error Message <%=@err.inspect %>
+Trace
+———————————————–
+REQUEST
+------------------------------------------------------------ 
+URL <%= @request.protocol+@request.host_with_port+@request.fullpath %>
+
+
+<%=@err.backtrace.join("\n") %>

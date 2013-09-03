@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  rescue_from Exception, :with => :handle_exceptions
   protect_from_forgery
   before_filter :current_user
   before_filter :check_request
@@ -25,4 +26,10 @@ class ApplicationController < ActionController::Base
   def check_request
     session[:mobile] = request.user_agent =~ /Mobile|webOS/ or params[:m].to_i == 1 ? true : false
   end
+
+  def handle_exceptions(e)
+    UserMailer.experror(e, request).deliver
+    render :template => "public/500.html", :status => 500
+  end
+
 end
