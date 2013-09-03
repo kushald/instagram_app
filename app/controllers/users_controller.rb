@@ -49,6 +49,7 @@ class UsersController < ApplicationController
   def my_pics
     instagram_id = params["id"] || @current_user.instagram_id
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/?access_token=#{@current_user.instagram_access_token}")
+    @temp_info = temp_user_info(@user_info["data"])
     @data = Request.get_request("https://api.instagram.com/v1/users/#{instagram_id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
     expires_in 4.minutes, :public => true
   end
