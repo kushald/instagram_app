@@ -1,4 +1,7 @@
 <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
+<div align="center">
+  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+</div>
 <div class="row">
   <% @data["data"].each do |data| %>
   <div class="browse-celeb-grid">
@@ -14,6 +17,9 @@
     <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
   </div>
   <% end %>
+</div>
+<div align="center">
+  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
 </div>
 
 <script type="text/javascript">
