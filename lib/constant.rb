@@ -3,7 +3,7 @@ module Constant
   ENDPOINT = 'https://api.instagram.com/v1/'.freeze
   POPULAR = "https://api.instagram.com/v1/media/popular/".freeze
   FEED = "https://api.instagram.com/v1/users/self/feed/".freeze
-  GUEST_ID = 2
+  GUEST_IDS = ["415290916","451906530"]
   POPULAR_HASHTAGS = ["love","instagood", 'me', 'cute', 'tbt', 'eyes', 'statigram', 'throwbackthursday',
                       'photooftheday', 'nice', 'follow', 'beautiful', 'happy', 'all_shots', 'harrystyles',
                       'girl', 'instamood', 'picoftheday', 'instadaily', 'niallhoran', 'instago', 'igers',

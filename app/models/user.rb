@@ -9,11 +9,11 @@ class User < ActiveRecord::Base
 
   # Check if Guest User
   def guest_user
-    self.id == Constant::GUEST_ID
+    Constant::GUEST_IDS.include?(self.instagram_id)
   end
 
   def logged_in_user
-    self.id != Constant::GUEST_ID
+    !Constant::GUEST_IDS.include?(self.instagram_id)
   end
 
   def self.authenticate(params)
