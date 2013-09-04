@@ -63,11 +63,54 @@
         <ul class="left">
           <li><a href="/explore">Explore</a></li>
           <li><a href="/popular">Popular</a></li>
-          <li><a href="/trending">Trending</a></li>
-          <li><a href="/categories">Categories</a></li>
+          <li class="has-dropdown"><a href="/trending">Trending</a>
+            <ul class="dropdown">
+              <li><a href="/trending">Users</a></li>
+              <li class="divider"></li>
+              <li><a href="/trending?media=1">Media</a></li>
+              <li class="divider"></li>
+            </ul>
+          </li>
+          <li class="has-dropdown"><a href="/categories">Categories</a>
+            <ul class="dropdown">
+              <% Category.limit(10).each do |category| %>
+                <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+                <li class="divider"></li>
+              <% end %>
+              <li><a href="/categories/">See all &rarr;</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown"><a href="/apparel">Apparel</a>
+            <ul class="dropdown">
+              <li><a href="/apparel/?b=americanapparelusa">American Apparel USA</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=americaneagle">American Eagle</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=victoriassecret">Victorias Secret</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=gap">Gap</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=converse">Converse</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=armani">Armani</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=ralphlauren">Ralph Lauren</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=puma">Puma</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=freshtops">Fresh Tops</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/?b=vans">Vans</a></li>
+              <li class="divider"></li>
+              <li><a href="/apparel/">See all &rarr;</a></li>
+            </ul>
+          </li>
           <li><a href="/nearby">Around Me</a></li>
-          <li><a href="/apparel">Apparel</a></li>
           <li><a href="/search">Search</a></li>
+
+
+
+
           <li id="feed"></li>
         </ul>
         <ul class="right">

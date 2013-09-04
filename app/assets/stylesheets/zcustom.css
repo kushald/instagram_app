@@ -63,6 +63,14 @@ nav li a{
   background: white;
 }
 
+.dropdown {
+  border: 1px solid #DDD;
+}
+
+.top-bar-section .has-dropdown > a::after {
+  border-color: rgba(1, 1, 1, 0.5) transparent transparent transparent;
+}
+
 @media screen and (max-width: 1260px) {
  
 }
