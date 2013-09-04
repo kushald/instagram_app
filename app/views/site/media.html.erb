@@ -61,7 +61,7 @@
         <% if @media["data"]["filter"].present? %>
           <div class="side-panel">
             <% modified_filter = {"X-Pro II" => "XProII", "Lo-fi" => "Lofi"} %>
-            <% filter = @media["data"]["filter"] == ("X-Pro II" || "Lo-fi") ? modified_filter[@media["data"]["filter"]] : @media["data"]["filter"] %>
+            <% filter = @media["data"]["filter"] == "X-Pro II" || @media["data"]["filter"] == "Lo-fi" ? modified_filter[@media["data"]["filter"]] : @media["data"]["filter"] %>
             Filter: 
             <a href="/tag/<%= filter %>" style="font-family: Droid Sans;font-weight: bold;background:#202020;color: white;padding:5px;">
               <%= @media["data"]["filter"] %>
