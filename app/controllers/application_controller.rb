@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  rescue_from Exception, :with => :handle_exceptions
+  rescue_from Exception, :with => :handle_exceptions if Rails.env == "production"
   protect_from_forgery
   before_filter :current_user
   before_filter :check_request
