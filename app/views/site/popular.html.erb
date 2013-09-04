@@ -6,9 +6,11 @@
 </div>
 <div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "instagram"} %>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+<% if Rails.env == "production" %>
+  <div align="center">
+    <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+  </div>
+<% end %>
 <div id="disp">
   <%#= render 'content' %>
   <div class="row">
@@ -25,7 +27,9 @@
         </div>
       </div>
       <% end %>
-      <div class="large-3 columns" style="padding:5px;">
-        <SCRIPT>var ACE_AR = {Site: '885818', Size: '300250'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-  </div>
+      <% if Rails.env == "production" %>
+        <div class="large-3 columns" style="padding:5px;">
+          <SCRIPT>var ACE_AR = {Site: '885818', Size: '300250'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+        </div>
+      <% end %>
 </div>

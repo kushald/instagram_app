@@ -1,9 +1,6 @@
 <%  resolution = session[:mobile] ? "low_resolution" : "standard_resolution" %>
 <div class="row">
   <% color = tag_color %>
-  <div class="large-3 columns" style=" border: 1px solid #DDD; box-shadow: 1px 1px 9px #DDD; ">
-    <SCRIPT>var ACE_AR = {Site: '885818', Size: '300250'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-  </div>
   <% @data["data"].each_with_index do |data,i| %>
     <div class="large-3 columns" style="padding:5px;">
       <% if data["type"] == "video" %>
@@ -29,6 +26,11 @@
       <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
       </div>
       <% end %>
+    </div>
+  <% end %>
+  <% if Rails.env == "production" %>
+    <div class="large-3 columns">
+      <SCRIPT>var ACE_AR = {Site: '885818', Size: '300250'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
     </div>
   <% end %>
 </div>

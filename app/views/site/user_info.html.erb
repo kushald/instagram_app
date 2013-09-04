@@ -1,2 +1,6 @@
-<%= render :partial => '/users/user_basic_info', :locals => {:show_follow => true} %>
-<%= render '/site/content' %>
+<% if @user_info["data"].present? %>
+  <%= render :partial => '/users/user_basic_info', :locals => {:show_follow => true} %>
+  <%= render '/site/content' %>
+<% else %>
+  <h3 class="error"><%= @user_info["meta"]["error_message"] %></h3>
+<% end %>

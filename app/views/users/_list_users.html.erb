@@ -1,40 +1,44 @@
-<%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
-<div class="row">
-  <% @data["data"].each do |data| %>
-  <div class="browse-celeb-grid">
-    <a href="/u/<%= data['username'] %>/?fid=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;height:auto;" />
-      <div style="color: #202020;text-align: center;font-size: 14px;"><%= data["username"] %></div>
-    </a>
+<% if @data.present? %>
+  <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
+  <div align="center">
+    <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
   </div>
-  <% end %>
-</div>
-<div class="row">
-  <% if @data["pagination"]["next_cursor"].present? %>
-  <div id="load-more" class="large-2 columns" style="margin-top: 1%;">
-    <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
+  <div class="row">
+    <% @data["data"].each do |data| %>
+    <div class="browse-celeb-grid">
+      <a href="/u/<%= data['username'] %>/?fid=<%= data['id'] %>"><img src="<%= data["profile_picture"] %>" style="width:100px;height:auto;" />
+        <div style="color: #202020;text-align: center;font-size: 14px;"><%= data["username"] %></div>
+      </a>
+    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+  <div class="row">
+    <% if @data["pagination"]["next_cursor"].present? %>
+    <div id="load-more" class="large-2 columns" style="margin-top: 1%;">
+      <%= link_to "Next", {controller: params[:controller], action: params[:action], id: params[:id], cursor: @data["pagination"]["next_cursor"]} %>
+    </div>
+    <% end %>
+  </div>
+  <div align="center">
+    <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+  </div>
 
-<script type="text/javascript">
-$(document).ready(function(){
-  <% if @temp_info.present? %>
-    var user_id = <%= @temp_info["user"]["id"] %>;
-    $.ajax({
-      url: "/profile_count/"+user_id,
-      type: "GET",
-      success: function(response) {
-        $("#media-count").html(response["media"]);
-        $("#followed-count").html(response["followed_by"]);
-        $("#following-count").html(response["follows"]);
-      }
-    });
-  <% end %>
-});
-</script>
+  <script type="text/javascript">
+  $(document).ready(function(){
+    <% if @temp_info.present? %>
+      var user_id = <%= @temp_info["user"]["id"] %>;
+      $.ajax({
+        url: "/profile_count/"+user_id,
+        type: "GET",
+        success: function(response) {
+          $("#media-count").html(response["media"]);
+          $("#followed-count").html(response["followed_by"]);
+          $("#following-count").html(response["follows"]);
+        }
+      });
+    <% end %>
+  });
+  </script>
+<% else %>
+  <h3 class="error"><%= @user_info["meta"]["error_message"] %></h3>
+<% end %>

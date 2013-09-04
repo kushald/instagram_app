@@ -7,7 +7,7 @@
     <form action="/search">
       <div class="row collapse">
         <div class="small-9 columns">
-          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS">
+          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS - NO SPACES OR SPECIAL CHARACTERS">
           <input type="hidden" name="kind" value="tag">
         </div>
         <div class="small-3 columns">

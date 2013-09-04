@@ -1,9 +1,9 @@
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joyviewer - Joy of Instagram On Web" %>
 <h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joyviewer - Joy of Instagram On Web @joyviewer"}") %></h1>
-<div id="getuid" uid="<%= @media["data"]["user"]["id"] %>"></div>
+<div id="getuid" uid="<%= @media["data"].present? ? @media["data"]["user"]["id"] : nil %>"></div>
 <% if @media["meta"]["error_message"].present? %>
-  <h3 class="error">Sorry this Image might have been deleted by user</h3>
+  <h3 class="error">Sorry this Image might have been deleted by user or it is a private content</h3>
 <% else %>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
@@ -60,8 +60,10 @@
         </div>
         <% if @media["data"]["filter"].present? %>
           <div class="side-panel">
+            <% modified_filter = {"X-Pro II" => "XProII", "Lo-fi" => "Lofi"} %>
+            <% filter = @media["data"]["filter"] == ("X-Pro II" || "Lo-fi") ? modified_filter[@media["data"]["filter"]] : @media["data"]["filter"] %>
             Filter: 
-            <a href="/tag/<%= @media["data"]["filter"] %>" style="font-family: Droid Sans;font-weight: bold;background:#202020;color: white;padding:5px;">
+            <a href="/tag/<%= filter %>" style="font-family: Droid Sans;font-weight: bold;background:#202020;color: white;padding:5px;">
               <%= @media["data"]["filter"] %>
             </a>
           </div>
@@ -98,9 +100,11 @@
         </div>
       </div>
     </div>
-    <div class="large-2 columns">
-      <SCRIPT>var ACE_AR = {Site: '885812', Size: '160600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-    </div>
+    <% if Rails.env == "production" %>
+      <div class="large-2 columns">
+        <SCRIPT>var ACE_AR = {Site: '885812', Size: '160600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+      </div>
+    <% end %>
   </div>
     <div class="row">
       <div class="large-12 columns">
@@ -126,9 +130,11 @@
     </div>
     <div class="row">
       <div class="large-6 columns" style="font-size: 14px;">
-        <div align="center">
-          <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-        </div>
+        <% if Rails.env == "production" %>
+          <div align="center">
+            <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+          </div>
+        <% end %>
         <div class="comment-count">
           <a href="/comments/<%= params[:id] %>" style="font-weight:bold;"><%= @media["data"]["comments"]["count"] %> Comments</a>
         </div>

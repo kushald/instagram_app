@@ -78,8 +78,11 @@ class SiteController < ApplicationController
 
   def user_info
     @user_info = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/?access_token=#{@current_user.instagram_access_token}")
-    @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
-    @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
+    if @user_info["data"]
+      @data = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
+      @temp_info = temp_user_info(@user_info["data"])
+      @relationship = Request.get_request("https://api.instagram.com/v1/users/#{params[:id]}/relationship?access_token=#{@current_user.instagram_access_token}") if @current_user.logged_in_user
+    end
   end
 
   def geo_tag_content
@@ -90,10 +93,11 @@ class SiteController < ApplicationController
 
   def search
     if params[:q].present?
+      q = params[:q].gsub(/\s+/, "")
       if params[:kind] == "user"
-        @data = Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:q]}&access_token=#{@current_user.instagram_access_token}")
+        @data = Request.get_request("https://api.instagram.com/v1/users/search?q=#{q}&access_token=#{@current_user.instagram_access_token}")
       else
-        @data = Request.get_request("https://api.instagram.com/v1/tags/#{params[:q]}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
+        @data = Request.get_request("https://api.instagram.com/v1/tags/#{q}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}")
       end
     end
     expires_in 5.minutes, :public => true
