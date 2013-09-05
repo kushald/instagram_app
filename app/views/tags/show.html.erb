@@ -3,9 +3,6 @@
 <h1><%=h content_for(:title, "Joyviewer - Instagram Photos Tagged with ##{params[:id].to_s}") %></h1>
 <% if @data["meta"]["error_message"].present? %>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
   <h3 class="error">This tag cannot be viewed</h3>
 <% else %>
   <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
