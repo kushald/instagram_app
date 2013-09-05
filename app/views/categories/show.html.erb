@@ -2,7 +2,6 @@
 <% meta_description "Joyviewer - Celebrities On Instagram" %>
 <h1><%=h content_for(:title, "Joyviewer - #{@category.name} On Instagram") %></h1>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @category.name} %>
-<% @users = [] %>
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => @users.present?} %>
 <div class="row">
   <div class="popular-text"><%= @category.name %></div>

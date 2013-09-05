@@ -253,8 +253,10 @@ li {
 .browse-more-auth {
   border-bottom: 1px solid #DDD;
   text-align: center;
-  font-size: 15px;
-  margin: -0.5% 6%;
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 16px;
+  text-transform: uppercase;
 }
 
 .browse-user-grid, .browse-celeb-grid {
@@ -434,7 +436,7 @@ textarea {
 }
 
 .media-author {
-  width: 12%;
+  width: 90px;
   border-radius: 5px;
 }
 

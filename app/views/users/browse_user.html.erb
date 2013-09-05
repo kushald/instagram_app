@@ -1,9 +1,8 @@
 <% if @browse_user.present? %>
-  <div class="large-3 columns browse-more-auth">Browse more by <br><a href="/u/<%= @browse_user[0]["user"]["username"] %>?fid=<%= @browse_user[0]["user"]["id"] %>" style="color: #619AB1;"><%= @browse_user[0]["user"]["username"] %></a></div>
-  <div class="large-3 columns browse-more-pic" style="float:left;">
-    <% @browse_user.each do |media| %>
+  <div class="large-2 columns">
+    <% @browse_user[0..3].each do |media| %>
           <a href="/media/<%= media["id"] %>">
-            <img src="<%= media["images"]["thumbnail"]["url"] %>" style="margin: 2px;box-shadow: 1px 1px 3px #202020;width: 125px;">
+            <img src="<%= media["images"]["thumbnail"]["url"] %>" style="margin: 3% 5%;box-shadow: 1px 1px 3px #202020;">
           </a>
     <% end %>
   </div>

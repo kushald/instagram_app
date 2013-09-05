@@ -5,6 +5,7 @@
 <% if @media["meta"]["error_message"].present? %>
   <h3 class="error">Sorry this Image might have been deleted by user or it is a private content</h3>
 <% else %>
+  <%#= render :partial => "site/aol_leaderboard", :locals => {:show => @media["data"].present?} %>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
   <div class="row" id="uname" val="<%= @media["data"]["user"]["username"] %>">
@@ -100,11 +101,7 @@
         </div>
       </div>
     </div>
-    <% if Rails.env == "production" && @media["data"].present? %>
-      <div class="large-2 columns">
-        <SCRIPT>var ACE_AR = {Site: '885812', Size: '160600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-      </div>
-    <% end %>
+    <div id="browse-user" uid="<%= @media["data"]["user"]["id"] %>" logged-in="<%= @current_user.logged_in_user ? 1 : 0 %>"></div>
   </div>
     <div class="row">
       <div class="large-12 columns">
@@ -129,8 +126,8 @@
       </div>
     </div>
     <div class="row">
-      <div class="large-6 columns" style="font-size: 14px;">
-        <% if Rails.env == "production" && @media["data"].present? %>
+      <div class="large-7 columns" style="font-size: 14px;">
+        <% if false && Rails.env == "production" && @media["data"].present? %>
           <div align="center">
             <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           </div>
@@ -154,7 +151,8 @@
           <button id="comment-button">Comment</button>
         <% end %>
       </div>
-
-      <div id="browse-user" uid="<%= @media["data"]["user"]["id"] %>" logged-in="<%= @current_user.logged_in_user ? 1 : 0 %>"></div>
+      <div class="large-4 columns" style="margin:2%;">
+        <SCRIPT>var ACE_AR = {Site: '885810', Size: '300600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+      </div>
     </div>
 <% end %>
