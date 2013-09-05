@@ -100,7 +100,7 @@
         </div>
       </div>
     </div>
-    <% if Rails.env == "production" %>
+    <% if Rails.env == "production" && @media["data"].present? %>
       <div class="large-2 columns">
         <SCRIPT>var ACE_AR = {Site: '885812', Size: '160600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
       </div>
@@ -130,7 +130,7 @@
     </div>
     <div class="row">
       <div class="large-6 columns" style="font-size: 14px;">
-        <% if Rails.env == "production" %>
+        <% if Rails.env == "production" && @media["data"].present? %>
           <div align="center">
             <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           </div>

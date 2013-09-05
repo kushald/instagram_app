@@ -4,9 +4,7 @@
   <div class="large-7 columns large-centered">
     <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
   </div>
-  <div align="center">
-    <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-  </div>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <% else %>
   <%= render '/users/user_basic_info' %>
 <% end %>
@@ -23,6 +21,4 @@
 </div>
 <%= render "/users/pagination" %>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>

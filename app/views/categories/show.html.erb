@@ -2,9 +2,8 @@
 <% meta_description "Joyviewer - Celebrities On Instagram" %>
 <h1><%=h content_for(:title, "Joyviewer - #{@category.name} On Instagram") %></h1>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @category.name} %>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+<% @users = [] %>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @users.present?} %>
 <div class="row">
   <div class="popular-text"><%= @category.name %></div>
   <div class="large-2 columns">
@@ -29,6 +28,4 @@
   </div>
 </div>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @category.name} %>
-<div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @users.present?} %>

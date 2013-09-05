@@ -7,9 +7,7 @@
 <% else %>
   <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "laptops"} %>
-  <div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
   <%#= render '/site/content' %>
   <div class="row">
     <% @data["data"].each_with_index do |data,i| %>
@@ -23,7 +21,5 @@
   </div>
   <%= render '/users/pagination' %>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-  <div align="center">
-  <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-</div>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <% end %>

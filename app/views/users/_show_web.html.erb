@@ -5,9 +5,7 @@
   <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
   <h3 class="error">Sorry this is a private User</h3>
 <% else %>
-  <div align="center" style="padding-bottom: 3%;">
-    <SCRIPT>var ACE_AR = {Site: '885814', Size: '728090'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-  </div>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <div class="row">
