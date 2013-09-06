@@ -73,7 +73,7 @@
           </li>
           <li class="has-dropdown"><a href="/categories">Categories</a>
             <ul class="dropdown">
-              <% Category.limit(10).each do |category| %>
+              <% Category.get_categories[1..15].each do |category| %>
                 <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
                 <li class="divider"></li>
               <% end %>
@@ -107,10 +107,6 @@
           </li>
           <li><a href="/nearby">Around Me</a></li>
           <li><a href="/search">Search</a></li>
-
-
-
-
           <li id="feed"></li>
         </ul>
         <ul class="right">
