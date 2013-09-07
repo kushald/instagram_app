@@ -1,6 +1,7 @@
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram,instagram feed, instagram login, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joyviewer - Joy of Instagram On Web" %>
 <h1><%=h content_for(:title, "Joyviewer - Joy of Instagram On Web @Joyviewer") %></h1>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @interesting_user_posts.present?} %>
 <div class="popular-text">Explore Instagrammers</div>
 <div class="row">
   <% @interesting_user_posts.each do |post| %>
@@ -10,4 +11,3 @@
     <% end %>   
 </div>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @interesting_user_posts.present?} %>

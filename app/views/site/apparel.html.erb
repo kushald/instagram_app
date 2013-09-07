@@ -24,13 +24,20 @@
       <% end %>
   </div>
   <div class="large-2 columns shopping-tag-bar">
-    <span style="margin: 53px;">Brands</span>
-    <ul>
-      <% Constant::TEMP_SHOP_BRANDS.each do |shop| %>
-        <% color = tag_color %>
-        <li class="tag1" style="color:<%= color %>"><a href="/apparel/?b=<%= shop %>" style="color:<%= color %>"><%= shop %></a></li>
-      <% end %>
-    </ul>
+    <div class="large-12 columns" style="padding:1%;">
+      <span style="margin: 53px;">Brands</span>
+      <ul>
+        <% Constant::TEMP_SHOP_BRANDS.each do |shop| %>
+          <% color = tag_color %>
+          <li class="tag1" style="color:<%= color %>"><a href="/apparel/?b=<%= shop %>" style="color:<%= color %>"><%= shop %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="large-2 columns" style="padding:1%;">
+    <% if @data["data"].present? %>
+        <SCRIPT>var ACE_AR = {Site: '885816', Size: '180150'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+    <% end %>
   </div>
 </div>
   <%= render '/users/pagination' %>

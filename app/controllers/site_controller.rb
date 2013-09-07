@@ -40,7 +40,7 @@ class SiteController < ApplicationController
 
 
   def popular
-    @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}&count=15")
+    @data = Request.get_request("#{Constant::POPULAR}?access_token=#{@current_user.instagram_access_token}&count=16")
     render :partial => 'content' and return if request.xhr?
     expires_in 2.minutes, :public => true
   end
@@ -87,7 +87,7 @@ class SiteController < ApplicationController
 
   def geo_tag_content
     location = Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip).city || 'Belgaum'
-    @data = Request.get_request("https://api.instagram.com/v1/tags/#{location}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}&count=11")
+    @data = Request.get_request("https://api.instagram.com/v1/tags/#{location}/media/recent?access_token=#{@current_user.instagram_access_token}&max_tag_id=#{params[:n]}&count=16")
     render '/users/likes' and return
   end
 

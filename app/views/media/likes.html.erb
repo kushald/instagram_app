@@ -4,7 +4,7 @@
     <%#= render :partial => "site/leaderboard_ad" %>
   </div>
   <div class="row">
-    <div class="large-8 columns">
+    <div class="large-7 columns">
       <% @likes["data"].each do |like| %>
         <div class="browse-celeb-grid">
           <a href="/u/<%= like['username'] %>/?fid=<%= like['id'] %>">
@@ -14,78 +14,15 @@
         </div>
       <% end %>
     </div>
-    <div class="large-3 columns" style=" border: 1px solid #DDD; box-shadow: 1px 1px 9px #DDD; ">
+    <div class="large-5 columns">
       <div class="large-12 columns">
-        <script type="text/javascript">
-          ch_client = "kushz19";
-          ch_query = "cameras";
-          ch_width = 250;
-          ch_height = 250;
-          ch_type = "mpu";
-          ch_sid = "Chitika Default";
-          ch_color_site_link = "0000CC";
-          ch_color_title = "0000CC";
-          ch_color_border = "FFFFFF";
-          ch_color_text = "000000";
-          ch_color_bg = "FFFFFF";
-        </script>
-        <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
-        </script>
-      </div>
-      <div class="large-12 columns">
-        <script type="text/javascript">
-          ch_client = "kushz19";
-          ch_query = "laptop";
-          ch_width = 250;
-          ch_height = 250;
-          ch_type = "mpu";
-          ch_sid = "Chitika Default";
-          ch_color_site_link = "0000CC";
-          ch_color_title = "0000CC";
-          ch_color_border = "FFFFFF";
-          ch_color_text = "000000";
-          ch_color_bg = "FFFFFF";
-        </script>
-        <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
-        </script>
-      </div>
-      <div class="large-12 columns">
-        <script type="text/javascript">
-          ch_client = "kushz19";
-          ch_query = "ipad";
-          ch_width = 250;
-          ch_height = 250;
-          ch_type = "mpu";
-          ch_sid = "Chitika Default";
-          ch_color_site_link = "0000CC";
-          ch_color_title = "0000CC";
-          ch_color_border = "FFFFFF";
-          ch_color_text = "000000";
-          ch_color_bg = "FFFFFF";
-        </script>
-        <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
-        </script>
-      </div>
-      <div class="large-12 columns">
-        <script type="text/javascript">
-          ch_client = "kushz19";
-          ch_query = "xbox";
-          ch_width = 250;
-          ch_height = 250;
-          ch_type = "mpu";
-          ch_sid = "Chitika Default";
-          ch_color_site_link = "0000CC";
-          ch_color_title = "0000CC";
-          ch_color_border = "FFFFFF";
-          ch_color_text = "000000";
-          ch_color_bg = "FFFFFF";
-        </script>
-        <script src="http://scripts.chitika.net/eminimalls/amm.js" type="text/javascript">
-        </script>
+        <% if true && @likes["data"].length > 10 %>
+          <SCRIPT>var ACE_AR = {Site: '885810', Size: '300600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+        <% end %>
       </div>
     </div>
   </div>
-  <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
+  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
 <% else %>
   <h3 class="error">Sorry this Content might have been deleted by user or it is a private content</h3>
 <% end %>
