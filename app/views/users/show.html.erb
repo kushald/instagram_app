@@ -6,6 +6,7 @@
 <%= render "show_web" %>
 
 <%= render "pagination" %>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <script type="text/javascript">
   /*$(document).ready(function(){
     <% if @temp_info.present? %>
