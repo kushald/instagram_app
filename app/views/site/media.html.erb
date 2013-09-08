@@ -5,13 +5,13 @@
 <% if @media["meta"]["error_message"].present? %>
   <h3 class="error">Sorry this Image might have been deleted by user or it is a private content</h3>
 <% else %>
-  <%#= render :partial => "site/aol_leaderboard", :locals => {:show => @media["data"].present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @media["data"].present?} %>
   <div class="row">
-    <div class="large-7 columns" style="margin-bottom:2%;">
+    <!-- <div class="large-7 columns" style="margin-bottom:2%;">
       <div align="center">
         <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
       </div>
-    </div>
+    </div> -->
   </div>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
