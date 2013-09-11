@@ -1,6 +1,6 @@
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <% if @data.present? %>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
   <div class="row">
     <% @data["data"].each do |data| %>
     <div class="browse-celeb-grid">

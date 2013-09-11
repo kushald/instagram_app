@@ -4,7 +4,14 @@
     <%#= render :partial => "site/leaderboard_ad" %>
   </div>
   <div class="row">
-    <div class="large-7 columns">
+    <div class="large-2 columns">
+      <div class="large-12 columns">
+        <% if true && @likes["data"].length > 10 %>
+          <SCRIPT>var ACE_AR = {Site: '886612', Size: '120600', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+        <% end %>
+      </div>
+    </div>
+    <div class="large-8 columns">
       <% @likes["data"].each do |like| %>
         <div class="browse-celeb-grid">
           <a href="/u/<%= like['username'] %>/?fid=<%= like['id'] %>">
@@ -14,10 +21,10 @@
         </div>
       <% end %>
     </div>
-    <div class="large-5 columns">
+    <div class="large-2 columns">
       <div class="large-12 columns">
         <% if true && @likes["data"].length > 10 %>
-          <SCRIPT>var ACE_AR = {Site: '885810', Size: '300600'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+          <SCRIPT>var ACE_AR = {Site: '886612', Size: '120600', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
         <% end %>
       </div>
     </div>
