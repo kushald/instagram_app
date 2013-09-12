@@ -17,7 +17,7 @@
     </div>
     <% end %>
   </div>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
 
   <script type="text/javascript">
   $(document).ready(function(){

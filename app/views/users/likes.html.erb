@@ -21,4 +21,4 @@
 </div>
 <%= render "/users/pagination" %>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>

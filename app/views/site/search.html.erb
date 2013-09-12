@@ -3,7 +3,7 @@
 <h1><%=h content_for(:title, "Joyviewer.com search @joystagram") %></h1>
 
 <% if @data.present? && @data["data"].present? %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
 <% end %>
 <div class="row">
   <div class="large-6 columns">
@@ -61,6 +61,6 @@
 <% end %>
 </div>
 <% if @data.present? && @data["data"].present? && @data["data"].length > 15 %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
 <% end %>
 

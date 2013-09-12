@@ -7,7 +7,7 @@
 <% else %>
   <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "laptops"} %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
   <%#= render '/site/content' %>
   <div class="row">
     <% @data["data"].each_with_index do |data,i| %>
@@ -21,5 +21,5 @@
   </div>
   <%= render '/users/pagination' %>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
 <% end %>

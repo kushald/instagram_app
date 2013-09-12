@@ -35,11 +35,11 @@
     </div>
   </div>
   <div class="large-2 columns" style="padding:1%;">
-    <% if @data["data"].present? %>
+    <% if @data.try(:[],["data"]).present? %>
         <SCRIPT>var ACE_AR = {Site: '885816', Size: '180150'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
     <% end %>
   </div>
 </div>
   <%= render '/users/pagination' %>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
