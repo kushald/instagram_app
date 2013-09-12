@@ -5,7 +5,7 @@
   <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
   <h3 class="error">Sorry this is a private User</h3>
 <% else %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
+  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <div class="row">

@@ -1,7 +1,7 @@
 <% meta_keywords "Joyviewer - Shopping on instagram" %>
 <% meta_description "Joyviewer - Apparels on instagram" %>
 <h1><%=h content_for(:title, "Joyviewer - Apparels on instagram") %></h1>
-
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <div align="center" class="head-text">
   <a href="/apparel">
     Apparel 
@@ -35,11 +35,11 @@
     </div>
   </div>
   <div class="large-2 columns" style="padding:1%;">
-    <% if @data.try(:[],["data"]).present? %>
+    <% if @data["data"].present? %>
         <SCRIPT>var ACE_AR = {Site: '885816', Size: '180150'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
     <% end %>
   </div>
 </div>
   <%= render '/users/pagination' %>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data.try(:[],["data"]).present?} %>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>

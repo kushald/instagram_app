@@ -1,12 +1,13 @@
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joyviewer - Popular photos and videos on Instagram" %>
 <h1><%=h content_for(:title, "Popular photos and videos on Instagram @Joyviewer") %></h1>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <div class="grid_12 omega">
   <div class="popular-text">Popular photos and videos on Instagram</div>
 </div>
 <div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "instagram"} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => .try(:[],["data"]).present?} %>
+
 <div id="disp">
   <%#= render 'content' %>
   <div class="row">
@@ -23,5 +24,5 @@
         </div>
       </div>
       <% end %>
-      <%= render :partial => "site/aol_leaderboard", :locals => {:show => .try(:[],["data"]).present?} %>
+      <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 </div>
