@@ -27,7 +27,7 @@
     </div>
   </div>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
-  <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
+  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <%#= render 'uploads' %> 
   <%= render '/site/content' %>
 <% end %>
