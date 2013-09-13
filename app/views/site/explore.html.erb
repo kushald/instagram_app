@@ -11,3 +11,4 @@
     <% end %>   
 </div>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
+<%= render :partial => "site/aol_leaderboard", :locals => {:show => @interesting_user_posts.present?} %>
