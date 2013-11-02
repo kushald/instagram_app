@@ -5,14 +5,6 @@
 <% if @media["meta"]["error_message"].present? %>
   <h3 class="error">Sorry this Image might have been deleted by user or it is a private content</h3>
 <% else %>
-  <div class="row" style="margin-bottom: 1%;">
-    <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
-    <!-- <div class="large-7 columns" style="margin-bottom:2%;">
-      <div align="center">
-        <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-      </div>
-    </div> -->
-  </div>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
   <div class="row" id="uname" val="<%= @media["data"]["user"]["username"] %>">
