@@ -13,7 +13,9 @@ class ApplicationController < ActionController::Base
   private
   def current_user
     if cookies["ac"].present?
-      @current_user ||= User.where(:id => cookies["ac"].split("a12b")[1]).first 
+      #Quick fix for jackie bug
+      usr = User.where(:id => cookies["ac"].split("a12b")[1]).first
+      @current_user ||= (usr ? usr : User.where(:instagram_id => Constant::GUEST_IDS.sample).first)
     else
       @current_user = User.where(:instagram_id => Constant::GUEST_IDS.sample).first
       Rails.logger.info "==================GUEST USER=============#{@current_user.instagram_id}============="
