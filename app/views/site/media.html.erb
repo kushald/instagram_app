@@ -4,6 +4,9 @@
 <div id="getuid" uid="<%= @media["data"].present? ? @media["data"]["user"]["id"] : nil %>"></div>
 <% if @media["meta"]["error_message"].present? %>
   <h3 class="error">Sorry this Image might have been deleted by user or it is a private content</h3>
+<%# helloojaclyn request %>
+<% elsif @media["data"].present? && @media["data"]["user"]["id"] == "361460824" %>
+  <h3 class="error">We are sorry but this user opted out of site</h3>
 <% else %>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>

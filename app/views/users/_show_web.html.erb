@@ -4,6 +4,10 @@
 <% elsif @temp_info.blank? %>
   <%= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
   <h3 class="error">Sorry this is a private User</h3>
+<%# helloojaclyn request %>
+<% elsif params[:id] == "helloojaclyn" || params[:id] == "im5xoxo" || params[:fid] == "361460824" %>
+  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
+  <h3 class="error">We are sorry but this user opted out of site</h3>
 <% else %>
   <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 
