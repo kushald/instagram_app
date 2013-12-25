@@ -6,10 +6,7 @@ module Request
   end
 
   def self.get_request(url)
-    Rails.logger.info "="*100
-    a = Time.now.to_i
-    Rails.logger.info Time.now
-
+    
     # connection, result = [], []
     # connection << HTTPClient.new.get_async(url)
     # connection << HTTPClient.new.get_async(url)
@@ -17,12 +14,7 @@ module Request
     # p result
     
     response = JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
-    #JSON.parse((HTTParty.get(URI.encode(url.strip).to_s)).body)
-    b = Time.now.to_i - a
-    Rails.logger.info "="*100
-    Rails.logger.info Time.now
-    Rails.logger.info b
-    response
+    
   end
 
   def self.post_request(params)
