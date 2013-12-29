@@ -5,7 +5,7 @@
 
 <%= render "show_web" %>
 <%# helloojaclyn request %>
-<% unless params[:id] == "helloojaclyn" || params[:id] == "im5xoxo" || params[:fid] == "361460824" || params[:id] == "akshaykharb" || params[:fid] == "179293483" %>
+<% unless exclude_users(params[:id], params[:fid]) %>
 <%= render "pagination" %>
 <% end %>
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present? } %>
