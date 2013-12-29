@@ -32,6 +32,9 @@ gem 'jquery-rails'
 
 gem 'newrelic_rpm'
 
+gem "less-rails" #TODO CHECK IF REQUIRED
+gem 'therubyracer' #TODO CHECK IF REQUIRED
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

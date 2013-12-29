@@ -63,72 +63,65 @@
            fjs.parentNode.insertBefore(js, fjs);
          }(document, 'script', 'facebook-jssdk'));
       </script>
-    <nav class="top-bar">
-      <ul class="title-area">
-      <!-- Title Area -->
-      <li class="name">
-        <h1><a href="/">Joyviewer</a></h1>
-      </li>
-      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
-      <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
-      </ul>
-
-      <section class="top-bar-section">
-        <!-- Left Nav Section -->
-        <ul class="left">
-          <li><a href="/explore">Explore</a></li>
-          <li><a href="/popular">Popular</a></li>
-          <li class="has-dropdown"><a href="/trending">Trending</a>
-            <ul class="dropdown">
-              <li><a href="/trending">Users</a></li>
-              <li class="divider"></li>
-              <li><a href="/trending?media=1">Media</a></li>
-              <li class="divider"></li>
-            </ul>
-          </li>
-          <li class="has-dropdown"><a href="/categories">Categories</a>
-            <ul class="dropdown">
-              <% Category.get_categories[1..15].each do |category| %>
-                <li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+    
+      <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Bootswatch</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a tabindex="-1" href="../default/">Default</a></li>
                 <li class="divider"></li>
-              <% end %>
-              <li><a href="/categories/">See all &rarr;</a></li>
-            </ul>
-          </li>
-          <li class="has-dropdown"><a href="/apparel">Apparel</a>
-            <ul class="dropdown">
-              <li><a href="/apparel/?b=americanapparelusa">American Apparel USA</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=americaneagle">American Eagle</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=victoriassecret">Victorias Secret</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=gap">Gap</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=converse">Converse</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=armani">Armani</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=ralphlauren">Ralph Lauren</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=puma">Puma</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=freshtops">Fresh Tops</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/?b=vans">Vans</a></li>
-              <li class="divider"></li>
-              <li><a href="/apparel/">See all &rarr;</a></li>
-            </ul>
-          </li>
-          <li><a href="/nearby">Around Me</a></li>
-          <li><a href="/search">Search</a></li>
-          <li id="feed"></li>
-        </ul>
-        <ul class="right">
-          <li id="login-check"></li>
-        </ul>
-      </section>
-    </nav>
+                <li><a tabindex="-1" href="../amelia/">Amelia</a></li>
+                <li><a tabindex="-1" href="../cerulean/">Cerulean</a></li>
+                <li><a tabindex="-1" href="../cosmo/">Cosmo</a></li>
+                <li><a tabindex="-1" href="../cyborg/">Cyborg</a></li>
+                <li><a tabindex="-1" href="../flatly/">Flatly</a></li>
+                <li><a tabindex="-1" href="../journal/">Journal</a></li>
+                <li><a tabindex="-1" href="../readable/">Readable</a></li>
+                <li><a tabindex="-1" href="../simplex/">Simplex</a></li>
+                <li><a tabindex="-1" href="../slate/">Slate</a></li>
+                <li><a tabindex="-1" href="../spacelab/">Spacelab</a></li>
+                <li><a tabindex="-1" href="../united/">United</a></li>
+                <li><a tabindex="-1" href="../yeti/">Yeti</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="../help/">Help</a>
+            </li>
+            <li>
+              <a href="http://news.bootswatch.com">Blog</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li><a tabindex="-1" href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                <li><a tabindex="-1" href="./bootstrap.css">bootstrap.css</a></li>
+                <li class="divider"></li>
+                <li><a tabindex="-1" href="./variables.less">variables.less</a></li>
+                <li><a tabindex="-1" href="./bootswatch.less">bootswatch.less</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="http://builtwithbootstrap.com/" target="_blank">Built With Bootstrap</a></li>
+            <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    
     <!-- <video id="example_video_1" class="video-js vjs-default-skin"
       controls preload="auto" width="678" height="678"
       poster="http://distilleryimage3.s3.amazonaws.com/7edd47b20cbd11e387a122000ae90f87_7.jpg"

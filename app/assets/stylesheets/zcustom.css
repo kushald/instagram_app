@@ -1,90 +1,71 @@
-.row {
-  max-width: 77.500em;
+body {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
 }
 
-[class*="column"] + [class*="column"]:last-child {
-  float: left; 
+a {
+	color: #2ecc71;
 }
 
-.top-bar {
-  color: #202020;
-  background: white;
-  height: 46px;
-  border-bottom: 1px solid #202020;
+a:hover {
+	color: #27AE60;
+	text-decoration: none;
 }
 
-nav li a{
-  border-bottom: 1px solid;
+.centered {
+  float: none;
+  margin: 0 auto;
 }
 
-.top-bar .name h1 {
-  background: white;
+.right {
+	float: right;
 }
 
-.top-bar .name h1 a {
-  color: white;
-  background: #202020;
-  border-bottom: 1px solid #202020;
+.margin-1 {
+	margin: 0.5%;
 }
 
-.top-bar-section .has-form {
-  background: white;
+.margin-reset {
+	margin: 3% 3% 4% 11%;
 }
 
-.top-bar-section li a:not(.button), .top-bar-section ul li.active > a, .socio {
-  background: white;
-  color: #202020;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 0.7em;
+.navbar {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  font-size: 14px;
+  font-weight: normal;
 }
 
-.top-bar-section li a:not(.button):hover, .top-bar-section ul li:hover {
+.navbar-default .navbar-nav > li > a:hover {
+  background: #27AE60;
+  color: #fff;
 }
 
-.top-bar-section ul .socio {
-  background: white;
-  padding-top: 18px;
+.navbar > .container .navbar-brand {
+	background: #27ae60;
+	color: white;
 }
-.top-bar .toggle-topbar.menu-icon a span {
-  color: white;
-}
-
-.top-bar .toggle-topbar.menu-icon {
-  background: #202020;
-  border-radius: 5px;
+.srch-inp {
+	float: right;
+	padding: 0;
+	margin-bottom: 0.3%;
 }
 
-.toggle-topbar.menu-icon a {
-  border: none;
+#nprogress .bar {
+	background: #27AE60;
+	
 }
 
-.orbit-container {
-  background: white;
+textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
+  border-color: #27AE60;
+  box-shadow: 0 1px 1px rgba(50,205,50, 0.075) inset, 0 0 8px rgba(50,205,50, 0.6);
+  outline: 0 none;
 }
 
-.dropdown {
-  border: 1px solid #DDD;
+.well {
+	background: white;
 }
 
-.top-bar-section .has-dropdown > a::after {
-  border-color: rgba(1, 1, 1, 0.5) transparent transparent transparent;
-}
-
-@media screen and (max-width: 1260px) {
- 
-}
-
-@media screen and (max-width: 1260px) { 
-  
-}
-
-@media screen and (max-width: 938px) {
-
-  .top-bar .name h1 a {
-   background: white;
-    color: #202020; 
-  }
-
-   
+@media screen and (max-width: 800px) {
+	#map {
+		display: none;
+	}
 }
