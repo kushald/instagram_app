@@ -1,71 +1,118 @@
+@import url(http://fonts.googleapis.com/css?family=News+Cycle);
 body {
   font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  padding-top: 60px;
 }
 
 a {
-	color: #2ecc71;
+  text-decoration: none;
+  color: #202020;
 }
 
 a:hover {
-	color: #27AE60;
-	text-decoration: none;
-}
-
-.centered {
-  float: none;
-  margin: 0 auto;
-}
-
-.right {
-	float: right;
-}
-
-.margin-1 {
-	margin: 0.5%;
-}
-
-.margin-reset {
-	margin: 3% 3% 4% 11%;
+  color: #202020;
+  text-decoration: none;
 }
 
 .navbar {
-  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
-  font-size: 14px;
-  font-weight: normal;
+  margin-bottom: 0;
 }
 
-.navbar-default .navbar-nav > li > a:hover {
-  background: #27AE60;
-  color: #fff;
+.navbar-default {
+  background: white;
 }
 
 .navbar > .container .navbar-brand {
-	background: #27ae60;
-	color: white;
-}
-.srch-inp {
-	float: right;
-	padding: 0;
-	margin-bottom: 0.3%;
+  color: #202020;
+  font-weight: bold;
 }
 
-#nprogress .bar {
-	background: #27AE60;
-	
+.navbar-default .navbar-nav > li > a {
+  color: #202020;
 }
 
-textarea:focus, input:focus, input[type]:focus, .uneditable-input:focus {   
-  border-color: #27AE60;
-  box-shadow: 0 1px 1px rgba(50,205,50, 0.075) inset, 0 0 8px rgba(50,205,50, 0.6);
-  outline: 0 none;
+.go-top {
+  position: fixed;
+  bottom: 5em;
+  right: 2em;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  padding: 1em;
+  display: none;
 }
 
-.well {
-	background: white;
+.go-top:hover {
+  background-color: #202020;
+  color: white;
 }
 
-@media screen and (max-width: 800px) {
-	#map {
-		display: none;
-	}
+footer {
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  border-top: 1px solid #D6D6D6;
+}
+
+.thumbnail {
+  border-radius: 0;
+}
+
+.head-text {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 20px;
+  margin: 6px;
+}
+
+/* VIDEO SYMBOL */
+.arrow-right {
+  margin: 40% 40%;
+  position: absolute;
+  text-shadow: 0 3px black; 
+  width: 0;
+  height: 0;
+  border-top: 32px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 50px solid #e74c3c;
+}
+
+.red {
+  color: red;
+}
+
+.glyphicon {
+  font-size: 24px;
+}
+
+.badge a {
+  color: white;
+}
+
+.fb-share {
+  background: #4C66A4;
+  color: white;
+  padding: 2px;
+  border-radius: 2px;
+  font-weight: bold;
+}
+
+.tag1 {
+  text-align: center;
+  color: #3498DB;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 4px;
+  margin: 2px;
+  border-radius: 7px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
 }

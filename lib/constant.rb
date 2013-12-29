@@ -29,4 +29,16 @@ module Constant
                       "hm", "gucci", "hollisterco", "louisvuitton", "burberry", "asos", "levis", "versace_official", "hugoboss",
                       "modcloth", "rayban","mangofashion" 
                      ]
+  TEMP_TOP_BRANDS = [
+                      {:display => "American Apparel USA", :url => "americanapparelusa"},
+                      {:display => "American Eagle", :url => "americaneagle"},
+                      {:display => "Victorias Secret", :url => "victoriassecret"},
+                      {:display => "Gap", :url => "gap"},
+                      {:display => "Converse", :url => "converse"},
+                      {:display => "Armani", :url => "armani"},
+                      {:display => "Ralph Lauren", :url => "ralphlauren"},
+                      {:display => "Puma", :url => "puma"},
+                      {:display => "Fresh Tops", :url => "freshtops"},
+                      {:display => "Vans", :url => "vans"}
+                    ]
 end

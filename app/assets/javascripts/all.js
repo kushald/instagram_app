@@ -2,11 +2,11 @@ $(function() {
 
   $.getJSON('/login-check', function(data) {
     if(data["status"] == 1) {
-      $('#feed').html('<a href="/user">Feeds</a>');
-      $('#login-check').html("<a href='/logout'>Logout</a></div>");
+      $('#feed').html('<a href="/user">FEEDS</a>');
+      $('#login-check').html("<a href='/logout'>LOGOUT</a></div>");
     } else {
       $('#feed').removeClass('none');
-      $('#login-check').html("<li class='has-form'><a class='button' style='background: #202020;border-color: black;border-radius: 3px;' href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> Sign In with Instagram</a></li>");
+      $('#login-check').html("<a href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> Sign In with Instagram</a>");
     }
   });
 
