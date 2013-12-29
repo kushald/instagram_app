@@ -14,7 +14,7 @@
           <% posts.each do |post| %>
             <a href="/media/<%= post.media_id %>"><img src="<%= session[:mobile] ? post.image_low : post.image_standard %>" style="width:50%;float:left;padding-right:1px;" /></a>
             <div class="orbit-caption">
-              <a href="/explore" style=" text-transform: uppercase; letter-spacing: 4px; font-size: 20px; color: white; ">Explore Instagrammers</a>
+              <a href="/explore" style="color: white;">EXPLORE INSTAGRAMMERS</a>
             </div>
           <% end %>
         </li>
