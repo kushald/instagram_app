@@ -29,4 +29,6 @@ module Constant
                       "hm", "gucci", "hollisterco", "louisvuitton", "burberry", "asos", "levis", "versace_official", "hugoboss",
                       "modcloth", "rayban","mangofashion" 
                      ]
+  EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020"]
+  EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899"]
 end
