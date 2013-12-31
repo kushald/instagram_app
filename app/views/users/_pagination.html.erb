@@ -3,8 +3,8 @@
   <% if params[:action] != "popular" %>
     <% next_id = (@data["pagination"]["next_max_tag_id"] || @data["pagination"]["next_max_like_id"] || @data["pagination"]["next_max_id"]) rescue nil %>
     <% if next_id.present? %>
-      <div id="load-more" class="large-2 columns">
-        <%= link_to "Next", {controller: params[:controller], action: params[:action], n: next_id, q: params[:q], b: params[:b], fid: params[:fid]} %>
+      <div id="load-more" class="col-md-2 col-md-offset-5">
+        <%= link_to raw("Next &rarr;"), {controller: params[:controller], action: params[:action], n: next_id, q: params[:q], b: params[:b], fid: params[:fid]}, class: "next" %>
       </div>
     <% end %>
   <% end %>

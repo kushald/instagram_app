@@ -6,28 +6,30 @@
   <div class="row">
     <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
     
-    <div class="large-8 columns">
+    <div class="col-md-8">
       <% @likes["data"].each do |like| %>
-        <div class="browse-celeb-grid">
-          <a href="/u/<%= like['username'] %>/?fid=<%= like['id'] %>">
-            <img src="<%= like["profile_picture"] %>" style="width:100px;height:auto;" >
-            <div style="color: #202020;text-align: center;font-size: 14px;"><%= like["username"] %></div>
-          </a>
+        <div class="col-xs-6 col-md-2">
+          <div class="thumbnail">
+            <a href="/u/<%= like['username'] %>/?fid=<%= like['id'] %>">
+              <img src="<%= like["profile_picture"] %>" >
+              <div class="caption"><%= like["username"] %></div>
+            </a>
+          </div>
         </div>
       <% end %>
     </div>
-    <div class="large-4 columns">
-      <div class="large-12 columns">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <% if true && @likes["data"].length > 6 %>
             <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           <% end %>
       </div>
-      <div class="large-12 columns">
+      <div class="col-md-12">
         <% if true && @likes["data"].length > 6 %>
             <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           <% end %>
       </div>
-      <div class="large-12 columns">
+      <div class="col-md-12">
         <% if true && @likes["data"].length > 6 %>
             <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           <% end %>
@@ -36,5 +38,5 @@
   </div>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
 <% else %>
-  <h3 class="error">Sorry this Content might have been deleted by user or it is a private content</h3>
+  <h3 class="alert alert-danger">Sorry this Content might have been deleted by user or it is a private content</h3>
 <% end %>

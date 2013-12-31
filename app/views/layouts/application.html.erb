@@ -93,7 +93,7 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">CATEGORY <span class="caret"></span></a>
                 <ul class="dropdown-menu" aria-labelledby="download">
-                  <li><a tabindex="-1" href="/trending">ALL</a></li>
+                  <li><a tabindex="-1" href="/categories">ALL</a></li>
                   <li class="divider"></li>
                   <% Category.get_categories[1..15].each do |category| %>
                     <li><a tabindex="-1" href="/categories/<%= category.id %>"><%= category.name.upcase %></a></li>
@@ -103,7 +103,7 @@
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">APPAREL <span class="caret"></span></a>
                 <ul class="dropdown-menu" aria-labelledby="download">
-                  <li><a tabindex="-1" href="/trending">ALL</a></li>
+                  <li><a tabindex="-1" href="/apparel">ALL</a></li>
                   <li class="divider"></li>
                   <% Constant::TEMP_TOP_BRANDS.each do |brand| %>
                     <li><a tabindex="-1" href="/apparel/?b=<%= brand[:url] %>"><%= brand[:display].upcase %></a></li>

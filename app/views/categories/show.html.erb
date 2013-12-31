@@ -4,23 +4,27 @@
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @category.name} %>
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => @users.present?} %>
 <div class="row">
-  <div class="popular-text"><%= @category.name %></div>
-  <div class="large-2 columns">
-    <ul class="side-nav">
-      <li><a href="/categories" style="color:white;text-align:center;">All</a></li>
+  <div class="head-text"><%= @category.name %></div>
+  <div class="col-md-2">
+    <ul  class="list-group">
+      <li class="list-group-item"><a href="/categories">All</a></li>
       <% if !session[:mobile] %>
         <% @categories.each_with_index do |c,i| %>
-          <li class="<%= side_list(i) %>"><a href="/categories/<%= c.id %>" style="color:white;"><img src="<%= c.image %>" style="width:50px;padding: 1px;">  <%= c.name %></a></li>
+          <li class="list-group-item">
+            <a href="/categories/<%= c.id %>"><img src="<%= c.image %>" width="52px">
+              <%= c.name %>
+            </a>
+          </li>
         <% end %>
       <% end %>
     </ul>
   </div>
-  <div class="large-10 columns">
+  <div class="col-md-10">
     <%  @users.each do |u| %>
-    <div class="large-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/u/<%= u.instagram_username %>/?fid=<%= u.instagram_user_id %>"><img src="<%= u.instagram_profile_picture %>"><br>
-        <div style="text-align: center;font-size: 14px;"><%= u.instagram_username %></div></a>
+    <div class="col-xs-6 col-md-2">
+      <div class="thumbnail">
+        <a href="/u/<%= u.instagram_username %>/?fid=<%= u.instagram_user_id %>"><img src="<%= u.instagram_profile_picture %>">
+        <div class="caption"><%= u.instagram_username %></div></a>
       </div>
     </div>
     <% end %>
