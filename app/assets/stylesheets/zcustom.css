@@ -128,11 +128,32 @@ footer {
 
 .fb-share {
   background: #4C66A4;
-  font-size: 14px;
+  font-size: 12px;
   color: white;
-  border-radius: 2px;
   font-weight: bold;
   cursor: pointer;
+  padding: 1px;
+}
+
+.fb-share:hover {
+  color: white;
+}
+
+.twitter {
+  background: #0084B4;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.about {
+  font-size: 3em;
+}
+
+.static-para {
+  font-size: 17px;
 }
 
 .tag1 {

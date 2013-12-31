@@ -6,9 +6,11 @@
 <div class="row">
   <% @interesting_user_posts.each do |post| %>
 	  <div class="col-xs-6 col-md-3">
-	    <a href="/media/<%= post.media_id %>" class="thumbnail">
-	      <img src="<%= post.image_low %>" alt="...">
-	    </a>
+	  	<div class="thumbnail">
+		    <a href="/media/<%= post.media_id %>">
+		      <img src="<%= post.image_low %>" alt="...">
+		    </a>
+		  </div>
 	  </div>
     <% end %>   
 </div>

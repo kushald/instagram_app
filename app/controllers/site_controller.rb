@@ -4,8 +4,8 @@ class SiteController < ApplicationController
   before_filter :store_return_to, :only => [:login]
 
   def index
-    @interesting_user_posts = InterestingUserPost.all.sample(4).in_groups_of(2) 
-    @trendings = Trending.limit(3)
+    @interesting_user_posts = InterestingUserPost.all.sample(4)
+    @trendings = Trending.limit(4)
     expires_in 1.hour, :public => true
   end
 
