@@ -6,7 +6,7 @@ $(function() {
       $('#login-check').html("<a href='/logout'>LOGOUT</a></div>");
     } else {
       $('#feed').removeClass('none');
-      $('#login-check').html("<a href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> Sign In with Instagram</a>");
+      $('#login-check').html("<a href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> SIGN IN WITH INSTAGRAM</a>");
     }
   });
 
