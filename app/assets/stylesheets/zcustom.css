@@ -126,6 +126,10 @@ footer {
   color: white;
 }
 
+.glyphicon-heart {
+  cursor: pointer;
+}
+
 .fb-share {
   background: #4C66A4;
   font-size: 12px;
@@ -175,6 +179,8 @@ footer {
   padding: 10px 20px 10px 20px;
 }
 
+
+
 .next:hover {
   border: 1px solid #2BA6CB;
   color: #2BA6CB;
@@ -208,10 +214,4 @@ footer {
    padding:2%;
    border-radius: 10px;
    font-size: 16px;
-}
-
-@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
 }

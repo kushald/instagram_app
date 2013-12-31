@@ -79,7 +79,7 @@ $(function() {
     likeCount = parseInt($(this).attr('data-likes'))+1;
     $('#like-media').addClass('red');
     $('#like-media').removeClass('white');
-    $('#like-count span').text(likeCount);
+    $('#like-count a').text(likeCount);
 
     $.ajax({
       url: "/like-media",
@@ -161,12 +161,12 @@ $(function() {
         success: function(response) {
           if(response["status"] == "follows") {
             $("#relation-check").html('Following');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-success');
             $("#relation-check").attr('id','relation-follows');
           }
           else {
             $("#relation-check").html('Follow me');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-primary');
             $("#relation-check").attr('id','relation-none'); 
           }
         }
@@ -183,12 +183,12 @@ $(function() {
         success: function(response) {
           if(response["status"] == "follows") {
             $("#relation-check").html('Following');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-success');
             $("#relation-check").attr('id','relation-follows');
           }
           else {
             $("#relation-check").html('Follow me');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-primary');
             $("#relation-check").attr('id','relation-none'); 
           }
         }

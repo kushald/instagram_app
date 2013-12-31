@@ -14,7 +14,14 @@
       <div class="thumbnail">
         <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>"></a>
         <div class="caption">
-          <p><%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes</p>
+          <p>
+            <a href="/u/<%= data["user"]["username"] %>/?fid=<%= data["user"]["id"] %>"><img src="<%= data["user"]["profile_picture"] %>" width="36px"></a>
+            <a href="/u/<%= data["user"]["username"] %>/?fid=<%= data["user"]["id"] %>"><%= data["user"]["username"] %></a>
+          </p>
+          <p>
+            <a href="/comments/<%= data["id"] %>"><%= data["comments"]["count"]  %> Comments </a>
+            <a href="/likes/<%= data["id"] %>"><%= data["likes"]["count"] %> Likes</a>
+          </p>
         </div>
       </div>
     </div>
