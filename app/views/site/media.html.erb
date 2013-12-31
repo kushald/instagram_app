@@ -6,110 +6,110 @@
   <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
 </div>
 <% if @media["meta"]["error_message"].present? %>
-  <h3 class="error">Sorry this Image might have been deleted by user or it is a private content</h3>
+  <div class="alert alert-danger">Sorry this Image might have been deleted by user or it is a private content</div>
 <%# helloojaclyn request %>
 <% elsif @media["data"].present? && Constant::EXCLUDE_USER_IDS.include?(@media["data"]["user"]["id"]) %>
   <h3 class="error">We are sorry but this user opted out of site</h3>
+  <div class="alert alert-danger">We are sorry but this user opted out of site</div>
 <% else %>
   <div id='fb-root'></div>
   <% url = @media["data"]["images"]["standard_resolution"]["url"] %>
   <div class="row" id="uname" val="<%= @media["data"]["user"]["username"] %>">
-    <div class="large-7 columns">
+    <div class="col-md-7">
       <% if @media["data"]["type"] == "video" %>
         <video width="99%" controls poster="<%= url %>">
           <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
         </video>
       <% else %>
-        <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="media-img single-image">
+        <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="img-responsive">
       <% end %>
-      <div class="media-desc">
-        <%= @media["data"]["caption"]["text"] rescue "" %>
-      </div>
+      <p><%= @media["data"]["caption"]["text"] rescue "" %></p>
     </div>
-    <div class="large-3 columns">
-      <div style="font-size: 13px;">
-        <div class="side-panel">
+    <div class="col-md-3">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <span id="like-count" class="badge"><a href="/likes/<%= @media["data"]["id"] %>"><%= @media["data"]["likes"]["count"] %></a></span>
           <% if !@current_user.guest_user %>
             <% if @media["data"]["user_has_liked"] %>
-              <i class="foundicongen-heart margin0 red"></i>
+              <span class="glyphicon glyphicon-heart red"></span>
             <% else %>
-              <i class="foundicongen-heart margin0" id="like-media" val="<%= @media["data"]["id"] %>" data-likes="<%= @media["data"]["likes"]["count"] %>"></i>
+              <span class="glyphicon glyphicon-heart" id="like-media" val="<%= @media["data"]["id"] %>" data-likes="<%= @media["data"]["likes"]["count"] %>"></span>
             <% end %>
           <% else %>
-            <i class="foundicongen-heart margin0" id="like-as-guest"></i>
+            <span class="glyphicon glyphicon-heart" id="like-as-guest"></span>
           <% end %>
-          <div id="like-count">
-            <a href="/likes/<%= @media["data"]["id"] %>" style="font-weight:bold;">
-              <span><%= @media["data"]["likes"]["count"] %></span> 
-              Likes
+          <%#= !@current_user.guest_user ? "" : " (Sign in to like)" %>
+        </li>
+        <li class="list-group-item">
+          <span class="badge">
+            <a href="/comments/<%= params[:id] %>" style="font-weight:bold;">
+              <%= @media["data"]["comments"]["count"] %>
             </a>
-            <%= !@current_user.guest_user ? "" : " (Sign in to like)" %>
-          </div>
-        </div>
-        <div class="side-panel">
-          <a href="/comments/<%= params[:id] %>" style="font-weight:bold;"><%= @media["data"]["comments"]["count"] %> Comments</a>
-        </div>
-        <div class="side-panel pin-button">
+          </span>
+          Comments
+        </li>
+        <li class="list-group-item">
           <a href="<%= pin[:u] %>&media=<%= url %>&description=<%= pin[:d] %>" target="_blank" data-pin-do="<%= pin[:do] %>" data-pin-config="<%= pin[:c] %>"><img src="<%= pin[:s] %>" /></a>
-        </div>
-        <div class="side-panel">
+        </li>
+        <li class="list-group-item">
           <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
-            <a><i class="social foundicon-facebook"></i></a>
+            <a class="fb-share">Facebook share</a>
           </div>
-        </div>
-        <div class="side-panel">
+        </li>
+        <li class="list-group-item">
           <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check this out" data-via="joyviewer" data-hashtags="joyviewer">Tweet</a>
           <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-        </div>
-        <div class="side-panel">
+        </li>
+        <li class="list-group-item">
           <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
-        </div>
+        </li>
         <% if @media["data"]["filter"].present? %>
-          <div class="side-panel">
+          <li class="list-group-item">
             <% modified_filter = {"X-Pro II" => "XProII", "Lo-fi" => "Lofi"} %>
             <% filter = @media["data"]["filter"] == "X-Pro II" || @media["data"]["filter"] == "Lo-fi" ? modified_filter[@media["data"]["filter"]] : @media["data"]["filter"] %>
             Filter: 
             <a href="/tag/<%= filter %>" style="font-family: Droid Sans;font-weight: bold;background:#202020;color: white;padding:5px;">
               <%= @media["data"]["filter"] %>
             </a>
-          </div>
+          </li>
         <% end %>
-        <div class="side-panel">Created: <%= Time.at(@media["data"]["created_time"].to_i).strftime("%B %d %Y") %></div>
+        <li class="list-group-item">
+          Created: <%= Time.at(@media["data"]["created_time"].to_i).strftime("%B %d %Y") %>
+        </li>
         <% if @media["data"]["location"].present? && @media["data"]["location"]["name"].present? %>
-          <div class="side-panel">Location: <%= @media["data"]["location"]["name"] %></div>
+          <li class="list-group-item">
+            Location: <%= @media["data"]["location"]["name"] %>
+          </li>
         <% end %>
         <% if @media["data"]["tags"].present? %>
-          <div class="side-panel">
-            <span>Tags</span>
-            <ul>
-              <% tags = @media["data"]["tags"] %>
-              <% tag_size = tags.size > 20 ? 20 : tags.size %>
-              <% tag_size.times do |i| %>
-                <% colr = tag_color %>
-                <li class="tag1" style="color: <%= colr %>;">
-                  <a href="/tag/<%= tags[i] %>" style="color: <%= colr %>;">
-                    #<%= tags[i] %>
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+          <li class="list-group-item">
+            <div>Tags</div>
+            <% tags = @media["data"]["tags"] %>
+            <% tag_size = tags.size > 20 ? 20 : tags.size %>
+            <% tag_size.times do |i| %>
+              <% colr = tag_color %>
+              <div class="tag1" style="color: <%= colr %>;">
+                <a href="/tag/<%= tags[i] %>" style="color: <%= colr %>;">
+                  #<%= tags[i] %>
+                </a>
+              </div>
+            <% end %>
+          </li>
         <% end %>
-        
-        <div class="side-panel">
+        <li class="list-group-item">
           <div style="font-size: 14px;"><a href="/likes/<%= params[:id] %>" style="font-weight:bold;">Likers</a></div>
           <div>
             <% @media["data"]["likes"]["data"].each do |like| %>
-              <a href="/u/<%= like["username"] %>/?fid=<%= like["id"] %>"><img src="<%= like["profile_picture"] %>"class="likers"></a>
+              <a href="/u/<%= like["username"] %>/?fid=<%= like["id"] %>"><img src="<%= like["profile_picture"] %>" width="52px" class="likers"></a>
             <% end %>
           </div>
-        </div>
-      </div>
+        </li>
+      </ul>
     </div>
     <div id="browse-user" uid="<%= @media["data"]["user"]["id"] %>" logged-in="<%= @current_user.logged_in_user ? 1 : 0 %>"></div>
   </div>
-    <div class="row">
-      <div class="large-12 columns">
+  <div class="row">
+      <div class="col-md-7">
         <div class="uploader">      
             <div align="center">
               <a href="/u/<%= @user_id %>/?fid=<%= @media["data"]["user"]["id"] %>">
@@ -117,56 +117,35 @@
                 <p style="margin: 0px;color: #619AB1;"><%= @media["data"]["user"]["username"] %></p>
               </a>
               <% if  @media["data"]["user"]["id"] != @current_user.instagram_id %>
-              <% if @current_user.guest_user %>
-                <!--<div class="button" id="relation-none"><a href="/login">Follow me</a></div> -->
-              <% else %>
-                <div id="relation-check"></div>
-              <% end %>
-              <div class="relation-loader">
-                <img src="/assets/fancybox_loading.gif">
-              </div> 
+                <% if @current_user.guest_user %>
+                  <!--<div class="button" id="relation-none"><a href="/login">Follow me</a></div> -->
+                <% else %>
+                  <div id="relation-check"></div>
+                <% end %>
             <% end %>
             </div>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="large-7 columns" style="font-size: 14px;">
-        <% if false && Rails.env == "production" && @media["data"].present? %>
-          <div align="center">
-            <SCRIPT>var ACE_AR = {Site: '885820', Size: '468060'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-          </div>
-        <% end %>
+    <div class="col-md-7">
         <div class="comment-count">
           <a href="/comments/<%= params[:id] %>" style="font-weight:bold;"><%= @media["data"]["comments"]["count"] %> Comments</a>
         </div>
+      </div>
+      <div class="col-md-7">
         <% @media["data"]["comments"]["data"].each do |comment| %>
-          <div><a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
+          <div><a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>        
           <div class="media-comment">
             <a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>" style="color: #619AB1;"><%= comment["from"]["username"] %></a>
             <div style="font-size: 13px;"><%= comment["text"] %></div>
           </div>
         <% end %>
         <div class="fb-comments" data-href="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= url %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>" data-width="470"></div>
-      
-        <% if @current_user.instagram_username == "kushal00" %>   
-          <textarea rows="3" cols="50">
-            Nice 
-          </textarea>
-          <button id="comment-button">Comment</button>
-        <% end %>
       </div>
-      <div class="large-4 columns" style="margin:2%;">
-        <!-- <p style="font: 10px/14px Arial, Tahoma, Helvetica, sans-serif;
-text-align: center;
-text-transform: uppercase;
-color: #BBB;
-margin-top: 5px;
-margin-bottom: 0;">advertisement</p> -->
-        <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-      </div>
-      <div class="large-4 columns" style="margin:2%;">
-        <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+      <div class="col-md-4">
+        <%= render :partial => "site/aol_medium_rectangle", :locals => {:show => @media["data"].present?} %>
+        <%= render :partial => "site/aol_medium_rectangle", :locals => {:show => @media["data"].present?} %>
       </div>
     </div>
 <% end %>

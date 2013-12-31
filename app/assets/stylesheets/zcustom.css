@@ -1,90 +1,221 @@
-.row {
-  max-width: 77.500em;
+@import url(http://fonts.googleapis.com/css?family=News+Cycle);
+body {
+  font-family: "News Cycle", "Arial Narrow Bold", sans-serif;
+  padding-top: 60px;
 }
 
-[class*="column"] + [class*="column"]:last-child {
-  float: left; 
-}
-
-.top-bar {
+a {
+  text-decoration: none;
   color: #202020;
-  background: white;
-  height: 46px;
-  border-bottom: 1px solid #202020;
 }
 
-nav li a{
-  border-bottom: 1px solid;
-}
-
-.top-bar .name h1 {
-  background: white;
-}
-
-.top-bar .name h1 a {
-  color: white;
-  background: #202020;
-  border-bottom: 1px solid #202020;
-}
-
-.top-bar-section .has-form {
-  background: white;
-}
-
-.top-bar-section li a:not(.button), .top-bar-section ul li.active > a, .socio {
-  background: white;
+a:hover {
   color: #202020;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 0.7em;
+  text-decoration: none;
 }
 
-.top-bar-section li a:not(.button):hover, .top-bar-section ul li:hover {
+.text-center {
+  text-align: center;
 }
 
-.top-bar-section ul .socio {
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-default {
   background: white;
-  padding-top: 18px;
 }
-.top-bar .toggle-topbar.menu-icon a span {
+
+.navbar > .container .navbar-brand {
+  color: #202020;
+  font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #202020;
+}
+
+.go-top {
+  opacity: 0.9;
+  position: fixed;
+  bottom: 5em;
+  right: 2em;
+  text-decoration: none;
+  color: #333;
+  background-color: #DDD;
+  font-size: 12px;
+  padding: 1em;
+  display: none;
+}
+
+.go-top:hover {
+  background-color: #202020;
   color: white;
 }
 
-.top-bar .toggle-topbar.menu-icon {
-  background: #202020;
-  border-radius: 5px;
+.center {
+  margin:0 auto;
 }
 
-.toggle-topbar.menu-icon a {
-  border: none;
+footer {
+  bottom: 0;
+  width: 100%;
+  margin-bottom: 0;
+  border-top: 1px solid #D6D6D6;
 }
 
-.orbit-container {
-  background: white;
+.link-color {
+  color: #2BA6CB;
 }
 
-.dropdown {
+.thumbnail {
+  border-radius: 0;
+  padding: 0;
+}
+
+.caption {
+  text-align: center;
+  font-weight: bold;
+}
+
+.head-text {
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 1px;
+  font-size: 17px;
+  margin: 6px;
+}
+
+.gray-btn {
+  display: inline-block;
+  margin-top: 2%;
+  background: #2c3e50;
+  padding: 1% 5%;
+  border-radius: 4px;
+  font-size: 14px;
+  color: white;
+}
+
+.gray-btn:hover {
+  background: #34495e;
+  color: white;
+}
+
+.alert-danger {
+  text-align: center;
+  margin: 15%;
+}
+
+/* VIDEO SYMBOL */
+.arrow-right {
+  margin: 40% 40%;
+  position: absolute;
+  text-shadow: 0 3px black; 
+  width: 0;
+  height: 0;
+  border-top: 32px solid transparent;
+  border-bottom: 30px solid transparent;
+  border-left: 50px solid #e74c3c;
+}
+
+.red {
+  color: red;
+}
+
+.glyphicon {
+  font-size: 24px;
+}
+
+.badge a {
+  color: white;
+}
+
+.glyphicon-heart {
+  cursor: pointer;
+}
+
+.fb-share {
+  background: #4C66A4;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.fb-share:hover {
+  color: white;
+}
+
+.twitter {
+  background: #0084B4;
+  font-size: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.about {
+  font-size: 3em;
+}
+
+.static-para {
+  font-size: 17px;
+}
+
+.tag1 {
+  text-align: center;
+  color: #3498DB;
+  font-weight: bold;
+  border: 1px solid;
+  padding: 4px;
+  margin: 2px;
+  border-radius: 7px;
+  font-size: 13px;
+  display: inline-block;
+}
+
+.next {
+  display: inline-block;
   border: 1px solid #DDD;
+  margin: 10px;
+  padding: 10px 20px 10px 20px;
 }
 
-.top-bar-section .has-dropdown > a::after {
-  border-color: rgba(1, 1, 1, 0.5) transparent transparent transparent;
+
+
+.next:hover {
+  border: 1px solid #2BA6CB;
+  color: #2BA6CB;
 }
 
-@media screen and (max-width: 1260px) {
- 
-}
 
-@media screen and (max-width: 1260px) { 
-  
-}
-
-@media screen and (max-width: 938px) {
-
-  .top-bar .name h1 a {
-   background: white;
-    color: #202020; 
+.media-author {
+  width: 90px;
+  border-radius: 5px;
   }
 
-   
+.media-comment {
+  width: 100%;
+  min-height: 60px;
+  border-bottom: 1px solid #DDD;
+  font-size: 13px;
+  }
+
+.comment-count {
+  border-bottom: 2px solid #DDD;
+  padding: 5px;
+  font-size: 14px;
+}
+
+#relation-follows, #relation-none {
+  margin-top: 5%;
+}
+
+.profile-row {
+   border: 1px solid #DDD; 
+   padding:2%;
+   border-radius: 10px;
+   font-size: 16px;
 }

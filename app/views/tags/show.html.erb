@@ -3,22 +3,22 @@
 <h1><%=h content_for(:title, "Joyviewer - Instagram Photos Tagged with ##{params[:id].to_s}") %></h1>
 <% if @data["meta"]["error_message"].present? %>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
-  <h3 class="error">This tag cannot be viewed</h3>
+  <div class="alert alert-danger">This tag cannot be viewed</div>
 <% else %>
   <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
-  <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>
+  <div class="head-text">Photos Tagged with #<%= params[:id].to_s %></div>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "laptops"} %>
   <%#= render '/site/content' %>
   <div class="row">
     <% @data["data"].each_with_index do |data,i| %>
-      <div class="large-3 columns" style="padding:5px;">
+      <div class="col-md-3">
         <% if data["type"] == "video" %>
           <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
         <% end %>
-        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
+        <a href="/media/<%= data["id"] %>" class="thumbnail"><img src="<%= data["images"]["low_resolution"]["url"] %>"></a>
       </div>
       <% end %>
-      <div class="large-3 columns" style="padding:5px;">
+      <div class="col-md-3" style="padding:5px;">
         <p style="font: 10px/14px Arial, Tahoma, Helvetica, sans-serif;
 text-align: center;
 text-transform: uppercase;

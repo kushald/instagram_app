@@ -29,6 +29,20 @@ module Constant
                       "hm", "gucci", "hollisterco", "louisvuitton", "burberry", "asos", "levis", "versace_official", "hugoboss",
                       "modcloth", "rayban","mangofashion" 
                      ]
+
   EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020"]
   EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899"]
+
+  TEMP_TOP_BRANDS = [
+                      {:display => "American Apparel USA", :url => "americanapparelusa"},
+                      {:display => "American Eagle", :url => "americaneagle"},
+                      {:display => "Victorias Secret", :url => "victoriassecret"},
+                      {:display => "Gap", :url => "gap"},
+                      {:display => "Converse", :url => "converse"},
+                      {:display => "Armani", :url => "armani"},
+                      {:display => "Ralph Lauren", :url => "ralphlauren"},
+                      {:display => "Puma", :url => "puma"},
+                      {:display => "Fresh Tops", :url => "freshtops"},
+                      {:display => "Vans", :url => "vans"}
+                    ]
 end

@@ -1,8 +1,8 @@
 <% if @browse_user.present? %>
-  <div class="large-2 columns">
+  <div class="col-xs-6 col-md-2">
     <% @browse_user[0..3].each do |media| %>
-          <a href="/media/<%= media["id"] %>">
-            <img src="<%= media["images"]["thumbnail"]["url"] %>" style="margin: 3% 5%;box-shadow: 1px 1px 3px #202020;">
+          <a href="/media/<%= media["id"] %>" class="thumbnail">
+            <img src="<%= media["images"]["thumbnail"]["url"] %>">
           </a>
     <% end %>
   </div>

@@ -1,5 +1,5 @@
 <% if params[:action] == "geo_tag_content" %>
-  <div class="popular-text"> Instagram Pictures near & around you</div>
+  <div class="head-text"> Instagram Pictures near & around you</div>
   <%#= render :partial => "site/leaderboard_ad" %>
   <div class="large-7 columns large-centered">
     <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
@@ -11,11 +11,19 @@
 <%#= render '/site/content' %>
 <div class="row">
   <% @data["data"].each_with_index do |data,i| %>
-    <div class="large-3 columns" style="padding:5px;">
+    <div class="col-md-3">
       <% if data["type"] == "video" %>
         <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
       <% end %>
-      <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
+      <div class="thumbnail">
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>"></a>
+        <div class="caption">
+          <p>
+            <a href="/u/<%= data["user"]["username"] %>/?fid=<%= data["user"]["id"] %>"><img src="<%= data["user"]["profile_picture"] %>" width="36px"></a>
+            <a href="/u/<%= data["user"]["username"] %>/?fid=<%= data["user"]["id"] %>"><%= data["user"]["username"] %></a>
+          </p>
+        </div>
+      </div>
     </div>
     <% end %>
 </div>

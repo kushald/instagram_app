@@ -1,5 +1,5 @@
 <% if @data.blank? %>
-  <h3 class="error">User does not exist or user deleted profile</h3>
+  <div class="alert alert-danger">User does not exist or user deleted profile</div>
 <%# elsif @user_info["meta"]["error_type"].present? %>
   <!--<h3 class="error">Sorry this is a private User</h3> -->
 <% else %>

@@ -1,60 +1,55 @@
-<div class="row profile-row" style="margin-bottom: 4%;">
-  <div class="large-12 columns profile-adv">
-    <div class="large-6 columns profile-border">
-      <div class="large-4 columns" id="profile_picture">
-        <a href="/u/<%= @profile[:username] %>/?fid=<%= @profile[:id] %>">
-          <img src=<%= @profile[:profile_picture] %> style="border-radius: 93px;" />
-        </a>
-      </div>
-      <div class="large-8 columns" style="margin-top: 21px;">
-        <a href="/u/<%= @profile[:username] %>/?fid=<%= @profile[:id] %>">
-          <h3 id="username"><%= @profile[:username] %></h3>
-        </a>
-        <% if @profile[:full_name].present? %>
-          <div id="full_name"><%= @profile[:full_name] %></div>
-        <% end %>
-
-
-        <% if params[:id] != @current_user.instagram_id %>
-          <% if @current_user.guest_user %>
-            <!--<div class="button" id="relation-none"><a href="/login">Follow me</a></div>-->
-          <% else %>
-            <div id="relation-check"></div>
-          <% end %>
-          <div class="relation-loader">
-            <img src="/assets/fancybox_loading.gif">
-          </div> 
-        <% end %>
-      </div>
+<div class="row profile-row">
+  <div class="col-md-6">
+    <div class="col-md-6">
+      <a href="/u/<%= @profile[:username] %>/?fid=<%= @profile[:id] %>">
+        <img src=<%= @profile[:profile_picture] %> style="border-radius: 59px;width: 120px;" />
+      </a>
     </div>
-    <div class="large-6 columns">
-      <div class="large-12 columns" style="padding:30px;font-size:15px;line-height:24px;color:#353535;">
-        <span id="bio"><%= @profile[:bio] %></span>
-      </div>
-      <div class="large-12 columns">
-        <a id="website" style="color: #2BA6CB;font-weight: bold;" href="<%= @profile[:website] %>" target="blank"><%= @profile[:website] %></a>
-      </div>
+    <div class="col-md-6">
+      <p>
+        <a href="/u/<%= @profile[:username] %>/?fid=<%= @profile[:id] %>">
+          <%= @profile[:username] %>
+        </a>
+      </p>
+      <% if @profile[:full_name].present? %>
+        <div id="full_name"><%= @profile[:full_name] %></div>
+      <% end %>
+      <% if params[:id] != @current_user.instagram_id %>
+        <% if @current_user.guest_user %>
+          <!--<div class="button" id="relation-none"><a href="/login">Follow me</a></div>-->
+        <% else %>
+          <div id="relation-check"></div>
+        <% end %>
+      <% end %>
     </div>
-  </div> 
- <div class="large-12 columns profile-adv profile-load" style="background:#202020;border:none;">
-  <div class="large-4 columns profile-seperate">
-    <a href="/u/<%= @profile[:username] %>/?fid=<%= @profile[:id] %>">
-      <span id="media-count" class="count"><%= @profile[:media] %></span><br>
-      <span>Photos</span>
-    </a>
   </div>
-  <div class="large-4 columns profile-seperate">
-    <a href="/followed-by/?id=<%= @profile[:id] %>">
-      <span  id="followed-count" class="count"><%= @profile[:followed_by] %></span><br>
-      <span>Followers</span>
-    </a>
+  <div class="col-md-6">
+    <div class="col-md-10">
+      <p id="bio"><%= @profile[:bio] %></p>
+    </div>
+    <div class="col-md-10">
+      <a id="website" class="link-color" href="<%= @profile[:website] %>" target="blank"><%= @profile[:website] %>
+      </a>
+    </div>
   </div>
-  <div class="large-4 columns profile-seperate-last">
-    <a href="/following/?id=<%= @profile[:id] %>">
-      <span  id="following-count" class="count"><%= @profile[:follows] %></span><br>
-      Following
-    </a>
+  <div class="col-md-12 profile-load" style="border-top: 1px solid #DDD;margin-top: 2%;">
+    <div class="col-md-4 text-center">
+      <a href="/u/<%= @profile[:username] %>/?fid=<%= @profile[:id] %>" class="gray-btn">
+        <span id="media-count"><%= @profile[:media] %></span><br>
+        <span>Photos</span>
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href="/followed-by/?id=<%= @profile[:id] %>" class="gray-btn">
+        <span  id="followed-count"><%= @profile[:followed_by] %></span><br>
+        <span>Followers</span>
+      </a>
+    </div>
+    <div class="col-md-4 text-center">
+      <a href="/following/?id=<%= @profile[:id] %>"  class="gray-btn">
+        <span  id="following-count"><%= @profile[:follows] %></span><br>
+        Following
+      </a>
+    </div>
   </div>
- </div>
-</div>
 </div>

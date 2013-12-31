@@ -3,36 +3,32 @@
 <h1><%=h content_for(:title, "Joyviewer.com search @joystagram") %></h1>
 
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => true} %>
-<div class="row">
-  <div class="large-6 columns">
+<div class="row" style=" margin-bottom: 10%; ">
+  <div class="col-lg-6">
     <form action="/search">
-      <div class="row collapse">
-        <div class="small-9 columns">
-          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS - NO SPACES OR SPECIAL CHARACTERS">
-          <input type="hidden" name="kind" value="tag">
-        </div>
-        <div class="small-3 columns">
-          <input type="submit" class="submit" value="Search" style="padding:9.5px;">
-        </div>
-      </div>
-      </form>
-  </div>
-  <div class="large-6 columns">
+      <div class="input-group">
+        <input type="text" class="form-control" name="q" value="<%= params[:q] if params[:kind] == "tag" %>" placeholder="SEARCH PHOTOS - NO SPACES OR SPECIAL CHARACTERS">
+        <input type="hidden" name="kind" value="tag">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="submit">SEARCH</button>
+        </span>
+      </div><!-- /input-group -->
+    </form>
+  </div><!-- /.col-lg-6 -->
+  <div class="col-lg-6">
     <form action="/search">
-      <div class="row collapse">
-        <div class="small-9 columns">
-          <input type="text" name="q" value="<%= params[:q] if params[:kind] == "user" %>" placeholder="SEARCH PEOPLE">
-          <input type="hidden" name="kind" value="user">
-        </div>
-        <div class="small-3 columns">
-          <input type="submit" class="submit" value="Search" style="padding:9.5px;">
-        </div>
-      </div>
+      <div class="input-group">
+        <input type="text" class="form-control" name="q" value="<%= params[:q] if params[:kind] == "user" %>" placeholder="SEARCH PEOPLE">
+            <input type="hidden" name="kind" value="user">
+        <span class="input-group-btn">
+          <button type="submit" class="btn btn-default">SEARCH</button>
+        </span>
+      </div><!-- /input-group -->
     </form>
   </div>
   <%if params[:q].present? %>
     <% search_text = (@data["data"].blank?) ? " No Result found for #{params[:q]}" : "Search result for #{params[:q]}" %>
-    <div class="popular-text"><%= search_text %></div>
+    <div class="head-text"><%= search_text %></div>
     <% if params[:kind] == "tag" %>
       <div align="center">
         <% if @data["data"].present? %>
@@ -40,8 +36,7 @@
         <% end %>
     <% elsif params[:kind] == "user" %>
         <% if @data["data"].present? %>
-          <div class="grid_4" style="border-right: 1px solid #DDD;border-left: 1px solid #DDD;margin: 30px;">
-          <%= render "search_users" %></div>
+          <%= render "search_users" %>
         <% end %>
       </div>
     <% end %>
@@ -52,8 +47,8 @@
   <% if params[:kind] == "tag" %>
     <% next_id = @data["pagination"]["next_max_tag_id"] || @data["pagination"]["next_max_like_id"] || @data["pagination"]["next_max_id"] %>
     <% if next_id.present? %>
-      <div id="load-more" class="large-2 columns" style="margin-top:2%;">
-        <%= link_to "Next", {controller: params[:controller], action: params[:action], n: next_id, q: params[:q], kind: params[:kind]} %>
+      <div id="load-more" class="col-md-2 col-md-offset-5">
+        <%= link_to "Next", {controller: params[:controller], action: params[:action], n: next_id, q: params[:q], kind: params[:kind]}, class: :next %>
       </div>
     <% end %>
 <% end %>

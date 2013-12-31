@@ -2,46 +2,50 @@
   <div class="row" align="center">
     <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
   </div>
-  <h3 class="error">User does not exist or user deleted profile</h3>
+  <div class="alert alert-danger">User does not exist or user deleted profile</div>
 <% elsif @temp_info.blank? %>
   <div class="row" align="center">
     <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
   </div>
-  <h3 class="error">Sorry this is a private User</h3>
+  <div class="alert alert-danger">Sorry this is a private User</div>
 <%# helloojaclyn request %>
 <% elsif exclude_users(params[:id], params[:fid]) %>
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
-  <h3 class="error">We are sorry but this user opted out of site</h3>
+  <div class="alert alert-danger">We are sorry but this user opted out of site</div>
 <% else %>
   <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
-
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <div class="row">
-    <div class="large-6 columns">
-      <div class="large-3 columns">Share this page:</div>
-      <div class="small-1 columns">
+    <div class="col-md-6">
+      <div class="col-md-3">Share this page:</div>
+      <div class="col-md-2">
         <div id="fb-share" link="<%= request.protocol+request.host_with_port+request.fullpath %>" picture="<%= @temp_info["user"]["profile_picture"] %>" caption="<%= request.protocol+request.host_with_port+request.fullpath+ request.path_info %>">
-          <a><i class="social foundicon-facebook"></i></a>
+          <a class="fb-share">Facebook</a>
         </div>
       </div>
-      <div class="small-2 columns">
+      <div class="col-md-2">
         <a href="https://twitter.com/share" class="twitter-share-button" data-via="joyviewer" data-related="joyviewer" data-hashtags="joyviewer">Tweet</a>
         <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
-      <div class="small-2 columns">
+      <div class="col-md-2">
         <a href="http://www.tumblr.com/share" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:61px; height:20px; background:url('http://platform.tumblr.com/v1/share_2.png') top left no-repeat transparent;">Share on Tumblr</a>
       </div>
-      <div class="small-3 columns"></div>
+      <div class="col-md-3"></div>
     </div>
   </div>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true} %>
-  <div class="row">
-    <div class="large-4 columns" style="margin-bottom: 4%;">
-    </div>
-    <div class="large-4 columns" style="margin-bottom: 4%;">
-        <SCRIPT>var ACE_AR = {Site: '885808', Size: '320050'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+  <div class="row" style="margin: 2%;">
+    <div class="col-md-12">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <%= render :partial => "site/aol_medium_rectangle", :locals => {:show => true} %>
+      </div>
+      <div class="col-md-4">
+        <%= render :partial => "site/aol_medium_rectangle", :locals => {:show => true} %>
+      </div>
+      <div class="col-md-2"></div>
     </div>
   </div>
+  
   <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <%#= render 'uploads' %> 
   <%= render '/site/content' %>

@@ -2,13 +2,17 @@
 <% meta_description "Joyviewer - Categories of instagram users" %>
 <h1><%=h content_for(:title, "Joyviewer - Categories of instagram users @joyviewer") %></h1>
 <div class="row">
-  <div class="popular-text">Browse by Categories</div>
-  <%  @categories.each do |c| %>
-    <div class="browse-celeb-grid">
-      <a href="/categories/<%= c.id %>"><img src="<%= c.image %>"><br>
-      <div style="text-align: center;font-size: 14px;color:#202020;"><%= c.name %></div></a>
-    </div>
-  <% end %>
+  <div class="head-text">Browse by Categories</div>
+  <div class="col-md-12">
+	  <%  @categories.each do |c| %>
+	    <div class="col-xs-6 col-md-2">
+	    	<div class="thumbnail">
+		      <a href="/categories/<%= c.id %>"><img src="<%= c.image %>">
+		      <div class="caption"><span><%= c.name %></span></a></div>
+		    </div>
+	    </div>
+	  <% end %>
+	</div>
 </div>
 <div class="row">
   <p style="font-size: 12px;margin:2%;">Note: Categories are curated by our team to help you find and follow interesting users on instagram but we do not guarantee authenticity of any account displayed in categories in any sense.</p>

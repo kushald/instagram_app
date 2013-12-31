@@ -2,11 +2,11 @@ $(function() {
 
   $.getJSON('/login-check', function(data) {
     if(data["status"] == 1) {
-      $('#feed').html('<a href="/user">Feeds</a>');
-      $('#login-check').html("<a href='/logout'>Logout</a></div>");
+      $('#feed').html('<a href="/user">FEEDS</a>');
+      $('#login-check').html("<a href='/logout'>LOGOUT</a></div>");
     } else {
       $('#feed').removeClass('none');
-      $('#login-check').html("<li class='has-form'><a class='button' style='background: #202020;border-color: black;border-radius: 3px;' href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> Sign In with Instagram</a></li>");
+      $('#login-check').html("<a href='/login'><img src='/assets/Instagram_Icon.png' style='width:18px;'> Sign In with Instagram</a>");
     }
   });
 
@@ -79,7 +79,7 @@ $(function() {
     likeCount = parseInt($(this).attr('data-likes'))+1;
     $('#like-media').addClass('red');
     $('#like-media').removeClass('white');
-    $('#like-count span').text(likeCount);
+    $('#like-count a').text(likeCount);
 
     $.ajax({
       url: "/like-media",
@@ -161,12 +161,12 @@ $(function() {
         success: function(response) {
           if(response["status"] == "follows") {
             $("#relation-check").html('Following');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-success');
             $("#relation-check").attr('id','relation-follows');
           }
           else {
             $("#relation-check").html('Follow me');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-primary');
             $("#relation-check").attr('id','relation-none'); 
           }
         }
@@ -183,12 +183,12 @@ $(function() {
         success: function(response) {
           if(response["status"] == "follows") {
             $("#relation-check").html('Following');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-success');
             $("#relation-check").attr('id','relation-follows');
           }
           else {
             $("#relation-check").html('Follow me');
-            $("#relation-check").addClass('button');
+            $("#relation-check").addClass('btn btn-primary');
             $("#relation-check").attr('id','relation-none'); 
           }
         }

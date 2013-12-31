@@ -8,6 +8,11 @@
 <% unless exclude_users(params[:id], params[:fid]) %>
 <%= render "pagination" %>
 <% end %>
+<!-- <div class="row">
+  <div align="center" class="col-md-12" style="margin: 2%;">
+      <SCRIPT>var ACE_AR = {Site: '885808', Size: '320050'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+  </div>
+</div> -->
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present? } %>
 <script type="text/javascript">
   /*$(document).ready(function(){

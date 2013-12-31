@@ -1,25 +1,16 @@
-<%  resolution = session[:mobile] ? "low_resolution" : "standard_resolution" %>
 <div class="row">
-  <% color = tag_color %>
-  <div class="large-3 columns" style="padding:5px;">
-    <p style="font: 10px/14px Arial, Tahoma, Helvetica, sans-serif;
-      text-align: center;
-      text-transform: uppercase;
-      color: #BBB;
-      margin-top: 5px;
-      margin-bottom: 0;">advertisement</p>
-      <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-    </div>
   <% @data["data"].each_with_index do |data,i| %>
-    <div class="large-3 columns" style="padding:5px;">
+    <div class="col-xs-6 col-md-3" style="padding:5px;">
       <% if data["type"] == "video" %>
         <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
       <% end %>
-      <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
-      <div class="caption-count" style="background:<%= color %>">
-        <div class="bar-font">
-          <a href="/comments/<%= data["id"] %>"><%= data["comments"]["count"]  %> Comments</a> 
-          <a href="/likes/<%= data["id"] %>"><%= data["likes"]["count"] %> Likes<a>
+      <div class="thumbnail">
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>"></a>
+        <div class="caption">
+          <p class="link-color">
+            <a href="/comments/<%= data["id"] %>"><%= data["comments"]["count"]  %> Comments</a> 
+            <a href="/likes/<%= data["id"] %>"><%= data["likes"]["count"] %> Likes<a>
+          </p>
         </div>
       </div>
     </div>
@@ -37,13 +28,4 @@
       <% end %>
     </div>
   <% end %>
-  <div class="large-3 columns" style="padding:5px;">
-    <p style="font: 10px/14px Arial, Tahoma, Helvetica, sans-serif;
-      text-align: center;
-      text-transform: uppercase;
-      color: #BBB;
-      margin-top: 5px;
-      margin-bottom: 0;">advertisement</p>
-      <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
-  </div>
 </div>

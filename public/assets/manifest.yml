@@ -1,16 +1,8 @@
 ---
-accessibility_foundicons.eot: accessibility_foundicons-fc9548ab251dab953b76c74d9443a6a2.eot
-accessibility_foundicons.svg: accessibility_foundicons-f29cfc83b26205b24446926d505f1da7.svg
-accessibility_foundicons.ttf: accessibility_foundicons-b37de3d9913fbfafc791a7ae07e1c8b4.ttf
-accessibility_foundicons.woff: accessibility_foundicons-4d0a1b38d911f4c90bcda53e1a50d83e.woff
-general_foundicons.eot: general_foundicons-38a8dae003b2d078d59a0c0f14afbe4f.eot
-general_foundicons.svg: general_foundicons-ab84e262d0beb0c960db4a4439513f6e.svg
-general_foundicons.ttf: general_foundicons-d29575f277b8b43b496e42b321a57ed1.ttf
-general_foundicons.woff: general_foundicons-cb6f7dcf7dcf39ca68bd417b9ccfb744.woff
-social_foundicons.eot: social_foundicons-ac1104d38434b7a7b31e0338e4a60674.eot
-social_foundicons.svg: social_foundicons-e6b4b29966d146ee9a4a58ca36e22a8c.svg
-social_foundicons.ttf: social_foundicons-d1111a5460313ed6cf3ffe77c8518026.ttf
-social_foundicons.woff: social_foundicons-2d948d89efc20eb79cfde7d71baa5dcb.woff
+glyphicons-halflings-regular.eot: glyphicons-halflings-regular-6756e25aed68ca13209438727df4e8c7.eot
+glyphicons-halflings-regular.svg: glyphicons-halflings-regular-cce22b0934f6585c0106f4ef5d6764d9.svg
+glyphicons-halflings-regular.ttf: glyphicons-halflings-regular-8055600f75e6bb0501e45199be9aa3b8.ttf
+glyphicons-halflings-regular.woff: glyphicons-halflings-regular-5f672ac814e7743641ddafd77c5979ac.woff
 Instagram_Icon.png: Instagram_Icon-b63f64e003920236575766327ca45830.png
 ajax-loader.gif: ajax-loader-de7c5187df051eb6a3f098ce5088fdc3.gif
 background.jpg: background-889724944ad3009d35bee592e389345b.jpg
@@ -23,6 +15,6 @@ fancybox_sprite.png: fancybox_sprite-1c20a525f7f9b0c3c7216bc31cec6abc.png
 favicon.ico: favicon-f00dd6cfc527e8a41a3121aa9d459c2d.ico
 red-heart.gif: red-heart-fb19a38d2d32c28ebd6dbb7307f23096.gif
 white-heart.gif: white-heart-85875fb9532c81d50d56fed7bc276fc4.gif
-application.js: application-fd31ba9977541e041474d6d44a53624f.js
-application.css: application-415b9f987228a594396e426985b396d7.css
+application.js: application-a5b244071e6809545563e7c9074d8a37.js
+application.css: application-1273362117e7f604a526ce4c8b11a1ab.css
 jquery.min.map: jquery.min-70bec01470bf6bcfed5892ae554b38c8.map

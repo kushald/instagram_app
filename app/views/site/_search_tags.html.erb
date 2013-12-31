@@ -1,6 +1,9 @@
-<% color = tag_color %>
-<% @data["data"].each_with_index do |data,i| %>
-  <a href="/media/<%= data["id"] %>">
-    <img src="<%= data["images"]["low_resolution"]["url"] %>" class="img-resize">
-  </a>
-<% end %>
+<div class="row">
+	<% @data["data"].each_with_index do |data,i| %>
+		<div class="col-xs-6 col-md-3">
+		  <a href="/media/<%= data["id"] %>" class="thumbnail">
+		    <img src="<%= data["images"]["low_resolution"]["url"] %>" class="img-resize">
+		  </a>
+	  </div>
+	<% end %>
+</div>

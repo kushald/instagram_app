@@ -1,30 +1,38 @@
 <div class="row">
-  <div class="large-12 columns">
-    <h3 class="center" style="width:100%;">TRENDING ON INSTAGRAM</h3>
+  <div class="col-md-12">
+    <div class="head-text">TRENDING ON INSTAGRAM</div>
     <div align="center" class="trending"><a href="/trending" class="<%= trend_hl("users",params) %>">Users</a> | <a href="/trending?media=1" class="<%= trend_hl("media",params) %>">Media</a></div>
   </div>
   <% @trending.each_with_index do |trend,i| %>
     <% if params[:media] %>
-      <div class="large-3 columns" style="padding:5px;">
+      <div class="col-md-3">
         <% if trend.media_type == "video" %>
           <a href="/media/<%= trend.media_id %>"><div class="arrow-right"></div></a>
         <% end %>
-        <a href="/media/<%= trend.media_id %>"><img src="<%= trend.media %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
+        <div class="thumbnail">
+            <a href="/media/<%= trend.media_id %>"><img src="<%= trend.media %>"></a>
+            <div class="caption">
+              <p>
+                <a href="/u/<%= trend.instagram_id %>/?fid=<%=  %>"><img src="<%= trend.profile_image %>" width="36px"></a>
+                <a href="/u/<%= trend.instagram_id %>/?fid=<%=  %>"><%= trend.username %></a>
+              </p>
+            </div>
+        </div>
       </div>
     <% else %>
-      <div class="large-4 columns trend-border">
-        <div class="large-6 columns">
+      <div class="col-xs-6 col-md-2">
+        <div class="thumbnail">
           <a href="/u/<%= trend.username %>?fid=<%= trend.instagram_id %>"><img src="<%= trend.profile_image %>"></a>
         </div>
-        <div class="large-6 columns">
+        <!-- <div class="col-md-6">
           <ul class="trend-list">
-            <li><a href="/u/<%= trend.username %>?fid=<%= trend.instagram_id %>"><%= trend.username %></a></li>
-            <li><a href="/u/<%= trend.username %>?fid=<%= trend.instagram_id %>"><%= trend.full_name %></a></li>
-            <li>Uploads:<a href="/u/<%= trend.username %>?fid=<%= trend.instagram_id %>"><%= trend.uploads %></a></li>
-            <li>Followers:<a href="/followed-by/?id=<%= trend.instagram_id %>"><%= trend.followed_by %></a></li>
-            <li>Following:<a href="/following/?id=<%= trend.instagram_id %>"><%= trend.follows %></a></li>
+            <li><a href="/u/<%#= trend.username %>?fid=<%#= trend.instagram_id %>"><%#= trend.username %></a></li>
+            <li><a href="/u/<%#= trend.username %>?fid=<%#= trend.instagram_id %>"><%#= trend.full_name %></a></li>
+            <li>Uploads:<a href="/u/<%#= trend.username %>?fid=<%#= trend.instagram_id %>"><%#= trend.uploads %></a></li>
+            <li>Followers:<a href="/followed-by/?id=<%#= trend.instagram_id %>"><%#= trend.followed_by %></a></li>
+            <li>Following:<a href="/following/?id=<%#= trend.instagram_id %>"><%#= trend.follows %></a></li>
           </ul>
-        </div>
+        </div> -->
       </div>
       <% break if i == 14 %>
     <% end %>

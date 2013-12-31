@@ -4,7 +4,7 @@
   </div>
   <div class="row">
     <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
-    <div class="large-8 columns">
+    <div class="col-md-8">
       <p style="font-weight:bold;font-size:16px;text-decoration: underline;">Comments</p>
       <% @comments["data"].each do |comment| %>
         <div><a href="/u/<%= comment["from"]["username"] %>/?fid=<%= comment["from"]["id"] %>"><img src="<%= comment["from"]["profile_picture"] %>" style="width: 50px;float: left;padding: 4px;border-radius: 17px;"></a></div>
@@ -14,18 +14,18 @@
         </div>
       <% end %>
     </div>
-    <div class="large-4 columns">
-      <div class="large-12 columns">
+    <div class="col-md-4">
+      <div class="col-md-12">
         <% if true && @comments["data"].length > 6 %>
             <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           <% end %>
       </div>
-      <div class="large-12 columns">
+      <div class="col-md-12">
         <% if true && @comments["data"].length > 6 %>
             <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           <% end %>
       </div>
-      <div class="large-12 columns">
+      <div class="col-md-12">
         <% if true && @comments["data"].length > 6 %>
             <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
           <% end %>
@@ -33,5 +33,5 @@
     </div>
   </div>
 <% else %>
-  <h3 class="error">Sorry this Content might have been deleted by user or it is a private content</h3>
+  <div class="alert alert-danger">Sorry this Content might have been deleted by user or it is a private content</div>
 <% end %>

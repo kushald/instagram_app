@@ -6,130 +6,78 @@
   <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
   <div class="fb-like" data-href="https://www.facebook.com/joyviewer" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
 </div>
+
 <div class="row">
-  <div class="large-12 columns large-centered">
-    <ul data-orbit>
-      <% @interesting_user_posts.each do |posts| %>
-        <li>
-          <% posts.each do |post| %>
-            <a href="/media/<%= post.media_id %>"><img src="<%= session[:mobile] ? post.image_low : post.image_standard %>" style="width:50%;float:left;padding-right:1px;" /></a>
-            <div class="orbit-caption">
-              <a href="/explore" style="color: white;">EXPLORE INSTAGRAMMERS</a>
-            </div>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<div class="row" style="border-top: 4px double #202020;border-bottom: 4px double #202020;">
-  <div class="large-8 columns">
+  <div class="col-md-12">
     <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
-      <a href="/trending/?media=1" style="color:#202020;">Trending</a>
+      <a href="/trending/?media=1" style="color:#202020;">Trending On Instagram</a>
     </p>
-    <% @trendings.each do |media| %>
-      <div class="small-4 columns">
-        <a href="/media/<%= media.media_id %>"><img src="<%= media.media %>" ></a>
+    <% @trendings[0..3].each do |media| %>
+      <div class="col-md-3">
+        <a href="/media/<%= media.media_id %>" class="thumbnail"><img src="<%= media.media %>" ></a>
       </div>
     <% end %>
     <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
       <a href="/trending/?media=1" style="color:#202020;">VIEW MORE..</a>
     </span>
   </div>
-  <div class="large-4 columns">
+  <div class="col-md-12" style="border-top: 4px double #DDD;border-bottom: 4px double #DDD;">
     <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
-      <a href="/trending" style="color:#202020;">Users</a>
+      <a href="/explore" style="color:#202020;">Explore</a>
     </p>
-    <% @trendings[0..1].each do |media| %>
-      <div class="small-6 columns">
-        <a href="/u/<%= media.username %>/?fid=<%= media.instagram_id %>">
-          <img src="<%= media.profile_image %>" >
+    <% @interesting_user_posts.each do |post| %>
+      <div class="col-md-3">
+        <a href="/media/<%= post.media_id %>" class="thumbnail">
+          <img src="<%= post.image_low %>" >
         </a>
       </div>
     <% end %>
     <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
-      <a href="/trending" style="color:#202020;">VIEW MORE..</a>
+      <a href="/explore" style="color:#202020;">VIEW MORE..</a>
     </span>
   </div>
 </div>
-<div class="row" style="border-bottom: 4px double #202020;">
-  <div class="large-8 columns">
+<div class="row" style="border-bottom: 4px double #DDD;">
+  <div class="col-md-12">
     <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
       <a href="/categories" style="color:#202020;">Categories</a>
     </p>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/categories/3"><img src="http://images.ak.instagram.com/profiles/profile_7442275_75sq_1345744150.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/categories/3"><img src="http://images.ak.instagram.com/profiles/profile_7442275_75sq_1345744150.jpg" style="padding: 1%;"></a>
     </div>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/categories/2"><img src="http://images.ak.instagram.com/profiles/profile_14455831_75sq_1365727693.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/categories/2"><img src="http://images.ak.instagram.com/profiles/profile_14455831_75sq_1365727693.jpg" style="padding: 1%;"></a>
     </div>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/categories/8"><img src="http://images.ak.instagram.com/profiles/profile_18343150_75sq_1373912099.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/categories/8"><img src="http://images.ak.instagram.com/profiles/profile_18343150_75sq_1373912099.jpg" style="padding: 1%;"></a>
     </div>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/categories/5"><img src="http://images.ak.instagram.com/profiles/profile_25096719_75sq_1375993915.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/categories/5"><img src="http://images.ak.instagram.com/profiles/profile_25096719_75sq_1375993915.jpg" style="padding: 1%;"></a>
     </div>
     <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
       <a href="/categories" style="color:#202020;">VIEW MORE..</a>
     </span>
   </div>
-  <div class="large-4 columns">
-    <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">Common hashtags</p>
-    <ul>
-      <% Constant::POPULAR_HASHTAGS[0..19].each do |tag| %>
-        <% color = tag_color %>
-        <li class="tag1" style="color:<%= color %>"><a href="/tag/<%= tag %>" style="color:<%= color %>">#<%= tag %></a></li>
-      <% end %>
-    </ul>
-  </div>
 </div>
-<div class="row" style="border-bottom: 4px double #202020;">
-  <div class="large-8 columns">
+<div class="row">
+  <div class="col-md-12">
     <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
       <a href="/apparel" style="color:#202020;">Apparel</a>
     </p>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/apparel/?b=americaneagle"><img src="http://images.ak.instagram.com/profiles/profile_1935199_75sq_1358281346.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/apparel/?b=americaneagle"><img src="http://images.ak.instagram.com/profiles/profile_1935199_75sq_1358281346.jpg" style="padding: 1%;"></a>
     </div>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/apparel/?b=prada"><img src="http://images.ak.instagram.com/profiles/profile_304662892_75sq_1361531174.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/apparel/?b=prada"><img src="http://images.ak.instagram.com/profiles/profile_304662892_75sq_1361531174.jpg" style="padding: 1%;"></a>
     </div>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/apparel/?b=americanapparelusa"><img src="http://images.ak.instagram.com/profiles/profile_22081838_75sq_1386037266.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/apparel/?b=americanapparelusa"><img src="http://images.ak.instagram.com/profiles/profile_22081838_75sq_1386037266.jpg" style="padding: 1%;"></a>
     </div>
-    <div class="small-3 columns">
-      <div class="browse-celeb-grid">
-        <a href="/apparel/?b=armani"><img src="http://images.ak.instagram.com/profiles/profile_42034979_75sq_1364892996.jpg" style="width:100%;height:100%;"></a>
-      </div>
+    <div class="col-md-3">
+      <a href="/apparel/?b=armani"><img src="http://images.ak.instagram.com/profiles/profile_42034979_75sq_1364892996.jpg" style="padding: 1%;"></a>
     </div>
     <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
       <a href="/apparel" style="color:#202020;">VIEW MORE..</a>
     </span>
-  </div>
-  <div class="large-4 columns">
-    <div class="large-8 columns large-centered">
-      <ul>
-        <li style="float:left;">
-          <a href="https://www.facebook.com/joyviewer" target="blank"><i class="social foundicon-facebook" style="color:#202020;font-size:70px;margin-right:90px;"></i></a>
-        </li>
-        <li style="float:left;">
-          <a href="https://twitter.com/joyviewer" target="blank"><i class="social foundicon-twitter" style="color:#202020;font-size:70px;"></i></a>
-        </li>
-      </ul>
-    </div>
   </div>
 </div>

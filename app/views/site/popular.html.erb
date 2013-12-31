@@ -2,27 +2,28 @@
 <% meta_description "Joyviewer - Popular photos and videos on Instagram" %>
 <h1><%=h content_for(:title, "Popular photos and videos on Instagram @Joyviewer") %></h1>
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
-<div class="grid_12 omega">
-  <div class="popular-text">Popular photos and videos on Instagram</div>
-</div>
-<div id="image-loader" align="center" style="display: none;"><img src="/assets/ajax-loader.gif" /></div>
-<%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "instagram"} %>
 
-<div id="disp">
-  <%#= render 'content' %>
-  <div class="row">
-    <% @data["data"].each_with_index do |data,i| %>
-      <div class="large-3 columns" style="padding:5px;">
-        <% if data["type"] == "video" %>
-          <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
-        <% end %>
-        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>" style="box-shadow: 0px 1px 3px black;margin:-2px;border-radius:0px;"></a>
-        <div class="caption-count" style="background:<%= tag_color %>">
-          <div class="bar-font">
-            <%= data["comments"]["count"]  %> Comments <%= data["likes"]["count"] %> Likes
-          </div>
+<div class="head-text">Popular photos and videos on Instagram</div>
+
+<div class="row">
+  <% @data["data"].each_with_index do |data,i| %>
+    <div class="col-xs-6 col-md-3">
+      <% if data["type"] == "video" %>
+        <a href="/media/<%= data["id"] %>"><div class="arrow-right"></div></a>
+      <% end %>
+      <div class="thumbnail">
+        <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["low_resolution"]["url"] %>"></a>
+        <div class="caption">
+          <p>
+            <a href="/u/<%= data["user"]["username"] %>/?fid=<%= data["user"]["id"] %>"><img src="<%= data["user"]["profile_picture"] %>" width="36px"></a>
+            <a href="/u/<%= data["user"]["username"] %>/?fid=<%= data["user"]["id"] %>"><%= data["user"]["username"] %></a>
+          </p>
+          <p>
+            <a href="/comments/<%= data["id"] %>"><%= data["comments"]["count"]  %> Comments </a>
+            <a href="/likes/<%= data["id"] %>"><%= data["likes"]["count"] %> Likes</a>
+          </p>
         </div>
       </div>
-    <% end %>
-      <%#= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
+    </div>
+  <% end %>
 </div>
