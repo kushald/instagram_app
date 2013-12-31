@@ -3,7 +3,7 @@
 <h1><%=h content_for(:title, "Joyviewer - Instagram Photos Tagged with ##{params[:id].to_s}") %></h1>
 <% if @data["meta"]["error_message"].present? %>
 <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
-  <h3 class="error">This tag cannot be viewed</h3>
+  <div class="alert alert-danger">This tag cannot be viewed</div>
 <% else %>
   <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
   <div class="popular-text">Photos Tagged with #<%= params[:id].to_s %></div>

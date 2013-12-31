@@ -97,6 +97,11 @@ footer {
   color: white;
 }
 
+.alert-danger {
+  text-align: center;
+  margin: 15%;
+}
+
 /* VIDEO SYMBOL */
 .arrow-right {
   margin: 40% 40%;

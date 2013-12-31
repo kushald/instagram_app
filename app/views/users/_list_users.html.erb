@@ -57,5 +57,5 @@
   });
   </script>
 <% else %>
-  <h3 class="error"><%= @user_info["meta"]["error_message"] %></h3>
+  <div class="alert alert-danger"><%= @user_info["meta"]["error_message"] %></div>
 <% end %>
