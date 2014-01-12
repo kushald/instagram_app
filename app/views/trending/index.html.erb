@@ -1,7 +1,6 @@
 <div class="row">
   <div class="col-md-12">
     <div class="head-text">TRENDING ON INSTAGRAM</div>
-    <div align="center" class="trending"><a href="/trending" class="<%= trend_hl("users",params) %>">Users</a> | <a href="/trending?media=1" class="<%= trend_hl("media",params) %>">Media</a></div>
   </div>
   <% @trending.each_with_index do |trend,i| %>
     <% if params[:media] %>

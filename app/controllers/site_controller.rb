@@ -128,7 +128,7 @@ class SiteController < ApplicationController
     id = if params[:b].present?
           Request.get_request("https://api.instagram.com/v1/users/search?q=#{params[:b]}&access_token=#{@current_user.instagram_access_token}")["data"][0]["id"] rescue nil
         else
-          "230938948"
+          "22081838"
         end
     @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}")
     expires_in 5.hour, :public => true
