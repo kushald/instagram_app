@@ -30,8 +30,8 @@ module Constant
                       "modcloth", "rayban","mangofashion" 
                      ]
 
-  EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020", "27014377"]
-  EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899", "myajeannine"]
+  EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020", "27014377", "250566440"]
+  EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899", "myajeannine", "jessimicablaze"]
 
   TEMP_TOP_BRANDS = [
                       {:display => "American Apparel USA", :url => "americanapparelusa"},

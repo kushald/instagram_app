@@ -2,7 +2,7 @@
   <div class="col-xs-6 col-md-2">
     <% @browse_user[0..3].each do |media| %>
           <a href="/media/<%= media["id"] %>" class="thumbnail" style="border-color: white; ">
-            <img src="<%= media["images"]["thumbnail"]["url"] %>">
+            <img src="<%= media["images"]["thumbnail"]["url"] %>" style="border-radius: 6px;">
           </a>
     <% end %>
   </div>

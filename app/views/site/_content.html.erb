@@ -20,7 +20,7 @@
       <%if @current_user.present? && !@current_user.guest_user %>
       <a href="/u/<%= comment["from"]["username"] %>"><br/></a>
       <% else %>
-      <img src="<%= comment["from"]["profile_picture"] %>" style="width: 9%;"><br/>
+      <img src=""><br/>
       <% end %>
       <%= comment["from"]["username"] %>
       <p style="max-width: 35%;float:right; margin: -4% 46% 0% 0"><%= comment["text"] %></p>
