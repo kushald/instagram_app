@@ -17,7 +17,7 @@
     <ul class="list-group">
       <% Constant::TEMP_SHOP_BRANDS[0..28].each do |shop| %>
         <li class="list-group-item">
-          <a href="/apparel/?b=<%= shop %>"><%= shop %></a>
+          <a href="/apparel/?b=<%= shop %>" style="color: <%= tag_color %>"><%= shop %></a>
         </li>
       <% end %>
     </ul>
