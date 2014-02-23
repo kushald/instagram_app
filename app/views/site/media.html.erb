@@ -2,11 +2,7 @@
 <% meta_description "Joyviewer - Joy of Instagram On Web" %>
 <h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joyviewer - Joy of Instagram On Web @joyviewer"}") %></h1>
 <div id="getuid" uid="<%= @media["data"].present? ? @media["data"]["user"]["id"] : nil %>"></div>
-<div class="row" style="margin:4% 0 4% 0%;">
-  <!-- BEGIN JS TAG - [JoyView-BN] - 728 < - DO NOT MODIFY -->
-  <SCRIPT SRC="http://ib.adnxs.com/ttj?id=2202882&referrer=[REFERRER_URL]" TYPE="text/javascript"></SCRIPT>
-  <!-- END TAG -->
-</div>
+
 <% if @media["meta"]["error_message"].present? %>
   <div class="alert alert-danger">Sorry this Image might have been deleted by user or it is a private content</div>
 <%# helloojaclyn request %>
