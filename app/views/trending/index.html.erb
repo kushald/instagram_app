@@ -37,4 +37,5 @@
     <% end %>
   <% end %>
 </div>
+<div class="col-md-6" style="margin-left: 30%;"><%= paginate @trending %></div>
 <%= render :partial => "site/aol_leaderboard", :locals => {:show => @trending.present?} %>

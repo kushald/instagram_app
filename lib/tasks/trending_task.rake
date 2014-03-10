@@ -1,6 +1,6 @@
 task :create_trending => :environment do
   ac = User.find(1).instagram_access_token
-  Trending.delete_all
+  #Trending.delete_all
   users = Request.get_request("#{Constant::POPULAR}?access_token=#{ac}")["data"]
 
   users.each_with_index do |user,i|
