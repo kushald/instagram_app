@@ -31,9 +31,9 @@ module Constant
                      ]
 
   EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020", "27014377", "250566440", "376601127", "30768248", "4350221", 
-                      "182884386", "223901729", "36476395"]
+                      "182884386", "223901729", "36476395", "180298319"]
   EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899", "myajeannine", "jessimicablaze",
-                         "sofieaaboe96", "jamieleecreations", "jacicutiee", "hugoblc", "janatovalovich_art", "cameliasaltos"]
+                         "sofieaaboe96", "jamieleecreations", "jacicutiee", "hugoblc", "janatovalovich_art", "cameliasaltos", "valeryparadise"]
 
   TEMP_TOP_BRANDS = [
                       {:display => "American Apparel USA", :url => "americanapparelusa"},
