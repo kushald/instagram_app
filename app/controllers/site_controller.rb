@@ -5,7 +5,7 @@ class SiteController < ApplicationController
 
   def index
     @interesting_user_posts = InterestingUserPost.all.sample(4)
-    @trendings = Trending.limit(4)
+    @trendings = Trending.order("id DESC").limit(4)
     expires_in 1.hour, :public => true
   end
 
