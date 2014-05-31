@@ -246,3 +246,37 @@ footer {
 .prev a, .first a, .last a {
   color: #3498db;
 }
+
+.media_img {
+  border: 1px solid #DDD; 
+  border-radius: 6px;
+}
+
+.large-img {
+  margin-bottom: 10%;
+}
+
+.fun-users {
+  border-radius: 50%;
+  margin-bottom: 10%;
+}
+
+.nopm {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.trn {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+}
+.nopm img {
+  border-radius: 2px;
+  margin-bottom: 2px;
+}
+
+.trend-label{
+  background: black;
+  margin: 2px 0 2px 0px;
+  border-radius: 2px;
+}

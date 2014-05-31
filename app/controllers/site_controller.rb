@@ -4,9 +4,25 @@ class SiteController < ApplicationController
   before_filter :store_return_to, :only => [:login]
 
   def index
-    @interesting_user_posts = InterestingUserPost.all.sample(4)
-    @trendings = Trending.order("id DESC").limit(4)
-    expires_in 1.hour, :public => true
+    @fun_users = {
+                  353770979 => "8factapp", 
+                  259220806 => "9gag",
+                  504545790 => "9gaggeeky",
+                  504544916 => "9gagcute",
+                  489992346 => "8crap",
+                  320089176 => "awwclub"
+                }
+
+    id = params[:set].present? ? params[:set] : 353770979
+
+    @data = Request.get_request("https://api.instagram.com/v1/users/#{id}/media/recent/?access_token=#{@current_user.instagram_access_token}&max_id=#{params[:n]}&count=10")
+    @trending = Trending.all.sample(10)
+    @celebs = InterestingUser.where(:category_type => 2).sample(9)
+    @models = InterestingUser.where(:category_type => 5).sample(9)
+
+    # @interesting_user_posts = InterestingUserPost.all.sample(4)
+    # @trendings = Trending.order("id DESC").limit(4)
+    # expires_in 1.hour, :public => true
   end
 
   def login

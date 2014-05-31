@@ -1,78 +1,83 @@
-<% meta_keywords "Joyviewer, Joyviewer.com, instagram,instagram feed, instagram login, IG, web, PC, Computer, viewer, instagram on web" %>
-<% meta_description "Joyviewer - Joy of Instagram On Web" %>
-<h1><%=h content_for(:title, "Joyviewer - Joy of Instagram On Web @Joyviewer") %></h1>
-
-<div class="row">
-  <div class="col-md-12">
-    <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
-      <a href="/trending/?media=1" style="color:#202020;">Trending On Instagram</a>
-    </p>
-    <% @trendings[0..3].each do |media| %>
-      <div class="col-md-3">
-        <a href="/media/<%= media.media_id %>" class="thumbnail"><img src="<%= media.media %>" ></a>
-      </div>
-    <% end %>
-    <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
-      <a href="/trending/?media=1" style="color:#202020;">VIEW MORE..</a>
-    </span>
+<div class="row" style="margin-top: 30px;">
+  <div class="col-md-12" style="text-align: center;margin:0px 5px 22px -100px;"><h2><%= params[:set].present? ? @fun_users[params[:set].to_i] : '8Fact' %> On Instagram</h2></div>
+  <div class="col-md-2">
+    <div class="col-md-12 col-sm-3">
+      <a href="/?set=353770979"><img class="fun-users" src="http://images.ak.instagram.com/profiles/profile_353770979_75sq_1400500922.jpg" style="width: 90px;"></a>
+    </div>
+    <div class="col-md-12 col-sm-3">
+      <a href="/?set=259220806"><img class="fun-users" src="http://images.ak.instagram.com/profiles/profile_259220806_75sq_1388631209.jpg" style="width: 90px;"></a>
+    </div>
+    <div class="col-md-12 col-sm-3">
+      <a href="/?set=489992346"><img class="fun-users" src="http://images.ak.instagram.com/profiles/profile_489992346_75sq_1400504846.jpg" style="width: 90px;"></a>
+    </div>
+    <div class="col-md-12">
+      <a href="/?set=504544916"><img class="fun-users" src="http://images.ak.instagram.com/profiles/profile_504544916_75sq_1376390456.jpg" style="width: 90px;"></a>
+    </div>
+    <div class="col-md-12">
+      <a href="/?set=504545790"><img class="fun-users" src="http://images.ak.instagram.com/profiles/profile_504545790_75sq_1376387654.jpg" style="width: 90px;"></a>
+    </div>
+    <div class="col-md-12">
+      <a href="/?set=320089176"><img class="fun-users" src="http://images.ak.instagram.com/profiles/profile_320089176_75sq_1396877530.jpg" style="width: 90px;"></a>
+    </div>
   </div>
-  <div class="col-md-12" style="border-top: 4px double #DDD;border-bottom: 4px double #DDD;">
-    <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
-      <a href="/explore" style="color:#202020;">Explore</a>
-    </p>
-    <% @interesting_user_posts.each do |post| %>
-      <div class="col-md-3">
-        <a href="/media/<%= post.media_id %>" class="thumbnail">
-          <img src="<%= post.image_low %>" >
+  <div class="col-md-6">
+    <% @data["data"].each_with_index do |data,i| %>
+      <% if data["caption"].present? && data["caption"]["text"].present? %>
+        <h3 style="text-align: center;"><%= data["caption"]["text"] %></h3>
+      <% end %>
+      <% if data["type"] == "video" %>
+      <video width="90%" controls poster="<%#= url %>">
+        <source src="<%= data["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
+      </video>
+      <% else %>
+        <div class="large-img">
+          <a href="/media/<%= data["id"] %>"><img src="<%= data["images"]["standard_resolution"]["url"] %>" style="width:90%;"></a>
+        </div>
+      <% end %>
+    <% end %>
+    <%= render "users/pagination" %>
+  </div>
+  <div class="col-md-4">
+    <div style="display: none1;">
+      <div class="col-md-12 trend-label">
+        <p class="trn"><a style="color:white" href="/trending/?media=1">Trending</a></p>
+      </div>
+      <% @trending.each do |trend| %>
+        <div class="col-md-6 nopm">
+          <a href="/media/<%= trend.media_id %>"><img src="<%= trend.media %>"  style="width: 99%;"></a>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-12 trend-label">
+      <p class="trn"><a style="color:white" href="/categories/2">Celebrities</a></p>
+    </div>
+    <% @celebs.each do |celeb| %>
+      <div class="col-md-4 nopm">
+        <a href="/u/<%= celeb.instagram_username %>/?fid=<%= celeb.instagram_user_id %>"><img src="<%= celeb.instagram_profile_picture %>"  style="width: 100%;border-radius: 10px;">
         </a>
       </div>
     <% end %>
-    <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
-      <a href="/explore" style="color:#202020;">VIEW MORE..</a>
-    </span>
-  </div>
-</div>
-<div class="row" style="border-bottom: 4px double #DDD;">
-  <div class="col-md-12">
-    <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
-      <a href="/categories" style="color:#202020;">Categories</a>
-    </p>
-    <div class="col-md-3">
-      <a href="/categories/3"><img src="http://images.ak.instagram.com/profiles/profile_7442275_75sq_1345744150.jpg" style="padding: 1%;"></a>
+    <div class="col-md-12 trend-label">
+      <p class="trn"><a style="color:white" href="/categories/5">Models</a></p>
     </div>
-    <div class="col-md-3">
-      <a href="/categories/2"><img src="http://images.ak.instagram.com/profiles/profile_489110643_75sq_1375293769.jpg" style="padding: 1%;"></a>
+    <% @models.each do |model| %>
+      <div class="col-md-4 nopm">
+        <a href="/u/<%= model.instagram_username %>/?fid=<%= model.instagram_user_id %>">
+          <img src="<%= model.instagram_profile_picture %>"  style="width: 100%;border-radius: 10px;">
+        </a>
+      </div>
+    <% end %>
+
+    <div class="col-md-12 trend-label">
+      <p class="trn"><a style="color:white" href="/apparel/?b=americanapparelusa">Apparel</a></p>
     </div>
-    <div class="col-md-3">
-      <a href="/categories/8"><img src="http://images.ak.instagram.com/profiles/profile_18343150_75sq_1373912099.jpg" style="padding: 1%;"></a>
+    <div class="col-md-4 nopm">
+      <a href="/apparel/?b=americanapparelusa"><img src="http://images.ak.instagram.com/profiles/profile_22081838_75sq_1386037266.jpg"  style="width: 100%;border-radius: 10px;"></a>
     </div>
-    <div class="col-md-3">
-      <a href="/categories/5"><img src="http://images.ak.instagram.com/profiles/profile_302746307_75sq_1368829706.jpg" style="padding: 1%;"></a>
+    <div class="col-md-4 nopm">
+      <a href="/apparel/?b=americaneagle"><img src="http://images.ak.instagram.com/profiles/profile_1935199_75sq_1358281346.jpg"  style="width: 100%;border-radius: 10px;"></a>
     </div>
-    <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
-      <a href="/categories" style="color:#202020;">VIEW MORE..</a>
-    </span>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <p style="text-align:center;text-transform: uppercase;font-size: 20px;letter-spacing:4px;">
-      <a href="/apparel" style="color:#202020;">Apparel</a>
-    </p>
-    <div class="col-md-3">
-      <a href="/apparel/?b=americaneagle"><img src="http://images.ak.instagram.com/profiles/profile_1935199_75sq_1358281346.jpg" style="padding: 1%;"></a>
+    <div class="col-md-4 nopm">
+      <a href="/apparel/?b=victoriassecret"><img src="http://images.ak.instagram.com/profiles/profile_3416684_75sq_1359739020.jpg"  style="width: 100%;border-radius: 10px;"></a>
     </div>
-    <div class="col-md-3">
-      <a href="/apparel/?b=prada"><img src="http://images.ak.instagram.com/profiles/profile_304662892_75sq_1361531174.jpg" style="padding: 1%;"></a>
-    </div>
-    <div class="col-md-3">
-      <a href="/apparel/?b=americanapparelusa"><img src="http://images.ak.instagram.com/profiles/profile_22081838_75sq_1386037266.jpg" style="padding: 1%;"></a>
-    </div>
-    <div class="col-md-3">
-      <a href="/apparel/?b=armani"><img src="http://images.ak.instagram.com/profiles/profile_42034979_75sq_1364892996.jpg" style="padding: 1%;"></a>
-    </div>
-    <span style="text-align:center;float: right;font-size: 13px;padding: 10px;">
-      <a href="/apparel" style="color:#202020;">VIEW MORE..</a>
-    </span>
-  </div>
 </div>

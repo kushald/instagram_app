@@ -116,22 +116,21 @@
         </div>
     </div>
     
-    <!-- <video id="example_video_1" class="video-js vjs-default-skin"
-      controls preload="auto" width="678" height="678"
-      poster="http://distilleryimage3.s3.amazonaws.com/7edd47b20cbd11e387a122000ae90f87_7.jpg"
-      data-setup='{"example_option":true}'>
-     <source src="http://distilleryimage3.s3.amazonaws.com/7edd47b20cbd11e387a122000ae90f87_101.mp4" type='video/mp4' />
-    </video> -->
-
-  <div class="row" style="padding:1%;">
-    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://joyviewer.com" data-via="joyviewer" data-related="joyviewer" data-hashtags="joyviewer">Tweet</a>
-    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-    <div class="fb-like" data-href="https://www.facebook.com/joyviewer" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
-  </div>
-
-      <div class="container">
-        <%= yield %>
+  <% unless params[:controller] == "site" && params[:action] == "index" %>
+    <div class="container">
+      <div class="row" style="padding:1%;">
+        <div class="col-md-12">
+          <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://joyviewer.com" data-via="joyviewer" data-related="joyviewer" data-hashtags="joyviewer">Tweet</a>
+          <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+          <div class="fb-like" data-href="https://www.facebook.com/joyviewer" data-width="450" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+        </div>
       </div>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <%= yield %>
+  </div>
 
       <a href="#" class="go-top">Scroll to Top</a> 
 
