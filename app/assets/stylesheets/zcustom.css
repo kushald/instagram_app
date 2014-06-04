@@ -280,3 +280,73 @@ footer {
   margin: 2px 0 2px 0px;
   border-radius: 2px;
 }
+
+.camera {
+  position: relative;
+  width: 286px;
+  height: 226px;
+  background: #5cd6d2;
+  left: 300px;
+  border-radius: 20px;
+}  
+.stripe {
+  width: 286px;
+  height: 70px;
+  background: #34495e;
+  top: 0;
+  position: relative;
+  border-radius: 20px 20px 0px 0px;
+} 
+.flash-light {
+  top: 30px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  background: #e74c3c;
+  border-radius: 36px;
+  left: 10px;
+}
+.lens {
+  width: 100px;
+  height: 100px;
+  background: #ecf0f1;
+  position: relative;
+  left: 91px;
+  border-radius: 60px;
+  top: 13px;
+}  
+.lens-border {
+  position: relative;
+  background: #bdc3c7;
+  width: 70px;
+  height: 70px;
+  top: 16px;
+  left: 15px;
+  border-radius: 36px;
+}
+
+.shine1 {
+  width: 40px;
+  height: 40px;
+  background: #ecf0f1;
+  position: relative;
+  top: -55px;
+  left: 121px;
+  border-radius: 50px;
+}
+.button {
+  position: relative;
+  width: 43px;
+  height: 7px;
+  background: #e74c3c;
+  left: 528px;
+  border-radius: 20px 20px 0px 0px;
+}
+.img-out {
+  position: relative;
+  left: 297px;
+  top: 7px;
+  border: 1px dashed #777;
+  width: 68px;
+  border-radius: 50px;
+}
