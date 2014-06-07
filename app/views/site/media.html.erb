@@ -1,6 +1,6 @@
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, PC, Computer, viewer, instagram on web" %>
 <% meta_description "Joyviewer - Joy of Instagram On Web" %>
-<h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joyviewer - Joy of Instagram On Web @joyviewer"}") %></h1>
+<h1><%=h content_for(:title, "#{@media["data"]["caption"]["text"] rescue "Joyviewer - Joy of Instagram On Web"} joyviewer.com") %></h1>
 <div id="getuid" uid="<%= @media["data"].present? ? @media["data"]["user"]["id"] : nil %>"></div>
 
 <% if @media["meta"]["error_message"].present? %>
@@ -18,7 +18,7 @@
           <source src="<%= @media["data"]["videos"]["standard_resolution"]["url"] %>" type="video/mp4">
         </video>
       <% else %>
-        <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="img-responsive" style=" border: 1px solid #DDD; border-radius: 6px;">
+        <img src="<%= @media["data"]["images"]["standard_resolution"]["url"] %>" class="img-responsive media_img">
       <% end %>
       <p style="text-align: center;"><%= @media["data"]["caption"]["text"] rescue "" %></p>
     </div>

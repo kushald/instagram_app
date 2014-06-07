@@ -1,7 +1,7 @@
 <%# un = (@user_info.blank? || @user_info["meta"]["error_type"].present?) ? "" : @user_info["data"]["username"] %>
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, #{@data["data"][0]["user"]["username"] rescue ""}, instagram on web" %>
 <% meta_description "joyviewer - #{@data["data"][0]["user"]["username"] rescue ""}" %>
-<h1><%=h content_for(:title, "#{@data["data"][0]["user"]["full_name"] rescue ""} #{@data["data"][0]["user"]["username"] rescue ""} - @Joyviewer") %></h1>
+<h1><%=h content_for(:title, "#{@data["data"][0]["user"]["full_name"] rescue ""} #{@data["data"][0]["user"]["username"] rescue ""} - joyviewer.com") %></h1>
 
 <%= render "show_web" %>
 <%# helloojaclyn request %>
