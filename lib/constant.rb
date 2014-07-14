@@ -3,7 +3,7 @@ module Constant
   ENDPOINT = 'https://api.instagram.com/v1/'.freeze
   POPULAR = "https://api.instagram.com/v1/media/popular/".freeze
   FEED = "https://api.instagram.com/v1/users/self/feed/".freeze
-  GUEST_IDS = ["415290916","451906530","539573072"]
+  GUEST_IDS = ["1419904750", "1419921419", "1419929197", "1419934670"]
   POPULAR_HASHTAGS = ["love","instagood", 'me', 'cute', 'tbt', 'eyes', 'statigram', 'throwbackthursday',
                       'photooftheday', 'nice', 'follow', 'beautiful', 'happy', 'all_shots', 'harrystyles',
                       'girl', 'instamood', 'picoftheday', 'instadaily', 'niallhoran', 'instago', 'igers',
@@ -31,10 +31,10 @@ module Constant
                      ]
 
   EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020", "27014377", "250566440", "376601127", "30768248", "4350221", 
-                      "182884386", "223901729", "36476395", "180298319", "145529320", "425907745", "31151546", "395561010", "474351359"]
+                      "182884386", "223901729", "36476395", "180298319", "145529320", "425907745", "31151546", "395561010", "474351359", "227208888"]
   EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899", "myajeannine", "jessimicablaze",
                         "sofieaaboe96", "jamieleecreations", "jacicutiee", "hugoblc", "janatovalovich_art", "cameliasaltos",
-                        "valeryparadise", "mrskenpachi", "deandale_balana","elenaflyaway", "talie43", "bodyelevatedfit"]
+                        "valeryparadise", "mrskenpachi", "deandale_balana","elenaflyaway", "talie43", "bodyelevatedfit", "erro_ldn"]
 
   TEMP_TOP_BRANDS = [
                       {:display => "American Apparel USA", :url => "americanapparelusa"},

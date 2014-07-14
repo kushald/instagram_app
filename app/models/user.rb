@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
     Constant::GUEST_IDS.include?(self.instagram_id)
   end
 
+  # Check if Current User is not guest
   def logged_in_user
     !Constant::GUEST_IDS.include?(self.instagram_id)
   end

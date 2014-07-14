@@ -33,11 +33,11 @@
     </div>
     <div class="col-md-4 text-center">
       <br/>
-      <a href="/followed-by/?id=<%= @temp_info["user"]["id"] %>" class="gray-btn">Followers</a>
+      <a href="<%= url_restrict('followed-by',@temp_info["user"]["id"]) %>" class="gray-btn">Followers</a>
     </div>
     <div class="col-md-4 text-center">
       <br/>
-      <a href="/following/?id=<%= @temp_info["user"]["id"] %>" class="gray-btn">Following</a>
+      <a href="<%= url_restrict('following',@temp_info["user"]["id"]) %>" class="gray-btn">Following</a>
     </div>
   </div>
   </div>

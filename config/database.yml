@@ -12,10 +12,11 @@ development:
   adapter: mysql2
   encoding: utf8
   reconnect: false
-  database: instagram_app_development
+  database: instagram_app_production
+  host: joyviewer.c5e9wahofl6n.us-west-2.rds.amazonaws.com
   pool: 5
-  username: root
-  password:
+  username: joyviewer
+  password: joyviewer
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -28,7 +29,7 @@ test:
   database: instagram_app_test
   pool: 5
   username: root
-  password:
+  password: 
   socket: /var/run/mysqld/mysqld.sock
 
 production:

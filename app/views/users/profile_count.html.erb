@@ -40,13 +40,13 @@
       </a>
     </div>
     <div class="col-md-4 text-center">
-      <a href="/followed-by/?id=<%= @profile[:id] %>" class="gray-btn">
+      <a href="<%= url_restrict('followed-by',@profile[:id]) %>" class="gray-btn">
         <span  id="followed-count"><%= @profile[:followed_by] %></span><br>
         <span>Followers</span>
       </a>
     </div>
     <div class="col-md-4 text-center">
-      <a href="/following/?id=<%= @profile[:id] %>"  class="gray-btn">
+      <a href="<%= url_restrict('followed-by',@profile[:id]) %>"  class="gray-btn">
         <span  id="following-count"><%= @profile[:follows] %></span><br>
         Following
       </a>
