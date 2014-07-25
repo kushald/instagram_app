@@ -3,15 +3,15 @@
     <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
   </div>
   <div class="alert alert-danger">User does not exist or user deleted profile</div>
+<% elsif exclude_users(params[:id], params[:fid]) %>
+  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
+  <div class="alert alert-danger">We are sorry but this user opted out of site</div>
 <% elsif @temp_info.blank? %>
   <div class="row" align="center">
     <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
   </div>
   <div class="alert alert-danger">Sorry this is a private User</div>
 <%# helloojaclyn request %>
-<% elsif exclude_users(params[:id], params[:fid]) %>
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
-  <div class="alert alert-danger">We are sorry but this user opted out of site</div>
 <% else %>
   <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
   <div class="row">
