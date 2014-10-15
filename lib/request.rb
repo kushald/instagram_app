@@ -2,6 +2,7 @@ module Request
   
   def self.get(url)
     url = Util.url#Constant::ENDPOINT + url + "&count=10"
+
     JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
   end
 
@@ -12,8 +13,7 @@ module Request
     # connection << HTTPClient.new.get_async(url)
     # connection.each {|c| io = c.pop.content; result << io.read }
     # p result
-    
-    response = JSON.parse(HTTPClient.new.get(URI.encode(url.strip).to_s).body)
+    response = JSON.parse(HTTParty.get(URI.encode(url.strip).to_s).body)
     
   end
 
