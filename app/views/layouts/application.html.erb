@@ -10,6 +10,9 @@
     <meta charset="utf-8" />
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
     <%= favicon_link_tag 'favicon.ico' %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= csrf_meta_tags %>
@@ -24,21 +27,6 @@
         ga('send', 'pageview');
       </script>
     <% end %>
-
-        <!-- Begin AdvertiseSpace Site 93282 -->
-    <script type="text/javascript">
-        (function() {
-            var ads = document.createElement('script');
-            ads.type = 'text/javascript';
-            ads.async = true;
-            ads.src = ('https:' == document.location.protocol ? 'https:' : 'http:') + '//ads.advertisespace.com/ad/93282-6L2Pq4/1.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(ads, s);
-        })();
-    </script>
-    <!-- End AdvertiseSpace Site 93282 -->
-
-    
   </head>
   <body>
     <div id="fb-root"></div>
