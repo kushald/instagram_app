@@ -33,12 +33,12 @@ module Constant
   EXCLUDE_USER_IDS = ["361460824", "179293483", "509794020", "27014377", "250566440", "376601127", "30768248", "4350221", 
                       "182884386", "223901729", "36476395", "180298319", "145529320", "425907745", "31151546", "395561010", 
                       "474351359", "227208888", "271695769", "1248210256", "54240441", "1096515465", "221198943", "194555067", 
-                      "228782557", "403098326", "3323896", "275115375", "696537919"]
+                      "228782557", "403098326", "3323896", "275115375", "696537919", "398968980", "12024695", "enricobelt"]
   EXCLUDE_USER_NAMES = ["helloojaclyn", "im5xoxo", "akshaykharb", "gkriebel9899", "myajeannine", "jessimicablaze",
                         "sofieaaboe96", "jamieleecreations", "jacicutiee", "hugoblc", "janatovalovich_art", "cameliasaltos",
                         "valeryparadise", "mrskenpachi", "deandale_balana","elenaflyaway", "talie43", "bodyelevatedfit", 
                         "erro_ldn", "hmyralir", "helenneforever", "ninernia", "laurahsuicide", "zedcise", "rosettaschieveen",
-                        "amberrrwavesss", "semahmarvin", "xoxoamzyxoxo", "kaiaventdeleon", "timorohlin", "saba_2_fresh"]
+                        "amberrrwavesss", "semahmarvin", "xoxoamzyxoxo", "kaiaventdeleon", "timorohlin", "saba_2_fresh", "damien_olivero"]
 
   TEMP_TOP_BRANDS = [
                       {:display => "American Apparel USA", :url => "americanapparelusa"},
