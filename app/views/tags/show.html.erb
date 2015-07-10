@@ -2,12 +2,9 @@
 <% meta_description "Joyviewer - Instagram Photos Tagged with ##{params[:id].to_s}" %>
 <h1><%=h content_for(:title, "Joyviewer - Instagram Photos Tagged with ##{params[:id].to_s}") %></h1>
 <% if @data["meta"]["error_message"].present? %>
-<%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
   <div class="alert alert-danger">This tag cannot be viewed</div>
 <% else %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
   <div class="head-text">Photos Tagged with #<%= params[:id].to_s %></div>
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "laptops"} %>
   <%#= render '/site/content' %>
   <div class="row">
     <% @data["data"].each_with_index do |data,i| %>
@@ -19,16 +16,8 @@
       </div>
       <% end %>
       <div class="col-md-3" style="padding:5px;">
-        <p style="font: 10px/14px Arial, Tahoma, Helvetica, sans-serif;
-text-align: center;
-text-transform: uppercase;
-color: #BBB;
-margin-top: 5px;
-margin-bottom: 0;">advertisement</p>
-        <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+        <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
       </div>
   </div>
   <%= render '/users/pagination' %>
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <% end %>

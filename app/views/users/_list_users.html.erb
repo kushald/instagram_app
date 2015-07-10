@@ -1,4 +1,3 @@
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <% if @data.present? %>
   <%= render :partial => 'user_basic_info', :locals => {:show_follow => true}  if params[:id].present?%>
   <div class="row" style="margin-top: 5%;">
@@ -16,17 +15,17 @@
     <div class="col-md-4">
       <div class="col-md-12">
         <% if true && @data["data"].length > 6 %>
-            <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+            <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
           <% end %>
       </div>
       <div class="col-md-12">
         <% if true && @data["data"].length > 6 %>
-            <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+            <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
           <% end %>
       </div>
       <div class="col-md-12">
         <% if true && @data["data"].length > 6 %>
-            <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+            <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
           <% end %>
       </div>
     </div>
@@ -38,7 +37,6 @@
     </div>
     <% end %>
   </div>
-  <%#= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 
   <script type="text/javascript">
   $(document).ready(function(){

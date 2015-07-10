@@ -1,11 +1,7 @@
 <% if @likes["data"] %>
-  <%#= render :partial => "site/leaderboard_ad" %>
   <div align="center">
-    <%#= render :partial => "site/leaderboard_ad" %>
   </div>
   <div class="row">
-    <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
-    
     <div class="col-md-8">
       <% @likes["data"].each do |like| %>
         <div class="col-xs-6 col-md-2">
@@ -21,22 +17,21 @@
     <div class="col-md-4">
       <div class="col-md-12">
         <% if true && @likes["data"].length > 6 %>
-            <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+            <%= render :partial => "site/aol_medium_rectangle", :locals => {:show => true} %>
           <% end %>
       </div>
       <div class="col-md-12">
         <% if true && @likes["data"].length > 6 %>
-            <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+            <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
           <% end %>
       </div>
       <div class="col-md-12">
         <% if true && @likes["data"].length > 6 %>
-            <SCRIPT>var ACE_AR = {Site: '886614', Size: '300250', CallType: 'IFRAME'};</SCRIPT> <SCRIPT language='JavaScript' src='http://uac.advertising.com/wrapper/aceUAC.js'></SCRIPT>
+            <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
           <% end %>
       </div>
     </div>
   </div>
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
 <% else %>
   <div class="alert alert-danger">Sorry this Content might have been deleted by user or it is a private content</div>
 <% end %>

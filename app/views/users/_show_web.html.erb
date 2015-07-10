@@ -4,7 +4,6 @@
   </div>
   <div class="alert alert-danger">User does not exist or user deleted profile</div>
 <% elsif exclude_users(params[:id], params[:fid]) %>
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => params[:id]} %>
   <div class="alert alert-danger">We are sorry but this user opted out of site</div>
 <% elsif @temp_info.blank? %>
   <div class="row" align="center">
@@ -13,7 +12,6 @@
   <div class="alert alert-danger">Sorry this is a private User</div>
 <%# helloojaclyn request %>
 <% else %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
   <div class="row">
     <div class="col-md-6">
       <div class="col-md-3">Share this page:</div>
@@ -46,7 +44,6 @@
     </div>
   </div>
   
-  <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @temp_info["user"]["username"]} %>
   <%#= render 'uploads' %> 
   <%= render '/site/content' %>
 <% end %>

@@ -2,7 +2,6 @@
 <% meta_description "Instagram photo tag search" %>
 <h1><%=h content_for(:title, "Joyviewer.com search @joystagram") %></h1>
 
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => true} %>
 <div class="row" style=" margin-bottom: 10%; ">
   <div class="col-lg-6">
     <form action="/search">
@@ -53,7 +52,3 @@
     <% end %>
 <% end %>
 </div>
-<% if @data.present? && @data["data"].present? && @data["data"].length > 15 %>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
-<% end %>
-

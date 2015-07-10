@@ -1,8 +1,6 @@
 <% meta_keywords "Joyviewer, Joyviewer.com, instagram, IG, web, Instagrammers, viewer, instagram Celebrities, #{@users.collect(&:instagram_username).join("','")}" %>
 <% meta_description "Joyviewer - Celebrities On Instagram" %>
 <h1><%=h content_for(:title, "Joyviewer - #{@category.name} On Instagram") %></h1>
-<%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @category.name} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @users.present?} %>
 <div class="row">
   <div class="head-text"><%= @category.name %></div>
   <div class="col-md-2">
@@ -33,5 +31,3 @@
 <div class="row">
   <p style="font-size: 12px;margin:2%;">Note: Categories are curated by our team to help you find and follow interesting users on instagram but we do not guarantee authenticity of any account displayed in categories in any sense.</p>
 </div>
-<%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => @category.name} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @users.present?} %>

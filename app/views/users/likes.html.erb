@@ -1,10 +1,7 @@
 <% if params[:action] == "geo_tag_content" %>
   <div class="head-text"> Instagram Pictures near & around you</div>
-  <%#= render :partial => "site/leaderboard_ad" %>
   <div class="large-7 columns large-centered">
-    <%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "cameras"} %>
   </div>
-  <%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
 <% else %>
   <%= render '/users/user_basic_info' %>
 <% end %>
@@ -28,5 +25,3 @@
     <% end %>
 </div>
 <%= render "/users/pagination" %>
-<%#= render :partial => "site/leaderboard_ad", :locals => {:keyword => "mobiles"} %>
-<%= render :partial => "site/aol_leaderboard", :locals => {:show => @data["data"].present?} %>
