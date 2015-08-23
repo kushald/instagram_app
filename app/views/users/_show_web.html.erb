@@ -7,7 +7,12 @@
   <div class="alert alert-danger">We are sorry but this user opted out of site</div>
 <% elsif @temp_info.blank? %>
   <div class="row" align="center">
-    <iframe src="http://yllix.com/banner_show.php?section=General&amp;pub=974934&amp;format=728x90&amp;ga=g" frameborder="0" scrolling="no" width="728" height="90" marginwidth="0" marginheight="0"></iframe>
+    <div class="col-md-6">
+      <%= render :partial => "site/aol_medium_mad_ad_rectangle", :locals => {:show => true} %>
+    </div>
+    <div class="col-md-6">
+      <%= render :partial => "site/aol_medium_rectangle", :locals => {:show => true} %>
+    </div>
   </div>
   <div class="alert alert-danger">Sorry this is a private User</div>
 <%# helloojaclyn request %>
