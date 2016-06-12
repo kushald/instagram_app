@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,700,400' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="/css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="/css/style.css"> <!-- Resource style -->
+  <script src="/js/modernizr.js"></script> <!-- Modernizr -->
+    
+  <title>Joyviewer Coming Soon</title>
+</head>
+<body>
+<% video = ['Coverr-Lulu', 'Indian-Pedestrian', 'Escalate'].sample %>
+  <div class="homepage-hero-module">
+    <div class="video-container">
+      <div class="filter"></div>
+      <video autoplay loop class="fillWidth">
+          <source src="/videos/<%= video %>.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
+          <source src="/videos/<%= video %>.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
+      </video>
+      <div class="overlay"></div>
+      <div class="poster hidden">
+          <img src="https://images.unsplash.com/photo-1428189923803-e9801d464d76?format=auto&auto=compress&dpr=1&crop=entropy&fit=crop&w=1280&h=736&q=80" alt="">
+      </div>
+      <div class="container">
+        <h1>Coming soon</h1>
+        <p>Free and easy video chat for all</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/jquery-2.1.4.js"></script>
+  <script src="/js/main.js"></script> <!-- Resource jQuery -->
+</body>
+</html>

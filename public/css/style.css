@@ -1,0 +1,96 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif;
+  color: #040404;
+  background-color: #ffffff;
+}
+
+a {
+  color: #2e416a;
+  text-decoration: none;
+}
+
+.container {
+  position: relative;
+  margin: 10%;
+  text-align: center;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+.container h1 {
+  font-size: 70px;
+  /*font-size: 8vw;*/
+  margin-bottom: 4%;
+}
+
+.container p {
+  font-size: 24px;
+  /*font-size: 8vw;*/
+}
+
+.homepage-hero-module {
+    border-right: none;
+    border-left: none;
+    position: relative;
+}
+.no-video .video-container video,
+.touch .video-container video {
+    display: none;
+}
+.no-video .video-container .poster,
+.touch .video-container .poster {
+    display: block !important;
+}
+.video-container {
+    position: relative;
+    bottom: 0%;
+    left: 0%;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
+.video-container .poster img {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+}
+.video-container .filter {
+    z-index: 100;
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+.video-container video {
+    position: absolute;
+    z-index: 0;
+    bottom: 0;
+}
+.video-container video.fillWidth {
+    width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+}

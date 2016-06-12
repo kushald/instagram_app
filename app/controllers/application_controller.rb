@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  rescue_from Exception, :with => :handle_exceptions if Rails.env == "production"
   protect_from_forgery
+  before_filter :redirect_all
   before_filter :current_user
   before_filter :check_request
   def get_data(params)
@@ -33,6 +33,10 @@ class ApplicationController < ActionController::Base
   def handle_exceptions(e)
     UserMailer.experror(e, request).deliver
     render :template => "public/500.html", :status => 500
+  end
+
+  def redirect_all
+    render file: 'public/coming_soon.html', layout: false
   end
 
 end
